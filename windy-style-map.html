@@ -486,7 +486,7 @@
           const notes = (notesIndex !== -1 ? row[notesIndex] : '').replace(/^"|"$/g, '').trim();
           spots.push({ name, notes, lat, lon });
         }
-        
+
 
         const escapeHtml = (str) => (str || '').replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
 
