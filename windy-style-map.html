@@ -498,7 +498,7 @@
             <div class="title">${escapeHtml(s.name)}</div>
             ${notesHtml}
             <div class="meta">Lat ${s.lat.toFixed(5)}, Lon ${s.lon.toFixed(5)}</div>
-            <div class="metric paddle-drive-status"><strong>Drive: Estimated, never correct</strong> Getting your location…</div>
+            <div class="metric paddle-drive-status"><strong style="font-size:0.8rem; font-weight:600;">Drive: (inaccurate)</strong> Getting your location…</div>
             <div class="metric paddle-weather-status"><strong>Weather:</strong> Data loading…</div>
           `;
           // Keep clicks inside the popup from bubbling to the map (which would
@@ -512,7 +512,7 @@
             const driveEl = content.querySelector('.paddle-drive-status');
 
             async function setDriveText(html) {
-              if (driveEl) driveEl.innerHTML = `<strong>Drive: Estimated, never correct</strong> ${html}`;
+              if (driveEl) driveEl.innerHTML = `<strong style="font-size:0.8rem; font-weight:600;">Drive: (inaccurate)</strong> ${html}`;
               popup.setContent(content).update();
             }
 
@@ -525,7 +525,7 @@
 
             async function showDriveAddressFallback() {
               if (!driveEl) return;
-              driveEl.innerHTML = `<strong>Drive: Estimated, never correct</strong> <input class="drive-origin" type="text" placeholder="Type starting address" style="width:170px;padding:4px 6px;border:1px solid #cbd5e1;border-radius:6px;font-size:0.82rem;" /> <button class="drive-go" type="button" style="padding:4px 10px;background:#0f4c81;color:white;border:none;border-radius:6px;font-size:0.82rem;cursor:pointer;">Go</button>`;
+              driveEl.innerHTML = `<strong style="font-size:0.8rem; font-weight:600;">Drive: (inaccurate)</strong> <input class="drive-origin" type="text" placeholder="Type starting address" style="width:170px;padding:4px 6px;border:1px solid #cbd5e1;border-radius:6px;font-size:0.82rem;" /> <button class="drive-go" type="button" style="padding:4px 10px;background:#0f4c81;color:white;border:none;border-radius:6px;font-size:0.82rem;cursor:pointer;">Go</button>`;
               popup.setContent(content).update();
               const originInput = driveEl.querySelector('.drive-origin');
               const goButton = driveEl.querySelector('.drive-go');
