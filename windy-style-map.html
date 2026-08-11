@@ -329,7 +329,7 @@
 
     async function loadPaddlespots() {
       try {
-        const res = await fetch('Paddlespots.csv');
+        const res = await fetch('paddlespots_coordinates.csv');
         if (!res.ok) return; // silently skip if not present
         const text = await res.text();
         const lines = text.split(/\r?\n/).filter(l => l.trim().length > 0);
@@ -360,64 +360,53 @@
         if (lines.length < 1) return;
         const header = csvSplit(lines[0]).map(h => h.trim().replace(/^"|"$/g, ''));
         const lower = header.map(h => h.toLowerCase());
-        const coordsIndex = lower.indexOf('coords');
-        const coordsLatIndex = lower.indexOf('coordslat');
-        const coordsLonIndex = lower.indexOf('coordslon');
+        const nameIndex = lower.indexOf('name');
+        const notesIndex = lower.indexOf('notes');
+        const latIndex = lower.indexOf('latitude');
+        const lonIndex = lower.indexOf('longitude');
 
         const spots = [];
-        const decPairRe = /(-?\d+\.\d+)\s*,\s*(-?\d+\.\d+)/;
         const numRe = /^-?\d+(?:\.\d+)?$/;
 
         for (let i = 1; i < lines.length; i++) {
           const row = csvSplit(lines[i]);
           let lat = null, lon = null;
 
-          // priority 1: single Coords field like "lat,lon"
-          if (coordsIndex !== -1) {
-            const coordsField = (row[coordsIndex] || '').trim();
-            if (coordsField) {
-              const m = coordsField.match(decPairRe);
-              if (m) { lat = parseFloat(m[1]); lon = parseFloat(m[2]); }
-            }
-          }
-
-          // priority 2: separate CoordsLat / CoordsLon columns
-          if ((lat === null || lon === null) && coordsLatIndex !== -1 && coordsLonIndex !== -1) {
-            const la = (row[coordsLatIndex] || '').trim();
-            const lo = (row[coordsLonIndex] || '').trim();
+          if (latIndex !== -1 && lonIndex !== -1) {
+            const la = (row[latIndex] || '').trim();
+            const lo = (row[lonIndex] || '').trim();
             if (numRe.test(la) && numRe.test(lo)) {
-              lat = parseFloat(la); lon = parseFloat(lo);
+              lat = parseFloat(la);
+              lon = parseFloat(lo);
             }
           }
 
-          // priority 3: fallback — check last two columns (handles unquoted appended values)
+          // fallback: check last two columns
           if ((lat === null || lon === null) && row.length >= 2) {
             const lastTwo = row.slice(-2);
             if (numRe.test(lastTwo[0]) && numRe.test(lastTwo[1])) {
-              lat = parseFloat(lastTwo[0]); lon = parseFloat(lastTwo[1]);
+              lat = parseFloat(lastTwo[0]);
+              lon = parseFloat(lastTwo[1]);
             }
-          }
-
-          // priority 4: search the full CSV line for a decimal pair
-          if ((lat === null || lon === null)) {
-            const m = lines[i].match(decPairRe);
-            if (m) { lat = parseFloat(m[1]); lon = parseFloat(m[2]); }
           }
 
           if (lat === null || lon === null) continue;
           if (Number.isNaN(lat) || Number.isNaN(lon)) continue;
           // filter to NY bounding box (approx)
           if (lat < 40.0 || lat > 45.6 || lon < -80.0 || lon > -71.0) continue;
-          const name = (row[0] || '').replace(/^"|"$/g, '').trim() || 'Paddlespot';
-          spots.push({ name, lat, lon, raw: lines[i] });
+          const name = (nameIndex !== -1 ? row[nameIndex] : row[0] || '').replace(/^"|"$/g, '').trim() || 'Paddlespot';
+          const notes = (notesIndex !== -1 ? row[notesIndex] : '').replace(/^"|"$/g, '').trim();
+          spots.push({ name, notes, lat, lon });
         }
 
         const markers = spots.map(s => {
           const m = L.marker([s.lat, s.lon], { icon: paddlespotIcon });
           const container = document.createElement('div');
           container.className = 'wind-popup';
+          const notesHtml = s.notes ? `<div class="meta" style="color:#0f4c81; font-weight:600; margin-bottom:4px;">Notes: ${s.notes}</div>` : '';
           container.innerHTML = `
             <div class="title">${s.name}</div>
+            ${notesHtml}
             <div class="meta">Lat ${s.lat.toFixed(5)}, Lon ${s.lon.toFixed(5)}</div>
             <div class="metric paddle-weather-status"><strong>Weather:</strong> Data loading…</div>
           `;
@@ -443,7 +432,7 @@
         });
         clusterGroup.addLayers(markers);
         if (spots.length > 0) {
-          loadStatus(`Loaded ${spots.length} paddlespots (NY) from Paddlespots.csv`);
+          loadStatus(`Loaded ${spots.length} paddlespots (NY) from paddlespots_coordinates.csv`);
         }
       } catch (err) {
         console.error('Failed to load paddlespots', err);
