@@ -45,6 +45,22 @@
     }
     .radar-toggle:hover { background: rgba(220, 38, 38, 0.45); }
     .radar-toggle.active { background: #dc2626; border-color: #ef4444; color: white; }
+    .forecast-group { display: none; align-items: center; gap: 6px; }
+    .forecast-group .fc-label { font-size: 0.8rem; color: #d2e3ff; font-weight: 600; margin-right: 2px; }
+    .fc-btn {
+      padding: 5px 10px;
+      border: 1px solid rgba(255,255,255,0.35);
+      border-radius: 999px;
+      background: transparent;
+      color: #d2e3ff;
+      font-size: 0.82rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: background 0.2s ease, color 0.2s ease;
+      user-select: none;
+    }
+    .fc-btn:hover { background: rgba(255,255,255,0.15); }
+    .fc-btn.active { background: #dc2626; border-color: #ef4444; color: white; }
     .leaflet-popup-content-wrapper { border-radius: 18px; border: 1px solid rgba(255,255,255,0.88); box-shadow: 0 14px 36px rgba(0,0,0,0.18); }
     .wind-popup { min-width: 240px; font-family: system-ui, sans-serif; color: #14233a; }
     .wind-popup .title { font-size: 1rem; font-weight: 700; margin-bottom: 6px; }
@@ -75,6 +91,16 @@
     <a href="ny-gauges-map.html">NY Gauges Map</a>
     <div class="subtitle">Click anywhere to inspect wind and direction</div>
     <button class="radar-toggle" id="radarToggle" type="button">Weather Radar: Off</button>
+    <div class="forecast-group" id="forecastGroup">
+      <span class="fc-label">Forecast</span>
+      <button class="fc-btn active" data-min="0" type="button">Now</button>
+      <button class="fc-btn" data-min="60" type="button">+1h</button>
+      <button class="fc-btn" data-min="120" type="button">+2h</button>
+      <button class="fc-btn" data-min="180" type="button">+3h</button>
+      <button class="fc-btn" data-min="240" type="button">+4h</button>
+      <button class="fc-btn" data-min="300" type="button">+5h</button>
+      <button class="fc-btn" data-min="360" type="button">+6h</button>
+    </div>
   </div>
   <div id="map"></div>
   <div class="status-box" id="status">Click any point on the map to load wind data.</div>
@@ -90,7 +116,7 @@
       maxZoom: 18,
     }).addTo(map);
 
-    // Optional weather radar overlay (IEM NEXRAD composite)
+    // Optional weather radar overlay (IEM NEXRAD composite + HRRR forecast)
     const radarLayer = L.tileLayer('https://mesonet.agron.iastate.edu/cache/tile.py/1.0.0/nexrad-n0q-900913/{z}/{x}/{y}.png', {
       attribution: 'Radar &copy; <a href="https://mesonet.agron.iastate.edu/">IEM NEXRAD</a>',
       opacity: 0.6,
@@ -99,21 +125,62 @@
       zIndex: 500,
     });
 
+    function hrrrForecastLayer(min) {
+      const f = String(min).padStart(4, '0');
+      return L.tileLayer(`https://mesonet.agron.iastate.edu/cache/tile.py/1.0.0/hrrr::REFD-F${f}-0/{z}/{x}/{y}.png`, {
+        attribution: 'Forecast &copy; <a href="https://rapidrefresh.noaa.gov/hrrr/">HRRR</a> via <a href="https://mesonet.agron.iastate.edu/">IEM</a>',
+        opacity: 0.6,
+        maxZoom: 15,
+        maxNativeZoom: 8,
+        zIndex: 500,
+      });
+    }
+
     const radarToggle = document.getElementById('radarToggle');
+    const forecastGroup = document.getElementById('forecastGroup');
+    const forecastBtns = Array.from(document.querySelectorAll('.fc-btn'));
     let radarOn = false;
+    let currentRadarLayer = null;
+
+    function setRadarLayer(layer) {
+      if (currentRadarLayer) map.removeLayer(currentRadarLayer);
+      currentRadarLayer = layer;
+      currentRadarLayer.addTo(map);
+    }
+
+    function selectForecast(min) {
+      forecastBtns.forEach((b) => b.classList.toggle('active', Number(b.dataset.min) === min));
+      if (min === 0) {
+        setRadarLayer(radarLayer);
+        loadStatus('Weather radar overlay enabled (IEM NEXRAD current).');
+      } else {
+        setRadarLayer(hrrrForecastLayer(min));
+        loadStatus(`Weather radar forecast enabled (HRRR +${min} min).`);
+      }
+    }
+
     radarToggle.addEventListener('click', () => {
       radarOn = !radarOn;
       if (radarOn) {
-        radarLayer.addTo(map);
+        forecastGroup.style.display = 'flex';
+        selectForecast(0);
         radarToggle.classList.add('active');
         radarToggle.textContent = 'Weather Radar: On';
-        loadStatus('Weather radar overlay enabled (IEM NEXRAD).');
       } else {
-        map.removeLayer(radarLayer);
+        forecastGroup.style.display = 'none';
+        if (currentRadarLayer) map.removeLayer(currentRadarLayer);
+        currentRadarLayer = null;
         radarToggle.classList.remove('active');
         radarToggle.textContent = 'Weather Radar: Off';
         loadStatus('Weather radar overlay disabled.');
       }
+    });
+
+    forecastBtns.forEach((b) => {
+      b.addEventListener('click', () => {
+        if (!radarOn) return;
+        selectForecast(Number(b.dataset.min));
+      });
     });
 
     let clickMarker = null;
