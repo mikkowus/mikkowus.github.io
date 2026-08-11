@@ -45,22 +45,47 @@
     }
     .radar-toggle:hover { background: rgba(220, 38, 38, 0.45); }
     .radar-toggle.active { background: #dc2626; border-color: #ef4444; color: white; }
-    .forecast-group { display: none; align-items: center; gap: 6px; }
-    .forecast-group .fc-label { font-size: 0.8rem; color: #d2e3ff; font-weight: 600; margin-right: 2px; }
-    .fc-btn {
-      padding: 5px 10px;
-      border: 1px solid rgba(255,255,255,0.35);
+    .fc-stepper {
+      position: fixed;
+      top: 80px;
+      right: 12px;
+      display: none;
+      align-items: center;
+      gap: 2px;
+      background: rgba(14, 46, 87, 0.94);
+      padding: 4px 6px;
       border-radius: 999px;
+      box-shadow: 0 8px 24px rgba(3, 12, 31, 0.2);
+      z-index: 1000;
+    }
+    .fc-stepper button {
+      border: none;
       background: transparent;
-      color: #d2e3ff;
-      font-size: 0.82rem;
-      font-weight: 600;
+      color: #fff;
+      font-size: 1.2rem;
+      font-weight: 700;
+      line-height: 1;
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
       cursor: pointer;
-      transition: background 0.2s ease, color 0.2s ease;
       user-select: none;
     }
-    .fc-btn:hover { background: rgba(255,255,255,0.15); }
-    .fc-btn.active { background: #dc2626; border-color: #ef4444; color: white; }
+    .fc-stepper button:hover { background: rgba(255,255,255,0.15); }
+    .fc-stepper .fc-value {
+      color: #d2e3ff;
+      font-size: 0.85rem;
+      font-weight: 700;
+      min-width: 46px;
+      text-align: center;
+    }
+    @media (max-width: 640px) {
+      .topbar { padding: 8px 10px; gap: 8px; min-height: 56px; }
+      .topbar .brand { font-size: 0.95rem; }
+      .topbar .subtitle { display: none; }
+      .radar-toggle { font-size: 0.8rem; padding: 6px 10px; }
+      .fc-stepper { top: 64px; right: 8px; }
+    }
     .leaflet-popup-content-wrapper { border-radius: 18px; border: 1px solid rgba(255,255,255,0.88); box-shadow: 0 14px 36px rgba(0,0,0,0.18); }
     .wind-popup { min-width: 240px; font-family: system-ui, sans-serif; color: #14233a; }
     .wind-popup .title { font-size: 1rem; font-weight: 700; margin-bottom: 6px; }
@@ -91,15 +116,10 @@
     <a href="ny-gauges-map.html">NY Gauges Map</a>
     <div class="subtitle">Click anywhere to inspect wind and direction</div>
     <button class="radar-toggle" id="radarToggle" type="button">Weather Radar: Off</button>
-    <div class="forecast-group" id="forecastGroup">
-      <span class="fc-label">Forecast</span>
-      <button class="fc-btn active" data-min="0" type="button">Now</button>
-      <button class="fc-btn" data-min="60" type="button">+1h</button>
-      <button class="fc-btn" data-min="120" type="button">+2h</button>
-      <button class="fc-btn" data-min="180" type="button">+3h</button>
-      <button class="fc-btn" data-min="240" type="button">+4h</button>
-      <button class="fc-btn" data-min="300" type="button">+5h</button>
-      <button class="fc-btn" data-min="360" type="button">+6h</button>
+    <div class="fc-stepper" id="fcStepper">
+      <button type="button" id="fcMinus" aria-label="Earlier forecast">−</button>
+      <span class="fc-value" id="fcValue">Now</span>
+      <button type="button" id="fcPlus" aria-label="Later forecast">+</button>
     </div>
   </div>
   <div id="map"></div>
@@ -137,8 +157,13 @@
     }
 
     const radarToggle = document.getElementById('radarToggle');
-    const forecastGroup = document.getElementById('forecastGroup');
-    const forecastBtns = Array.from(document.querySelectorAll('.fc-btn'));
+    const fcStepper = document.getElementById('fcStepper');
+    const fcMinus = document.getElementById('fcMinus');
+    const fcPlus = document.getElementById('fcPlus');
+    const fcValue = document.getElementById('fcValue');
+    const stepMinutes = 60;
+    const maxMinutes = 6 * stepMinutes;
+    let forecastMin = 0;
     let radarOn = false;
     let currentRadarLayer = null;
 
@@ -149,25 +174,26 @@
     }
 
     function selectForecast(min) {
-      forecastBtns.forEach((b) => b.classList.toggle('active', Number(b.dataset.min) === min));
+      forecastMin = min;
+      fcValue.textContent = min === 0 ? 'Now' : `+${min / stepMinutes}h`;
       if (min === 0) {
         setRadarLayer(radarLayer);
         loadStatus('Weather radar overlay enabled (IEM NEXRAD current).');
       } else {
         setRadarLayer(hrrrForecastLayer(min));
-        loadStatus(`Weather radar forecast enabled (HRRR +${min} min).`);
+        loadStatus(`Weather radar forecast enabled (HRRR +${min / stepMinutes}h).`);
       }
     }
 
     radarToggle.addEventListener('click', () => {
       radarOn = !radarOn;
       if (radarOn) {
-        forecastGroup.style.display = 'flex';
+        fcStepper.style.display = 'flex';
         selectForecast(0);
         radarToggle.classList.add('active');
         radarToggle.textContent = 'Weather Radar: On';
       } else {
-        forecastGroup.style.display = 'none';
+        fcStepper.style.display = 'none';
         if (currentRadarLayer) map.removeLayer(currentRadarLayer);
         currentRadarLayer = null;
         radarToggle.classList.remove('active');
@@ -176,11 +202,14 @@
       }
     });
 
-    forecastBtns.forEach((b) => {
-      b.addEventListener('click', () => {
-        if (!radarOn) return;
-        selectForecast(Number(b.dataset.min));
-      });
+    fcMinus.addEventListener('click', () => {
+      if (!radarOn) return;
+      selectForecast(Math.max(0, forecastMin - stepMinutes));
+    });
+
+    fcPlus.addEventListener('click', () => {
+      if (!radarOn) return;
+      selectForecast(Math.min(maxMinutes, forecastMin + stepMinutes));
     });
 
     let clickMarker = null;
