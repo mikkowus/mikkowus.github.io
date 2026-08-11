@@ -240,7 +240,7 @@
     async function loadGaugeMarkers() {
       try {
         const sites = await fetchGaugeSites();
-        const cluster = L.markerClusterGroup();
+        const gaugeLayer = L.layerGroup();
         sites.forEach((site) => {
           const lat = parseFloat(site.dec_lat_va);
           const lon = parseFloat(site.dec_long_va);
@@ -248,10 +248,10 @@
           const marker = L.circleMarker([lat, lon], gaugeIcon);
           marker.bindPopup(buildGaugePopup(site), { minWidth: 240 });
           marker.on('popupopen', () => loadGaugeSite(site, marker));
-          cluster.addLayer(marker);
+          gaugeLayer.addLayer(marker);
         });
-        map.addLayer(cluster);
-        loadStatus(`Loaded ${sites.length} NY USGS gauges. Zoom in to split clusters or click a marker for status. Click anywhere else for wind.`);
+        map.addLayer(gaugeLayer);
+        loadStatus(`Loaded ${sites.length} NY USGS gauges. Click a marker for status. Click anywhere else for wind.`);
       } catch (err) {
         console.error(err);
         loadStatus('Unable to load NY USGS gauges.');
