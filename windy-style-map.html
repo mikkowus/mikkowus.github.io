@@ -286,7 +286,7 @@
         loadStatus(`Loaded ${sites.length} NY USGS gauges. Click a marker for status. Click anywhere else for wind.`);
       } catch (err) {
         console.error(err);
-        loadStatus('Unable to load NY USGS gauges.');
+        loadStatus('Unable to load NY USGS gauges. USGS service may be unavailable.');
       }
     }
 
