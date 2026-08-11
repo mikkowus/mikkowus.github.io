@@ -603,6 +603,7 @@
             <div class="meta">Lat ${s.lat.toFixed(5)}, Lon ${s.lon.toFixed(5)}</div>
             <div class="metric paddle-drive-status"><span style="white-space:nowrap;"><strong style="display:inline; font-size:0.85rem; font-weight:700;">Drive:</strong> <span style="font-size:0.72rem; font-weight:400; color:#50637b;">(inaccurate)</span></span> Getting your location…</div>
             <div class="metric paddle-weather-status"><strong>Weather:</strong> Data loading…</div>
+            <div class="metric paddle-wind-status wind-arrow"><span class="arrow">↑</span><strong>Wind:</strong> Loading…</div>
           `;
           // Keep clicks inside the popup from bubbling to the map (which would
           // close this popup and open a wind-observation popup instead).
@@ -612,6 +613,7 @@
             const popup = m.getPopup();
             const content = popup.getContent();
             const weatherEl = content.querySelector('.paddle-weather-status');
+            const windEl = content.querySelector('.paddle-wind-status');
             const driveEl = content.querySelector('.paddle-drive-status');
 
             async function setDriveText(html) {
@@ -667,15 +669,20 @@
             }
 
             if (weatherEl) weatherEl.innerHTML = '<strong>Weather:</strong> Loading…';
+            if (windEl) windEl.innerHTML = '<span class="arrow">↑</span><strong>Wind:</strong> Loading…';
             try {
               const w = await fetchWind(s.lat, s.lon);
               if (weatherEl) {
+                weatherEl.innerHTML = `<strong>Weather:</strong> ${w.temperature}°${w.unit}, ${w.short}`;
+              }
+              if (windEl) {
                 const windDirectionText = Number(w.windDirection) >= 0 ? ` / ${formatWindDirection(w.windDirection)}` : '';
-                weatherEl.innerHTML = `<strong>Weather:</strong> ${w.temperature}°${w.unit}, ${w.short}<br/><strong>Wind:</strong> ${w.windSpeed} ${w.windDirection || ''}${windDirectionText}`;
+                windEl.innerHTML = `<span class="arrow" style="transform: rotate(${Number(w.windDirection) >= 0 ? (Number(w.windDirection) + 180) % 360 : 0}deg)">↑</span><strong>Wind:</strong> ${w.windSpeed} ${w.windDirection || ''}${windDirectionText}`;
               }
               popup.setContent(content).update();
             } catch (err) {
               if (weatherEl) weatherEl.innerHTML = `<strong>Weather:</strong> <span style="color:#a00;">${err.message}</span>`;
+              if (windEl) windEl.innerHTML = '<span class="arrow">↑</span><strong>Wind:</strong> n/a';
               popup.setContent(content).update();
             }
           });
