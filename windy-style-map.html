@@ -285,8 +285,9 @@
 
     function updatePopupContent(statusEl, windData) {
       statusEl.innerHTML = `
-        <div class="metric"><strong>Weather:</strong> ${windData.temperature}°${windData.unit}, ${windData.short}</div>
-        <div class="metric wind-arrow"><span class="arrow" style="transform: rotate(${Number(windData.windDirection) >= 0 ? (Number(windData.windDirection) + 180) % 360 : 0}deg)">↑</span><strong>Wind:</strong> ${windData.windSpeed} ${windData.windDirection || ''}${Number(windData.windDirection) >= 0 ? ' / ' + formatWindDirection(windData.windDirection) : ''}</div>
+        <div class="metric"><strong>Temp:</strong> ${windData.temperature}°${windData.unit}</div>
+        <div class="metric"><strong>Weather:</strong> ${windData.short}</div>
+        <div class="metric"><strong>Wind:</strong> ${windData.windSpeed} ${windData.windDirection ? windData.windDirection + ' ' : ''}${Number(windData.windDirection) >= 0 ? formatWindDirection(windData.windDirection) : ''}</div>
         <div class="metric" style="color:#5b7281; font-size:0.88rem;">${windData.detailed || ''}</div>
       `;
     }
