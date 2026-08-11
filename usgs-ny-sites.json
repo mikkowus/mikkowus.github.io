@@ -1,0 +1,2060 @@
+[
+  {
+    "site_no": "01200000",
+    "station_nm": "TENMILE RIVER NEAR GAYLORDSVILLE, CT",
+    "dec_lat_va": 41.65876389,
+    "dec_long_va": -73.52868333
+  },
+  {
+    "site_no": "01302020",
+    "station_nm": "BRONX RIVER AT NY BOTANICAL GARDEN AT BRONX NY",
+    "dec_lat_va": 40.86230556,
+    "dec_long_va": -73.87438889
+  },
+  {
+    "site_no": "01302050",
+    "station_nm": "ALLEY CREEK NEAR OAKLAND GARDENS NY",
+    "dec_lat_va": 40.756417,
+    "dec_long_va": -73.746417
+  },
+  {
+    "site_no": "01303000",
+    "station_nm": "MILL NECK CREEK AT MILL NECK NY",
+    "dec_lat_va": 40.88741667,
+    "dec_long_va": -73.56319444
+  },
+  {
+    "site_no": "01303500",
+    "station_nm": "COLD SPRING BROOK AT COLD SPRING HARBOR NY",
+    "dec_lat_va": 40.85716667,
+    "dec_long_va": -73.46355556
+  },
+  {
+    "site_no": "01304500",
+    "station_nm": "PECONIC RIVER AT RIVERHEAD NY",
+    "dec_lat_va": 40.91369444,
+    "dec_long_va": -72.68694444
+  },
+  {
+    "site_no": "01305000",
+    "station_nm": "CARMANS RIVER AT YAPHANK NY",
+    "dec_lat_va": 40.83016667,
+    "dec_long_va": -72.90613889
+  },
+  {
+    "site_no": "01305500",
+    "station_nm": "SWAN RIVER AT EAST PATCHOGUE NY",
+    "dec_lat_va": 40.76725,
+    "dec_long_va": -72.99383333
+  },
+  {
+    "site_no": "01306460",
+    "station_nm": "CONNETQUOT BK NR CENTRAL ISLIP NY",
+    "dec_lat_va": 40.77227778,
+    "dec_long_va": -73.15866667
+  },
+  {
+    "site_no": "01306495",
+    "station_nm": "CONNETQUOT RIVER DISTRIBUTARY NEAR OAKDALE NY",
+    "dec_lat_va": 40.747583,
+    "dec_long_va": -73.150389
+  },
+  {
+    "site_no": "01306500",
+    "station_nm": "CONNETQUOT RIVER NEAR OAKDALE NY",
+    "dec_lat_va": 40.74758333,
+    "dec_long_va": -73.15038889
+  },
+  {
+    "site_no": "01308000",
+    "station_nm": "SAMPAWAMS CREEK AT BABYLON NY",
+    "dec_lat_va": 40.704361,
+    "dec_long_va": -73.313639
+  },
+  {
+    "site_no": "01308500",
+    "station_nm": "CARLLS RIVER AT BABYLON NY",
+    "dec_lat_va": 40.70897222,
+    "dec_long_va": -73.32880556
+  },
+  {
+    "site_no": "01309500",
+    "station_nm": "MASSAPEQUA CREEK AT MASSAPEQUA NY",
+    "dec_lat_va": 40.689,
+    "dec_long_va": -73.45538889
+  },
+  {
+    "site_no": "01309950",
+    "station_nm": "BELLMORE CREEK NEAR BELLMORE NY",
+    "dec_lat_va": 40.67866667,
+    "dec_long_va": -73.51586111
+  },
+  {
+    "site_no": "01309990",
+    "station_nm": "BELLMORE CREEK TRIBUTARY AT BELLMORE NY",
+    "dec_lat_va": 40.68011111,
+    "dec_long_va": -73.513
+  },
+  {
+    "site_no": "01310500",
+    "station_nm": "EAST MEADOW BROOK AT FREEPORT NY",
+    "dec_lat_va": 40.66563889,
+    "dec_long_va": -73.57008333
+  },
+  {
+    "site_no": "01311500",
+    "station_nm": "VALLEY STREAM AT VALLEY STREAM NY",
+    "dec_lat_va": 40.66380556,
+    "dec_long_va": -73.70452778
+  },
+  {
+    "site_no": "01311810",
+    "station_nm": "CONSELYEAS POND TRIBUTARY AT ROSEDALE NY",
+    "dec_lat_va": 40.66208333,
+    "dec_long_va": -73.74333333
+  },
+  {
+    "site_no": "01311992",
+    "station_nm": "ARBUTUS POND OUTLET NEAR NEWCOMB NY",
+    "dec_lat_va": 43.98227778,
+    "dec_long_va": -74.2355556
+  },
+  {
+    "site_no": "01312000",
+    "station_nm": "HUDSON RIVER NEAR NEWCOMB NY",
+    "dec_lat_va": 43.96602778,
+    "dec_long_va": -74.13138889
+  },
+  {
+    "site_no": "01315000",
+    "station_nm": "INDIAN RIVER NEAR INDIAN LAKE NY",
+    "dec_lat_va": 43.7565,
+    "dec_long_va": -74.2670556
+  },
+  {
+    "site_no": "01315226",
+    "station_nm": "VANDERWHACKER BROOK TRIB 1 NEAR BOREAS RIVER NY",
+    "dec_lat_va": 43.9485,
+    "dec_long_va": -73.9883611
+  },
+  {
+    "site_no": "01315227",
+    "station_nm": "VANDERWHACKER BROOK TRIB 2 NEAR BOREAS RIVER NY",
+    "dec_lat_va": 43.94819444,
+    "dec_long_va": -73.9901111
+  },
+  {
+    "site_no": "01315500",
+    "station_nm": "HUDSON RIVER AT NORTH CREEK NY",
+    "dec_lat_va": 43.7008611,
+    "dec_long_va": -73.9831944
+  },
+  {
+    "site_no": "01317000",
+    "station_nm": "SCHROON RIVER AT RIVERBANK NY",
+    "dec_lat_va": 43.60952778,
+    "dec_long_va": -73.7375
+  },
+  {
+    "site_no": "01318500",
+    "station_nm": "HUDSON RIVER AT HADLEY NY",
+    "dec_lat_va": 43.31905556,
+    "dec_long_va": -73.8443056
+  },
+  {
+    "site_no": "01321000",
+    "station_nm": "SACANDAGA RIVER NEAR HOPE NY",
+    "dec_lat_va": 43.3534722,
+    "dec_long_va": -74.2684722
+  },
+  {
+    "site_no": "01325000",
+    "station_nm": "SACANDAGA RIVER AT STEWARTS BRIDGE NR HADLEY NY",
+    "dec_lat_va": 43.3113611,
+    "dec_long_va": -73.8672222
+  },
+  {
+    "site_no": "01327500",
+    "station_nm": "GLENS FALLS FEEDER AT DUNHAM BASIN NY",
+    "dec_lat_va": 43.303778,
+    "dec_long_va": -73.547306
+  },
+  {
+    "site_no": "01327750",
+    "station_nm": "HUDSON RIVER AT FORT EDWARD NY",
+    "dec_lat_va": 43.26938889,
+    "dec_long_va": -73.5958333
+  },
+  {
+    "site_no": "01329490",
+    "station_nm": "BATTEN KILL BELOW MILL AT BATTENVILLE NY",
+    "dec_lat_va": 43.10866667,
+    "dec_long_va": -73.4224167
+  },
+  {
+    "site_no": "01330000",
+    "station_nm": "GLOWEGEE CREEK AT WEST MILTON NY",
+    "dec_lat_va": 43.03080556,
+    "dec_long_va": -73.9275833
+  },
+  {
+    "site_no": "01331095",
+    "station_nm": "HUDSON RIVER AT STILLWATER NY",
+    "dec_lat_va": 42.93555556,
+    "dec_long_va": -73.6516667
+  },
+  {
+    "site_no": "01333500",
+    "station_nm": "LITTLE HOOSIC RIVER AT PETERSBURG NY",
+    "dec_lat_va": 42.76388889,
+    "dec_long_va": -73.3371944
+  },
+  {
+    "site_no": "01334500",
+    "station_nm": "HOOSIC RIVER NEAR EAGLE BRIDGE NY",
+    "dec_lat_va": 42.9385833,
+    "dec_long_va": -73.3769444
+  },
+  {
+    "site_no": "01335754",
+    "station_nm": "HUDSON RIVER ABOVE LOCK 1 NEAR WATERFORD NY",
+    "dec_lat_va": 42.82955556,
+    "dec_long_va": -73.66625
+  },
+  {
+    "site_no": "01335755",
+    "station_nm": "HUDSON RIVER AT LOCK 1 NEAR WATERFORD NY",
+    "dec_lat_va": 42.82483333,
+    "dec_long_va": -73.66108333
+  },
+  {
+    "site_no": "01336000",
+    "station_nm": "MOHAWK RIVER BELOW DELTA DAM NEAR ROME NY",
+    "dec_lat_va": 43.265139,
+    "dec_long_va": -75.435806
+  },
+  {
+    "site_no": "01337005",
+    "station_nm": "NINEMILE CREEK NEAR STITTVILLE NY",
+    "dec_lat_va": 43.20822222,
+    "dec_long_va": -75.30541667
+  },
+  {
+    "site_no": "01338000",
+    "station_nm": "ORISKANY CREEK NEAR ORISKANY NY",
+    "dec_lat_va": 43.14277778,
+    "dec_long_va": -75.3378056
+  },
+  {
+    "site_no": "01339060",
+    "station_nm": "SAUQUOIT CREEK AT WHITESBORO NY",
+    "dec_lat_va": 43.11205556,
+    "dec_long_va": -75.29361111
+  },
+  {
+    "site_no": "01342602",
+    "station_nm": "MOHAWK RIVER NEAR UTICA NY",
+    "dec_lat_va": 43.09413889,
+    "dec_long_va": -75.15780556
+  },
+  {
+    "site_no": "01342682",
+    "station_nm": "MOYER CREEK NEAR FRANKFORT NY",
+    "dec_lat_va": 43.02694444,
+    "dec_long_va": -75.1043056
+  },
+  {
+    "site_no": "01342730",
+    "station_nm": "STEELE CREEK AT ILION NY",
+    "dec_lat_va": 43.0065833,
+    "dec_long_va": -75.0416667
+  },
+  {
+    "site_no": "01342743",
+    "station_nm": "FULMER CREEK NEAR MOHAWK NY",
+    "dec_lat_va": 42.9852222,
+    "dec_long_va": -74.9904444
+  },
+  {
+    "site_no": "01343060",
+    "station_nm": "WEST CANADA CREEK NEAR WILMURT NY",
+    "dec_lat_va": 43.36605556,
+    "dec_long_va": -74.95744444
+  },
+  {
+    "site_no": "01343403",
+    "station_nm": "BLACK CREEK NEAR GRAY NY",
+    "dec_lat_va": 43.28277778,
+    "dec_long_va": -74.9591944
+  },
+  {
+    "site_no": "01344795",
+    "station_nm": "CINCINNATI CREEK AT BARNEVELD NY",
+    "dec_lat_va": 43.27038889,
+    "dec_long_va": -75.18425
+  },
+  {
+    "site_no": "01346000",
+    "station_nm": "WEST CANADA CREEK AT KAST BRIDGE NY",
+    "dec_lat_va": 43.06852778,
+    "dec_long_va": -74.98827778
+  },
+  {
+    "site_no": "01347000",
+    "station_nm": "MOHAWK RIVER NEAR LITTLE FALLS NY",
+    "dec_lat_va": 43.01505556,
+    "dec_long_va": -74.77919444
+  },
+  {
+    "site_no": "01348000",
+    "station_nm": "EAST CANADA CREEK AT EAST CREEK NY",
+    "dec_lat_va": 43.01669444,
+    "dec_long_va": -74.74083333
+  },
+  {
+    "site_no": "01349000",
+    "station_nm": "OTSQUAGO CREEK AT FORT PLAIN NY",
+    "dec_lat_va": 42.92925,
+    "dec_long_va": -74.63288889
+  },
+  {
+    "site_no": "01349150",
+    "station_nm": "CANAJOHARIE CREEK NEAR CANAJOHARIE NY",
+    "dec_lat_va": 42.87627778,
+    "dec_long_va": -74.6028611
+  },
+  {
+    "site_no": "01349527",
+    "station_nm": "MOHAWK R ABOVE STATE HIGHWAY 30A AT FONDA NY",
+    "dec_lat_va": 42.95044444,
+    "dec_long_va": -74.371
+  },
+  {
+    "site_no": "01349700",
+    "station_nm": "EAST KILL NEAR JEWETT CENTER NY",
+    "dec_lat_va": 42.24894444,
+    "dec_long_va": -74.30338889
+  },
+  {
+    "site_no": "01349705",
+    "station_nm": "SCHOHARIE CREEK NEAR LEXINGTON NY",
+    "dec_lat_va": 42.236944,
+    "dec_long_va": -74.340278
+  },
+  {
+    "site_no": "01349711",
+    "station_nm": "WEST KILL BELOW HUNTER BROOK NEAR SPRUCETON NY",
+    "dec_lat_va": 42.18505556,
+    "dec_long_va": -74.2771111
+  },
+  {
+    "site_no": "01349810",
+    "station_nm": "WEST KILL NEAR WEST KILL NY",
+    "dec_lat_va": 42.23094444,
+    "dec_long_va": -74.3925
+  },
+  {
+    "site_no": "01349950",
+    "station_nm": "BATAVIA KILL AT RED FALLS NEAR PRATTSVILLE NY",
+    "dec_lat_va": 42.30841667,
+    "dec_long_va": -74.3895
+  },
+  {
+    "site_no": "01350000",
+    "station_nm": "SCHOHARIE CREEK AT PRATTSVILLE NY",
+    "dec_lat_va": 42.319639,
+    "dec_long_va": -74.436722
+  },
+  {
+    "site_no": "01350035",
+    "station_nm": "BEAR KILL NEAR PRATTSVILLE NY",
+    "dec_lat_va": 42.337861,
+    "dec_long_va": -74.451361
+  },
+  {
+    "site_no": "01350080",
+    "station_nm": "MANOR KILL AT WEST CONESVILLE NEAR GILBOA NY",
+    "dec_lat_va": 42.376806,
+    "dec_long_va": -74.413722
+  },
+  {
+    "site_no": "01350101",
+    "station_nm": "SCHOHARIE CREEK AT GILBOA NY",
+    "dec_lat_va": 42.3972222,
+    "dec_long_va": -74.4505556
+  },
+  {
+    "site_no": "01350120",
+    "station_nm": "PLATTER KILL AT GILBOA NY",
+    "dec_lat_va": 42.4067222,
+    "dec_long_va": -74.44813889
+  },
+  {
+    "site_no": "01350140",
+    "station_nm": "MINE KILL NEAR NORTH BLENHEIM NY",
+    "dec_lat_va": 42.42888889,
+    "dec_long_va": -74.47316667
+  },
+  {
+    "site_no": "01350180",
+    "station_nm": "SCHOHARIE CREEK AT NORTH BLENHEIM NY",
+    "dec_lat_va": 42.465833,
+    "dec_long_va": -74.462222
+  },
+  {
+    "site_no": "01350212",
+    "station_nm": "SCHOHARIE CREEK NEAR NORTH BLENHEIM NY",
+    "dec_lat_va": 42.47263889,
+    "dec_long_va": -74.44113889
+  },
+  {
+    "site_no": "01350355",
+    "station_nm": "SCHOHARIE CREEK AT BREAKABEEN NY",
+    "dec_lat_va": 42.53763889,
+    "dec_long_va": -74.41025
+  },
+  {
+    "site_no": "01350480",
+    "station_nm": "LITTLE SCHOHARIE CREEK NEAR MIDDLEBURGH NY",
+    "dec_lat_va": 42.58127778,
+    "dec_long_va": -74.3174444
+  },
+  {
+    "site_no": "01350500",
+    "station_nm": "SCHOHARIE CREEK AT MIDDLEBURGH NY",
+    "dec_lat_va": 42.5995,
+    "dec_long_va": -74.33636111
+  },
+  {
+    "site_no": "01350750",
+    "station_nm": "SCHOHARIE CREEK AT SCHOHARIE NY",
+    "dec_lat_va": 42.66519444,
+    "dec_long_va": -74.3255556
+  },
+  {
+    "site_no": "01351200",
+    "station_nm": "FOX CREEK NEAR SCHOHARIE NY",
+    "dec_lat_va": 42.67363889,
+    "dec_long_va": -74.25411111
+  },
+  {
+    "site_no": "01351298",
+    "station_nm": "COBLESKILL CREEK AT S GRAND ST AT COBLESKILL NY",
+    "dec_lat_va": 42.67255556,
+    "dec_long_va": -74.4819167
+  },
+  {
+    "site_no": "01351450",
+    "station_nm": "SCHOHARIE CREEK AT ESPERANCE NY",
+    "dec_lat_va": 42.7605833,
+    "dec_long_va": -74.25477778
+  },
+  {
+    "site_no": "01351500",
+    "station_nm": "SCHOHARIE CREEK AT BURTONSVILLE NY",
+    "dec_lat_va": 42.80002778,
+    "dec_long_va": -74.26277778
+  },
+  {
+    "site_no": "01353900",
+    "station_nm": "SCHOHARIE CREEK AT MILL POINT NEAR FORT HUNTER NY",
+    "dec_lat_va": 42.8875,
+    "dec_long_va": -74.2781944
+  },
+  {
+    "site_no": "01354083",
+    "station_nm": "MOHAWK RIVER AT AMSTERDAM NY",
+    "dec_lat_va": 42.934,
+    "dec_long_va": -74.1918611
+  },
+  {
+    "site_no": "01354230",
+    "station_nm": "MOHAWK RIVER AT LOCK 9 AT ROTTERDAM JUNCTION NY",
+    "dec_lat_va": 42.87827778,
+    "dec_long_va": -74.04075
+  },
+  {
+    "site_no": "01354330",
+    "station_nm": "MOHAWK RIVER AT LOCK 8 NEAR SCHENECTADY NY",
+    "dec_lat_va": 42.82801389,
+    "dec_long_va": -73.9907
+  },
+  {
+    "site_no": "01354500",
+    "station_nm": "MOHAWK RIVER AT FREEMAN'S BRIDGE AT SCHENECTADY NY",
+    "dec_lat_va": 42.83052778,
+    "dec_long_va": -73.93075
+  },
+  {
+    "site_no": "01355475",
+    "station_nm": "MOHAWK RIVER AT REXFORD NY",
+    "dec_lat_va": 42.8511111,
+    "dec_long_va": -73.88725
+  },
+  {
+    "site_no": "01356000",
+    "station_nm": "MOHAWK RIVER AT VISCHER FERRY DAM NY",
+    "dec_lat_va": 42.80419444,
+    "dec_long_va": -73.8476667
+  },
+  {
+    "site_no": "01357500",
+    "station_nm": "MOHAWK RIVER AT COHOES NY",
+    "dec_lat_va": 42.78538889,
+    "dec_long_va": -73.70777778
+  },
+  {
+    "site_no": "01358000",
+    "station_nm": "HUDSON RIVER AT GREEN ISLAND NY",
+    "dec_lat_va": 42.75225,
+    "dec_long_va": -73.68908333
+  },
+  {
+    "site_no": "01359135",
+    "station_nm": "PATROON CREEK AT ALBANY NY",
+    "dec_lat_va": 42.66344444,
+    "dec_long_va": -73.7448611
+  },
+  {
+    "site_no": "01359525",
+    "station_nm": "NORMANS KILL AT KARLSFELD NY",
+    "dec_lat_va": 42.64791667,
+    "dec_long_va": -73.846
+  },
+  {
+    "site_no": "01359528",
+    "station_nm": "NORMANS KILL AT ALBANY NY",
+    "dec_lat_va": 42.63363889,
+    "dec_long_va": -73.80427778
+  },
+  {
+    "site_no": "01360640",
+    "station_nm": "VALATIE KILL NEAR NASSAU NY",
+    "dec_lat_va": 42.5523611,
+    "dec_long_va": -73.5905833
+  },
+  {
+    "site_no": "01361000",
+    "station_nm": "KINDERHOOK CREEK AT ROSSMAN NY",
+    "dec_lat_va": 42.33105556,
+    "dec_long_va": -73.7444444
+  },
+  {
+    "site_no": "01361500",
+    "station_nm": "CATSKILL CREEK AT OAK HILL NY",
+    "dec_lat_va": 42.40527778,
+    "dec_long_va": -74.1515556
+  },
+  {
+    "site_no": "0136219503",
+    "station_nm": "ESOPUS CREEK BELOW LOST CLOVE RD AT BIG INDIAN NY",
+    "dec_lat_va": 42.09788889,
+    "dec_long_va": -74.4490833
+  },
+  {
+    "site_no": "013621955",
+    "station_nm": "BIRCH CREEK AT BIG INDIAN NY",
+    "dec_lat_va": 42.1095,
+    "dec_long_va": -74.45169444
+  },
+  {
+    "site_no": "01362200",
+    "station_nm": "ESOPUS CREEK AT ALLABEN NY",
+    "dec_lat_va": 42.11688889,
+    "dec_long_va": -74.38008333
+  },
+  {
+    "site_no": "01362230",
+    "station_nm": "DIVERSION FROM SCHOHARIE RESERVOIR NY",
+    "dec_lat_va": 42.11488889,
+    "dec_long_va": -74.36361111
+  },
+  {
+    "site_no": "01362232",
+    "station_nm": "BROADSTREET HOLLOW BROOK AT HWY28 AT ALLABEN NY",
+    "dec_lat_va": 42.112556,
+    "dec_long_va": -74.358694
+  },
+  {
+    "site_no": "0136230002",
+    "station_nm": "WOODLAND CREEK ABOVE MOUTH AT PHOENICIA NY",
+    "dec_lat_va": 42.0797222,
+    "dec_long_va": -74.3345833
+  },
+  {
+    "site_no": "01362322",
+    "station_nm": "MYRTLE BROOK AT STATE HWY 214 AT EDGEWOOD NY",
+    "dec_lat_va": 42.133611,
+    "dec_long_va": -74.231528
+  },
+  {
+    "site_no": "01362332",
+    "station_nm": "STONY CLOVE CREEK AT WRIGHT RD NEAR LANESVILLE NY",
+    "dec_lat_va": 42.13027778,
+    "dec_long_va": -74.2458333
+  },
+  {
+    "site_no": "01362336",
+    "station_nm": "STONY CLOVE CR AT JANSSEN RD AT LANESVILLE NY",
+    "dec_lat_va": 42.12794444,
+    "dec_long_va": -74.26325
+  },
+  {
+    "site_no": "01362342",
+    "station_nm": "HOLLOW TREE BROOK AT LANESVILLE NY",
+    "dec_lat_va": 42.14175,
+    "dec_long_va": -74.2648611
+  },
+  {
+    "site_no": "01362345",
+    "station_nm": "HOLLOW TREE BROOK AT ST HWY 214 AT LANESVILLE NY",
+    "dec_lat_va": 42.12841667,
+    "dec_long_va": -74.26438889
+  },
+  {
+    "site_no": "01362356",
+    "station_nm": "WARNER CREEK AT SILVER HOLLOW RD NR CHICHESTER NY",
+    "dec_lat_va": 42.0950833,
+    "dec_long_va": -74.2887222
+  },
+  {
+    "site_no": "01362357",
+    "station_nm": "WARNER CREEK NEAR CHICHESTER NY",
+    "dec_lat_va": 42.09616667,
+    "dec_long_va": -74.2904167
+  },
+  {
+    "site_no": "01362368",
+    "station_nm": "OX CLOVE NEAR MOUTH AT CHICHESTER NY",
+    "dec_lat_va": 42.10477778,
+    "dec_long_va": -74.3095556
+  },
+  {
+    "site_no": "01362370",
+    "station_nm": "STONY CLOVE CREEK BLW OX CLOVE AT CHICHESTER NY",
+    "dec_lat_va": 42.10202778,
+    "dec_long_va": -74.31088889
+  },
+  {
+    "site_no": "01362487",
+    "station_nm": "BEAVER KILL AT MOUNT TREMPER NY",
+    "dec_lat_va": 42.046722,
+    "dec_long_va": -74.276806
+  },
+  {
+    "site_no": "01362497",
+    "station_nm": "LITTLE BEAVER KILL AT BEECHFORD NEAR MT TREMPER NY",
+    "dec_lat_va": 42.01947222,
+    "dec_long_va": -74.26638889
+  },
+  {
+    "site_no": "01362500",
+    "station_nm": "ESOPUS CREEK AT COLDBROOK NY",
+    "dec_lat_va": 42.0144722,
+    "dec_long_va": -74.2701944
+  },
+  {
+    "site_no": "01363382",
+    "station_nm": "BUSH KILL BLW MALTBY HOLLOW BK AT WEST SHOKAN NY",
+    "dec_lat_va": 41.96558333,
+    "dec_long_va": -74.29341667
+  },
+  {
+    "site_no": "01363556",
+    "station_nm": "ESOPUS CREEK NEAR LOMONTVILLE NY",
+    "dec_lat_va": 41.8793333,
+    "dec_long_va": -74.1453611
+  },
+  {
+    "site_no": "01364500",
+    "station_nm": "ESOPUS CREEK AT MOUNT MARION NY",
+    "dec_lat_va": 42.038139,
+    "dec_long_va": -73.972167
+  },
+  {
+    "site_no": "01365000",
+    "station_nm": "RONDOUT CREEK NEAR LOWES CORNERS NY",
+    "dec_lat_va": 41.866139,
+    "dec_long_va": -74.487278
+  },
+  {
+    "site_no": "01365080",
+    "station_nm": "PEPACTON RES DIV OUTLET NR GRAHAMSVILLE NY",
+    "dec_lat_va": 41.8598611,
+    "dec_long_va": -74.5099722
+  },
+  {
+    "site_no": "01365100",
+    "station_nm": "CANNONSVILLE RES DIV CHANNEL NR GRAHAMSVILLE NY",
+    "dec_lat_va": 41.8521111,
+    "dec_long_va": -74.51302778
+  },
+  {
+    "site_no": "01365500",
+    "station_nm": "CHESTNUT CREEK AT GRAHAMSVILLE NY",
+    "dec_lat_va": 41.845,
+    "dec_long_va": -74.5394444
+  },
+  {
+    "site_no": "01365550",
+    "station_nm": "CHESTNUT CREEK AT MOUTH AT GRAHAMSVILLE NY",
+    "dec_lat_va": 41.8490833,
+    "dec_long_va": -74.5318333
+  },
+  {
+    "site_no": "01367500",
+    "station_nm": "RONDOUT CREEK AT ROSENDALE NY",
+    "dec_lat_va": 41.8430833,
+    "dec_long_va": -74.0861111
+  },
+  {
+    "site_no": "01368050",
+    "station_nm": "WALLKILL RIVER AT OIL CITY ROAD NEAR UNIONVILLE NY",
+    "dec_lat_va": 41.2878333,
+    "dec_long_va": -74.5343333
+  },
+  {
+    "site_no": "01370520",
+    "station_nm": "WALLKILL RIVER AT PHILLIPSBURG NY",
+    "dec_lat_va": 41.43838889,
+    "dec_long_va": -74.3659444
+  },
+  {
+    "site_no": "01371500",
+    "station_nm": "WALLKILL RIVER AT GARDINER NY",
+    "dec_lat_va": 41.68613889,
+    "dec_long_va": -74.16527778
+  },
+  {
+    "site_no": "01372007",
+    "station_nm": "RONDOUT CREEK AT RONDOUT NY",
+    "dec_lat_va": 41.918139,
+    "dec_long_va": -73.981722
+  },
+  {
+    "site_no": "01372500",
+    "station_nm": "WAPPINGER CREEK NEAR WAPPINGERS FALLS NY",
+    "dec_lat_va": 41.65313889,
+    "dec_long_va": -73.8725833
+  },
+  {
+    "site_no": "0137449480",
+    "station_nm": "EAST BRANCH CROTON RIVER NEAR PUTNAM LAKE NY",
+    "dec_lat_va": 41.44725,
+    "dec_long_va": -73.5560833
+  },
+  {
+    "site_no": "01374505",
+    "station_nm": "EAST BRANCH CROTON RIVER AT BREWSTER NY",
+    "dec_lat_va": 41.3945833,
+    "dec_long_va": -73.6074722
+  },
+  {
+    "site_no": "01374531",
+    "station_nm": "EAST BRANCH CROTON RIVER NEAR CROTON FALLS NY",
+    "dec_lat_va": 41.37338889,
+    "dec_long_va": -73.6395833
+  },
+  {
+    "site_no": "01374559",
+    "station_nm": "WEST BRANCH CROTON RIVER AT RICHARDSVILLE NY",
+    "dec_lat_va": 41.4704722,
+    "dec_long_va": -73.7595833
+  },
+  {
+    "site_no": "01374581",
+    "station_nm": "W BR CROTON RIVER BELOW DAM NEAR KENT CLIFFS NY",
+    "dec_lat_va": 41.44994444,
+    "dec_long_va": -73.7361111
+  },
+  {
+    "site_no": "01374598",
+    "station_nm": "HORSE POUND BROOK NEAR LAKE CARMEL NY",
+    "dec_lat_va": 41.4758611,
+    "dec_long_va": -73.6894722
+  },
+  {
+    "site_no": "0137462010",
+    "station_nm": "WEST BRANCH CROTON RIVER NEAR CARMEL NY",
+    "dec_lat_va": 41.41180556,
+    "dec_long_va": -73.69375
+  },
+  {
+    "site_no": "01374701",
+    "station_nm": "WEST BRANCH CROTON RIVER NEAR CROTON FALLS NY",
+    "dec_lat_va": 41.358,
+    "dec_long_va": -73.6679722
+  },
+  {
+    "site_no": "01374781",
+    "station_nm": "TITICUS RIVER BELOW JUNE ROAD AT SALEM CENTER NY",
+    "dec_lat_va": 41.3273611,
+    "dec_long_va": -73.5914722
+  },
+  {
+    "site_no": "01374821",
+    "station_nm": "TITICUS RIVER AT PURDYS STATION NY",
+    "dec_lat_va": 41.3271111,
+    "dec_long_va": -73.65563889
+  },
+  {
+    "site_no": "01374890",
+    "station_nm": "CROSS RIVER NEAR CROSS RIVER NY",
+    "dec_lat_va": 41.2602222,
+    "dec_long_va": -73.6018611
+  },
+  {
+    "site_no": "01374901",
+    "station_nm": "CROSS RIVER AT KATONAH NY",
+    "dec_lat_va": 41.26605556,
+    "dec_long_va": -73.6660833
+  },
+  {
+    "site_no": "01374930",
+    "station_nm": "MUSCOOT RIVER AT BALDWIN PLACE NY",
+    "dec_lat_va": 41.33813889,
+    "dec_long_va": -73.7686944
+  },
+  {
+    "site_no": "01374941",
+    "station_nm": "MUSCOOT RIVER BELOW DAM AT AMAWALK NY",
+    "dec_lat_va": 41.2876111,
+    "dec_long_va": -73.75363889
+  },
+  {
+    "site_no": "01375000",
+    "station_nm": "CROTON R AT NEW CROTON DAM NR CROTON-ON-HUDSON NY",
+    "dec_lat_va": 41.22502778,
+    "dec_long_va": -73.85888889
+  },
+  {
+    "site_no": "01376500",
+    "station_nm": "SAW MILL RIVER AT YONKERS NY",
+    "dec_lat_va": 40.936806,
+    "dec_long_va": -73.88625
+  },
+  {
+    "site_no": "01376534",
+    "station_nm": "RICHMOND CREEK AT LIGHTHOUSE AVE AT RICHMOND NY",
+    "dec_lat_va": 40.573722,
+    "dec_long_va": -74.141306
+  },
+  {
+    "site_no": "01376558",
+    "station_nm": "LEMON CREEK AT AMBOY ROAD AT PLEASANT PLAINS NY",
+    "dec_lat_va": 40.52541667,
+    "dec_long_va": -74.20938889
+  },
+  {
+    "site_no": "01376800",
+    "station_nm": "HACKENSACK RIVER AT WEST NYACK NY",
+    "dec_lat_va": 41.095528,
+    "dec_long_va": -73.964028
+  },
+  {
+    "site_no": "01387095",
+    "station_nm": "RAMAPO R AT MARY H HARRIMAN MEM PK AT HARRIMAN NY",
+    "dec_lat_va": 41.31155556,
+    "dec_long_va": -74.1469722
+  },
+  {
+    "site_no": "01387400",
+    "station_nm": "RAMAPO RIVER AT RAMAPO NY",
+    "dec_lat_va": 41.140278,
+    "dec_long_va": -74.170333
+  },
+  {
+    "site_no": "01387420",
+    "station_nm": "RAMAPO RIVER AT SUFFERN NY",
+    "dec_lat_va": 41.118556,
+    "dec_long_va": -74.160056
+  },
+  {
+    "site_no": "01387450",
+    "station_nm": "Mahwah River near Suffern NY",
+    "dec_lat_va": 41.1411111,
+    "dec_long_va": -74.1161111
+  },
+  {
+    "site_no": "01413088",
+    "station_nm": "EAST BRANCH DELAWARE RIVER AT ROXBURY NY",
+    "dec_lat_va": 42.29380556,
+    "dec_long_va": -74.5591944
+  },
+  {
+    "site_no": "01413398",
+    "station_nm": "BUSH KILL NEAR ARKVILLE NY",
+    "dec_lat_va": 42.15069444,
+    "dec_long_va": -74.60138889
+  },
+  {
+    "site_no": "01413408",
+    "station_nm": "DRY BROOK AT ARKVILLE",
+    "dec_lat_va": 42.14644444,
+    "dec_long_va": -74.62341667
+  },
+  {
+    "site_no": "01413500",
+    "station_nm": "EAST BRANCH DELAWARE RIVER AT MARGARETVILLE NY",
+    "dec_lat_va": 42.14477778,
+    "dec_long_va": -74.65336111
+  },
+  {
+    "site_no": "01414000",
+    "station_nm": "PLATTE KILL AT DUNRAVEN NY",
+    "dec_lat_va": 42.132528,
+    "dec_long_va": -74.695361
+  },
+  {
+    "site_no": "01414500",
+    "station_nm": "MILL BROOK NEAR DUNRAVEN NY",
+    "dec_lat_va": 42.10616667,
+    "dec_long_va": -74.73052778
+  },
+  {
+    "site_no": "01415000",
+    "station_nm": "TREMPER KILL NEAR ANDES NY",
+    "dec_lat_va": 42.11966667,
+    "dec_long_va": -74.82044444
+  },
+  {
+    "site_no": "01417000",
+    "station_nm": "EAST BRANCH DELAWARE RIVER AT DOWNSVILLE NY",
+    "dec_lat_va": 42.07502778,
+    "dec_long_va": -74.97627778
+  },
+  {
+    "site_no": "01417500",
+    "station_nm": "EAST BRANCH DELAWARE RIVER AT HARVARD NY",
+    "dec_lat_va": 42.0245833,
+    "dec_long_va": -75.11927778
+  },
+  {
+    "site_no": "01419500",
+    "station_nm": "WILLOWEMOC CREEK NR LIVINGSTON MANOR NY",
+    "dec_lat_va": 41.90352778,
+    "dec_long_va": -74.81275
+  },
+  {
+    "site_no": "01420500",
+    "station_nm": "BEAVER KILL AT COOKS FALLS NY",
+    "dec_lat_va": 41.94641667,
+    "dec_long_va": -74.9796667
+  },
+  {
+    "site_no": "01421500",
+    "station_nm": "EAST BRANCH DELAWARE RIVER AT HANCOCK NY",
+    "dec_lat_va": 41.952167,
+    "dec_long_va": -75.276694
+  },
+  {
+    "site_no": "01421610",
+    "station_nm": "WEST BRANCH DELAWARE RIVER AT HOBART NY",
+    "dec_lat_va": 42.371417,
+    "dec_long_va": -74.668833
+  },
+  {
+    "site_no": "01421618",
+    "station_nm": "TOWN BROOK SOUTHEAST OF HOBART NY",
+    "dec_lat_va": 42.361167,
+    "dec_long_va": -74.662167
+  },
+  {
+    "site_no": "01421900",
+    "station_nm": "WEST BRANCH DELAWARE RIVER UPSTREAM FROM DELHI NY",
+    "dec_lat_va": 42.280278,
+    "dec_long_va": -74.907222
+  },
+  {
+    "site_no": "01422500",
+    "station_nm": "LITTLE DELAWARE RIVER NEAR DELHI NY",
+    "dec_lat_va": 42.25238889,
+    "dec_long_va": -74.9010556
+  },
+  {
+    "site_no": "01422747",
+    "station_nm": "EAST BROOK EAST OF WALTON NY",
+    "dec_lat_va": 42.17266667,
+    "dec_long_va": -75.1219167
+  },
+  {
+    "site_no": "01422779",
+    "station_nm": "WEST BROOK AT AUSTIN LINCOLN PARK AT WALTON NY",
+    "dec_lat_va": 42.17738889,
+    "dec_long_va": -75.1289167
+  },
+  {
+    "site_no": "01423000",
+    "station_nm": "WEST BRANCH DELAWARE RIVER AT WALTON NY",
+    "dec_lat_va": 42.1661111,
+    "dec_long_va": -75.14002778
+  },
+  {
+    "site_no": "0142400103",
+    "station_nm": "TROUT CREEK NEAR TROUT CREEK NY",
+    "dec_lat_va": 42.1735833,
+    "dec_long_va": -75.2794444
+  },
+  {
+    "site_no": "01425000",
+    "station_nm": "WEST BRANCH DELAWARE RIVER AT STILESVILLE NY",
+    "dec_lat_va": 42.07491667,
+    "dec_long_va": -75.3958056
+  },
+  {
+    "site_no": "01425805",
+    "station_nm": "OQUAGA CREEK AT MCCLURE NY",
+    "dec_lat_va": 42.04869444,
+    "dec_long_va": -75.4851944
+  },
+  {
+    "site_no": "01426500",
+    "station_nm": "WEST BRANCH DELAWARE RIVER AT HALE EDDY NY",
+    "dec_lat_va": 42.00302778,
+    "dec_long_va": -75.38352778
+  },
+  {
+    "site_no": "01427000",
+    "station_nm": "WEST BRANCH DELAWARE RIVER AT HANCOCK NY",
+    "dec_lat_va": 41.95216667,
+    "dec_long_va": -75.2909444
+  },
+  {
+    "site_no": "01427500",
+    "station_nm": "CALLICOON CREEK AT CALLICOON NY",
+    "dec_lat_va": 41.76055556,
+    "dec_long_va": -75.04838889
+  },
+  {
+    "site_no": "01428000",
+    "station_nm": "TENMILE RIVER AT TUSTEN NY",
+    "dec_lat_va": 41.56377778,
+    "dec_long_va": -75.01438889
+  },
+  {
+    "site_no": "01428500",
+    "station_nm": "DELAWARE R ABOVE LACKAWAXEN R NEAR BARRYVILLE NY",
+    "dec_lat_va": 41.50875,
+    "dec_long_va": -74.9860556
+  },
+  {
+    "site_no": "01432900",
+    "station_nm": "MONGAUP RIVER AT MONGAUP VALLEY NY",
+    "dec_lat_va": 41.668389,
+    "dec_long_va": -74.780472
+  },
+  {
+    "site_no": "01433005",
+    "station_nm": "MONGAUP R BELOW SWINGING BRIDGE RESERVOIR NY",
+    "dec_lat_va": 41.56727778,
+    "dec_long_va": -74.78327778
+  },
+  {
+    "site_no": "01433500",
+    "station_nm": "MONGAUP RIVER NEAR MONGAUP NY",
+    "dec_lat_va": 41.4612222,
+    "dec_long_va": -74.75877778
+  },
+  {
+    "site_no": "0143400680",
+    "station_nm": "E BR NEVERSINK R NORTHEAST OF DENNING NY",
+    "dec_lat_va": 41.967361,
+    "dec_long_va": -74.448083
+  },
+  {
+    "site_no": "01434017",
+    "station_nm": "EAST BRANCH NEVERSINK RIVER NEAR CLARYVILLE NY",
+    "dec_lat_va": 41.92538889,
+    "dec_long_va": -74.54005556
+  },
+  {
+    "site_no": "01434021",
+    "station_nm": "W BR NEVERSINK R AT WINNISOOK L NR FROST VALLEY NY",
+    "dec_lat_va": 42.011111,
+    "dec_long_va": -74.414444
+  },
+  {
+    "site_no": "01434025",
+    "station_nm": "BISCUIT BK ABOVE PIGEON BK AT FROST VALLEY NY",
+    "dec_lat_va": 41.9960833,
+    "dec_long_va": -74.5002222
+  },
+  {
+    "site_no": "01434498",
+    "station_nm": "WEST BRANCH NEVERSINK RIVER AT CLARYVILLE NY",
+    "dec_lat_va": 41.92041667,
+    "dec_long_va": -74.57438889
+  },
+  {
+    "site_no": "01435000",
+    "station_nm": "NEVERSINK RIVER NEAR CLARYVILLE NY",
+    "dec_lat_va": 41.88994444,
+    "dec_long_va": -74.5898056
+  },
+  {
+    "site_no": "01436000",
+    "station_nm": "NEVERSINK RIVER AT NEVERSINK NY",
+    "dec_lat_va": 41.82030556,
+    "dec_long_va": -74.63552778
+  },
+  {
+    "site_no": "01436655",
+    "station_nm": "SHELDRAKE STREAM AT THOMPSONVILLE NY",
+    "dec_lat_va": 41.66783333,
+    "dec_long_va": -74.62302778
+  },
+  {
+    "site_no": "01436690",
+    "station_nm": "NEVERSINK RIVER AT BRIDGEVILLE NY",
+    "dec_lat_va": 41.63780556,
+    "dec_long_va": -74.61738889
+  },
+  {
+    "site_no": "01437100",
+    "station_nm": "GUMAER BROOK NEAR WURTSBORO NY",
+    "dec_lat_va": 41.59594444,
+    "dec_long_va": -74.4681944
+  },
+  {
+    "site_no": "01437349",
+    "station_nm": "BASHER KILL BLW BASHAKILL MARSH AT WESTBROOKVILLE",
+    "dec_lat_va": 41.49963889,
+    "dec_long_va": -74.5522222
+  },
+  {
+    "site_no": "01437500",
+    "station_nm": "NEVERSINK RIVER AT GODEFFROY NY",
+    "dec_lat_va": 41.44127778,
+    "dec_long_va": -74.60183333
+  },
+  {
+    "site_no": "01500000",
+    "station_nm": "OULEOUT CREEK AT EAST SIDNEY NY",
+    "dec_lat_va": 42.33313889,
+    "dec_long_va": -75.2343056
+  },
+  {
+    "site_no": "01500500",
+    "station_nm": "SUSQUEHANNA RIVER AT UNADILLA NY",
+    "dec_lat_va": 42.3215,
+    "dec_long_va": -75.31638889
+  },
+  {
+    "site_no": "01502500",
+    "station_nm": "UNADILLA RIVER AT ROCKDALE NY",
+    "dec_lat_va": 42.37797222,
+    "dec_long_va": -75.40611111
+  },
+  {
+    "site_no": "01502632",
+    "station_nm": "SUSQUEHANNA RIVER AT BAINBRIDGE NY",
+    "dec_lat_va": 42.2918333,
+    "dec_long_va": -75.47677778
+  },
+  {
+    "site_no": "01502731",
+    "station_nm": "SUSQUEHANNA RIVER AT WINDSOR NY",
+    "dec_lat_va": 42.07405556,
+    "dec_long_va": -75.6369444
+  },
+  {
+    "site_no": "01503000",
+    "station_nm": "SUSQUEHANNA RIVER AT CONKLIN NY",
+    "dec_lat_va": 42.03555556,
+    "dec_long_va": -75.80227778
+  },
+  {
+    "site_no": "01503500",
+    "station_nm": "SUSQUEHANNA RIVER AT BINGHAMTON NY",
+    "dec_lat_va": 42.09183333,
+    "dec_long_va": -75.91441667
+  },
+  {
+    "site_no": "01503980",
+    "station_nm": "CHENANGO RIVER AT EATON NY",
+    "dec_lat_va": 42.850611,
+    "dec_long_va": -75.605444
+  },
+  {
+    "site_no": "01505000",
+    "station_nm": "CHENANGO RIVER AT SHERBURNE NY",
+    "dec_lat_va": 42.67852778,
+    "dec_long_va": -75.51066667
+  },
+  {
+    "site_no": "01505810",
+    "station_nm": "CHENANGO RIVER AT OXFORD NY",
+    "dec_lat_va": 42.441222,
+    "dec_long_va": -75.596306
+  },
+  {
+    "site_no": "01507000",
+    "station_nm": "CHENANGO RIVER AT GREENE NY",
+    "dec_lat_va": 42.32444444,
+    "dec_long_va": -75.77125
+  },
+  {
+    "site_no": "01509000",
+    "station_nm": "TIOUGHNIOGA RIVER AT CORTLAND NY",
+    "dec_lat_va": 42.60266667,
+    "dec_long_va": -76.15938889
+  },
+  {
+    "site_no": "01509520",
+    "station_nm": "TIOUGHNIOGA RIVER AT LISLE NY",
+    "dec_lat_va": 42.34944444,
+    "dec_long_va": -75.9991667
+  },
+  {
+    "site_no": "01510000",
+    "station_nm": "OTSELIC RIVER AT CINCINNATUS NY",
+    "dec_lat_va": 42.54116667,
+    "dec_long_va": -75.89919444
+  },
+  {
+    "site_no": "01511500",
+    "station_nm": "TIOUGHNIOGA RIVER AT ITASKA NY",
+    "dec_lat_va": 42.29805556,
+    "dec_long_va": -75.90888889
+  },
+  {
+    "site_no": "01512500",
+    "station_nm": "CHENANGO RIVER NEAR CHENANGO FORKS NY",
+    "dec_lat_va": 42.21805556,
+    "dec_long_va": -75.84813889
+  },
+  {
+    "site_no": "01513500",
+    "station_nm": "SUSQUEHANNA RIVER AT VESTAL NY",
+    "dec_lat_va": 42.09166667,
+    "dec_long_va": -76.05652778
+  },
+  {
+    "site_no": "01513831",
+    "station_nm": "SUSQUEHANNA RIVER AT OWEGO NY",
+    "dec_lat_va": 42.09613889,
+    "dec_long_va": -76.2656944
+  },
+  {
+    "site_no": "01514000",
+    "station_nm": "OWEGO CREEK NEAR OWEGO NY",
+    "dec_lat_va": 42.12916667,
+    "dec_long_va": -76.2705556
+  },
+  {
+    "site_no": "01520500",
+    "station_nm": "TIOGA RIVER AT LINDLEY NY",
+    "dec_lat_va": 42.0287222,
+    "dec_long_va": -77.1321944
+  },
+  {
+    "site_no": "01521500",
+    "station_nm": "CANISTEO RIVER AT ARKPORT NY",
+    "dec_lat_va": 42.39588889,
+    "dec_long_va": -77.71136111
+  },
+  {
+    "site_no": "01523500",
+    "station_nm": "CANACADEA CREEK NEAR HORNELL NY",
+    "dec_lat_va": 42.3348611,
+    "dec_long_va": -77.6826667
+  },
+  {
+    "site_no": "01524500",
+    "station_nm": "CANISTEO RIVER BELOW CANACADEA CREEK AT HORNELL NY",
+    "dec_lat_va": 42.3134722,
+    "dec_long_va": -77.6510833
+  },
+  {
+    "site_no": "01525500",
+    "station_nm": "CANISTEO RIVER AT WEST CAMERON NY",
+    "dec_lat_va": 42.2224722,
+    "dec_long_va": -77.41752778
+  },
+  {
+    "site_no": "01525981",
+    "station_nm": "TUSCARORA CREEK ABOVE SOUTH ADDISON NY",
+    "dec_lat_va": 42.072667,
+    "dec_long_va": -77.298861
+  },
+  {
+    "site_no": "01526500",
+    "station_nm": "TIOGA RIVER NEAR ERWINS NY",
+    "dec_lat_va": 42.12088889,
+    "dec_long_va": -77.12905556
+  },
+  {
+    "site_no": "01527500",
+    "station_nm": "COHOCTON RIVER AT AVOCA NY",
+    "dec_lat_va": 42.41105556,
+    "dec_long_va": -77.4263611
+  },
+  {
+    "site_no": "01528320",
+    "station_nm": "COHOCTON RIVER AT BATH NY",
+    "dec_lat_va": 42.3436111,
+    "dec_long_va": -77.3435
+  },
+  {
+    "site_no": "01529500",
+    "station_nm": "COHOCTON RIVER NEAR CAMPBELL NY",
+    "dec_lat_va": 42.25258333,
+    "dec_long_va": -77.21652778
+  },
+  {
+    "site_no": "01529950",
+    "station_nm": "CHEMUNG RIVER AT CORNING NY",
+    "dec_lat_va": 42.14641667,
+    "dec_long_va": -77.0575
+  },
+  {
+    "site_no": "01530332",
+    "station_nm": "CHEMUNG RIVER AT ELMIRA NY",
+    "dec_lat_va": 42.08630556,
+    "dec_long_va": -76.80122222
+  },
+  {
+    "site_no": "01531000",
+    "station_nm": "CHEMUNG RIVER AT CHEMUNG NY",
+    "dec_lat_va": 42.00244444,
+    "dec_long_va": -76.63488889
+  },
+  {
+    "site_no": "03010674",
+    "station_nm": "ROOT CREEK AT DAVIS STREET AT BOLIVAR NY",
+    "dec_lat_va": 42.06438889,
+    "dec_long_va": -78.1629444
+  },
+  {
+    "site_no": "03010720",
+    "station_nm": "DODGE CREEK AT PORTVILLE NY",
+    "dec_lat_va": 42.03630556,
+    "dec_long_va": -78.3423611
+  },
+  {
+    "site_no": "03010747",
+    "station_nm": "ISCHUA CR AT ISCHUA VALLEY CC NR FRANKLINVILLE NY",
+    "dec_lat_va": 42.35572222,
+    "dec_long_va": -78.45405556
+  },
+  {
+    "site_no": "03010820",
+    "station_nm": "ALLEGHENY RIVER AT OLEAN NY",
+    "dec_lat_va": 42.0723611,
+    "dec_long_va": -78.4508611
+  },
+  {
+    "site_no": "03011020",
+    "station_nm": "ALLEGHENY RIVER AT SALAMANCA NY",
+    "dec_lat_va": 42.1568333,
+    "dec_long_va": -78.7155556
+  },
+  {
+    "site_no": "03011500",
+    "station_nm": "ALLEGHENY RIVER AT RED HOUSE NY",
+    "dec_lat_va": 42.11452778,
+    "dec_long_va": -78.8035556
+  },
+  {
+    "site_no": "03014500",
+    "station_nm": "CHADAKOIN RIVER AT FALCONER NY",
+    "dec_lat_va": 42.11263889,
+    "dec_long_va": -79.20363889
+  },
+  {
+    "site_no": "04213319",
+    "station_nm": "CHAUTAUQUA CREEK BELOW WESTFIELD NY",
+    "dec_lat_va": 42.33080556,
+    "dec_long_va": -79.5899167
+  },
+  {
+    "site_no": "04213376",
+    "station_nm": "CANADAWAY CREEK AT FREDONIA NY",
+    "dec_lat_va": 42.45063889,
+    "dec_long_va": -79.3504444
+  },
+  {
+    "site_no": "04213394",
+    "station_nm": "SILVER CREEK AT US ROUTE 20 AT SILVER CREEK NY",
+    "dec_lat_va": 42.54391667,
+    "dec_long_va": -79.1646667
+  },
+  {
+    "site_no": "04213401",
+    "station_nm": "WALNUT CREEK AT US ROUTE 20 AT SILVER CREEK NY",
+    "dec_lat_va": 42.5383611,
+    "dec_long_va": -79.1689722
+  },
+  {
+    "site_no": "04213500",
+    "station_nm": "CATTARAUGUS CREEK AT GOWANDA NY",
+    "dec_lat_va": 42.46344444,
+    "dec_long_va": -78.9345278
+  },
+  {
+    "site_no": "04213508",
+    "station_nm": "THATCHER BROOK AT GOWANDA NY",
+    "dec_lat_va": 42.45352778,
+    "dec_long_va": -78.9415556
+  },
+  {
+    "site_no": "04214060",
+    "station_nm": "BIG SISTER CREEK AT EVANS CENTER NY",
+    "dec_lat_va": 42.65713889,
+    "dec_long_va": -79.0355
+  },
+  {
+    "site_no": "0421422210",
+    "station_nm": "EIGHTEENMILE CREEK AT HAMBURG NY",
+    "dec_lat_va": 42.70655556,
+    "dec_long_va": -78.84925
+  },
+  {
+    "site_no": "04214231",
+    "station_nm": "S BR EIGHTEENMILE CR AT BLEY RD AT EDEN VALLEY",
+    "dec_lat_va": 42.68027778,
+    "dec_long_va": -78.8786944
+  },
+  {
+    "site_no": "04214500",
+    "station_nm": "BUFFALO CREEK AT GARDENVILLE NY",
+    "dec_lat_va": 42.8546111,
+    "dec_long_va": -78.7564167
+  },
+  {
+    "site_no": "04215000",
+    "station_nm": "CAYUGA CREEK NEAR LANCASTER NY",
+    "dec_lat_va": 42.8900833,
+    "dec_long_va": -78.6449444
+  },
+  {
+    "site_no": "04215500",
+    "station_nm": "CAZENOVIA CREEK AT EBENEZER NY",
+    "dec_lat_va": 42.82952778,
+    "dec_long_va": -78.7750278
+  },
+  {
+    "site_no": "04216418",
+    "station_nm": "TONAWANDA CREEK AT ATTICA NY",
+    "dec_lat_va": 42.86469444,
+    "dec_long_va": -78.2834167
+  },
+  {
+    "site_no": "04217000",
+    "station_nm": "TONAWANDA CREEK AT BATAVIA NY",
+    "dec_lat_va": 42.99713889,
+    "dec_long_va": -78.1881667
+  },
+  {
+    "site_no": "04218000",
+    "station_nm": "TONAWANDA CREEK AT RAPIDS NY",
+    "dec_lat_va": 43.0935,
+    "dec_long_va": -78.6361667
+  },
+  {
+    "site_no": "04218518",
+    "station_nm": "ELLICOTT CREEK BELOW WILLIAMSVILLE NY",
+    "dec_lat_va": 42.97794444,
+    "dec_long_va": -78.7636944
+  },
+  {
+    "site_no": "04218601",
+    "station_nm": "ERIE (BARGE) C ABV HALLS WASTE WEIR AT LOCKPORT NY",
+    "dec_lat_va": 43.17469444,
+    "dec_long_va": -78.6890556
+  },
+  {
+    "site_no": "04218700",
+    "station_nm": "ERIE(BARGE)CANAL(W OF GENESEE R)AT ROCHESTER NY",
+    "dec_lat_va": 43.125611,
+    "dec_long_va": -77.650111
+  },
+  {
+    "site_no": "04219000",
+    "station_nm": "ERIE (BARGE) CANAL AT LOCK 30 AT MACEDON NY",
+    "dec_lat_va": 43.07177778,
+    "dec_long_va": -77.2969722
+  },
+  {
+    "site_no": "04219580",
+    "station_nm": "NIAGARA RIVER AT JOSEPH DAVIS STATE PARK NY",
+    "dec_lat_va": 43.214861,
+    "dec_long_va": -79.051333
+  },
+  {
+    "site_no": "04219630",
+    "station_nm": "NIAGARA RIVER AT YOUNGSTOWN NY",
+    "dec_lat_va": 43.25188889,
+    "dec_long_va": -79.0509444
+  },
+  {
+    "site_no": "04219767",
+    "station_nm": "EIGHTEENMILE CREEK AT NEWFANE NY",
+    "dec_lat_va": 43.25255556,
+    "dec_long_va": -78.6978611
+  },
+  {
+    "site_no": "04219768",
+    "station_nm": "EIGHTEENMILE CREEK AT BURT NY",
+    "dec_lat_va": 43.31380556,
+    "dec_long_va": -78.7154167
+  },
+  {
+    "site_no": "04219915",
+    "station_nm": "JOHNSON CREEK AT KUCKVILLE NY",
+    "dec_lat_va": 43.3608333,
+    "dec_long_va": -78.2645278
+  },
+  {
+    "site_no": "04220045",
+    "station_nm": "OAK ORCHARD CREEK NEAR SHELBY NY",
+    "dec_lat_va": 43.17430556,
+    "dec_long_va": -78.38638889
+  },
+  {
+    "site_no": "0422016550",
+    "station_nm": "OAK ORCHARD CREEK NEAR KENYONVILLE NY",
+    "dec_lat_va": 43.301,
+    "dec_long_va": -78.3104444
+  },
+  {
+    "site_no": "0422018610",
+    "station_nm": "OAK ORCHARD CREEK AT THE BRIDGES NY",
+    "dec_lat_va": 43.35330556,
+    "dec_long_va": -78.1930556
+  },
+  {
+    "site_no": "04220223",
+    "station_nm": "SANDY CREEK AT NORTH HAMLIN NY",
+    "dec_lat_va": 43.33538889,
+    "dec_long_va": -77.9278056
+  },
+  {
+    "site_no": "0422026250",
+    "station_nm": "NORTHRUP CREEK AT NORTH GREECE NY",
+    "dec_lat_va": 43.2538611,
+    "dec_long_va": -77.7420833
+  },
+  {
+    "site_no": "0422027430",
+    "station_nm": "ROUND POND CREEK AT STRAUB ROAD AT GREECE NY",
+    "dec_lat_va": 43.19805556,
+    "dec_long_va": -77.7108611
+  },
+  {
+    "site_no": "04221000",
+    "station_nm": "GENESEE RIVER AT WELLSVILLE NY",
+    "dec_lat_va": 42.12227778,
+    "dec_long_va": -77.95727778
+  },
+  {
+    "site_no": "04223000",
+    "station_nm": "GENESEE RIVER AT PORTAGEVILLE NY",
+    "dec_lat_va": 42.57019444,
+    "dec_long_va": -78.0419722
+  },
+  {
+    "site_no": "04224775",
+    "station_nm": "CANASERAGA CREEK ABOVE DANSVILLE NY",
+    "dec_lat_va": 42.5358611,
+    "dec_long_va": -77.7039444
+  },
+  {
+    "site_no": "04227000",
+    "station_nm": "CANASERAGA CREEK AT SHAKERS CROSSING NY",
+    "dec_lat_va": 42.73605556,
+    "dec_long_va": -77.8414167
+  },
+  {
+    "site_no": "04227500",
+    "station_nm": "GENESEE RIVER NEAR MOUNT MORRIS NY",
+    "dec_lat_va": 42.76666667,
+    "dec_long_va": -77.83888889
+  },
+  {
+    "site_no": "04227995",
+    "station_nm": "CONESUS CREEK NEAR LAKEVILLE NY",
+    "dec_lat_va": 42.85416667,
+    "dec_long_va": -77.71527778
+  },
+  {
+    "site_no": "04228500",
+    "station_nm": "GENESEE RIVER AT AVON NY",
+    "dec_lat_va": 42.9227222,
+    "dec_long_va": -77.7574167
+  },
+  {
+    "site_no": "04229500",
+    "station_nm": "HONEOYE CREEK AT HONEOYE FALLS NY",
+    "dec_lat_va": 42.95702778,
+    "dec_long_va": -77.58888889
+  },
+  {
+    "site_no": "04230380",
+    "station_nm": "OATKA CREEK AT WARSAW NY",
+    "dec_lat_va": 42.74266667,
+    "dec_long_va": -78.1376111
+  },
+  {
+    "site_no": "04230500",
+    "station_nm": "OATKA CREEK AT GARBUTT NY",
+    "dec_lat_va": 43.01,
+    "dec_long_va": -77.79138889
+  },
+  {
+    "site_no": "04230650",
+    "station_nm": "GENESEE R AT BALLANTYNE BRIDGE NEAR MORTIMER NY",
+    "dec_lat_va": 43.092944,
+    "dec_long_va": -77.680833
+  },
+  {
+    "site_no": "04231000",
+    "station_nm": "BLACK CREEK AT CHURCHVILLE NY",
+    "dec_lat_va": 43.100556,
+    "dec_long_va": -77.882472
+  },
+  {
+    "site_no": "04231401",
+    "station_nm": "RED CREEK BELOW CO HWY 85 AT MORTIMER NY",
+    "dec_lat_va": 43.09352778,
+    "dec_long_va": -77.6507222
+  },
+  {
+    "site_no": "04231600",
+    "station_nm": "GENESEE RIVER AT FORD STREET BRIDGE, ROCHESTER NY",
+    "dec_lat_va": 43.1417222,
+    "dec_long_va": -77.6163056
+  },
+  {
+    "site_no": "04232034",
+    "station_nm": "IRONDEQUOIT CR AT RAILROAD MILLS NEAR FISHERS NY",
+    "dec_lat_va": 43.0278333,
+    "dec_long_va": -77.4787222
+  },
+  {
+    "site_no": "04232050",
+    "station_nm": "ALLEN CREEK NEAR ROCHESTER NY",
+    "dec_lat_va": 43.128028,
+    "dec_long_va": -77.527
+  },
+  {
+    "site_no": "0423205010",
+    "station_nm": "IRONDEQUOIT CR ABOVE BLOSSOM RD NEAR ROCHESTER NY",
+    "dec_lat_va": 43.144833,
+    "dec_long_va": -77.511972
+  },
+  {
+    "site_no": "04232053",
+    "station_nm": "MILL CREEK NEAR WEBSTER NY",
+    "dec_lat_va": 43.25769444,
+    "dec_long_va": -77.4468611
+  },
+  {
+    "site_no": "04232200",
+    "station_nm": "CATHARINE CR AT MONTOUR FALLS NY",
+    "dec_lat_va": 42.32827778,
+    "dec_long_va": -76.8439167
+  },
+  {
+    "site_no": "0423245850",
+    "station_nm": "SUGAR CREEK AT COUNTY HOUSE ROAD AT GUYANOGA NY",
+    "dec_lat_va": 42.62769444,
+    "dec_long_va": -77.1589167
+  },
+  {
+    "site_no": "04232482",
+    "station_nm": "KEUKA LAKE OUTLET AT DRESDEN NY",
+    "dec_lat_va": 42.6803333,
+    "dec_long_va": -76.95388889
+  },
+  {
+    "site_no": "04232730",
+    "station_nm": "SENECA RIVER NEAR SENECA FALLS NY",
+    "dec_lat_va": 42.93888889,
+    "dec_long_va": -76.7611111
+  },
+  {
+    "site_no": "04233255",
+    "station_nm": "CAYUGA INLET AT ITHACA NY",
+    "dec_lat_va": 42.4272222,
+    "dec_long_va": -76.5216667
+  },
+  {
+    "site_no": "04233300",
+    "station_nm": "SIXMILE CREEK AT BETHEL GROVE NY",
+    "dec_lat_va": 42.40263889,
+    "dec_long_va": -76.4355833
+  },
+  {
+    "site_no": "0423363400",
+    "station_nm": "BEAVER CR TRIB ABV WEIR NR LOWER LAB AT GRACIE NY",
+    "dec_lat_va": 42.55602778,
+    "dec_long_va": -76.24913889
+  },
+  {
+    "site_no": "04234000",
+    "station_nm": "FALL CREEK NEAR ITHACA NY",
+    "dec_lat_va": 42.4533333,
+    "dec_long_va": -76.47277778
+  },
+  {
+    "site_no": "0423401815",
+    "station_nm": "SALMON CREEK NEAR LUDLOWVILLE NY",
+    "dec_lat_va": 42.5526111,
+    "dec_long_va": -76.5338333
+  },
+  {
+    "site_no": "0423406130",
+    "station_nm": "SENECA RIVER AT FREE BRIDGE CORNERS NY",
+    "dec_lat_va": 42.96292674,
+    "dec_long_va": -76.7368961
+  },
+  {
+    "site_no": "04234254",
+    "station_nm": "GANARGUA CREEK AT MACEDON NY",
+    "dec_lat_va": 43.0674722,
+    "dec_long_va": -77.2982222
+  },
+  {
+    "site_no": "04234398",
+    "station_nm": "WEST RIVER AT MIDDLESEX NY",
+    "dec_lat_va": 42.70466667,
+    "dec_long_va": -77.2759167
+  },
+  {
+    "site_no": "04235000",
+    "station_nm": "CANANDAIGUA OUTLET AT CHAPIN NY",
+    "dec_lat_va": 42.9182222,
+    "dec_long_va": -77.23277778
+  },
+  {
+    "site_no": "04235250",
+    "station_nm": "FLINT CREEK AT PHELPS NY",
+    "dec_lat_va": 42.95816667,
+    "dec_long_va": -77.06791667
+  },
+  {
+    "site_no": "0423527080",
+    "station_nm": "CLYDE RIVER (ERIE CANAL) AT CLYDE NY",
+    "dec_lat_va": 43.0825833,
+    "dec_long_va": -76.87752778
+  },
+  {
+    "site_no": "04235299",
+    "station_nm": "OWASCO INLET BELOW AURORA STREET AT MORAVIA NY",
+    "dec_lat_va": 42.712917,
+    "dec_long_va": -76.43575
+  },
+  {
+    "site_no": "04235440",
+    "station_nm": "OWASCO OUTLET AT GENESEE ST., AUBURN NY",
+    "dec_lat_va": 42.93238889,
+    "dec_long_va": -76.5635556
+  },
+  {
+    "site_no": "04235600",
+    "station_nm": "SENECA RIVER (ERIE CANAL) NEAR PORT BYRON NY",
+    "dec_lat_va": 43.0786111,
+    "dec_long_va": -76.6455556
+  },
+  {
+    "site_no": "04235890",
+    "station_nm": "GROUT BROOK NEAR FAIR HAVEN NY",
+    "dec_lat_va": 42.74202778,
+    "dec_long_va": -76.2653611
+  },
+  {
+    "site_no": "04236800",
+    "station_nm": "SKANEATELES CREEK NEAR SKANEATELES JUNCTION NY",
+    "dec_lat_va": 43.01488889,
+    "dec_long_va": -76.47225
+  },
+  {
+    "site_no": "04237020",
+    "station_nm": "SENECA R (BARGE CANAL) AT CROSS LAKE NR JORDAN NY",
+    "dec_lat_va": 43.10013889,
+    "dec_long_va": -76.4981667
+  },
+  {
+    "site_no": "04237411",
+    "station_nm": "SENECA RIVER, MOUTH OF STATE DITCH, NR JORDAN NY",
+    "dec_lat_va": 43.11502778,
+    "dec_long_va": -76.4386111
+  },
+  {
+    "site_no": "04237496",
+    "station_nm": "SENECA RIVER NEAR BALDWINSVILLE NY",
+    "dec_lat_va": 43.1623333,
+    "dec_long_va": -76.3626944
+  },
+  {
+    "site_no": "04239000",
+    "station_nm": "ONONDAGA CREEK AT DORWIN AVENUE, SYRACUSE NY",
+    "dec_lat_va": 42.9833333,
+    "dec_long_va": -76.1508333
+  },
+  {
+    "site_no": "04240010",
+    "station_nm": "ONONDAGA CREEK AT SPENCER STREET, SYRACUSE NY",
+    "dec_lat_va": 43.05744444,
+    "dec_long_va": -76.162
+  },
+  {
+    "site_no": "04242640",
+    "station_nm": "FISH CREEK AT BECKS GROVE NY",
+    "dec_lat_va": 43.25825,
+    "dec_long_va": -75.61302778
+  },
+  {
+    "site_no": "04243500",
+    "station_nm": "ONEIDA CREEK AT ONEIDA NY",
+    "dec_lat_va": 43.09755556,
+    "dec_long_va": -75.6394167
+  },
+  {
+    "site_no": "04243783",
+    "station_nm": "COWASELON CREEK AT STATE ROUTE 13 AT CANASTOTA NY",
+    "dec_lat_va": 43.0956111,
+    "dec_long_va": -75.7512222
+  },
+  {
+    "site_no": "04244000",
+    "station_nm": "CHITTENANGO CREEK NEAR CHITTENANGO NY",
+    "dec_lat_va": 43.02308333,
+    "dec_long_va": -75.85861111
+  },
+  {
+    "site_no": "04245200",
+    "station_nm": "BUTTERNUT CREEK NEAR JAMESVILLE NY",
+    "dec_lat_va": 42.93427778,
+    "dec_long_va": -76.0618611
+  },
+  {
+    "site_no": "04245840",
+    "station_nm": "SCRIBA CREEK NEAR CONSTANTIA NY",
+    "dec_lat_va": 43.25980556,
+    "dec_long_va": -76.00277778
+  },
+  {
+    "site_no": "04247000",
+    "station_nm": "ONEIDA RIVER NEAR EUCLID NY",
+    "dec_lat_va": 43.2053611,
+    "dec_long_va": -76.21777778
+  },
+  {
+    "site_no": "04247055",
+    "station_nm": "OSWEGO RIVER NEAR PHOENIX NY",
+    "dec_lat_va": 43.21116667,
+    "dec_long_va": -76.2871111
+  },
+  {
+    "site_no": "04249000",
+    "station_nm": "OSWEGO RIVER AT LOCK 7, OSWEGO NY",
+    "dec_lat_va": 43.45138889,
+    "dec_long_va": -76.50547222
+  },
+  {
+    "site_no": "04249050",
+    "station_nm": "CATFISH CREEK AT NEW HAVEN NY",
+    "dec_lat_va": 43.4833611,
+    "dec_long_va": -76.32575
+  },
+  {
+    "site_no": "04249200",
+    "station_nm": "NORTH BRANCH SALMON RIVER AT REDFIELD NY",
+    "dec_lat_va": 43.5423611,
+    "dec_long_va": -75.8139722
+  },
+  {
+    "site_no": "04250200",
+    "station_nm": "SALMON RIVER AT PINEVILLE NY",
+    "dec_lat_va": 43.53119444,
+    "dec_long_va": -76.0376944
+  },
+  {
+    "site_no": "04250750",
+    "station_nm": "SANDY CREEK NEAR ADAMS NY",
+    "dec_lat_va": 43.81369444,
+    "dec_long_va": -76.0744444
+  },
+  {
+    "site_no": "04252500",
+    "station_nm": "BLACK RIVER NEAR BOONVILLE NY",
+    "dec_lat_va": 43.5116111,
+    "dec_long_va": -75.30677778
+  },
+  {
+    "site_no": "04253294",
+    "station_nm": "BUCK CREEK, SOUTH TRIBUTARY, NEAR INLET NY",
+    "dec_lat_va": 43.74188889,
+    "dec_long_va": -74.7109167
+  },
+  {
+    "site_no": "04253295",
+    "station_nm": "BUCK CREEK, NORTH TRIBUTARY, NEAR INLET NY",
+    "dec_lat_va": 43.74369444,
+    "dec_long_va": -74.7132222
+  },
+  {
+    "site_no": "04253296",
+    "station_nm": "BUCK CREEK NEAR INLET NY",
+    "dec_lat_va": 43.74402778,
+    "dec_long_va": -74.7216667
+  },
+  {
+    "site_no": "04254500",
+    "station_nm": "MOOSE RIVER AT MCKEEVER NY",
+    "dec_lat_va": 43.61030556,
+    "dec_long_va": -75.1099444
+  },
+  {
+    "site_no": "04256000",
+    "station_nm": "INDEPENDENCE RIVER AT DONNATTSBURG NY",
+    "dec_lat_va": 43.74680556,
+    "dec_long_va": -75.3334444
+  },
+  {
+    "site_no": "04258000",
+    "station_nm": "BEAVER RIVER AT CROGHAN NY",
+    "dec_lat_va": 43.89716667,
+    "dec_long_va": -75.40427778
+  },
+  {
+    "site_no": "04260500",
+    "station_nm": "BLACK RIVER AT WATERTOWN NY",
+    "dec_lat_va": 43.9858333,
+    "dec_long_va": -75.9246111
+  },
+  {
+    "site_no": "04262000",
+    "station_nm": "OSWEGATCHIE RIVER NEAR OSWEGATCHIE NY",
+    "dec_lat_va": 44.22255556,
+    "dec_long_va": -75.0743056
+  },
+  {
+    "site_no": "04262500",
+    "station_nm": "WEST BRANCH OSWEGATCHIE RIVER NEAR HARRISVILLE NY",
+    "dec_lat_va": 44.185667,
+    "dec_long_va": -75.330389
+  },
+  {
+    "site_no": "04263000",
+    "station_nm": "OSWEGATCHIE RIVER NEAR HEUVELTON NY",
+    "dec_lat_va": 44.60002778,
+    "dec_long_va": -75.37891667
+  },
+  {
+    "site_no": "04265000",
+    "station_nm": "GRASS RIVER AT PYRITES NY",
+    "dec_lat_va": 44.5244444,
+    "dec_long_va": -75.19638889
+  },
+  {
+    "site_no": "04265432",
+    "station_nm": "GRASS RIVER AT CHASE MILLS NY",
+    "dec_lat_va": 44.84652778,
+    "dec_long_va": -75.0784444
+  },
+  {
+    "site_no": "04266500",
+    "station_nm": "RAQUETTE RIVER AT PIERCEFIELD NY",
+    "dec_lat_va": 44.23416667,
+    "dec_long_va": -74.57152778
+  },
+  {
+    "site_no": "04267500",
+    "station_nm": "RAQUETTE RIVER AT SOUTH COLTON NY",
+    "dec_lat_va": 44.5098333,
+    "dec_long_va": -74.8836111
+  },
+  {
+    "site_no": "04268000",
+    "station_nm": "RAQUETTE RIVER AT RAYMONDVILLE NY",
+    "dec_lat_va": 44.83888889,
+    "dec_long_va": -74.97888889
+  },
+  {
+    "site_no": "04268800",
+    "station_nm": "WEST BRANCH ST. REGIS RIVER NEAR PARISHVILLE NY",
+    "dec_lat_va": 44.59875,
+    "dec_long_va": -74.7372222
+  },
+  {
+    "site_no": "04269000",
+    "station_nm": "ST. REGIS RIVER AT BRASHER CENTER NY",
+    "dec_lat_va": 44.8637222,
+    "dec_long_va": -74.7786944
+  },
+  {
+    "site_no": "04270200",
+    "station_nm": "LITTLE SALMON RIVER AT BOMBAY NY",
+    "dec_lat_va": 44.939972,
+    "dec_long_va": -74.556806
+  },
+  {
+    "site_no": "04271500",
+    "station_nm": "GREAT CHAZY RIVER AT PERRY MILLS NY",
+    "dec_lat_va": 44.9996111,
+    "dec_long_va": -73.5020833
+  },
+  {
+    "site_no": "04271815",
+    "station_nm": "LITTLE CHAZY RIVER NEAR CHAZY NY",
+    "dec_lat_va": 44.90197222,
+    "dec_long_va": -73.41491667
+  },
+  {
+    "site_no": "04273500",
+    "station_nm": "SARANAC RIVER AT PLATTSBURGH NY",
+    "dec_lat_va": 44.68172222,
+    "dec_long_va": -73.47097222
+  },
+  {
+    "site_no": "04273700",
+    "station_nm": "SALMON RIVER AT SOUTH PLATTSBURGH NY",
+    "dec_lat_va": 44.64016667,
+    "dec_long_va": -73.49488889
+  },
+  {
+    "site_no": "04273800",
+    "station_nm": "LITTLE AUSABLE RIVER NEAR VALCOUR NY",
+    "dec_lat_va": 44.59427778,
+    "dec_long_va": -73.4963333
+  },
+  {
+    "site_no": "04274185",
+    "station_nm": "WHITE BROOK NEAR WILMINGTON NY",
+    "dec_lat_va": 44.392,
+    "dec_long_va": -73.85738889
+  },
+  {
+    "site_no": "04275000",
+    "station_nm": "EAST BRANCH AUSABLE RIVER AT AU SABLE FORKS NY",
+    "dec_lat_va": 44.438222,
+    "dec_long_va": -73.681
+  },
+  {
+    "site_no": "04275500",
+    "station_nm": "AUSABLE RIVER NEAR AU SABLE FORKS NY",
+    "dec_lat_va": 44.451722,
+    "dec_long_va": -73.643389
+  },
+  {
+    "site_no": "04276500",
+    "station_nm": "BOQUET RIVER AT WILLSBORO NY",
+    "dec_lat_va": 44.35847222,
+    "dec_long_va": -73.39455556
+  },
+  {
+    "site_no": "04280450",
+    "station_nm": "METTAWEE RIVER NEAR MIDDLE GRANVILLE NY",
+    "dec_lat_va": 43.46394444,
+    "dec_long_va": -73.2845
+  },
+  {
+    "site_no": "422917076275702",
+    "station_nm": "Ithaca subdistrict experimental test site 2",
+    "dec_lat_va": 42.48805556,
+    "dec_long_va": -76.4658333
+  }
+]

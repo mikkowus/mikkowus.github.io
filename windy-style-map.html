@@ -161,10 +161,25 @@
 
     async function fetchGaugeSites() {
       const url = 'https://waterservices.usgs.gov/nwis/site/?format=rdb&stateCd=NY&siteType=ST&parameterCd=00065&siteStatus=active';
-      const response = await fetch(url);
-      if (!response.ok) throw new Error('Unable to fetch USGS sites');
-      const text = await response.text();
-      return parseRdb(text);
+      try {
+        const response = await fetch(url);
+        if (!response.ok) throw new Error('Unable to fetch USGS sites');
+        const text = await response.text();
+        const sites = parseRdb(text);
+        if (sites && sites.length) return sites;
+        throw new Error('Parsed zero sites from USGS');
+      } catch (err) {
+        console.warn('USGS fetch failed, falling back to local JSON', err);
+        try {
+          const fallback = await fetch('usgs-ny-sites.json');
+          if (!fallback.ok) throw new Error('Fallback JSON not found');
+          const data = await fallback.json();
+          return data;
+        } catch (err2) {
+          console.error('Fallback failed', err2);
+          return [];
+        }
+      }
     }
 
     async function fetchGaugeWaterHeight(siteNo) {
