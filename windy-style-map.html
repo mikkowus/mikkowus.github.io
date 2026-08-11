@@ -247,6 +247,7 @@
         <div class="metric gauge-water-status"><strong>Status:</strong> Data loading…</div>
         <div class="metric gauge-weather-status"><strong>Weather:</strong> Loading…</div>
       `;
+      L.DomEvent.disableClickPropagation(container);
       return container;
     }
 
