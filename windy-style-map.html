@@ -185,29 +185,52 @@
         <div class="title">${site.station_nm || 'USGS gauge'}</div>
         <div class="meta">USGS ${site.site_no}</div>
         <div class="metric"><strong>Location:</strong> ${site.dec_lat_va}, ${site.dec_long_va}</div>
-        <div class="metric"><strong>Status:</strong> Data loading…</div>
+        <div class="metric gauge-water-status"><strong>Status:</strong> Data loading…</div>
+        <div class="metric gauge-weather-status"><strong>Weather:</strong> Loading…</div>
       `;
       return container;
     }
 
     async function loadGaugeSite(site, marker) {
       const popup = marker.getPopup();
-      const statusElPopup = popup?.getContent()?.querySelector('.metric:last-child');
+      const popupContent = popup?.getContent();
+      const statusElPopup = popupContent?.querySelector('.gauge-water-status');
+      const weatherElPopup = popupContent?.querySelector('.gauge-weather-status');
       if (statusElPopup) {
         statusElPopup.innerHTML = '<strong>Status:</strong> Data loading…';
       }
+      if (weatherElPopup) {
+        weatherElPopup.innerHTML = '<strong>Weather:</strong> Loading…';
+      }
       try {
-        const water = await fetchGaugeWaterHeight(site.site_no);
-        const text = water
-          ? `<strong>Status:</strong> ${water.value} ft as of ${new Date(water.time).toLocaleString()}`
-          : '<strong>Status:</strong> No real-time height available';
+        const [water, weather] = await Promise.all([
+          fetchGaugeWaterHeight(site.site_no),
+          fetchWind(parseFloat(site.dec_lat_va), parseFloat(site.dec_long_va)),
+        ]);
+
+        const waterText = water
+          ? `${water.value} ft as of ${new Date(water.time).toLocaleString()}`
+          : 'No real-time height available';
         if (statusElPopup) {
-          statusElPopup.innerHTML = text;
+          statusElPopup.innerHTML = `<strong>Status:</strong> ${waterText}`;
+        }
+
+        if (weatherElPopup) {
+          const windDirectionText = Number(weather.windDirection) >= 0 ? ` / ${formatWindDirection(weather.windDirection)}` : '';
+          weatherElPopup.innerHTML = `
+            <strong>Weather:</strong> ${weather.temperature}°${weather.unit}, ${weather.short}<br />
+            <strong>Wind:</strong> ${weather.windSpeed} ${weather.windDirection || ''}${windDirectionText}
+          `;
+        }
+
+        if (popup) {
           marker.getPopup().setContent(popup.getContent()).update();
         }
       } catch (err) {
-        if (statusElPopup) {
-          statusElPopup.innerHTML = `<strong>Status:</strong> <span style="color:#a00;">${err.message}</span>`;
+        if (weatherElPopup) {
+          weatherElPopup.innerHTML = `<strong>Weather:</strong> <span style="color:#a00;">${err.message}</span>`;
+        }
+        if (popup) {
           marker.getPopup().setContent(popup.getContent()).update();
         }
       }
