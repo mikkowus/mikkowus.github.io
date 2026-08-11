@@ -248,6 +248,11 @@
       meta.textContent = `Lat ${lat.toFixed(4)}, Lon ${lon.toFixed(4)}`;
       container.appendChild(meta);
 
+      const directions = document.createElement('div');
+      directions.className = 'metric';
+      directions.innerHTML = `<a href="https://www.google.com/maps/dir/?api=1&destination=${lat},${lon}&travelmode=driving" target="_blank" rel="noopener" style="color:#0f4c81;font-weight:700;">Google Maps directions</a>`;
+      container.appendChild(directions);
+
       const status = document.createElement('div');
       status.className = 'metric';
       status.textContent = 'Loading wind data…';
