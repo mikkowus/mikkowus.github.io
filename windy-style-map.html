@@ -259,6 +259,13 @@
       }
     }
 
+    // shared cluster group so paddlespots and gauges cluster together
+    const clusterGroup = L.markerClusterGroup({
+      disableClusteringAtZoom: 9,
+      spiderfyOnMaxZoom: true,
+    });
+    map.addLayer(clusterGroup);
+
     async function loadGaugeMarkers() {
       try {
         const sites = await fetchGaugeSites();
@@ -277,16 +284,96 @@
           markers.push(marker);
         });
 
-        const clusterGroup = L.markerClusterGroup({
-          disableClusteringAtZoom: 9,
-          spiderfyOnMaxZoom: true,
-        });
         clusterGroup.addLayers(markers);
-        map.addLayer(clusterGroup);
         loadStatus(`Loaded ${sites.length} NY USGS gauges. Click a marker for status. Click anywhere else for wind.`);
       } catch (err) {
         console.error(err);
         loadStatus('Unable to load NY USGS gauges. USGS service may be unavailable.');
+      }
+    }
+
+    // paddlespot icon (blue) and loader
+    const paddlespotIcon = L.divIcon({
+      html: '<div style="width:12px;height:12px;border-radius:50%;background:#2563eb;border:2px solid #60a5fa;box-shadow:0 1px 4px rgba(0,0,0,0.18);"></div>',
+      className: '',
+      iconSize: [12, 12],
+      iconAnchor: [6, 6],
+    });
+
+    function dmsToDecimal(dms) {
+      const m = dms.match(/(\d+)[°\s]+(\d+)'[\s]?(\d+(?:\.\d+)?)\"?\s*([NSEW])/i);
+      if (!m) return null;
+      let deg = Number(m[1]);
+      const min = Number(m[2]);
+      const sec = Number(m[3]);
+      const dir = m[4].toUpperCase();
+      let dec = deg + min/60 + sec/3600;
+      if (dir === 'S' || dir === 'W') dec = -dec;
+      return dec;
+    }
+
+    async function loadPaddlespots() {
+      try {
+        const res = await fetch('Paddlespots.csv');
+        if (!res.ok) return; // silently skip if not present
+        const text = await res.text();
+        const lines = text.split(/\r?\n/);
+        const spots = [];
+        const coordRe = /maps\/search\/(?:@)?(-?\d+\.\d+),(-?\d+\.\d+)/i;
+        const decPairRe = /(-?\d+\.\d+),\s*(-?\d+\.\d+)/g;
+        const dmsRe = /(\d+°\d+'\d+(?:\.\d+)?\"?\s*[NS]).*?(\d+°\d+'\d+(?:\.\d+)?\"?\s*[EW])/i;
+
+        for (const line of lines) {
+          if (!line || line.trim().length === 0) continue;
+          // try maps/search pattern first
+          let m = line.match(coordRe);
+          let lat = null, lon = null;
+          if (m) {
+            lat = parseFloat(m[1]);
+            lon = parseFloat(m[2]);
+          } else {
+            // try any decimal pair in the line
+            const dd = [...line.matchAll(decPairRe)];
+            if (dd.length) {
+              lat = parseFloat(dd[0][1]);
+              lon = parseFloat(dd[0][2]);
+            } else {
+              // try DMS in the line
+              const dm = line.match(dmsRe);
+              if (dm) {
+                const latDms = dm[1];
+                const lonDms = dm[2];
+                const la = dmsToDecimal(latDms);
+                const lo = dmsToDecimal(lonDms);
+                if (la !== null && lo !== null) {
+                  lat = la; lon = lo;
+                }
+              }
+            }
+          }
+
+          if (lat === null || lon === null) continue;
+
+          // filter to NY bounding box (approx)
+          if (lat >= 40.0 && lat <= 45.6 && lon >= -80.0 && lon <= -71.0) {
+            // extract a name if present (first CSV field)
+            const name = (line.split(',')[0] || '').replace(/^"|"$/g, '').trim() || 'Paddlespot';
+            spots.push({ name, lat, lon, raw: line });
+          }
+        }
+
+        const markers = spots.map(s => {
+          const m = L.marker([s.lat, s.lon], { icon: paddlespotIcon });
+          const popupHtml = `<div class="wind-popup"><div class="title">${s.name}</div><div class="meta">Lat ${s.lat.toFixed(5)}, Lon ${s.lon.toFixed(5)}</div></div>`;
+          m.bindPopup(popupHtml, { minWidth: 220 });
+          return m;
+        });
+        clusterGroup.addLayers(markers);
+        if (spots.length > 0) {
+          loadStatus(`Loaded ${spots.length} paddlespots (NY) from Paddlespots.csv`);
+        }
+      } catch (err) {
+        console.error('Failed to load paddlespots', err);
       }
     }
 
@@ -297,6 +384,24 @@
 
     loadStatus('Click anywhere on the map to view current wind conditions.');
     loadGaugeMarkers();
+    loadPaddlespots();
+    // add a few curated Ithaca-area access points
+    function addIthacaMarkers() {
+      const ithacaSpots = [
+        { name: 'Allan H. Treman State Marine Park', lat: 42.444700, lon: -76.496200 },
+        { name: 'Beebe Lake Boat Launch', lat: 42.444500, lon: -76.478600 },
+        { name: 'Cayuga Inlet Boat Launch (Stewart Park)', lat: 42.423900, lon: -76.482600 },
+      ];
+      const markers = ithacaSpots.map(s => {
+        const m = L.marker([s.lat, s.lon], { icon: paddlespotIcon });
+        const popupHtml = `<div class="wind-popup"><div class="title">${s.name}</div><div class="meta">Lat ${s.lat.toFixed(5)}, Lon ${s.lon.toFixed(5)}</div></div>`;
+        m.bindPopup(popupHtml, { minWidth: 220 });
+        return m;
+      });
+      clusterGroup.addLayers(markers);
+      loadStatus('Added curated Ithaca-area access pins');
+    }
+    addIthacaMarkers();
   </script>
 </body>
 </html>
