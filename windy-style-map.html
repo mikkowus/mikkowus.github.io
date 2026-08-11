@@ -28,6 +28,23 @@
     .topbar .brand { font-size: 1.1rem; font-weight: 700; letter-spacing: 0.02em; }
     .topbar .subtitle { color: #d2e3ff; font-size: 0.95rem; margin-left: auto; }
     .topbar a { color: #a9cfff; text-decoration: none; font-weight: 600; }
+    .radar-toggle {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 7px 14px;
+      border: 1px solid rgba(169, 207, 255, 0.5);
+      border-radius: 999px;
+      background: rgba(169, 207, 255, 0.12);
+      color: #e8f1ff;
+      font-size: 0.9rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: background 0.2s ease, border-color 0.2s ease;
+      user-select: none;
+    }
+    .radar-toggle:hover { background: rgba(169, 207, 255, 0.22); }
+    .radar-toggle.active { background: #2563eb; border-color: #60a5fa; color: white; }
     .leaflet-popup-content-wrapper { border-radius: 18px; border: 1px solid rgba(255,255,255,0.88); box-shadow: 0 14px 36px rgba(0,0,0,0.18); }
     .wind-popup { min-width: 240px; font-family: system-ui, sans-serif; color: #14233a; }
     .wind-popup .title { font-size: 1rem; font-weight: 700; margin-bottom: 6px; }
@@ -57,6 +74,7 @@
     <div class="brand">Windy-Style Wind Map</div>
     <a href="ny-gauges-map.html">NY Gauges Map</a>
     <div class="subtitle">Click anywhere to inspect wind and direction</div>
+    <button class="radar-toggle" id="radarToggle" type="button">Weather Radar: Off</button>
   </div>
   <div id="map"></div>
   <div class="status-box" id="status">Click any point on the map to load wind data.</div>
@@ -71,6 +89,32 @@
       attribution: '&copy; OpenStreetMap contributors',
       maxZoom: 18,
     }).addTo(map);
+
+    // Optional weather radar overlay (IEM NEXRAD composite)
+    const radarLayer = L.tileLayer('https://mesonet.agron.iastate.edu/cache/tile.py/1.0.0/nexrad-n0q-900913/{z}/{x}/{y}.png', {
+      attribution: 'Radar &copy; <a href="https://mesonet.agron.iastate.edu/">IEM NEXRAD</a>',
+      opacity: 0.6,
+      maxZoom: 15,
+      maxNativeZoom: 8,
+      zIndex: 500,
+    });
+
+    const radarToggle = document.getElementById('radarToggle');
+    let radarOn = false;
+    radarToggle.addEventListener('click', () => {
+      radarOn = !radarOn;
+      if (radarOn) {
+        radarLayer.addTo(map);
+        radarToggle.classList.add('active');
+        radarToggle.textContent = 'Weather Radar: On';
+        loadStatus('Weather radar overlay enabled (IEM NEXRAD).');
+      } else {
+        map.removeLayer(radarLayer);
+        radarToggle.classList.remove('active');
+        radarToggle.textContent = 'Weather Radar: Off';
+        loadStatus('Weather radar overlay disabled.');
+      }
+    });
 
     let clickMarker = null;
 
