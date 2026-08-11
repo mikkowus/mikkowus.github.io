@@ -500,6 +500,9 @@
             <div class="metric paddle-drive-status"><strong>Drive:</strong> Getting your location…</div>
             <div class="metric paddle-weather-status"><strong>Weather:</strong> Data loading…</div>
           `;
+          // Keep clicks inside the popup from bubbling to the map (which would
+          // close this popup and open a wind-observation popup instead).
+          L.DomEvent.disableClickPropagation(container);
           m.bindPopup(container, { minWidth: 220 });
           m.on('popupopen', async () => {
             const popup = m.getPopup();
