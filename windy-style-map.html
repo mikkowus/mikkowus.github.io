@@ -115,7 +115,7 @@
     <div class="brand">Windy-Style Wind Map</div>
     <a href="ny-gauges-map.html">NY Gauges Map</a>
     <div class="subtitle">Click anywhere to inspect wind and direction</div>
-    <button class="radar-toggle" id="radarToggle" type="button">Weather Radar: Off</button>
+    <button class="radar-toggle" id="radarToggle" type="button">Radar: Off</button>
     <div class="fc-stepper" id="fcStepper">
       <button type="button" id="fcMinus" aria-label="Earlier forecast">−</button>
       <span class="fc-value" id="fcValue">Now</span>
@@ -191,7 +191,7 @@
         fcStepper.style.display = 'flex';
         selectForecast(0);
         radarToggle.classList.add('active');
-        radarToggle.textContent = 'Weather Radar: On';
+        radarToggle.textContent = 'Radar: On';
       } else {
         fcStepper.style.display = 'none';
         if (currentRadarLayer) map.removeLayer(currentRadarLayer);
