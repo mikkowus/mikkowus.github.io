@@ -447,46 +447,6 @@
     loadStatus('Click anywhere on the map to view current wind conditions.');
     loadGaugeMarkers();
     loadPaddlespots();
-    // add a few curated Ithaca-area access points
-    function addIthacaMarkers() {
-      const ithacaSpots = [
-        { name: 'Allan H. Treman State Marine Park', lat: 42.444700, lon: -76.496200 },
-        { name: 'Beebe Lake Boat Launch', lat: 42.444500, lon: -76.478600 },
-        { name: 'Cayuga Inlet Boat Launch (Stewart Park)', lat: 42.423900, lon: -76.482600 },
-      ];
-        const markers = ithacaSpots.map(s => {
-          const m = L.marker([s.lat, s.lon], { icon: paddlespotIcon });
-          const container = document.createElement('div');
-          container.className = 'wind-popup';
-          container.innerHTML = `
-            <div class="title">${s.name}</div>
-            <div class="meta">Lat ${s.lat.toFixed(5)}, Lon ${s.lon.toFixed(5)}</div>
-            <div class="metric paddle-weather-status"><strong>Weather:</strong> Data loading…</div>
-          `;
-          m.bindPopup(container, { minWidth: 220 });
-          m.on('popupopen', async () => {
-            const popup = m.getPopup();
-            const content = popup.getContent();
-            const weatherEl = content.querySelector('.paddle-weather-status');
-            if (weatherEl) weatherEl.innerHTML = '<strong>Weather:</strong> Loading…';
-            try {
-              const w = await fetchWind(s.lat, s.lon);
-              if (weatherEl) {
-                const windDirectionText = Number(w.windDirection) >= 0 ? ` / ${formatWindDirection(w.windDirection)}` : '';
-                weatherEl.innerHTML = `<strong>Weather:</strong> ${w.temperature}°${w.unit}, ${w.short}<br/><strong>Wind:</strong> ${w.windSpeed} ${w.windDirection || ''}${windDirectionText}`;
-              }
-              popup.setContent(content).update();
-            } catch (err) {
-              if (weatherEl) weatherEl.innerHTML = `<strong>Weather:</strong> <span style="color:#a00;">${err.message}</span>`;
-              popup.setContent(content).update();
-            }
-          });
-          return m;
-        });
-        clusterGroup.addLayers(markers);
-        loadStatus('Added curated Ithaca-area access pins');
-    }
-    addIthacaMarkers();
   </script>
 </body>
 </html>
