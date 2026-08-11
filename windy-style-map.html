@@ -516,6 +516,13 @@
               popup.setContent(content).update();
             }
 
+            function driveResultHtml(info, originLat, originLon) {
+              const dest = `${s.lat},${s.lon}`;
+              const originParam = (originLat !== undefined && originLon !== undefined) ? `&origin=${originLat},${originLon}` : '';
+              const url = `https://www.google.com/maps/dir/?api=1&destination=${dest}${originParam}&travelmode=driving`;
+              return `~${formatDriveDistance(info.distance)} · ${formatDriveDuration(info.duration)} <a href="${url}" target="_blank" rel="noopener" style="color:#0f4c81;font-weight:700;">(Google Maps directions)</a>`;
+            }
+
             async function showDriveAddressFallback() {
               if (!driveEl) return;
               driveEl.innerHTML = `<strong>Drive:</strong> <input class="drive-origin" type="text" placeholder="Type starting address" style="width:170px;padding:4px 6px;border:1px solid #cbd5e1;border-radius:6px;font-size:0.82rem;" /> <button class="drive-go" type="button" style="padding:4px 10px;background:#0f4c81;color:white;border:none;border-radius:6px;font-size:0.82rem;cursor:pointer;">Go</button>`;
@@ -530,7 +537,7 @@
                   const origin = await geocodeAddress(q);
                   await setDriveText('Calculating route…');
                   const info = await fetchDriveInfo(origin.lat, origin.lon, s.lat, s.lon);
-                  await setDriveText(`~${formatDriveDistance(info.distance)} · ${formatDriveDuration(info.duration)}`);
+                  await setDriveText(driveResultHtml(info, origin.lat, origin.lon));
                 } catch (err) {
                   await setDriveText(`<span style="color:#a00;">${err.message}</span>`);
                 }
@@ -549,7 +556,7 @@
                 const pos = await getCurrentPosition();
                 await setDriveText('Calculating route…');
                 const info = await fetchDriveInfo(pos.coords.latitude, pos.coords.longitude, s.lat, s.lon);
-                await setDriveText(`~${formatDriveDistance(info.distance)} · ${formatDriveDuration(info.duration)}`);
+                await setDriveText(driveResultHtml(info, pos.coords.latitude, pos.coords.longitude));
               } catch (err) {
                 await setDriveText(`<span style="color:#a00;">${err.message}</span>`);
                 showDriveAddressFallback();
