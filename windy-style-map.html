@@ -74,13 +74,12 @@
 
     let clickMarker = null;
 
-    const gaugeIcon = {
-      radius: 6,
-      color: '#f59e0b',
-      fillColor: '#dc2626',
-      fillOpacity: 1,
-      weight: 2,
-    };
+    const gaugeIcon = L.divIcon({
+      html: '<div style="width:12px;height:12px;border-radius:50%;background:#dc2626;border:2px solid #f59e0b;box-shadow:0 1px 4px rgba(0,0,0,0.25);"></div>',
+      className: '',
+      iconSize: [12, 12],
+      iconAnchor: [6, 6],
+    });
 
     function loadStatus(text) {
       statusEl.textContent = text;
@@ -186,7 +185,7 @@
         <div class="title">${site.station_nm || 'USGS gauge'}</div>
         <div class="meta">USGS ${site.site_no}</div>
         <div class="metric"><strong>Location:</strong> ${site.dec_lat_va}, ${site.dec_long_va}</div>
-        <div class="metric"><strong>Status:</strong> Loading…</div>
+        <div class="metric"><strong>Status:</strong> Data loading…</div>
       `;
       return container;
     }
@@ -195,7 +194,7 @@
       const popup = marker.getPopup();
       const statusElPopup = popup?.getContent()?.querySelector('.metric:last-child');
       if (statusElPopup) {
-        statusElPopup.innerHTML = '<strong>Status:</strong> Loading…';
+        statusElPopup.innerHTML = '<strong>Status:</strong> Data loading…';
       }
       try {
         const water = await fetchGaugeWaterHeight(site.site_no);
@@ -240,17 +239,27 @@
     async function loadGaugeMarkers() {
       try {
         const sites = await fetchGaugeSites();
-        const gaugeLayer = L.layerGroup();
+        const markers = [];
+
         sites.forEach((site) => {
           const lat = parseFloat(site.dec_lat_va);
           const lon = parseFloat(site.dec_long_va);
           if (Number.isNaN(lat) || Number.isNaN(lon)) return;
-          const marker = L.circleMarker([lat, lon], gaugeIcon);
+          const marker = L.marker([lat, lon], { icon: gaugeIcon });
           marker.bindPopup(buildGaugePopup(site), { minWidth: 240 });
-          marker.on('popupopen', () => loadGaugeSite(site, marker));
-          gaugeLayer.addLayer(marker);
+          marker.on('popupopen', () => {
+            marker.openPopup();
+            loadGaugeSite(site, marker);
+          });
+          markers.push(marker);
         });
-        map.addLayer(gaugeLayer);
+
+        const clusterGroup = L.markerClusterGroup({
+          disableClusteringAtZoom: 9,
+          spiderfyOnMaxZoom: true,
+        });
+        clusterGroup.addLayers(markers);
+        map.addLayer(clusterGroup);
         loadStatus(`Loaded ${sites.length} NY USGS gauges. Click a marker for status. Click anywhere else for wind.`);
       } catch (err) {
         console.error(err);
