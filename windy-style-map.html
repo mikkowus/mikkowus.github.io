@@ -347,6 +347,7 @@
         <div class="metric"><strong>Location:</strong> ${site.dec_lat_va}, ${site.dec_long_va}</div>
         <div class="metric gauge-water-status"><strong>Status:</strong> Data loading…</div>
         <div class="metric gauge-weather-status"><strong>Weather:</strong> Loading…</div>
+        <div class="metric gauge-wind-status"><strong>Wind:</strong> Loading…</div>
       `;
       L.DomEvent.disableClickPropagation(container);
       return container;
@@ -357,11 +358,15 @@
       const popupContent = popup?.getContent();
       const statusElPopup = popupContent?.querySelector('.gauge-water-status');
       const weatherElPopup = popupContent?.querySelector('.gauge-weather-status');
+      const windElPopup = popupContent?.querySelector('.gauge-wind-status');
       if (statusElPopup) {
         statusElPopup.innerHTML = '<strong>Status:</strong> Data loading…';
       }
       if (weatherElPopup) {
         weatherElPopup.innerHTML = '<strong>Weather:</strong> Loading…';
+      }
+      if (windElPopup) {
+        windElPopup.innerHTML = '<strong>Wind:</strong> Loading…';
       }
       try {
         const [water, weather] = await Promise.all([
@@ -377,11 +382,11 @@
         }
 
         if (weatherElPopup) {
+          weatherElPopup.innerHTML = `<strong>Weather:</strong> ${weather.temperature}°${weather.unit}, ${weather.short}`;
+        }
+        if (windElPopup) {
           const windDirectionText = Number(weather.windDirection) >= 0 ? ` / ${formatWindDirection(weather.windDirection)}` : '';
-          weatherElPopup.innerHTML = `
-            <strong>Weather:</strong> ${weather.temperature}°${weather.unit}, ${weather.short}<br />
-            <strong>Wind:</strong> ${weather.windSpeed} ${weather.windDirection || ''}${windDirectionText}
-          `;
+          windElPopup.innerHTML = `<strong>Wind:</strong> ${weather.windSpeed} ${weather.windDirection || ''}${windDirectionText}`;
         }
 
         if (popup) {
@@ -390,6 +395,9 @@
       } catch (err) {
         if (weatherElPopup) {
           weatherElPopup.innerHTML = `<strong>Weather:</strong> <span style="color:#a00;">${err.message}</span>`;
+        }
+        if (windElPopup) {
+          windElPopup.innerHTML = '<strong>Wind:</strong> n/a';
         }
         if (popup) {
           marker.getPopup().setContent(popup.getContent()).update();
