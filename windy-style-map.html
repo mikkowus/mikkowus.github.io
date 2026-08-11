@@ -399,13 +399,15 @@
           spots.push({ name, notes, lat, lon });
         }
 
+        const escapeHtml = (str) => (str || '').replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
+
         const markers = spots.map(s => {
           const m = L.marker([s.lat, s.lon], { icon: paddlespotIcon });
           const container = document.createElement('div');
           container.className = 'wind-popup';
-          const notesHtml = s.notes ? `<div class="meta" style="color:#0f4c81; font-weight:600; margin-bottom:4px;">Notes: ${s.notes}</div>` : '';
+          const notesHtml = s.notes ? `<div class="metric" style="background:#eff6ff; border-left:3px solid #2563eb; padding:6px 10px; margin:8px 0; border-radius:4px; font-size:0.88rem; color:#1e40af;"><strong>Note:</strong> ${escapeHtml(s.notes)}</div>` : '';
           container.innerHTML = `
-            <div class="title">${s.name}</div>
+            <div class="title">${escapeHtml(s.name)}</div>
             ${notesHtml}
             <div class="meta">Lat ${s.lat.toFixed(5)}, Lon ${s.lon.toFixed(5)}</div>
             <div class="metric paddle-weather-status"><strong>Weather:</strong> Data loading…</div>
