@@ -1,0 +1,4013 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<kml xmlns="http://www.opengis.net/kml/2.2">
+  <Document>
+    <name>paddle spots from joe</name>
+    <description>paddle spots from joe</description>
+    <Style id="icon-1899-0288D1-normal">
+      <IconStyle>
+        <color>ffd18802</color>
+        <scale>1</scale>
+        <Icon>
+          <href>https://www.gstatic.com/mapspro/images/stock/503-wht-blank_maps.png</href>
+        </Icon>
+        <hotSpot x="32" xunits="pixels" y="64" yunits="insetPixels"/>
+      </IconStyle>
+      <LabelStyle>
+        <scale>0</scale>
+      </LabelStyle>
+    </Style>
+    <Style id="icon-1899-0288D1-highlight">
+      <IconStyle>
+        <color>ffd18802</color>
+        <scale>1</scale>
+        <Icon>
+          <href>https://www.gstatic.com/mapspro/images/stock/503-wht-blank_maps.png</href>
+        </Icon>
+        <hotSpot x="32" xunits="pixels" y="64" yunits="insetPixels"/>
+      </IconStyle>
+      <LabelStyle>
+        <scale>1</scale>
+      </LabelStyle>
+    </Style>
+    <StyleMap id="icon-1899-0288D1">
+      <Pair>
+        <key>normal</key>
+        <styleUrl>#icon-1899-0288D1-normal</styleUrl>
+      </Pair>
+      <Pair>
+        <key>highlight</key>
+        <styleUrl>#icon-1899-0288D1-highlight</styleUrl>
+      </Pair>
+    </StyleMap>
+    <Folder>
+      <name>Untitled layer</name>
+    </Folder>
+    <Folder>
+      <name>Paddlespots.csv</name>
+      <Placemark>
+        <name/>
+        <description><![CDATA[Note: <br>URL: <br>Tags: <br>Comment: ]]></description>
+        <ExtendedData>
+          <Data name="Note">
+            <value/>
+          </Data>
+          <Data name="URL">
+            <value/>
+          </Data>
+          <Data name="Tags">
+            <value/>
+          </Data>
+          <Data name="Comment">
+            <value/>
+          </Data>
+        </ExtendedData>
+      </Placemark>
+      <Placemark>
+        <name>Rainbow Bend State Forest Campground</name>
+        <address>Rainbow Bend State Forest Campground https://www.google.com/maps/place/Rainbow+Bend+State+Forest+Campground/data=!4m2!3m1!1s0x882065987cfadbe1:0x40ff890d184b7e97</address>
+        <description><![CDATA[Note: <br>URL: https://www.google.com/maps/place/Rainbow+Bend+State+Forest+Campground/data=!4m2!3m1!1s0x882065987cfadbe1:0x40ff890d184b7e97<br>Tags: <br>Comment: ]]></description>
+        <styleUrl>#icon-1899-0288D1</styleUrl>
+        <ExtendedData>
+          <Data name="Note">
+            <value/>
+          </Data>
+          <Data name="URL">
+            <value>https://www.google.com/maps/place/Rainbow+Bend+State+Forest+Campground/data=!4m2!3m1!1s0x882065987cfadbe1:0x40ff890d184b7e97</value>
+          </Data>
+          <Data name="Tags">
+            <value/>
+          </Data>
+          <Data name="Comment">
+            <value/>
+          </Data>
+        </ExtendedData>
+      </Placemark>
+      <Placemark>
+        <name><![CDATA[44°40'35.8"N 84°32'52.4"W]]></name>
+        <description><![CDATA[Note: <br>URL: https://www.google.com/maps/search/44.6766125,-84.5478871<br>Tags: <br>Comment: ]]></description>
+        <ExtendedData>
+          <Data name="Note">
+            <value/>
+          </Data>
+          <Data name="URL">
+            <value>https://www.google.com/maps/search/44.6766125,-84.5478871</value>
+          </Data>
+          <Data name="Tags">
+            <value/>
+          </Data>
+          <Data name="Comment">
+            <value/>
+          </Data>
+        </ExtendedData>
+      </Placemark>
+      <Placemark>
+        <name>Grayling City Park</name>
+        <address>Grayling City Park https://www.google.com/maps/place/Grayling+City+Park/data=!4m2!3m1!1s0x882011474b7b6319:0x42876f98b4b00cbf</address>
+        <description><![CDATA[Note: <br>URL: https://www.google.com/maps/place/Grayling+City+Park/data=!4m2!3m1!1s0x882011474b7b6319:0x42876f98b4b00cbf<br>Tags: <br>Comment: ]]></description>
+        <styleUrl>#icon-1899-0288D1</styleUrl>
+        <ExtendedData>
+          <Data name="Note">
+            <value/>
+          </Data>
+          <Data name="URL">
+            <value>https://www.google.com/maps/place/Grayling+City+Park/data=!4m2!3m1!1s0x882011474b7b6319:0x42876f98b4b00cbf</value>
+          </Data>
+          <Data name="Tags">
+            <value/>
+          </Data>
+          <Data name="Comment">
+            <value/>
+          </Data>
+        </ExtendedData>
+      </Placemark>
+      <Placemark>
+        <name>Dropped pin</name>
+        <description><![CDATA[Note: <br>URL: https://www.google.com/maps/search/44.6711054,-84.6571121<br>Tags: <br>Comment: ]]></description>
+        <ExtendedData>
+          <Data name="Note">
+            <value/>
+          </Data>
+          <Data name="URL">
+            <value>https://www.google.com/maps/search/44.6711054,-84.6571121</value>
+          </Data>
+          <Data name="Tags">
+            <value/>
+          </Data>
+          <Data name="Comment">
+            <value/>
+          </Data>
+        </ExtendedData>
+      </Placemark>
+      <Placemark>
+        <name>Thendara public access</name>
+        <description><![CDATA[Note: <br>URL: https://www.google.com/maps/place/Thendara+public+access/data=!4m2!3m1!1s0x8820130077249f43:0x9495a589e6d38625<br>Tags: <br>Comment: ]]></description>
+        <ExtendedData>
+          <Data name="Note">
+            <value/>
+          </Data>
+          <Data name="URL">
+            <value>https://www.google.com/maps/place/Thendara+public+access/data=!4m2!3m1!1s0x8820130077249f43:0x9495a589e6d38625</value>
+          </Data>
+          <Data name="Tags">
+            <value/>
+          </Data>
+          <Data name="Comment">
+            <value/>
+          </Data>
+        </ExtendedData>
+      </Placemark>
+      <Placemark>
+        <name>Parmalee Canoe Launch</name>
+        <address>Parmalee Canoe Launch https://www.google.com/maps/place/Parmalee+Canoe+Launch/data=!4m2!3m1!1s0x882063b71d133e23:0x17e4637303561df</address>
+        <description><![CDATA[Note: <br>URL: https://www.google.com/maps/place/Parmalee+Canoe+Launch/data=!4m2!3m1!1s0x882063b71d133e23:0x17e4637303561df<br>Tags: <br>Comment: ]]></description>
+        <styleUrl>#icon-1899-0288D1</styleUrl>
+        <ExtendedData>
+          <Data name="Note">
+            <value/>
+          </Data>
+          <Data name="URL">
+            <value>https://www.google.com/maps/place/Parmalee+Canoe+Launch/data=!4m2!3m1!1s0x882063b71d133e23:0x17e4637303561df</value>
+          </Data>
+          <Data name="Tags">
+            <value/>
+          </Data>
+          <Data name="Comment">
+            <value/>
+          </Data>
+        </ExtendedData>
+      </Placemark>
+      <Placemark>
+        <name><![CDATA[44°40'00.9"N 84°24'08.1"W]]></name>
+        <description><![CDATA[Note: <br>URL: https://www.google.com/maps/search/44.6669239,-84.4022435<br>Tags: <br>Comment: ]]></description>
+        <ExtendedData>
+          <Data name="Note">
+            <value/>
+          </Data>
+          <Data name="URL">
+            <value>https://www.google.com/maps/search/44.6669239,-84.4022435</value>
+          </Data>
+          <Data name="Tags">
+            <value/>
+          </Data>
+          <Data name="Comment">
+            <value/>
+          </Data>
+        </ExtendedData>
+      </Placemark>
+      <Placemark>
+        <name>Dropped pin</name>
+        <description><![CDATA[Note: <br>URL: https://www.google.com/maps/search/44.4389144,-83.4364907<br>Tags: <br>Comment: ]]></description>
+        <ExtendedData>
+          <Data name="Note">
+            <value/>
+          </Data>
+          <Data name="URL">
+            <value>https://www.google.com/maps/search/44.4389144,-83.4364907</value>
+          </Data>
+          <Data name="Tags">
+            <value/>
+          </Data>
+          <Data name="Comment">
+            <value/>
+          </Data>
+        </ExtendedData>
+      </Placemark>
+      <Placemark>
+        <name>Foote Site Boat Launch</name>
+        <address>Foote Site Boat Launch https://www.google.com/maps/place/Foote+Site+Boat+Launch/data=!4m2!3m1!1s0x882731550911fd61:0x665645efe81ec6e0</address>
+        <description><![CDATA[Note: <br>URL: https://www.google.com/maps/place/Foote+Site+Boat+Launch/data=!4m2!3m1!1s0x882731550911fd61:0x665645efe81ec6e0<br>Tags: <br>Comment: ]]></description>
+        <styleUrl>#icon-1899-0288D1</styleUrl>
+        <ExtendedData>
+          <Data name="Note">
+            <value/>
+          </Data>
+          <Data name="URL">
+            <value>https://www.google.com/maps/place/Foote+Site+Boat+Launch/data=!4m2!3m1!1s0x882731550911fd61:0x665645efe81ec6e0</value>
+          </Data>
+          <Data name="Tags">
+            <value/>
+          </Data>
+          <Data name="Comment">
+            <value/>
+          </Data>
+        </ExtendedData>
+      </Placemark>
+      <Placemark>
+        <name>4001 Bridge Landing</name>
+        <address>4001 Bridge Landing https://www.google.com/maps/place/4001+Bridge+Landing/data=!4m2!3m1!1s0x8820bb164508fd3d:0x29928ad9e67986fd</address>
+        <description><![CDATA[Note: <br>URL: https://www.google.com/maps/place/4001+Bridge+Landing/data=!4m2!3m1!1s0x8820bb164508fd3d:0x29928ad9e67986fd<br>Tags: <br>Comment: ]]></description>
+        <styleUrl>#icon-1899-0288D1</styleUrl>
+        <ExtendedData>
+          <Data name="Note">
+            <value/>
+          </Data>
+          <Data name="URL">
+            <value>https://www.google.com/maps/place/4001+Bridge+Landing/data=!4m2!3m1!1s0x8820bb164508fd3d:0x29928ad9e67986fd</value>
+          </Data>
+          <Data name="Tags">
+            <value/>
+          </Data>
+          <Data name="Comment">
+            <value/>
+          </Data>
+        </ExtendedData>
+      </Placemark>
+      <Placemark>
+        <name>Davis Rest Stop</name>
+        <address>Davis Rest Stop https://www.google.com/maps/place/Davis+Rest+Stop/data=!4m2!3m1!1s0x882096e1303f177d:0x272695a6a9132e92</address>
+        <description><![CDATA[Note: <br>URL: https://www.google.com/maps/place/Davis+Rest+Stop/data=!4m2!3m1!1s0x882096e1303f177d:0x272695a6a9132e92<br>Tags: <br>Comment: ]]></description>
+        <styleUrl>#icon-1899-0288D1</styleUrl>
+        <ExtendedData>
+          <Data name="Note">
+            <value/>
+          </Data>
+          <Data name="URL">
+            <value>https://www.google.com/maps/place/Davis+Rest+Stop/data=!4m2!3m1!1s0x882096e1303f177d:0x272695a6a9132e92</value>
+          </Data>
+          <Data name="Tags">
+            <value/>
+          </Data>
+          <Data name="Comment">
+            <value/>
+          </Data>
+        </ExtendedData>
+      </Placemark>
+      <Placemark>
+        <name>McKinley Landing</name>
+        <address>McKinley Landing https://www.google.com/maps/place/McKinley+Landing/data=!4m2!3m1!1s0x88209625409fbe13:0x3d303181756d7a7c</address>
+        <description><![CDATA[Note: <br>URL: https://www.google.com/maps/place/McKinley+Landing/data=!4m2!3m1!1s0x88209625409fbe13:0x3d303181756d7a7c<br>Tags: <br>Comment: ]]></description>
+        <styleUrl>#icon-1899-0288D1</styleUrl>
+        <ExtendedData>
+          <Data name="Note">
+            <value/>
+          </Data>
+          <Data name="URL">
+            <value>https://www.google.com/maps/place/McKinley+Landing/data=!4m2!3m1!1s0x88209625409fbe13:0x3d303181756d7a7c</value>
+          </Data>
+          <Data name="Tags">
+            <value/>
+          </Data>
+          <Data name="Comment">
+            <value/>
+          </Data>
+        </ExtendedData>
+      </Placemark>
+      <Placemark>
+        <name>Fed Trail 4291 Canoe Kayak landing</name>
+        <address>Fed Trail 4291 Canoe Kayak landing https://www.google.com/maps/place/Fed+Trail+4291+Canoe+Kayak+landing/data=!4m2!3m1!1s0x8820972d1c96d42f:0xfba4786aa223617d</address>
+        <description><![CDATA[Note: <br>URL: https://www.google.com/maps/place/Fed+Trail+4291+Canoe+Kayak+landing/data=!4m2!3m1!1s0x8820972d1c96d42f:0xfba4786aa223617d<br>Tags: <br>Comment: ]]></description>
+        <styleUrl>#icon-1899-0288D1</styleUrl>
+        <ExtendedData>
+          <Data name="Note">
+            <value/>
+          </Data>
+          <Data name="URL">
+            <value>https://www.google.com/maps/place/Fed+Trail+4291+Canoe+Kayak+landing/data=!4m2!3m1!1s0x8820972d1c96d42f:0xfba4786aa223617d</value>
+          </Data>
+          <Data name="Tags">
+            <value/>
+          </Data>
+          <Data name="Comment">
+            <value/>
+          </Data>
+        </ExtendedData>
+      </Placemark>
+      <Placemark>
+        <name>Au Sable River - Comins Flats Boat Launch</name>
+        <address>Au Sable River - Comins Flats Boat Launch https://www.google.com/maps/place/Au+Sable+River+-+Comins+Flats+Boat+Launch/data=!4m2!3m1!1s0x882091a074ebcef7:0x9569a18b2bf729f5</address>
+        <description><![CDATA[Note: <br>URL: https://www.google.com/maps/place/Au+Sable+River+-+Comins+Flats+Boat+Launch/data=!4m2!3m1!1s0x882091a074ebcef7:0x9569a18b2bf729f5<br>Tags: <br>Comment: ]]></description>
+        <styleUrl>#icon-1899-0288D1</styleUrl>
+        <ExtendedData>
+          <Data name="Note">
+            <value/>
+          </Data>
+          <Data name="URL">
+            <value>https://www.google.com/maps/place/Au+Sable+River+-+Comins+Flats+Boat+Launch/data=!4m2!3m1!1s0x882091a074ebcef7:0x9569a18b2bf729f5</value>
+          </Data>
+          <Data name="Tags">
+            <value/>
+          </Data>
+          <Data name="Comment">
+            <value/>
+          </Data>
+        </ExtendedData>
+      </Placemark>
+      <Placemark>
+        <name>Fed Trail 4366 Canoe Kayak Landing</name>
+        <address>Fed Trail 4366 Canoe Kayak Landing https://www.google.com/maps/place/Fed+Trail+4366+Canoe+Kayak+Landing/data=!4m2!3m1!1s0x882091d28a83b007:0xb9ebf72dea906324</address>
+        <description><![CDATA[Note: <br>URL: https://www.google.com/maps/place/Fed+Trail+4366+Canoe+Kayak+Landing/data=!4m2!3m1!1s0x882091d28a83b007:0xb9ebf72dea906324<br>Tags: <br>Comment: ]]></description>
+        <styleUrl>#icon-1899-0288D1</styleUrl>
+        <ExtendedData>
+          <Data name="Note">
+            <value/>
+          </Data>
+          <Data name="URL">
+            <value>https://www.google.com/maps/place/Fed+Trail+4366+Canoe+Kayak+Landing/data=!4m2!3m1!1s0x882091d28a83b007:0xb9ebf72dea906324</value>
+          </Data>
+          <Data name="Tags">
+            <value/>
+          </Data>
+          <Data name="Comment">
+            <value/>
+          </Data>
+        </ExtendedData>
+      </Placemark>
+      <Placemark>
+        <name>Fed Trail 4367 Canoe Landing</name>
+        <address>Fed Trail 4367 Canoe Landing https://www.google.com/maps/place/Fed+Trail+4367+Canoe+Landing/data=!4m2!3m1!1s0x88208fd4ca554ab9:0x5301c85d8f9685e1</address>
+        <description><![CDATA[Note: <br>URL: https://www.google.com/maps/place/Fed+Trail+4367+Canoe+Landing/data=!4m2!3m1!1s0x88208fd4ca554ab9:0x5301c85d8f9685e1<br>Tags: <br>Comment: ]]></description>
+        <styleUrl>#icon-1899-0288D1</styleUrl>
+        <ExtendedData>
+          <Data name="Note">
+            <value/>
+          </Data>
+          <Data name="URL">
+            <value>https://www.google.com/maps/place/Fed+Trail+4367+Canoe+Landing/data=!4m2!3m1!1s0x88208fd4ca554ab9:0x5301c85d8f9685e1</value>
+          </Data>
+          <Data name="Tags">
+            <value/>
+          </Data>
+          <Data name="Comment">
+            <value/>
+          </Data>
+        </ExtendedData>
+      </Placemark>
+      <Placemark>
+        <name>Whirlpool Canoe Launch</name>
+        <address>Whirlpool Canoe Launch https://www.google.com/maps/place/Whirlpool+Canoe+Launch/data=!4m2!3m1!1s0x882089245f1df277:0xfe8a8ba3986f8744</address>
+        <description><![CDATA[Note: <br>URL: https://www.google.com/maps/place/Whirlpool+Canoe+Launch/data=!4m2!3m1!1s0x882089245f1df277:0xfe8a8ba3986f8744<br>Tags: <br>Comment: ]]></description>
+        <styleUrl>#icon-1899-0288D1</styleUrl>
+        <ExtendedData>
+          <Data name="Note">
+            <value/>
+          </Data>
+          <Data name="URL">
+            <value>https://www.google.com/maps/place/Whirlpool+Canoe+Launch/data=!4m2!3m1!1s0x882089245f1df277:0xfe8a8ba3986f8744</value>
+          </Data>
+          <Data name="Tags">
+            <value/>
+          </Data>
+          <Data name="Comment">
+            <value/>
+          </Data>
+        </ExtendedData>
+      </Placemark>
+      <Placemark>
+        <name>Dropped pin</name>
+        <description><![CDATA[Note: Breakfast point<br>URL: https://www.google.com/maps/search/44.6621115,-84.682126<br>Tags: <br>Comment: ]]></description>
+        <ExtendedData>
+          <Data name="Note">
+            <value>Breakfast point</value>
+          </Data>
+          <Data name="URL">
+            <value>https://www.google.com/maps/search/44.6621115,-84.682126</value>
+          </Data>
+          <Data name="Tags">
+            <value/>
+          </Data>
+          <Data name="Comment">
+            <value/>
+          </Data>
+        </ExtendedData>
+      </Placemark>
+      <Placemark>
+        <name><![CDATA[44°39'19.5"N 84°29'13.4"W]]></name>
+        <description><![CDATA[Note: <br>URL: https://www.google.com/maps/search/44.6554256,-84.487052<br>Tags: <br>Comment: ]]></description>
+        <ExtendedData>
+          <Data name="Note">
+            <value/>
+          </Data>
+          <Data name="URL">
+            <value>https://www.google.com/maps/search/44.6554256,-84.487052</value>
+          </Data>
+          <Data name="Tags">
+            <value/>
+          </Data>
+          <Data name="Comment">
+            <value/>
+          </Data>
+        </ExtendedData>
+      </Placemark>
+      <Placemark>
+        <name>Dropped pin</name>
+        <description><![CDATA[Note: Camp pine fishing access<br>URL: https://www.google.com/maps/search/44.6766704,-84.5621367<br>Tags: <br>Comment: ]]></description>
+        <ExtendedData>
+          <Data name="Note">
+            <value>Camp pine fishing access</value>
+          </Data>
+          <Data name="URL">
+            <value>https://www.google.com/maps/search/44.6766704,-84.5621367</value>
+          </Data>
+          <Data name="Tags">
+            <value/>
+          </Data>
+          <Data name="Comment">
+            <value/>
+          </Data>
+        </ExtendedData>
+      </Placemark>
+      <Placemark>
+        <name>Camp 10 Bridge Boat Launch</name>
+        <description><![CDATA[Note: <br>URL: https://www.google.com/maps/place/Camp+10+Bridge+Boat+Launch/data=!4m2!3m1!1s0x88208f8c205664d1:0xd6fe0c2d39146f04<br>Tags: <br>Comment: ]]></description>
+        <ExtendedData>
+          <Data name="Note">
+            <value/>
+          </Data>
+          <Data name="URL">
+            <value>https://www.google.com/maps/place/Camp+10+Bridge+Boat+Launch/data=!4m2!3m1!1s0x88208f8c205664d1:0xd6fe0c2d39146f04</value>
+          </Data>
+          <Data name="Tags">
+            <value/>
+          </Data>
+          <Data name="Comment">
+            <value/>
+          </Data>
+        </ExtendedData>
+      </Placemark>
+      <Placemark>
+        <name>Dropped pin</name>
+        <description><![CDATA[Note: <br>URL: https://www.google.com/maps/search/42.3032984,-71.2107383<br>Tags: <br>Comment: ]]></description>
+        <ExtendedData>
+          <Data name="Note">
+            <value/>
+          </Data>
+          <Data name="URL">
+            <value>https://www.google.com/maps/search/42.3032984,-71.2107383</value>
+          </Data>
+          <Data name="Tags">
+            <value/>
+          </Data>
+          <Data name="Comment">
+            <value/>
+          </Data>
+        </ExtendedData>
+      </Placemark>
+      <Placemark>
+        <name>Dropped pin</name>
+        <description><![CDATA[Note: <br>URL: https://www.google.com/maps/search/42.3028109,-71.2107912<br>Tags: <br>Comment: ]]></description>
+        <ExtendedData>
+          <Data name="Note">
+            <value/>
+          </Data>
+          <Data name="URL">
+            <value>https://www.google.com/maps/search/42.3028109,-71.2107912</value>
+          </Data>
+          <Data name="Tags">
+            <value/>
+          </Data>
+          <Data name="Comment">
+            <value/>
+          </Data>
+        </ExtendedData>
+      </Placemark>
+      <Placemark>
+        <name>Holyoke Rows</name>
+        <address>Holyoke Rows https://www.google.com/maps/place/Holyoke+Rows/data=!4m2!3m1!1s0x89e6de6cf3943835:0xc6abc9225033b2be</address>
+        <description><![CDATA[Note: <br>URL: https://www.google.com/maps/place/Holyoke+Rows/data=!4m2!3m1!1s0x89e6de6cf3943835:0xc6abc9225033b2be<br>Tags: <br>Comment: ]]></description>
+        <styleUrl>#icon-1899-0288D1</styleUrl>
+        <ExtendedData>
+          <Data name="Note">
+            <value/>
+          </Data>
+          <Data name="URL">
+            <value>https://www.google.com/maps/place/Holyoke+Rows/data=!4m2!3m1!1s0x89e6de6cf3943835:0xc6abc9225033b2be</value>
+          </Data>
+          <Data name="Tags">
+            <value/>
+          </Data>
+          <Data name="Comment">
+            <value/>
+          </Data>
+        </ExtendedData>
+      </Placemark>
+      <Placemark>
+        <name><![CDATA[42°30'25.8"N 74°59'11.7"W]]></name>
+        <description><![CDATA[Note: <br>URL: https://www.google.com/maps/search/42.507172,-74.986589<br>Tags: <br>Comment: ]]></description>
+        <ExtendedData>
+          <Data name="Note">
+            <value/>
+          </Data>
+          <Data name="URL">
+            <value>https://www.google.com/maps/search/42.507172,-74.986589</value>
+          </Data>
+          <Data name="Tags">
+            <value/>
+          </Data>
+          <Data name="Comment">
+            <value/>
+          </Data>
+        </ExtendedData>
+      </Placemark>
+      <Placemark>
+        <name>Crumhorn Fishing Access Site</name>
+        <address>Crumhorn Fishing Access Site https://www.google.com/maps/place/Crumhorn+Fishing+Access+Site/data=!4m2!3m1!1s0x89dc0b3784972f5b:0x8e1f324c39b1e23e</address>
+        <description><![CDATA[Note: <br>URL: https://www.google.com/maps/place/Crumhorn+Fishing+Access+Site/data=!4m2!3m1!1s0x89dc0b3784972f5b:0x8e1f324c39b1e23e<br>Tags: <br>Comment: ]]></description>
+        <styleUrl>#icon-1899-0288D1</styleUrl>
+        <ExtendedData>
+          <Data name="Note">
+            <value/>
+          </Data>
+          <Data name="URL">
+            <value>https://www.google.com/maps/place/Crumhorn+Fishing+Access+Site/data=!4m2!3m1!1s0x89dc0b3784972f5b:0x8e1f324c39b1e23e</value>
+          </Data>
+          <Data name="Tags">
+            <value/>
+          </Data>
+          <Data name="Comment">
+            <value/>
+          </Data>
+        </ExtendedData>
+      </Placemark>
+      <Placemark>
+        <name>Quai de La Tuque</name>
+        <address>Quai de La Tuque https://www.google.com/maps/place/Quai+de+La+Tuque/data=!4m2!3m1!1s0x4cc15322e4366a23:0x95af0d2806889385</address>
+        <description><![CDATA[Note: <br>URL: https://www.google.com/maps/place/Quai+de+La+Tuque/data=!4m2!3m1!1s0x4cc15322e4366a23:0x95af0d2806889385<br>Tags: <br>Comment: ]]></description>
+        <styleUrl>#icon-1899-0288D1</styleUrl>
+        <ExtendedData>
+          <Data name="Note">
+            <value/>
+          </Data>
+          <Data name="URL">
+            <value>https://www.google.com/maps/place/Quai+de+La+Tuque/data=!4m2!3m1!1s0x4cc15322e4366a23:0x95af0d2806889385</value>
+          </Data>
+          <Data name="Tags">
+            <value/>
+          </Data>
+          <Data name="Comment">
+            <value/>
+          </Data>
+        </ExtendedData>
+      </Placemark>
+      <Placemark>
+        <name>Decker Boat Ramp</name>
+        <description><![CDATA[Note: <br>URL: https://www.google.com/maps/place/Decker+Boat+Ramp/data=!4m2!3m1!1s0x89e745634048b633:0x64f001641178c125<br>Tags: <br>Comment: ]]></description>
+        <ExtendedData>
+          <Data name="Note">
+            <value/>
+          </Data>
+          <Data name="URL">
+            <value>https://www.google.com/maps/place/Decker+Boat+Ramp/data=!4m2!3m1!1s0x89e745634048b633:0x64f001641178c125</value>
+          </Data>
+          <Data name="Tags">
+            <value/>
+          </Data>
+          <Data name="Comment">
+            <value/>
+          </Data>
+        </ExtendedData>
+      </Placemark>
+      <Placemark>
+        <name><![CDATA[21°05'13.1"N 157°14'53.9"W]]></name>
+        <address><![CDATA[21°05'13.1"N 157°14'53.9"W Hale O Lono Harbor https://www.google.com/maps/search/21.086978,-157.248295]]></address>
+        <description><![CDATA[Note: Hale O Lono Harbor<br>URL: https://www.google.com/maps/search/21.086978,-157.248295<br>Tags: <br>Comment: ]]></description>
+        <styleUrl>#icon-1899-0288D1</styleUrl>
+        <ExtendedData>
+          <Data name="Note">
+            <value>Hale O Lono Harbor</value>
+          </Data>
+          <Data name="URL">
+            <value>https://www.google.com/maps/search/21.086978,-157.248295</value>
+          </Data>
+          <Data name="Tags">
+            <value/>
+          </Data>
+          <Data name="Comment">
+            <value/>
+          </Data>
+        </ExtendedData>
+      </Placemark>
+      <Placemark>
+        <name>Kailua Beach Parking</name>
+        <address>Kailua Beach Parking https://www.google.com/maps/place/Kailua+Beach+Parking/data=!4m2!3m1!1s0x7c0014e34cd93a51:0xb302214d3136cf73</address>
+        <description><![CDATA[Note: <br>URL: https://www.google.com/maps/place/Kailua+Beach+Parking/data=!4m2!3m1!1s0x7c0014e34cd93a51:0xb302214d3136cf73<br>Tags: <br>Comment: ]]></description>
+        <styleUrl>#icon-1899-0288D1</styleUrl>
+        <ExtendedData>
+          <Data name="Note">
+            <value/>
+          </Data>
+          <Data name="URL">
+            <value>https://www.google.com/maps/place/Kailua+Beach+Parking/data=!4m2!3m1!1s0x7c0014e34cd93a51:0xb302214d3136cf73</value>
+          </Data>
+          <Data name="Tags">
+            <value/>
+          </Data>
+          <Data name="Comment">
+            <value/>
+          </Data>
+        </ExtendedData>
+      </Placemark>
+      <Placemark>
+        <name>Boat Launch</name>
+        <description><![CDATA[Note: <br>URL: https://www.google.com/maps/place/Boat+Launch/data=!4m2!3m1!1s0x89d92711fa436f01:0x8418bea82ff1c0bd<br>Tags: <br>Comment: ]]></description>
+        <ExtendedData>
+          <Data name="Note">
+            <value/>
+          </Data>
+          <Data name="URL">
+            <value>https://www.google.com/maps/place/Boat+Launch/data=!4m2!3m1!1s0x89d92711fa436f01:0x8418bea82ff1c0bd</value>
+          </Data>
+          <Data name="Tags">
+            <value/>
+          </Data>
+          <Data name="Comment">
+            <value/>
+          </Data>
+        </ExtendedData>
+      </Placemark>
+      <Placemark>
+        <name>Dropped pin</name>
+        <description><![CDATA[Note: <br>URL: https://www.google.com/maps/search/43.4069248,-75.1638265<br>Tags: <br>Comment: ]]></description>
+        <ExtendedData>
+          <Data name="Note">
+            <value/>
+          </Data>
+          <Data name="URL">
+            <value>https://www.google.com/maps/search/43.4069248,-75.1638265</value>
+          </Data>
+          <Data name="Tags">
+            <value/>
+          </Data>
+          <Data name="Comment">
+            <value/>
+          </Data>
+        </ExtendedData>
+      </Placemark>
+      <Placemark>
+        <name>Dropped pin</name>
+        <description><![CDATA[Note: <br>URL: https://www.google.com/maps/search/42.5996498,-74.9516913<br>Tags: <br>Comment: ]]></description>
+        <ExtendedData>
+          <Data name="Note">
+            <value/>
+          </Data>
+          <Data name="URL">
+            <value>https://www.google.com/maps/search/42.5996498,-74.9516913</value>
+          </Data>
+          <Data name="Tags">
+            <value/>
+          </Data>
+          <Data name="Comment">
+            <value/>
+          </Data>
+        </ExtendedData>
+      </Placemark>
+      <Placemark>
+        <name>Dropped pin</name>
+        <description><![CDATA[Note: Muck Road Erie Canal<br>URL: https://www.google.com/maps/search/43.2030853,-75.4783896<br>Tags: <br>Comment: ]]></description>
+        <ExtendedData>
+          <Data name="Note">
+            <value>Muck Road Erie Canal</value>
+          </Data>
+          <Data name="URL">
+            <value>https://www.google.com/maps/search/43.2030853,-75.4783896</value>
+          </Data>
+          <Data name="Tags">
+            <value/>
+          </Data>
+          <Data name="Comment">
+            <value/>
+          </Data>
+        </ExtendedData>
+      </Placemark>
+      <Placemark>
+        <name>Nancy Brown Wildlife Sanctuary</name>
+        <address>Nancy Brown Wildlife Sanctuary https://www.google.com/maps/place/Nancy+Brown+Wildlife+Sanctuary/data=!4m2!3m1!1s0x89d9f112babfb565:0x7b5006c56d398921</address>
+        <description><![CDATA[Note: <br>URL: https://www.google.com/maps/place/Nancy+Brown+Wildlife+Sanctuary/data=!4m2!3m1!1s0x89d9f112babfb565:0x7b5006c56d398921<br>Tags: <br>Comment: ]]></description>
+        <styleUrl>#icon-1899-0288D1</styleUrl>
+        <ExtendedData>
+          <Data name="Note">
+            <value/>
+          </Data>
+          <Data name="URL">
+            <value>https://www.google.com/maps/place/Nancy+Brown+Wildlife+Sanctuary/data=!4m2!3m1!1s0x89d9f112babfb565:0x7b5006c56d398921</value>
+          </Data>
+          <Data name="Tags">
+            <value/>
+          </Data>
+          <Data name="Comment">
+            <value/>
+          </Data>
+        </ExtendedData>
+      </Placemark>
+      <Placemark>
+        <name>Erie Canal Park</name>
+        <address>Erie Canal Park https://www.google.com/maps/place/Erie+Canal+Park/data=!4m2!3m1!1s0x89d9fa4b87b34c35:0x78e0b1be70147d93</address>
+        <description><![CDATA[Note: <br>URL: https://www.google.com/maps/place/Erie+Canal+Park/data=!4m2!3m1!1s0x89d9fa4b87b34c35:0x78e0b1be70147d93<br>Tags: <br>Comment: ]]></description>
+        <styleUrl>#icon-1899-0288D1</styleUrl>
+        <ExtendedData>
+          <Data name="Note">
+            <value/>
+          </Data>
+          <Data name="URL">
+            <value>https://www.google.com/maps/place/Erie+Canal+Park/data=!4m2!3m1!1s0x89d9fa4b87b34c35:0x78e0b1be70147d93</value>
+          </Data>
+          <Data name="Tags">
+            <value/>
+          </Data>
+          <Data name="Comment">
+            <value/>
+          </Data>
+        </ExtendedData>
+      </Placemark>
+      <Placemark>
+        <name>Dropped pin</name>
+        <description><![CDATA[Note: <br>URL: https://www.google.com/maps/search/42.3138478,-75.3999672<br>Tags: <br>Comment: ]]></description>
+        <ExtendedData>
+          <Data name="Note">
+            <value/>
+          </Data>
+          <Data name="URL">
+            <value>https://www.google.com/maps/search/42.3138478,-75.3999672</value>
+          </Data>
+          <Data name="Tags">
+            <value/>
+          </Data>
+          <Data name="Comment">
+            <value/>
+          </Data>
+        </ExtendedData>
+      </Placemark>
+      <Placemark>
+        <name>Dorthie Land boat ramp</name>
+        <address>Dorthie Land boat ramp https://www.google.com/maps/place/Dorthie+Land+boat+ramp/data=!4m2!3m1!1s0x88e8d5e6f916f1e5:0xcd0b87d8bcebd4c9</address>
+        <description><![CDATA[Note: <br>URL: https://www.google.com/maps/place/Dorthie+Land+boat+ramp/data=!4m2!3m1!1s0x88e8d5e6f916f1e5:0xcd0b87d8bcebd4c9<br>Tags: <br>Comment: ]]></description>
+        <styleUrl>#icon-1899-0288D1</styleUrl>
+        <ExtendedData>
+          <Data name="Note">
+            <value/>
+          </Data>
+          <Data name="URL">
+            <value>https://www.google.com/maps/place/Dorthie+Land+boat+ramp/data=!4m2!3m1!1s0x88e8d5e6f916f1e5:0xcd0b87d8bcebd4c9</value>
+          </Data>
+          <Data name="Tags">
+            <value/>
+          </Data>
+          <Data name="Comment">
+            <value/>
+          </Data>
+        </ExtendedData>
+      </Placemark>
+      <Placemark>
+        <name>Honeywell Canoe and Kayak Launch</name>
+        <description><![CDATA[Note: <br>URL: https://www.google.com/maps/place/Honeywell+Canoe+and+Kayak+Launch/data=!4m2!3m1!1s0x89d9f1c32cb2eb81:0x2fbee96d605675fb<br>Tags: <br>Comment: ]]></description>
+        <ExtendedData>
+          <Data name="Note">
+            <value/>
+          </Data>
+          <Data name="URL">
+            <value>https://www.google.com/maps/place/Honeywell+Canoe+and+Kayak+Launch/data=!4m2!3m1!1s0x89d9f1c32cb2eb81:0x2fbee96d605675fb</value>
+          </Data>
+          <Data name="Tags">
+            <value/>
+          </Data>
+          <Data name="Comment">
+            <value/>
+          </Data>
+        </ExtendedData>
+      </Placemark>
+      <Placemark>
+        <name>ken lynch boat launch</name>
+        <description><![CDATA[Note: <br>URL: https://www.google.com/maps/place/ken+lynch+boat+launch/data=!4m2!3m1!1s0x89d9f175d5ebe5cd:0x2c152bfd0d97fbf0<br>Tags: <br>Comment: ]]></description>
+        <ExtendedData>
+          <Data name="Note">
+            <value/>
+          </Data>
+          <Data name="URL">
+            <value>https://www.google.com/maps/place/ken+lynch+boat+launch/data=!4m2!3m1!1s0x89d9f175d5ebe5cd:0x2c152bfd0d97fbf0</value>
+          </Data>
+          <Data name="Tags">
+            <value/>
+          </Data>
+          <Data name="Comment">
+            <value/>
+          </Data>
+        </ExtendedData>
+      </Placemark>
+      <Placemark>
+        <name>Dropped pin</name>
+        <description><![CDATA[Note: <br>URL: https://www.google.com/maps/search/43.0394467,-77.1540665<br>Tags: <br>Comment: ]]></description>
+        <ExtendedData>
+          <Data name="Note">
+            <value/>
+          </Data>
+          <Data name="URL">
+            <value>https://www.google.com/maps/search/43.0394467,-77.1540665</value>
+          </Data>
+          <Data name="Tags">
+            <value/>
+          </Data>
+          <Data name="Comment">
+            <value/>
+          </Data>
+        </ExtendedData>
+      </Placemark>
+      <Placemark>
+        <name>Macedon Canal Park</name>
+        <description><![CDATA[Note: <br>URL: https://www.google.com/maps/place/Macedon+Canal+Park/data=!4m2!3m1!1s0x89d12cb09fe16a7b:0x7ebb36aa8d21cd94<br>Tags: <br>Comment: ]]></description>
+        <ExtendedData>
+          <Data name="Note">
+            <value/>
+          </Data>
+          <Data name="URL">
+            <value>https://www.google.com/maps/place/Macedon+Canal+Park/data=!4m2!3m1!1s0x89d12cb09fe16a7b:0x7ebb36aa8d21cd94</value>
+          </Data>
+          <Data name="Tags">
+            <value/>
+          </Data>
+          <Data name="Comment">
+            <value/>
+          </Data>
+        </ExtendedData>
+      </Placemark>
+      <Placemark>
+        <name>Riverview Picnic Area</name>
+        <description><![CDATA[Note: <br>URL: https://www.google.com/maps/place/Riverview+Picnic+Area/data=!4m2!3m1!1s0x89e13af737747987:0x9cf496a8f88c6c0f<br>Tags: <br>Comment: ]]></description>
+        <ExtendedData>
+          <Data name="Note">
+            <value/>
+          </Data>
+          <Data name="URL">
+            <value>https://www.google.com/maps/place/Riverview+Picnic+Area/data=!4m2!3m1!1s0x89e13af737747987:0x9cf496a8f88c6c0f</value>
+          </Data>
+          <Data name="Tags">
+            <value/>
+          </Data>
+          <Data name="Comment">
+            <value/>
+          </Data>
+        </ExtendedData>
+      </Placemark>
+      <Placemark>
+        <name>Au Sable River Whirlpool Rd Access</name>
+        <address>Au Sable River Whirlpool Rd Access https://www.google.com/maps/place/Au+Sable+River+Whirlpool+Rd+Access/data=!4m2!3m1!1s0x88201333480ebe45:0xedeeab5384a7f4c6</address>
+        <description><![CDATA[Note: <br>URL: https://www.google.com/maps/place/Au+Sable+River+Whirlpool+Rd+Access/data=!4m2!3m1!1s0x88201333480ebe45:0xedeeab5384a7f4c6<br>Tags: <br>Comment: ]]></description>
+        <styleUrl>#icon-1899-0288D1</styleUrl>
+        <ExtendedData>
+          <Data name="Note">
+            <value/>
+          </Data>
+          <Data name="URL">
+            <value>https://www.google.com/maps/place/Au+Sable+River+Whirlpool+Rd+Access/data=!4m2!3m1!1s0x88201333480ebe45:0xedeeab5384a7f4c6</value>
+          </Data>
+          <Data name="Tags">
+            <value/>
+          </Data>
+          <Data name="Comment">
+            <value/>
+          </Data>
+        </ExtendedData>
+      </Placemark>
+      <Placemark>
+        <name>Whirlpool Angler Access</name>
+        <address>Whirlpool Angler Access https://www.google.com/maps/place/Whirlpool+Angler+Access/data=!4m2!3m1!1s0x88273a27b5f50ca3:0x5ed6c29c612fc715</address>
+        <description><![CDATA[Note: <br>URL: https://www.google.com/maps/place/Whirlpool+Angler+Access/data=!4m2!3m1!1s0x88273a27b5f50ca3:0x5ed6c29c612fc715<br>Tags: <br>Comment: ]]></description>
+        <styleUrl>#icon-1899-0288D1</styleUrl>
+        <ExtendedData>
+          <Data name="Note">
+            <value/>
+          </Data>
+          <Data name="URL">
+            <value>https://www.google.com/maps/place/Whirlpool+Angler+Access/data=!4m2!3m1!1s0x88273a27b5f50ca3:0x5ed6c29c612fc715</value>
+          </Data>
+          <Data name="Tags">
+            <value/>
+          </Data>
+          <Data name="Comment">
+            <value/>
+          </Data>
+        </ExtendedData>
+      </Placemark>
+      <Placemark>
+        <name>Finish Line Park</name>
+        <description><![CDATA[Note: <br>URL: https://www.google.com/maps/place/Finish+Line+Park/data=!4m2!3m1!1s0x88273c0c0da02f87:0x3fb1fa783fb7c978<br>Tags: <br>Comment: ]]></description>
+        <ExtendedData>
+          <Data name="Note">
+            <value/>
+          </Data>
+          <Data name="URL">
+            <value>https://www.google.com/maps/place/Finish+Line+Park/data=!4m2!3m1!1s0x88273c0c0da02f87:0x3fb1fa783fb7c978</value>
+          </Data>
+          <Data name="Tags">
+            <value/>
+          </Data>
+          <Data name="Comment">
+            <value/>
+          </Data>
+        </ExtendedData>
+      </Placemark>
+      <Placemark>
+        <name>Luzerne Park Boat Ramp</name>
+        <address>Luzerne Park Boat Ramp https://www.google.com/maps/place/Luzerne+Park+Boat+Ramp/data=!4m2!3m1!1s0x882063745a2241f5:0xfc193221b8c3b93d</address>
+        <description><![CDATA[Note: <br>URL: https://www.google.com/maps/place/Luzerne+Park+Boat+Ramp/data=!4m2!3m1!1s0x882063745a2241f5:0xfc193221b8c3b93d<br>Tags: <br>Comment: ]]></description>
+        <styleUrl>#icon-1899-0288D1</styleUrl>
+        <ExtendedData>
+          <Data name="Note">
+            <value/>
+          </Data>
+          <Data name="URL">
+            <value>https://www.google.com/maps/place/Luzerne+Park+Boat+Ramp/data=!4m2!3m1!1s0x882063745a2241f5:0xfc193221b8c3b93d</value>
+          </Data>
+          <Data name="Tags">
+            <value/>
+          </Data>
+          <Data name="Comment">
+            <value/>
+          </Data>
+        </ExtendedData>
+      </Placemark>
+      <Placemark>
+        <name>John B Sargeant Sr Park</name>
+        <address>John B Sargeant Sr Park https://www.google.com/maps/place/John+B+Sargeant+Sr+Park/data=!4m2!3m1!1s0x88c2ca0a851e1577:0x2114e5fb133e6bf8</address>
+        <description><![CDATA[Note: <br>URL: https://www.google.com/maps/place/John+B+Sargeant+Sr+Park/data=!4m2!3m1!1s0x88c2ca0a851e1577:0x2114e5fb133e6bf8<br>Tags: <br>Comment: ]]></description>
+        <styleUrl>#icon-1899-0288D1</styleUrl>
+        <ExtendedData>
+          <Data name="Note">
+            <value/>
+          </Data>
+          <Data name="URL">
+            <value>https://www.google.com/maps/place/John+B+Sargeant+Sr+Park/data=!4m2!3m1!1s0x88c2ca0a851e1577:0x2114e5fb133e6bf8</value>
+          </Data>
+          <Data name="Tags">
+            <value/>
+          </Data>
+          <Data name="Comment">
+            <value/>
+          </Data>
+        </ExtendedData>
+      </Placemark>
+      <Placemark>
+        <name>Hillsborough River State Park</name>
+        <address>Hillsborough River State Park https://www.google.com/maps/place/Hillsborough+River+State+Park/data=!4m2!3m1!1s0x88c2b4c89a3fd72b:0xf59a82c2814509d3</address>
+        <description><![CDATA[Note: <br>URL: https://www.google.com/maps/place/Hillsborough+River+State+Park/data=!4m2!3m1!1s0x88c2b4c89a3fd72b:0xf59a82c2814509d3<br>Tags: <br>Comment: ]]></description>
+        <styleUrl>#icon-1899-0288D1</styleUrl>
+        <ExtendedData>
+          <Data name="Note">
+            <value/>
+          </Data>
+          <Data name="URL">
+            <value>https://www.google.com/maps/place/Hillsborough+River+State+Park/data=!4m2!3m1!1s0x88c2b4c89a3fd72b:0xf59a82c2814509d3</value>
+          </Data>
+          <Data name="Tags">
+            <value/>
+          </Data>
+          <Data name="Comment">
+            <value/>
+          </Data>
+        </ExtendedData>
+      </Placemark>
+      <Placemark>
+        <name>S Thendara Rd</name>
+        <description><![CDATA[Note: <br>URL: https://www.google.com/maps/place/S+Thendara+Rd/data=!4m2!3m1!1s0x882013352584658b:0x6c24fc063ae58ae0<br>Tags: <br>Comment: ]]></description>
+        <ExtendedData>
+          <Data name="Note">
+            <value/>
+          </Data>
+          <Data name="URL">
+            <value>https://www.google.com/maps/place/S+Thendara+Rd/data=!4m2!3m1!1s0x882013352584658b:0x6c24fc063ae58ae0</value>
+          </Data>
+          <Data name="Tags">
+            <value/>
+          </Data>
+          <Data name="Comment">
+            <value/>
+          </Data>
+        </ExtendedData>
+      </Placemark>
+      <Placemark>
+        <name>Louies Landing Rd</name>
+        <description><![CDATA[Note: <br>URL: https://www.google.com/maps/place/Louies+Landing+Rd/data=!4m2!3m1!1s0x8820137275eae4c3:0xc6612d025e963718<br>Tags: <br>Comment: ]]></description>
+        <ExtendedData>
+          <Data name="Note">
+            <value/>
+          </Data>
+          <Data name="URL">
+            <value>https://www.google.com/maps/place/Louies+Landing+Rd/data=!4m2!3m1!1s0x8820137275eae4c3:0xc6612d025e963718</value>
+          </Data>
+          <Data name="Tags">
+            <value/>
+          </Data>
+          <Data name="Comment">
+            <value/>
+          </Data>
+        </ExtendedData>
+      </Placemark>
+      <Placemark>
+        <name>Dropped pin</name>
+        <description><![CDATA[Note: <br>URL: https://www.google.com/maps/search/43.7110185,-75.3988853<br>Tags: <br>Comment: ]]></description>
+        <ExtendedData>
+          <Data name="Note">
+            <value/>
+          </Data>
+          <Data name="URL">
+            <value>https://www.google.com/maps/search/43.7110185,-75.3988853</value>
+          </Data>
+          <Data name="Tags">
+            <value/>
+          </Data>
+          <Data name="Comment">
+            <value/>
+          </Data>
+        </ExtendedData>
+      </Placemark>
+      <Placemark>
+        <name>Dropped pin</name>
+        <description><![CDATA[Note: Generation gap start<br>URL: https://www.google.com/maps/search/42.3151769,-75.4143844<br>Tags: <br>Comment: ]]></description>
+        <ExtendedData>
+          <Data name="Note">
+            <value>Generation gap start</value>
+          </Data>
+          <Data name="URL">
+            <value>https://www.google.com/maps/search/42.3151769,-75.4143844</value>
+          </Data>
+          <Data name="Tags">
+            <value/>
+          </Data>
+          <Data name="Comment">
+            <value/>
+          </Data>
+        </ExtendedData>
+      </Placemark>
+      <Placemark>
+        <name>Hal W. Adams boat ramp</name>
+        <description><![CDATA[Note: <br>URL: https://www.google.com/maps/place/Hal+W.+Adams+boat+ramp/data=!4m2!3m1!1s0x88eec940404946e5:0x70e4811b3d96a607<br>Tags: <br>Comment: ]]></description>
+        <ExtendedData>
+          <Data name="Note">
+            <value/>
+          </Data>
+          <Data name="URL">
+            <value>https://www.google.com/maps/place/Hal+W.+Adams+boat+ramp/data=!4m2!3m1!1s0x88eec940404946e5:0x70e4811b3d96a607</value>
+          </Data>
+          <Data name="Tags">
+            <value/>
+          </Data>
+          <Data name="Comment">
+            <value/>
+          </Data>
+        </ExtendedData>
+      </Placemark>
+      <Placemark>
+        <name>Ampersand Bay Public Boat Launch</name>
+        <address>Ampersand Bay Public Boat Launch https://www.google.com/maps/place/Ampersand+Bay+Public+Boat+Launch/data=!4m2!3m1!1s0x4ccb1b0012941fd3:0xa94783659d7fc167</address>
+        <description><![CDATA[Note: <br>URL: https://www.google.com/maps/place/Ampersand+Bay+Public+Boat+Launch/data=!4m2!3m1!1s0x4ccb1b0012941fd3:0xa94783659d7fc167<br>Tags: <br>Comment: ]]></description>
+        <styleUrl>#icon-1899-0288D1</styleUrl>
+        <ExtendedData>
+          <Data name="Note">
+            <value/>
+          </Data>
+          <Data name="URL">
+            <value>https://www.google.com/maps/place/Ampersand+Bay+Public+Boat+Launch/data=!4m2!3m1!1s0x4ccb1b0012941fd3:0xa94783659d7fc167</value>
+          </Data>
+          <Data name="Tags">
+            <value/>
+          </Data>
+          <Data name="Comment">
+            <value/>
+          </Data>
+        </ExtendedData>
+      </Placemark>
+      <Placemark>
+        <name>Dropped pin</name>
+        <description><![CDATA[Note: <br>URL: https://www.google.com/maps/search/44.1963505,-74.4621828<br>Tags: <br>Comment: ]]></description>
+        <ExtendedData>
+          <Data name="Note">
+            <value/>
+          </Data>
+          <Data name="URL">
+            <value>https://www.google.com/maps/search/44.1963505,-74.4621828</value>
+          </Data>
+          <Data name="Tags">
+            <value/>
+          </Data>
+          <Data name="Comment">
+            <value/>
+          </Data>
+        </ExtendedData>
+      </Placemark>
+      <Placemark>
+        <name>Quais municipaux pour les embarcations non-motorisées</name>
+        <description><![CDATA[Note: <br>URL: https://www.google.com/maps/place/Quais+municipaux+pour+les+embarcations+non-motoris%C3%A9es/data=!4m2!3m1!1s0x4cc64dc05789d9ad:0x90c8a66e47b3906f<br>Tags: <br>Comment: ]]></description>
+        <ExtendedData>
+          <Data name="Note">
+            <value/>
+          </Data>
+          <Data name="URL">
+            <value>https://www.google.com/maps/place/Quais+municipaux+pour+les+embarcations+non-motoris%C3%A9es/data=!4m2!3m1!1s0x4cc64dc05789d9ad:0x90c8a66e47b3906f</value>
+          </Data>
+          <Data name="Tags">
+            <value/>
+          </Data>
+          <Data name="Comment">
+            <value/>
+          </Data>
+        </ExtendedData>
+      </Placemark>
+      <Placemark>
+        <name>Taylor Park</name>
+        <description><![CDATA[Note: <br>URL: https://www.google.com/maps/place/Taylor+Park/data=!4m2!3m1!1s0x4cccf5f98cd69b09:0xb3d5f7c85e3e373a<br>Tags: <br>Comment: ]]></description>
+        <ExtendedData>
+          <Data name="Note">
+            <value/>
+          </Data>
+          <Data name="URL">
+            <value>https://www.google.com/maps/place/Taylor+Park/data=!4m2!3m1!1s0x4cccf5f98cd69b09:0xb3d5f7c85e3e373a</value>
+          </Data>
+          <Data name="Tags">
+            <value/>
+          </Data>
+          <Data name="Comment">
+            <value/>
+          </Data>
+        </ExtendedData>
+      </Placemark>
+      <Placemark>
+        <name>Genesee Waterways Center</name>
+        <address>Genesee Waterways Center https://www.google.com/maps/place/Genesee+Waterways+Center/data=!4m2!3m1!1s0x89d6b4b389bd4537:0xa82ab002bfe74b15</address>
+        <description><![CDATA[Note: <br>URL: https://www.google.com/maps/place/Genesee+Waterways+Center/data=!4m2!3m1!1s0x89d6b4b389bd4537:0xa82ab002bfe74b15<br>Tags: <br>Comment: ]]></description>
+        <styleUrl>#icon-1899-0288D1</styleUrl>
+        <ExtendedData>
+          <Data name="Note">
+            <value/>
+          </Data>
+          <Data name="URL">
+            <value>https://www.google.com/maps/place/Genesee+Waterways+Center/data=!4m2!3m1!1s0x89d6b4b389bd4537:0xa82ab002bfe74b15</value>
+          </Data>
+          <Data name="Tags">
+            <value/>
+          </Data>
+          <Data name="Comment">
+            <value/>
+          </Data>
+        </ExtendedData>
+      </Placemark>
+      <Placemark>
+        <name>Lake Ontario Sand Beach</name>
+        <address>Lake Ontario Sand Beach Outrigger recommended https://www.google.com/maps/place/Lake+Ontario+Sand+Beach/data=!4m2!3m1!1s0x89d6b7cf05916d9b:0xf9d5d5416f5c6fcf</address>
+        <description><![CDATA[Note: Outrigger recommended<br>URL: https://www.google.com/maps/place/Lake+Ontario+Sand+Beach/data=!4m2!3m1!1s0x89d6b7cf05916d9b:0xf9d5d5416f5c6fcf<br>Tags: <br>Comment: ]]></description>
+        <styleUrl>#icon-1899-0288D1</styleUrl>
+        <ExtendedData>
+          <Data name="Note">
+            <value>Outrigger recommended</value>
+          </Data>
+          <Data name="URL">
+            <value>https://www.google.com/maps/place/Lake+Ontario+Sand+Beach/data=!4m2!3m1!1s0x89d6b7cf05916d9b:0xf9d5d5416f5c6fcf</value>
+          </Data>
+          <Data name="Tags">
+            <value/>
+          </Data>
+          <Data name="Comment">
+            <value/>
+          </Data>
+        </ExtendedData>
+      </Placemark>
+      <Placemark>
+        <name>Irondequoit Bay Small Boat Harbor</name>
+        <address>Irondequoit Bay Small Boat Harbor https://www.google.com/maps/place/Irondequoit+Bay+Small+Boat+Harbor/data=!4m2!3m1!1s0x89d6c8465e95041b:0x72f02c6e56a462fc</address>
+        <description><![CDATA[Note: <br>URL: https://www.google.com/maps/place/Irondequoit+Bay+Small+Boat+Harbor/data=!4m2!3m1!1s0x89d6c8465e95041b:0x72f02c6e56a462fc<br>Tags: <br>Comment: ]]></description>
+        <styleUrl>#icon-1899-0288D1</styleUrl>
+        <ExtendedData>
+          <Data name="Note">
+            <value/>
+          </Data>
+          <Data name="URL">
+            <value>https://www.google.com/maps/place/Irondequoit+Bay+Small+Boat+Harbor/data=!4m2!3m1!1s0x89d6c8465e95041b:0x72f02c6e56a462fc</value>
+          </Data>
+          <Data name="Tags">
+            <value/>
+          </Data>
+          <Data name="Comment">
+            <value/>
+          </Data>
+        </ExtendedData>
+      </Placemark>
+      <Placemark>
+        <name>Irondequoit Bay Park West Boat Launch</name>
+        <address>Irondequoit Bay Park West Boat Launch https://www.google.com/maps/place/Irondequoit+Bay+Park+West+Boat+Launch/data=!4m2!3m1!1s0x89d6ca27e17f01a5:0x1ee3e86661b113a3</address>
+        <description><![CDATA[Note: <br>URL: https://www.google.com/maps/place/Irondequoit+Bay+Park+West+Boat+Launch/data=!4m2!3m1!1s0x89d6ca27e17f01a5:0x1ee3e86661b113a3<br>Tags: <br>Comment: ]]></description>
+        <styleUrl>#icon-1899-0288D1</styleUrl>
+        <ExtendedData>
+          <Data name="Note">
+            <value/>
+          </Data>
+          <Data name="URL">
+            <value>https://www.google.com/maps/place/Irondequoit+Bay+Park+West+Boat+Launch/data=!4m2!3m1!1s0x89d6ca27e17f01a5:0x1ee3e86661b113a3</value>
+          </Data>
+          <Data name="Tags">
+            <value/>
+          </Data>
+          <Data name="Comment">
+            <value/>
+          </Data>
+        </ExtendedData>
+      </Placemark>
+      <Placemark>
+        <name>Schroon River Fishing Access (Route 74)</name>
+        <address>Schroon River Fishing Access (Route 74) https://www.google.com/maps/place/Schroon+River+Fishing+Access+(Route+74)/data=!4m2!3m1!1s0x4ccab564aa92a399:0xbf9472cb1348c2be</address>
+        <description><![CDATA[Note: <br>URL: https://www.google.com/maps/place/Schroon+River+Fishing+Access+(Route+74)/data=!4m2!3m1!1s0x4ccab564aa92a399:0xbf9472cb1348c2be<br>Tags: <br>Comment: ]]></description>
+        <styleUrl>#icon-1899-0288D1</styleUrl>
+        <ExtendedData>
+          <Data name="Note">
+            <value/>
+          </Data>
+          <Data name="URL">
+            <value>https://www.google.com/maps/place/Schroon+River+Fishing+Access+(Route+74)/data=!4m2!3m1!1s0x4ccab564aa92a399:0xbf9472cb1348c2be</value>
+          </Data>
+          <Data name="Tags">
+            <value/>
+          </Data>
+          <Data name="Comment">
+            <value/>
+          </Data>
+        </ExtendedData>
+      </Placemark>
+      <Placemark>
+        <name>Canoe kayak launch</name>
+        <address>Canoe kayak launch https://www.google.com/maps/place/Canoe+kayak+launch/data=!4m2!3m1!1s0x4ccb1b4e64fa4b55:0x6e5c57ea64a0ca6e</address>
+        <description><![CDATA[Note: <br>URL: https://www.google.com/maps/place/Canoe+kayak+launch/data=!4m2!3m1!1s0x4ccb1b4e64fa4b55:0x6e5c57ea64a0ca6e<br>Tags: <br>Comment: ]]></description>
+        <styleUrl>#icon-1899-0288D1</styleUrl>
+        <ExtendedData>
+          <Data name="Note">
+            <value/>
+          </Data>
+          <Data name="URL">
+            <value>https://www.google.com/maps/place/Canoe+kayak+launch/data=!4m2!3m1!1s0x4ccb1b4e64fa4b55:0x6e5c57ea64a0ca6e</value>
+          </Data>
+          <Data name="Tags">
+            <value/>
+          </Data>
+          <Data name="Comment">
+            <value/>
+          </Data>
+        </ExtendedData>
+      </Placemark>
+      <Placemark>
+        <name><![CDATA[43°09'29.0"N 76°20'12.2"W]]></name>
+        <description><![CDATA[Note: <br>URL: https://www.google.com/maps/search/43.158067,-76.336732<br>Tags: <br>Comment: ]]></description>
+        <ExtendedData>
+          <Data name="Note">
+            <value/>
+          </Data>
+          <Data name="URL">
+            <value>https://www.google.com/maps/search/43.158067,-76.336732</value>
+          </Data>
+          <Data name="Tags">
+            <value/>
+          </Data>
+          <Data name="Comment">
+            <value/>
+          </Data>
+        </ExtendedData>
+      </Placemark>
+      <Placemark>
+        <name><![CDATA[42°54'08.0"N 76°51'27.5"W]]></name>
+        <description><![CDATA[Note: <br>URL: https://www.google.com/maps/search/42.90223,-76.857635<br>Tags: <br>Comment: ]]></description>
+        <ExtendedData>
+          <Data name="Note">
+            <value/>
+          </Data>
+          <Data name="URL">
+            <value>https://www.google.com/maps/search/42.90223,-76.857635</value>
+          </Data>
+          <Data name="Tags">
+            <value/>
+          </Data>
+          <Data name="Comment">
+            <value/>
+          </Data>
+        </ExtendedData>
+      </Placemark>
+      <Placemark>
+        <name>Blue Run of Dunnellon Park</name>
+        <address>Blue Run of Dunnellon Park https://www.google.com/maps/place/Blue+Run+of+Dunnellon+Park/data=!4m2!3m1!1s0x88e865bb9b1e6693:0xc94299a50404766d</address>
+        <description><![CDATA[Note: <br>URL: https://www.google.com/maps/place/Blue+Run+of+Dunnellon+Park/data=!4m2!3m1!1s0x88e865bb9b1e6693:0xc94299a50404766d<br>Tags: <br>Comment: ]]></description>
+        <styleUrl>#icon-1899-0288D1</styleUrl>
+        <ExtendedData>
+          <Data name="Note">
+            <value/>
+          </Data>
+          <Data name="URL">
+            <value>https://www.google.com/maps/place/Blue+Run+of+Dunnellon+Park/data=!4m2!3m1!1s0x88e865bb9b1e6693:0xc94299a50404766d</value>
+          </Data>
+          <Data name="Tags">
+            <value/>
+          </Data>
+          <Data name="Comment">
+            <value/>
+          </Data>
+        </ExtendedData>
+      </Placemark>
+      <Placemark>
+        <name>Au Sable River - Wakeley Bridge Boat Launch</name>
+        <address>Au Sable River - Wakeley Bridge Boat Launch https://www.google.com/maps/place/Au+Sable+River+-+Wakeley+Bridge+Boat+Launch/data=!4m2!3m1!1s0x88206fb96bb5aea5:0x4d6d9b2524586fb8</address>
+        <description><![CDATA[Note: <br>URL: https://www.google.com/maps/place/Au+Sable+River+-+Wakeley+Bridge+Boat+Launch/data=!4m2!3m1!1s0x88206fb96bb5aea5:0x4d6d9b2524586fb8<br>Tags: <br>Comment: ]]></description>
+        <styleUrl>#icon-1899-0288D1</styleUrl>
+        <ExtendedData>
+          <Data name="Note">
+            <value/>
+          </Data>
+          <Data name="URL">
+            <value>https://www.google.com/maps/place/Au+Sable+River+-+Wakeley+Bridge+Boat+Launch/data=!4m2!3m1!1s0x88206fb96bb5aea5:0x4d6d9b2524586fb8</value>
+          </Data>
+          <Data name="Tags">
+            <value/>
+          </Data>
+          <Data name="Comment">
+            <value/>
+          </Data>
+        </ExtendedData>
+      </Placemark>
+      <Placemark>
+        <name><![CDATA[Keystone Canoe & Kayak Landing]]></name>
+        <address><![CDATA[Keystone Canoe & Kayak Landing https://www.google.com/maps/place/Keystone+Canoe+%26+Kayak+Landing/data=!4m2!3m1!1s0x8820136a73fbfc23:0x7549c045c7e97959]]></address>
+        <description><![CDATA[Note: <br>URL: https://www.google.com/maps/place/Keystone+Canoe+%26+Kayak+Landing/data=!4m2!3m1!1s0x8820136a73fbfc23:0x7549c045c7e97959<br>Tags: <br>Comment: ]]></description>
+        <styleUrl>#icon-1899-0288D1</styleUrl>
+        <ExtendedData>
+          <Data name="Note">
+            <value/>
+          </Data>
+          <Data name="URL">
+            <value>https://www.google.com/maps/place/Keystone+Canoe+%26+Kayak+Landing/data=!4m2!3m1!1s0x8820136a73fbfc23:0x7549c045c7e97959</value>
+          </Data>
+          <Data name="Tags">
+            <value/>
+          </Data>
+          <Data name="Comment">
+            <value/>
+          </Data>
+        </ExtendedData>
+      </Placemark>
+      <Placemark>
+        <name>Stephan Bridge Canoe Kayak landing</name>
+        <address>Stephan Bridge Canoe Kayak landing https://www.google.com/maps/place/Stephan+Bridge+Canoe+Kayak+landing/data=!4m2!3m1!1s0x88206cfb43a971c9:0x21f23bee26260756</address>
+        <description><![CDATA[Note: <br>URL: https://www.google.com/maps/place/Stephan+Bridge+Canoe+Kayak+landing/data=!4m2!3m1!1s0x88206cfb43a971c9:0x21f23bee26260756<br>Tags: <br>Comment: ]]></description>
+        <styleUrl>#icon-1899-0288D1</styleUrl>
+        <ExtendedData>
+          <Data name="Note">
+            <value/>
+          </Data>
+          <Data name="URL">
+            <value>https://www.google.com/maps/place/Stephan+Bridge+Canoe+Kayak+landing/data=!4m2!3m1!1s0x88206cfb43a971c9:0x21f23bee26260756</value>
+          </Data>
+          <Data name="Tags">
+            <value/>
+          </Data>
+          <Data name="Comment">
+            <value/>
+          </Data>
+        </ExtendedData>
+      </Placemark>
+      <Placemark>
+        <name><![CDATA[Burton's Canoe & Kayak Landing]]></name>
+        <address><![CDATA[Burton's Canoe & Kayak Landing https://www.google.com/maps/place/Burton's+Canoe+%26+Kayak+Landing/data=!4m2!3m1!1s0x8820137638e19f6b:0xbfe846c421c9a425]]></address>
+        <description><![CDATA[Note: <br>URL: https://www.google.com/maps/place/Burton's+Canoe+%26+Kayak+Landing/data=!4m2!3m1!1s0x8820137638e19f6b:0xbfe846c421c9a425<br>Tags: <br>Comment: ]]></description>
+        <styleUrl>#icon-1899-0288D1</styleUrl>
+        <ExtendedData>
+          <Data name="Note">
+            <value/>
+          </Data>
+          <Data name="URL">
+            <value><![CDATA[https://www.google.com/maps/place/Burton's+Canoe+%26+Kayak+Landing/data=!4m2!3m1!1s0x8820137638e19f6b:0xbfe846c421c9a425]]></value>
+          </Data>
+          <Data name="Tags">
+            <value/>
+          </Data>
+          <Data name="Comment">
+            <value/>
+          </Data>
+        </ExtendedData>
+      </Placemark>
+      <Placemark>
+        <name><![CDATA[Penrod's AuSable Canoe and Kayak]]></name>
+        <address><![CDATA[Penrod's AuSable Canoe and Kayak https://www.google.com/maps/place/Penrod's+AuSable+Canoe+and+Kayak/data=!4m2!3m1!1s0x8820114888ef00eb:0x859967f34016e4c4]]></address>
+        <description><![CDATA[Note: <br>URL: https://www.google.com/maps/place/Penrod's+AuSable+Canoe+and+Kayak/data=!4m2!3m1!1s0x8820114888ef00eb:0x859967f34016e4c4<br>Tags: <br>Comment: ]]></description>
+        <styleUrl>#icon-1899-0288D1</styleUrl>
+        <ExtendedData>
+          <Data name="Note">
+            <value/>
+          </Data>
+          <Data name="URL">
+            <value><![CDATA[https://www.google.com/maps/place/Penrod's+AuSable+Canoe+and+Kayak/data=!4m2!3m1!1s0x8820114888ef00eb:0x859967f34016e4c4]]></value>
+          </Data>
+          <Data name="Tags">
+            <value/>
+          </Data>
+          <Data name="Comment">
+            <value/>
+          </Data>
+        </ExtendedData>
+      </Placemark>
+      <Placemark>
+        <name>Greevy Boat Ramp</name>
+        <address>Greevy Boat Ramp https://www.google.com/maps/place/Greevy+Boat+Ramp/data=!4m2!3m1!1s0x89cfa688407203bd:0x257e9e8eca18ea53</address>
+        <description><![CDATA[Note: <br>URL: https://www.google.com/maps/place/Greevy+Boat+Ramp/data=!4m2!3m1!1s0x89cfa688407203bd:0x257e9e8eca18ea53<br>Tags: <br>Comment: ]]></description>
+        <styleUrl>#icon-1899-0288D1</styleUrl>
+        <ExtendedData>
+          <Data name="Note">
+            <value/>
+          </Data>
+          <Data name="URL">
+            <value>https://www.google.com/maps/place/Greevy+Boat+Ramp/data=!4m2!3m1!1s0x89cfa688407203bd:0x257e9e8eca18ea53</value>
+          </Data>
+          <Data name="Tags">
+            <value/>
+          </Data>
+          <Data name="Comment">
+            <value/>
+          </Data>
+        </ExtendedData>
+      </Placemark>
+      <Placemark>
+        <name>Suwannee River State Park - Ranger Station</name>
+        <address>Suwannee River State Park - Ranger Station https://www.google.com/maps/place/Suwannee+River+State+Park+-+Ranger+Station/data=!4m2!3m1!1s0x88eeea27cd773961:0xecb171ab4aae3399</address>
+        <description><![CDATA[Note: <br>URL: https://www.google.com/maps/place/Suwannee+River+State+Park+-+Ranger+Station/data=!4m2!3m1!1s0x88eeea27cd773961:0xecb171ab4aae3399<br>Tags: <br>Comment: ]]></description>
+        <styleUrl>#icon-1899-0288D1</styleUrl>
+        <ExtendedData>
+          <Data name="Note">
+            <value/>
+          </Data>
+          <Data name="URL">
+            <value>https://www.google.com/maps/place/Suwannee+River+State+Park+-+Ranger+Station/data=!4m2!3m1!1s0x88eeea27cd773961:0xecb171ab4aae3399</value>
+          </Data>
+          <Data name="Tags">
+            <value/>
+          </Data>
+          <Data name="Comment">
+            <value/>
+          </Data>
+        </ExtendedData>
+      </Placemark>
+      <Placemark>
+        <name>Billy Goat Boats</name>
+        <address>Billy Goat Boats https://www.google.com/maps/place/Billy+Goat+Boats/data=!4m2!3m1!1s0x89e1477bfa821453:0x2b8a25aac50353bb</address>
+        <description><![CDATA[Note: <br>URL: https://www.google.com/maps/place/Billy+Goat+Boats/data=!4m2!3m1!1s0x89e1477bfa821453:0x2b8a25aac50353bb<br>Tags: <br>Comment: ]]></description>
+        <styleUrl>#icon-1899-0288D1</styleUrl>
+        <ExtendedData>
+          <Data name="Note">
+            <value/>
+          </Data>
+          <Data name="URL">
+            <value>https://www.google.com/maps/place/Billy+Goat+Boats/data=!4m2!3m1!1s0x89e1477bfa821453:0x2b8a25aac50353bb</value>
+          </Data>
+          <Data name="Tags">
+            <value/>
+          </Data>
+          <Data name="Comment">
+            <value/>
+          </Data>
+        </ExtendedData>
+      </Placemark>
+      <Placemark>
+        <name>Bald Eagle Boat Ramp</name>
+        <description><![CDATA[Note: <br>URL: https://www.google.com/maps/place/Bald+Eagle+Boat+Ramp/data=!4m2!3m1!1s0x89cef24ef64e6481:0x9d25d442ea05f6b1<br>Tags: <br>Comment: ]]></description>
+        <ExtendedData>
+          <Data name="Note">
+            <value/>
+          </Data>
+          <Data name="URL">
+            <value>https://www.google.com/maps/place/Bald+Eagle+Boat+Ramp/data=!4m2!3m1!1s0x89cef24ef64e6481:0x9d25d442ea05f6b1</value>
+          </Data>
+          <Data name="Tags">
+            <value/>
+          </Data>
+          <Data name="Comment">
+            <value/>
+          </Data>
+        </ExtendedData>
+      </Placemark>
+      <Placemark>
+        <name>Jersey Shore Boat Club Boat Launch</name>
+        <address>Jersey Shore Boat Club Boat Launch https://www.google.com/maps/place/Jersey+Shore+Boat+Club+Boat+Launch/data=!4m2!3m1!1s0x89ceff653b063d8d:0xd5425e648abd3fbc</address>
+        <description><![CDATA[Note: <br>URL: https://www.google.com/maps/place/Jersey+Shore+Boat+Club+Boat+Launch/data=!4m2!3m1!1s0x89ceff653b063d8d:0xd5425e648abd3fbc<br>Tags: <br>Comment: ]]></description>
+        <styleUrl>#icon-1899-0288D1</styleUrl>
+        <ExtendedData>
+          <Data name="Note">
+            <value/>
+          </Data>
+          <Data name="URL">
+            <value>https://www.google.com/maps/place/Jersey+Shore+Boat+Club+Boat+Launch/data=!4m2!3m1!1s0x89ceff653b063d8d:0xd5425e648abd3fbc</value>
+          </Data>
+          <Data name="Tags">
+            <value/>
+          </Data>
+          <Data name="Comment">
+            <value/>
+          </Data>
+        </ExtendedData>
+      </Placemark>
+      <Placemark>
+        <name>Torbert Canoe Launch</name>
+        <address>Torbert Canoe Launch https://www.google.com/maps/place/Torbert+Canoe+Launch/data=!4m2!3m1!1s0x89ce571e856c5983:0x8690dc5619d78080</address>
+        <description><![CDATA[Note: <br>URL: https://www.google.com/maps/place/Torbert+Canoe+Launch/data=!4m2!3m1!1s0x89ce571e856c5983:0x8690dc5619d78080<br>Tags: <br>Comment: ]]></description>
+        <styleUrl>#icon-1899-0288D1</styleUrl>
+        <ExtendedData>
+          <Data name="Note">
+            <value/>
+          </Data>
+          <Data name="URL">
+            <value>https://www.google.com/maps/place/Torbert+Canoe+Launch/data=!4m2!3m1!1s0x89ce571e856c5983:0x8690dc5619d78080</value>
+          </Data>
+          <Data name="Tags">
+            <value/>
+          </Data>
+          <Data name="Comment">
+            <value/>
+          </Data>
+        </ExtendedData>
+      </Placemark>
+      <Placemark>
+        <name>202-296 NY-13A</name>
+        <address>202-296 NY-13A https://www.google.com/maps/place/202-296+NY-13A/data=!4m2!3m1!1s0x89d0816dcb558869:0x23a0cf3b7dc4ff81</address>
+        <description><![CDATA[Note: <br>URL: https://www.google.com/maps/place/202-296+NY-13A/data=!4m2!3m1!1s0x89d0816dcb558869:0x23a0cf3b7dc4ff81<br>Tags: <br>Comment: ]]></description>
+        <styleUrl>#icon-1899-0288D1</styleUrl>
+        <ExtendedData>
+          <Data name="Note">
+            <value/>
+          </Data>
+          <Data name="URL">
+            <value>https://www.google.com/maps/place/202-296+NY-13A/data=!4m2!3m1!1s0x89d0816dcb558869:0x23a0cf3b7dc4ff81</value>
+          </Data>
+          <Data name="Tags">
+            <value/>
+          </Data>
+          <Data name="Comment">
+            <value/>
+          </Data>
+        </ExtendedData>
+      </Placemark>
+      <Placemark>
+        <name>State Fishing Acc</name>
+        <description><![CDATA[Note: <br>URL: https://www.google.com/maps/place/State+Fishing+Acc/data=!4m2!3m1!1s0x89daf90ca3706065:0x690ed85ccc86fb30<br>Tags: <br>Comment: ]]></description>
+        <ExtendedData>
+          <Data name="Note">
+            <value/>
+          </Data>
+          <Data name="URL">
+            <value>https://www.google.com/maps/place/State+Fishing+Acc/data=!4m2!3m1!1s0x89daf90ca3706065:0x690ed85ccc86fb30</value>
+          </Data>
+          <Data name="Tags">
+            <value/>
+          </Data>
+          <Data name="Comment">
+            <value/>
+          </Data>
+        </ExtendedData>
+      </Placemark>
+      <Placemark>
+        <name>Big Shoals State Park</name>
+        <address>Big Shoals State Park https://www.google.com/maps/place/Big+Shoals+State+Park/data=!4m2!3m1!1s0x88ef170062f93d33:0xc11a7d5e126c4a05</address>
+        <description><![CDATA[Note: <br>URL: https://www.google.com/maps/place/Big+Shoals+State+Park/data=!4m2!3m1!1s0x88ef170062f93d33:0xc11a7d5e126c4a05<br>Tags: <br>Comment: ]]></description>
+        <styleUrl>#icon-1899-0288D1</styleUrl>
+        <ExtendedData>
+          <Data name="Note">
+            <value/>
+          </Data>
+          <Data name="URL">
+            <value>https://www.google.com/maps/place/Big+Shoals+State+Park/data=!4m2!3m1!1s0x88ef170062f93d33:0xc11a7d5e126c4a05</value>
+          </Data>
+          <Data name="Tags">
+            <value/>
+          </Data>
+          <Data name="Comment">
+            <value/>
+          </Data>
+        </ExtendedData>
+      </Placemark>
+      <Placemark>
+        <name>11195 NE 2nd Way</name>
+        <address>11195 NE 2nd Way 11190 NE 2nd Way, Branford, FL https://www.google.com/maps/place/11195+NE+2nd+Way/data=!4m2!3m1!1s0x88e8d3ae53091651:0x1b06ee164fe80396</address>
+        <description><![CDATA[Note: 11190 NE 2nd Way, Branford, FL<br>URL: https://www.google.com/maps/place/11195+NE+2nd+Way/data=!4m2!3m1!1s0x88e8d3ae53091651:0x1b06ee164fe80396<br>Tags: <br>Comment: ]]></description>
+        <styleUrl>#icon-1899-0288D1</styleUrl>
+        <ExtendedData>
+          <Data name="Note">
+            <value>11190 NE 2nd Way, Branford, FL</value>
+          </Data>
+          <Data name="URL">
+            <value>https://www.google.com/maps/place/11195+NE+2nd+Way/data=!4m2!3m1!1s0x88e8d3ae53091651:0x1b06ee164fe80396</value>
+          </Data>
+          <Data name="Tags">
+            <value/>
+          </Data>
+          <Data name="Comment">
+            <value/>
+          </Data>
+        </ExtendedData>
+      </Placemark>
+      <Placemark>
+        <name>Newton Boathouse Public Parking</name>
+        <address>Newton Boathouse Public Parking https://www.google.com/maps/place/Newton+Boathouse+Public+Parking/data=!4m2!3m1!1s0x89e383a18e8c9329:0xe01e71dd4d6414f6</address>
+        <description><![CDATA[Note: <br>URL: https://www.google.com/maps/place/Newton+Boathouse+Public+Parking/data=!4m2!3m1!1s0x89e383a18e8c9329:0xe01e71dd4d6414f6<br>Tags: <br>Comment: ]]></description>
+        <styleUrl>#icon-1899-0288D1</styleUrl>
+        <ExtendedData>
+          <Data name="Note">
+            <value/>
+          </Data>
+          <Data name="URL">
+            <value>https://www.google.com/maps/place/Newton+Boathouse+Public+Parking/data=!4m2!3m1!1s0x89e383a18e8c9329:0xe01e71dd4d6414f6</value>
+          </Data>
+          <Data name="Tags">
+            <value/>
+          </Data>
+          <Data name="Comment">
+            <value/>
+          </Data>
+        </ExtendedData>
+      </Placemark>
+      <Placemark>
+        <name>Delta Lake Park</name>
+        <description><![CDATA[Note: <br>URL: https://www.google.com/maps/place/Delta+Lake+Park/data=!4m2!3m1!1s0x89d917383be3de05:0x1dcf7c600b559a37<br>Tags: <br>Comment: ]]></description>
+        <ExtendedData>
+          <Data name="Note">
+            <value/>
+          </Data>
+          <Data name="URL">
+            <value>https://www.google.com/maps/place/Delta+Lake+Park/data=!4m2!3m1!1s0x89d917383be3de05:0x1dcf7c600b559a37</value>
+          </Data>
+          <Data name="Tags">
+            <value/>
+          </Data>
+          <Data name="Comment">
+            <value/>
+          </Data>
+        </ExtendedData>
+      </Placemark>
+      <Placemark>
+        <name><![CDATA[Roger's Park]]></name>
+        <address><![CDATA[Roger's Park https://www.google.com/maps/place/Roger's+Park/data=!4m2!3m1!1s0x88e8213d52d15455:0x9cd168620fe2e465]]></address>
+        <description><![CDATA[Note: <br>URL: https://www.google.com/maps/place/Roger's+Park/data=!4m2!3m1!1s0x88e8213d52d15455:0x9cd168620fe2e465<br>Tags: <br>Comment: ]]></description>
+        <styleUrl>#icon-1899-0288D1</styleUrl>
+        <ExtendedData>
+          <Data name="Note">
+            <value/>
+          </Data>
+          <Data name="URL">
+            <value><![CDATA[https://www.google.com/maps/place/Roger's+Park/data=!4m2!3m1!1s0x88e8213d52d15455:0x9cd168620fe2e465]]></value>
+          </Data>
+          <Data name="Tags">
+            <value/>
+          </Data>
+          <Data name="Comment">
+            <value/>
+          </Data>
+        </ExtendedData>
+      </Placemark>
+      <Placemark>
+        <name>Blue Sink Launch</name>
+        <address>Blue Sink Launch https://www.google.com/maps/place/Blue+Sink+Launch/data=!4m2!3m1!1s0x88ef18ad3c481491:0x2ef2932e03de9209</address>
+        <description><![CDATA[Note: <br>URL: https://www.google.com/maps/place/Blue+Sink+Launch/data=!4m2!3m1!1s0x88ef18ad3c481491:0x2ef2932e03de9209<br>Tags: <br>Comment: ]]></description>
+        <styleUrl>#icon-1899-0288D1</styleUrl>
+        <ExtendedData>
+          <Data name="Note">
+            <value/>
+          </Data>
+          <Data name="URL">
+            <value>https://www.google.com/maps/place/Blue+Sink+Launch/data=!4m2!3m1!1s0x88ef18ad3c481491:0x2ef2932e03de9209</value>
+          </Data>
+          <Data name="Tags">
+            <value/>
+          </Data>
+          <Data name="Comment">
+            <value/>
+          </Data>
+        </ExtendedData>
+      </Placemark>
+      <Placemark>
+        <name>Big Shoals Trail</name>
+        <address>Big Shoals Trail https://www.google.com/maps/place/Big+Shoals+Trail/data=!4m2!3m1!1s0x88ef164c75d4d425:0x5d47092a44ed2c15</address>
+        <description><![CDATA[Note: <br>URL: https://www.google.com/maps/place/Big+Shoals+Trail/data=!4m2!3m1!1s0x88ef164c75d4d425:0x5d47092a44ed2c15<br>Tags: <br>Comment: ]]></description>
+        <styleUrl>#icon-1899-0288D1</styleUrl>
+        <ExtendedData>
+          <Data name="Note">
+            <value/>
+          </Data>
+          <Data name="URL">
+            <value>https://www.google.com/maps/place/Big+Shoals+Trail/data=!4m2!3m1!1s0x88ef164c75d4d425:0x5d47092a44ed2c15</value>
+          </Data>
+          <Data name="Tags">
+            <value/>
+          </Data>
+          <Data name="Comment">
+            <value/>
+          </Data>
+        </ExtendedData>
+      </Placemark>
+      <Placemark>
+        <name>Cone Bridge Boat Ramp</name>
+        <address>Cone Bridge Boat Ramp https://www.google.com/maps/place/Cone+Bridge+Boat+Ramp/data=!4m2!3m1!1s0x88ef114b19478b85:0x6055c8c3c0106156</address>
+        <description><![CDATA[Note: <br>URL: https://www.google.com/maps/place/Cone+Bridge+Boat+Ramp/data=!4m2!3m1!1s0x88ef114b19478b85:0x6055c8c3c0106156<br>Tags: <br>Comment: ]]></description>
+        <styleUrl>#icon-1899-0288D1</styleUrl>
+        <ExtendedData>
+          <Data name="Note">
+            <value/>
+          </Data>
+          <Data name="URL">
+            <value>https://www.google.com/maps/place/Cone+Bridge+Boat+Ramp/data=!4m2!3m1!1s0x88ef114b19478b85:0x6055c8c3c0106156</value>
+          </Data>
+          <Data name="Tags">
+            <value/>
+          </Data>
+          <Data name="Comment">
+            <value/>
+          </Data>
+        </ExtendedData>
+      </Placemark>
+      <Placemark>
+        <name>Cypress Creek Launch</name>
+        <description><![CDATA[Note: <br>URL: https://www.google.com/maps/place/Cypress+Creek+Launch/data=!4m2!3m1!1s0x88ef11160428b5c1:0x8c49ea3c74f52aa7<br>Tags: <br>Comment: ]]></description>
+        <ExtendedData>
+          <Data name="Note">
+            <value/>
+          </Data>
+          <Data name="URL">
+            <value>https://www.google.com/maps/place/Cypress+Creek+Launch/data=!4m2!3m1!1s0x88ef11160428b5c1:0x8c49ea3c74f52aa7</value>
+          </Data>
+          <Data name="Tags">
+            <value/>
+          </Data>
+          <Data name="Comment">
+            <value/>
+          </Data>
+        </ExtendedData>
+      </Placemark>
+      <Placemark>
+        <name>Roline Boat Ramp</name>
+        <address>Roline Boat Ramp https://www.google.com/maps/place/Roline+Boat+Ramp/data=!4m2!3m1!1s0x88ef0f7ca7444279:0x9a82e72f877ae432</address>
+        <description><![CDATA[Note: <br>URL: https://www.google.com/maps/place/Roline+Boat+Ramp/data=!4m2!3m1!1s0x88ef0f7ca7444279:0x9a82e72f877ae432<br>Tags: <br>Comment: ]]></description>
+        <styleUrl>#icon-1899-0288D1</styleUrl>
+        <ExtendedData>
+          <Data name="Note">
+            <value/>
+          </Data>
+          <Data name="URL">
+            <value>https://www.google.com/maps/place/Roline+Boat+Ramp/data=!4m2!3m1!1s0x88ef0f7ca7444279:0x9a82e72f877ae432</value>
+          </Data>
+          <Data name="Tags">
+            <value/>
+          </Data>
+          <Data name="Comment">
+            <value/>
+          </Data>
+        </ExtendedData>
+      </Placemark>
+      <Placemark>
+        <name>Oak Orchard Rd by Mud Creek</name>
+        <address>Oak Orchard Rd by Mud Creek Oak Orchard Rd by Mud Creek https://www.google.com/maps/search/43.2048725,-76.2137578</address>
+        <description><![CDATA[Note: Oak Orchard Rd by Mud Creek<br>URL: https://www.google.com/maps/search/43.2048725,-76.2137578<br>Tags: <br>Comment: ]]></description>
+        <styleUrl>#icon-1899-0288D1</styleUrl>
+        <ExtendedData>
+          <Data name="Note">
+            <value>Oak Orchard Rd by Mud Creek</value>
+          </Data>
+          <Data name="URL">
+            <value>https://www.google.com/maps/search/43.2048725,-76.2137578</value>
+          </Data>
+          <Data name="Tags">
+            <value/>
+          </Data>
+          <Data name="Comment">
+            <value/>
+          </Data>
+        </ExtendedData>
+      </Placemark>
+      <Placemark>
+        <name>Stephen Foster Memorial Monument</name>
+        <address>Stephen Foster Memorial Monument https://www.google.com/maps/place/Stephen+Foster+Memorial+Monument/data=!4m2!3m1!1s0x88efa0002214cbc7:0xa2aa2c77330a8177</address>
+        <description><![CDATA[Note: <br>URL: https://www.google.com/maps/place/Stephen+Foster+Memorial+Monument/data=!4m2!3m1!1s0x88efa0002214cbc7:0xa2aa2c77330a8177<br>Tags: <br>Comment: ]]></description>
+        <styleUrl>#icon-1899-0288D1</styleUrl>
+        <ExtendedData>
+          <Data name="Note">
+            <value/>
+          </Data>
+          <Data name="URL">
+            <value>https://www.google.com/maps/place/Stephen+Foster+Memorial+Monument/data=!4m2!3m1!1s0x88efa0002214cbc7:0xa2aa2c77330a8177</value>
+          </Data>
+          <Data name="Tags">
+            <value/>
+          </Data>
+          <Data name="Comment">
+            <value/>
+          </Data>
+        </ExtendedData>
+      </Placemark>
+      <Placemark>
+        <name>Griffis Fish Camp</name>
+        <address>Griffis Fish Camp https://www.google.com/maps/place/Griffis+Fish+Camp/data=!4m2!3m1!1s0x88ef9bff609f3a6b:0xe9fd4ae2c390340e</address>
+        <description><![CDATA[Note: <br>URL: https://www.google.com/maps/place/Griffis+Fish+Camp/data=!4m2!3m1!1s0x88ef9bff609f3a6b:0xe9fd4ae2c390340e<br>Tags: <br>Comment: ]]></description>
+        <styleUrl>#icon-1899-0288D1</styleUrl>
+        <ExtendedData>
+          <Data name="Note">
+            <value/>
+          </Data>
+          <Data name="URL">
+            <value>https://www.google.com/maps/place/Griffis+Fish+Camp/data=!4m2!3m1!1s0x88ef9bff609f3a6b:0xe9fd4ae2c390340e</value>
+          </Data>
+          <Data name="Tags">
+            <value/>
+          </Data>
+          <Data name="Comment">
+            <value/>
+          </Data>
+        </ExtendedData>
+      </Placemark>
+      <Placemark>
+        <name>Robinson Launch on the Susquehanna</name>
+        <description><![CDATA[Note: Robinson Launch<br>URL: https://www.google.com/maps/search/42.4005725,-75.1583377<br>Tags: <br>Comment: ]]></description>
+        <ExtendedData>
+          <Data name="Note">
+            <value>Robinson Launch</value>
+          </Data>
+          <Data name="URL">
+            <value>https://www.google.com/maps/search/42.4005725,-75.1583377</value>
+          </Data>
+          <Data name="Tags">
+            <value/>
+          </Data>
+          <Data name="Comment">
+            <value/>
+          </Data>
+        </ExtendedData>
+      </Placemark>
+      <Placemark>
+        <name>Hem Street Memorial County Park</name>
+        <description><![CDATA[Note: Otego Creek<br>URL: https://www.google.com/maps/place/Hem+Street+Memorial+County+Park/data=!4m2!3m1!1s0x89db8dcb9a2e3b29:0x7e0c70c127f7411c<br>Tags: <br>Comment: ]]></description>
+        <ExtendedData>
+          <Data name="Note">
+            <value>Otego Creek</value>
+          </Data>
+          <Data name="URL">
+            <value>https://www.google.com/maps/place/Hem+Street+Memorial+County+Park/data=!4m2!3m1!1s0x89db8dcb9a2e3b29:0x7e0c70c127f7411c</value>
+          </Data>
+          <Data name="Tags">
+            <value/>
+          </Data>
+          <Data name="Comment">
+            <value/>
+          </Data>
+        </ExtendedData>
+      </Placemark>
+      <Placemark>
+        <name>Wells Bridge Fishing Access</name>
+        <address>Wells Bridge Fishing Access https://www.google.com/maps/place/Wells+Bridge+Fishing+Access/data=!4m2!3m1!1s0x89db91002938a56f:0x327688c287f4b82f</address>
+        <description><![CDATA[Note: <br>URL: https://www.google.com/maps/place/Wells+Bridge+Fishing+Access/data=!4m2!3m1!1s0x89db91002938a56f:0x327688c287f4b82f<br>Tags: <br>Comment: ]]></description>
+        <styleUrl>#icon-1899-0288D1</styleUrl>
+        <ExtendedData>
+          <Data name="Note">
+            <value/>
+          </Data>
+          <Data name="URL">
+            <value>https://www.google.com/maps/place/Wells+Bridge+Fishing+Access/data=!4m2!3m1!1s0x89db91002938a56f:0x327688c287f4b82f</value>
+          </Data>
+          <Data name="Tags">
+            <value/>
+          </Data>
+          <Data name="Comment">
+            <value/>
+          </Data>
+        </ExtendedData>
+      </Placemark>
+      <Placemark>
+        <name>Wells Bridge Fishing Access</name>
+        <address>Wells Bridge Fishing Access https://www.google.com/maps/place/Wells+Bridge+Fishing+Access/data=!4m2!3m1!1s0x89db9145d3b32c85:0xbe3f3f180bc0b1d6</address>
+        <description><![CDATA[Note: <br>URL: https://www.google.com/maps/place/Wells+Bridge+Fishing+Access/data=!4m2!3m1!1s0x89db9145d3b32c85:0xbe3f3f180bc0b1d6<br>Tags: <br>Comment: ]]></description>
+        <styleUrl>#icon-1899-0288D1</styleUrl>
+        <ExtendedData>
+          <Data name="Note">
+            <value/>
+          </Data>
+          <Data name="URL">
+            <value>https://www.google.com/maps/place/Wells+Bridge+Fishing+Access/data=!4m2!3m1!1s0x89db9145d3b32c85:0xbe3f3f180bc0b1d6</value>
+          </Data>
+          <Data name="Tags">
+            <value/>
+          </Data>
+          <Data name="Comment">
+            <value/>
+          </Data>
+        </ExtendedData>
+      </Placemark>
+      <Placemark>
+        <name><![CDATA[43°05'31.8"N 73°39'36.6"W]]></name>
+        <description><![CDATA[Note: Bryant Bridge Road paddle spot<br>URL: https://www.google.com/maps/search/43.09217,-73.660166<br>Tags: <br>Comment: ]]></description>
+        <ExtendedData>
+          <Data name="Note">
+            <value>Bryant Bridge Road paddle spot</value>
+          </Data>
+          <Data name="URL">
+            <value>https://www.google.com/maps/search/43.09217,-73.660166</value>
+          </Data>
+          <Data name="Tags">
+            <value/>
+          </Data>
+          <Data name="Comment">
+            <value/>
+          </Data>
+        </ExtendedData>
+      </Placemark>
+      <Placemark>
+        <name>Montoursville Access and Boat Launch</name>
+        <address>Montoursville Access and Boat Launch https://www.google.com/maps/place/Montoursville+Access+and+Boat+Launch/data=!4m2!3m1!1s0x89cfa6b7efec4cbd:0xf771eff01f7f9cdc</address>
+        <description><![CDATA[Note: <br>URL: https://www.google.com/maps/place/Montoursville+Access+and+Boat+Launch/data=!4m2!3m1!1s0x89cfa6b7efec4cbd:0xf771eff01f7f9cdc<br>Tags: <br>Comment: ]]></description>
+        <styleUrl>#icon-1899-0288D1</styleUrl>
+        <ExtendedData>
+          <Data name="Note">
+            <value/>
+          </Data>
+          <Data name="URL">
+            <value>https://www.google.com/maps/place/Montoursville+Access+and+Boat+Launch/data=!4m2!3m1!1s0x89cfa6b7efec4cbd:0xf771eff01f7f9cdc</value>
+          </Data>
+          <Data name="Tags">
+            <value/>
+          </Data>
+          <Data name="Comment">
+            <value/>
+          </Data>
+        </ExtendedData>
+      </Placemark>
+      <Placemark>
+        <name>Hawkins Bridge</name>
+        <address>Hawkins Bridge https://www.google.com/maps/place/Hawkins+Bridge/data=!4m2!3m1!1s0x89c118f471cfcab5:0xf9f11f6fd700d55c</address>
+        <description><![CDATA[Note: <br>URL: https://www.google.com/maps/place/Hawkins+Bridge/data=!4m2!3m1!1s0x89c118f471cfcab5:0xf9f11f6fd700d55c<br>Tags: <br>Comment: ]]></description>
+        <styleUrl>#icon-1899-0288D1</styleUrl>
+        <ExtendedData>
+          <Data name="Note">
+            <value/>
+          </Data>
+          <Data name="URL">
+            <value>https://www.google.com/maps/place/Hawkins+Bridge/data=!4m2!3m1!1s0x89c118f471cfcab5:0xf9f11f6fd700d55c</value>
+          </Data>
+          <Data name="Tags">
+            <value/>
+          </Data>
+          <Data name="Comment">
+            <value/>
+          </Data>
+        </ExtendedData>
+      </Placemark>
+      <Placemark>
+        <name>Suwannee River Wayside Park</name>
+        <address>Suwannee River Wayside Park https://www.google.com/maps/place/Suwannee+River+Wayside+Park/data=!4m2!3m1!1s0x88ef22aa5972a601:0xd7a149360e013ff9</address>
+        <description><![CDATA[Note: <br>URL: https://www.google.com/maps/place/Suwannee+River+Wayside+Park/data=!4m2!3m1!1s0x88ef22aa5972a601:0xd7a149360e013ff9<br>Tags: <br>Comment: ]]></description>
+        <styleUrl>#icon-1899-0288D1</styleUrl>
+        <ExtendedData>
+          <Data name="Note">
+            <value/>
+          </Data>
+          <Data name="URL">
+            <value>https://www.google.com/maps/place/Suwannee+River+Wayside+Park/data=!4m2!3m1!1s0x88ef22aa5972a601:0xd7a149360e013ff9</value>
+          </Data>
+          <Data name="Tags">
+            <value/>
+          </Data>
+          <Data name="Comment">
+            <value/>
+          </Data>
+        </ExtendedData>
+      </Placemark>
+      <Placemark>
+        <name>Historic Mount Orne Covered Bridge</name>
+        <address>Historic Mount Orne Covered Bridge https://www.google.com/maps/place/Historic+Mount+Orne+Covered+Bridge/data=!4m2!3m1!1s0x4cb41396f80d4533:0xf472161bdd501b51</address>
+        <description><![CDATA[Note: <br>URL: https://www.google.com/maps/place/Historic+Mount+Orne+Covered+Bridge/data=!4m2!3m1!1s0x4cb41396f80d4533:0xf472161bdd501b51<br>Tags: <br>Comment: ]]></description>
+        <styleUrl>#icon-1899-0288D1</styleUrl>
+        <ExtendedData>
+          <Data name="Note">
+            <value/>
+          </Data>
+          <Data name="URL">
+            <value>https://www.google.com/maps/place/Historic+Mount+Orne+Covered+Bridge/data=!4m2!3m1!1s0x4cb41396f80d4533:0xf472161bdd501b51</value>
+          </Data>
+          <Data name="Tags">
+            <value/>
+          </Data>
+          <Data name="Comment">
+            <value/>
+          </Data>
+        </ExtendedData>
+      </Placemark>
+      <Placemark>
+        <name>SR 47 Boat Ramp</name>
+        <description><![CDATA[Note: <br>URL: https://www.google.com/maps/place/SR+47+Boat+Ramp/data=!4m2!3m1!1s0x88e8d1ff2ca8e751:0x350c3066eb28d95<br>Tags: <br>Comment: ]]></description>
+        <ExtendedData>
+          <Data name="Note">
+            <value/>
+          </Data>
+          <Data name="URL">
+            <value>https://www.google.com/maps/place/SR+47+Boat+Ramp/data=!4m2!3m1!1s0x88e8d1ff2ca8e751:0x350c3066eb28d95</value>
+          </Data>
+          <Data name="Tags">
+            <value/>
+          </Data>
+          <Data name="Comment">
+            <value/>
+          </Data>
+        </ExtendedData>
+      </Placemark>
+      <Placemark>
+        <name>Silver Springs</name>
+        <description><![CDATA[Note: <br>URL: https://www.google.com/maps/place/Silver+Springs/data=!4m2!3m1!1s0x88e633036833f547:0xa0c9155410321fd5<br>Tags: <br>Comment: ]]></description>
+        <ExtendedData>
+          <Data name="Note">
+            <value/>
+          </Data>
+          <Data name="URL">
+            <value>https://www.google.com/maps/place/Silver+Springs/data=!4m2!3m1!1s0x88e633036833f547:0xa0c9155410321fd5</value>
+          </Data>
+          <Data name="Tags">
+            <value/>
+          </Data>
+          <Data name="Comment">
+            <value/>
+          </Data>
+        </ExtendedData>
+      </Placemark>
+      <Placemark>
+        <name>Gibson County Park</name>
+        <description><![CDATA[Note: <br>URL: https://www.google.com/maps/place/Gibson+County+Park/data=!4m2!3m1!1s0x88eeef4bd00ee62f:0x52ff1fde8ed36292<br>Tags: <br>Comment: ]]></description>
+        <ExtendedData>
+          <Data name="Note">
+            <value/>
+          </Data>
+          <Data name="URL">
+            <value>https://www.google.com/maps/place/Gibson+County+Park/data=!4m2!3m1!1s0x88eeef4bd00ee62f:0x52ff1fde8ed36292</value>
+          </Data>
+          <Data name="Tags">
+            <value/>
+          </Data>
+          <Data name="Comment">
+            <value/>
+          </Data>
+        </ExtendedData>
+      </Placemark>
+      <Placemark>
+        <name>Manatee Springs State Park Campground</name>
+        <address>Manatee Springs State Park Campground https://www.google.com/maps/place/Manatee+Springs+State+Park+Campground/data=!4m2!3m1!1s0x88e91dbedf7d88bd:0x493cfd0b55ad86c4</address>
+        <description><![CDATA[Note: <br>URL: https://www.google.com/maps/place/Manatee+Springs+State+Park+Campground/data=!4m2!3m1!1s0x88e91dbedf7d88bd:0x493cfd0b55ad86c4<br>Tags: <br>Comment: ]]></description>
+        <styleUrl>#icon-1899-0288D1</styleUrl>
+        <ExtendedData>
+          <Data name="Note">
+            <value/>
+          </Data>
+          <Data name="URL">
+            <value>https://www.google.com/maps/place/Manatee+Springs+State+Park+Campground/data=!4m2!3m1!1s0x88e91dbedf7d88bd:0x493cfd0b55ad86c4</value>
+          </Data>
+          <Data name="Tags">
+            <value/>
+          </Data>
+          <Data name="Comment">
+            <value/>
+          </Data>
+        </ExtendedData>
+      </Placemark>
+      <Placemark>
+        <name>Connecticut River Greenway Riverfront Park - City of Northampton</name>
+        <address>Connecticut River Greenway Riverfront Park - City of Northampton potato race spot? https://www.google.com/maps/place/Connecticut+River+Greenway+Riverfront+Park+-+City+of+Northampton/data=!4m2!3m1!1s0x89e6d7207851c0ed:0x348aad568394594a</address>
+        <description><![CDATA[Note: potato race spot?<br>URL: https://www.google.com/maps/place/Connecticut+River+Greenway+Riverfront+Park+-+City+of+Northampton/data=!4m2!3m1!1s0x89e6d7207851c0ed:0x348aad568394594a<br>Tags: <br>Comment: ]]></description>
+        <styleUrl>#icon-1899-0288D1</styleUrl>
+        <ExtendedData>
+          <Data name="Note">
+            <value>potato race spot?</value>
+          </Data>
+          <Data name="URL">
+            <value>https://www.google.com/maps/place/Connecticut+River+Greenway+Riverfront+Park+-+City+of+Northampton/data=!4m2!3m1!1s0x89e6d7207851c0ed:0x348aad568394594a</value>
+          </Data>
+          <Data name="Tags">
+            <value/>
+          </Data>
+          <Data name="Comment">
+            <value/>
+          </Data>
+        </ExtendedData>
+      </Placemark>
+      <Placemark>
+        <name>Westons Beach</name>
+        <description><![CDATA[Note: 10/10 would recommend. Good for a 2 hour paddle. Some local canoe companies are trying to block access to the river so this is one of the few spots.<br>URL: https://www.google.com/maps/place/Westons+Beach/data=!4m2!3m1!1s0x4cb3a87223deb009:0x74f67114dac3334e<br>Tags: <br>Comment: ]]></description>
+        <ExtendedData>
+          <Data name="Note">
+            <value>10/10 would recommend. Good for a 2 hour paddle. Some local canoe companies are trying to block access to the river so this is one of the few spots.</value>
+          </Data>
+          <Data name="URL">
+            <value>https://www.google.com/maps/place/Westons+Beach/data=!4m2!3m1!1s0x4cb3a87223deb009:0x74f67114dac3334e</value>
+          </Data>
+          <Data name="Tags">
+            <value/>
+          </Data>
+          <Data name="Comment">
+            <value/>
+          </Data>
+        </ExtendedData>
+      </Placemark>
+      <Placemark>
+        <name>Public river access parking probably</name>
+        <description><![CDATA[Note: probably the free state parking that those 2 companies are screwing with<br>URL: https://www.google.com/maps/place/Public+river+access+parking+probably/data=!4m2!3m1!1s0x4cb301004f1ebbed:0xf96ed25a31195765<br>Tags: <br>Comment: ]]></description>
+        <ExtendedData>
+          <Data name="Note">
+            <value>probably the free state parking that those 2 companies are screwing with</value>
+          </Data>
+          <Data name="URL">
+            <value>https://www.google.com/maps/place/Public+river+access+parking+probably/data=!4m2!3m1!1s0x4cb301004f1ebbed:0xf96ed25a31195765</value>
+          </Data>
+          <Data name="Tags">
+            <value/>
+          </Data>
+          <Data name="Comment">
+            <value/>
+          </Data>
+        </ExtendedData>
+      </Placemark>
+      <Placemark>
+        <name>Public state free canoe river access</name>
+        <description><![CDATA[Note: 2 local canoe companies make the river access really had. The free parking is up the hill and across the street. Those 2 companies try to make people miss it.<br>URL: https://www.google.com/maps/place/Public+state+free+canoe+river+access/data=!4m2!3m1!1s0x4cb301004b364823:0x9ae37dc0feb85cb7<br>Tags: <br>Comment: ]]></description>
+        <ExtendedData>
+          <Data name="Note">
+            <value>2 local canoe companies make the river access really had. The free parking is up the hill and across the street. Those 2 companies try to make people miss it.</value>
+          </Data>
+          <Data name="URL">
+            <value>https://www.google.com/maps/place/Public+state+free+canoe+river+access/data=!4m2!3m1!1s0x4cb301004b364823:0x9ae37dc0feb85cb7</value>
+          </Data>
+          <Data name="Tags">
+            <value/>
+          </Data>
+          <Data name="Comment">
+            <value/>
+          </Data>
+        </ExtendedData>
+      </Placemark>
+      <Placemark>
+        <name>Schroon River Canoe/kayak Access at County Home Bridge, Warrensburg</name>
+        <address>Schroon River Canoe/kayak Access at County Home Bridge, Warrensburg 10/10 would recommend https://www.google.com/maps/place/Schroon+River+Canoe%2Fkayak+Access+at+County+Home+Bridge,+Warrensburg/data=!4m2!3m1!1s0x89dfc22088578603:0x508750ff1f8aaa72</address>
+        <description><![CDATA[Note: 10/10 would recommend<br>URL: https://www.google.com/maps/place/Schroon+River+Canoe%2Fkayak+Access+at+County+Home+Bridge,+Warrensburg/data=!4m2!3m1!1s0x89dfc22088578603:0x508750ff1f8aaa72<br>Tags: <br>Comment: ]]></description>
+        <styleUrl>#icon-1899-0288D1</styleUrl>
+        <ExtendedData>
+          <Data name="Note">
+            <value>10/10 would recommend</value>
+          </Data>
+          <Data name="URL">
+            <value>https://www.google.com/maps/place/Schroon+River+Canoe%2Fkayak+Access+at+County+Home+Bridge,+Warrensburg/data=!4m2!3m1!1s0x89dfc22088578603:0x508750ff1f8aaa72</value>
+          </Data>
+          <Data name="Tags">
+            <value/>
+          </Data>
+          <Data name="Comment">
+            <value/>
+          </Data>
+        </ExtendedData>
+      </Placemark>
+      <Placemark>
+        <name>DEC Boat Launch, Skaneateles Lake</name>
+        <address>DEC Boat Launch, Skaneateles Lake https://www.google.com/maps/place/DEC+Boat+Launch,+Skaneateles+Lake/data=!4m2!3m1!1s0x89da00cee985e163:0x5e429851dfd02e96</address>
+        <description><![CDATA[Note: <br>URL: https://www.google.com/maps/place/DEC+Boat+Launch,+Skaneateles+Lake/data=!4m2!3m1!1s0x89da00cee985e163:0x5e429851dfd02e96<br>Tags: <br>Comment: ]]></description>
+        <styleUrl>#icon-1899-0288D1</styleUrl>
+        <ExtendedData>
+          <Data name="Note">
+            <value/>
+          </Data>
+          <Data name="URL">
+            <value>https://www.google.com/maps/place/DEC+Boat+Launch,+Skaneateles+Lake/data=!4m2!3m1!1s0x89da00cee985e163:0x5e429851dfd02e96</value>
+          </Data>
+          <Data name="Tags">
+            <value/>
+          </Data>
+          <Data name="Comment">
+            <value/>
+          </Data>
+        </ExtendedData>
+      </Placemark>
+      <Placemark>
+        <name>Starbuckville Dam</name>
+        <address>Starbuckville Dam https://www.google.com/maps/place/Starbuckville+Dam/data=!4m2!3m1!1s0x89dfed91add39ac1:0x4ead75375f9ed98d</address>
+        <description><![CDATA[Note: <br>URL: https://www.google.com/maps/place/Starbuckville+Dam/data=!4m2!3m1!1s0x89dfed91add39ac1:0x4ead75375f9ed98d<br>Tags: <br>Comment: ]]></description>
+        <styleUrl>#icon-1899-0288D1</styleUrl>
+        <ExtendedData>
+          <Data name="Note">
+            <value/>
+          </Data>
+          <Data name="URL">
+            <value>https://www.google.com/maps/place/Starbuckville+Dam/data=!4m2!3m1!1s0x89dfed91add39ac1:0x4ead75375f9ed98d</value>
+          </Data>
+          <Data name="Tags">
+            <value/>
+          </Data>
+          <Data name="Comment">
+            <value/>
+          </Data>
+        </ExtendedData>
+      </Placemark>
+      <Placemark>
+        <name>Schroon Lake Waterway Access</name>
+        <address>Schroon Lake Waterway Access https://www.google.com/maps/place/Schroon+Lake+Waterway+Access/data=!4m2!3m1!1s0x89dff2e33eeed991:0xa395b56541e5f58</address>
+        <description><![CDATA[Note: <br>URL: https://www.google.com/maps/place/Schroon+Lake+Waterway+Access/data=!4m2!3m1!1s0x89dff2e33eeed991:0xa395b56541e5f58<br>Tags: <br>Comment: ]]></description>
+        <styleUrl>#icon-1899-0288D1</styleUrl>
+        <ExtendedData>
+          <Data name="Note">
+            <value/>
+          </Data>
+          <Data name="URL">
+            <value>https://www.google.com/maps/place/Schroon+Lake+Waterway+Access/data=!4m2!3m1!1s0x89dff2e33eeed991:0xa395b56541e5f58</value>
+          </Data>
+          <Data name="Tags">
+            <value/>
+          </Data>
+          <Data name="Comment">
+            <value/>
+          </Data>
+        </ExtendedData>
+      </Placemark>
+      <Placemark>
+        <name><![CDATA[Seneca Falls Recreation & Park]]></name>
+        <address><![CDATA[Seneca Falls Recreation & Park https://www.google.com/maps/place/Seneca+Falls+Recreation+%26+Park/data=!4m2!3m1!1s0x89d0b7b548a4ec31:0x494dce0d78c622ed]]></address>
+        <description><![CDATA[Note: <br>URL: https://www.google.com/maps/place/Seneca+Falls+Recreation+%26+Park/data=!4m2!3m1!1s0x89d0b7b548a4ec31:0x494dce0d78c622ed<br>Tags: <br>Comment: ]]></description>
+        <styleUrl>#icon-1899-0288D1</styleUrl>
+        <ExtendedData>
+          <Data name="Note">
+            <value/>
+          </Data>
+          <Data name="URL">
+            <value>https://www.google.com/maps/place/Seneca+Falls+Recreation+%26+Park/data=!4m2!3m1!1s0x89d0b7b548a4ec31:0x494dce0d78c622ed</value>
+          </Data>
+          <Data name="Tags">
+            <value/>
+          </Data>
+          <Data name="Comment">
+            <value/>
+          </Data>
+        </ExtendedData>
+      </Placemark>
+      <Placemark>
+        <name>Mud Lock DEC Boat Ramp</name>
+        <address>Mud Lock DEC Boat Ramp https://www.google.com/maps/place/Mud+Lock+DEC+Boat+Ramp/data=!4m2!3m1!1s0x89d0b5bc32bb088f:0x11abf9fd50c831da</address>
+        <description><![CDATA[Note: <br>URL: https://www.google.com/maps/place/Mud+Lock+DEC+Boat+Ramp/data=!4m2!3m1!1s0x89d0b5bc32bb088f:0x11abf9fd50c831da<br>Tags: <br>Comment: ]]></description>
+        <styleUrl>#icon-1899-0288D1</styleUrl>
+        <ExtendedData>
+          <Data name="Note">
+            <value/>
+          </Data>
+          <Data name="URL">
+            <value>https://www.google.com/maps/place/Mud+Lock+DEC+Boat+Ramp/data=!4m2!3m1!1s0x89d0b5bc32bb088f:0x11abf9fd50c831da</value>
+          </Data>
+          <Data name="Tags">
+            <value/>
+          </Data>
+          <Data name="Comment">
+            <value/>
+          </Data>
+        </ExtendedData>
+      </Placemark>
+      <Placemark>
+        <name>Three Rivers Point</name>
+        <description><![CDATA[Note: <br>URL: https://www.google.com/maps/place/Three+Rivers+Point/data=!4m2!3m1!1s0x89d9e604cd9e0739:0xd461472ee612b26b<br>Tags: <br>Comment: ]]></description>
+        <ExtendedData>
+          <Data name="Note">
+            <value/>
+          </Data>
+          <Data name="URL">
+            <value>https://www.google.com/maps/place/Three+Rivers+Point/data=!4m2!3m1!1s0x89d9e604cd9e0739:0xd461472ee612b26b</value>
+          </Data>
+          <Data name="Tags">
+            <value/>
+          </Data>
+          <Data name="Comment">
+            <value/>
+          </Data>
+        </ExtendedData>
+      </Placemark>
+      <Placemark>
+        <name>Lock Island Park</name>
+        <description><![CDATA[Note: <br>URL: https://www.google.com/maps/place/Lock+Island+Park/data=!4m2!3m1!1s0x89d9e64c52018735:0x18a9c145bf67964b<br>Tags: <br>Comment: ]]></description>
+        <ExtendedData>
+          <Data name="Note">
+            <value/>
+          </Data>
+          <Data name="URL">
+            <value>https://www.google.com/maps/place/Lock+Island+Park/data=!4m2!3m1!1s0x89d9e64c52018735:0x18a9c145bf67964b</value>
+          </Data>
+          <Data name="Tags">
+            <value/>
+          </Data>
+          <Data name="Comment">
+            <value/>
+          </Data>
+        </ExtendedData>
+      </Placemark>
+      <Placemark>
+        <name>Gypsy Bay Park</name>
+        <address>Gypsy Bay Park https://www.google.com/maps/place/Gypsy+Bay+Park/data=!4m2!3m1!1s0x89d98790b2b1fa1b:0x5e7899b66c1ce88c</address>
+        <description><![CDATA[Note: <br>URL: https://www.google.com/maps/place/Gypsy+Bay+Park/data=!4m2!3m1!1s0x89d98790b2b1fa1b:0x5e7899b66c1ce88c<br>Tags: <br>Comment: ]]></description>
+        <styleUrl>#icon-1899-0288D1</styleUrl>
+        <ExtendedData>
+          <Data name="Note">
+            <value/>
+          </Data>
+          <Data name="URL">
+            <value>https://www.google.com/maps/place/Gypsy+Bay+Park/data=!4m2!3m1!1s0x89d98790b2b1fa1b:0x5e7899b66c1ce88c</value>
+          </Data>
+          <Data name="Tags">
+            <value/>
+          </Data>
+          <Data name="Comment">
+            <value/>
+          </Data>
+        </ExtendedData>
+      </Placemark>
+      <Placemark>
+        <name>South Bay State Boat Launch</name>
+        <address>South Bay State Boat Launch https://www.google.com/maps/place/South+Bay+State+Boat+Launch/data=!4m2!3m1!1s0x89e009913006a109:0x1b0eedd4ebe0ed45</address>
+        <description><![CDATA[Note: <br>URL: https://www.google.com/maps/place/South+Bay+State+Boat+Launch/data=!4m2!3m1!1s0x89e009913006a109:0x1b0eedd4ebe0ed45<br>Tags: <br>Comment: ]]></description>
+        <styleUrl>#icon-1899-0288D1</styleUrl>
+        <ExtendedData>
+          <Data name="Note">
+            <value/>
+          </Data>
+          <Data name="URL">
+            <value>https://www.google.com/maps/place/South+Bay+State+Boat+Launch/data=!4m2!3m1!1s0x89e009913006a109:0x1b0eedd4ebe0ed45</value>
+          </Data>
+          <Data name="Tags">
+            <value/>
+          </Data>
+          <Data name="Comment">
+            <value/>
+          </Data>
+        </ExtendedData>
+      </Placemark>
+      <Placemark>
+        <name><![CDATA[Erie canal state park - Manlius Center Road &Minoa]]></name>
+        <address><![CDATA[Erie canal state park - Manlius Center Road &Minoa https://www.google.com/maps/place/Erie+canal+state+park+-+Manlius+Center+Road+%26Minoa/data=!4m2!3m1!1s0x89d98d20bb9439dd:0x8ea9c06c90a0c530]]></address>
+        <description><![CDATA[Note: <br>URL: https://www.google.com/maps/place/Erie+canal+state+park+-+Manlius+Center+Road+%26Minoa/data=!4m2!3m1!1s0x89d98d20bb9439dd:0x8ea9c06c90a0c530<br>Tags: <br>Comment: ]]></description>
+        <styleUrl>#icon-1899-0288D1</styleUrl>
+        <ExtendedData>
+          <Data name="Note">
+            <value/>
+          </Data>
+          <Data name="URL">
+            <value>https://www.google.com/maps/place/Erie+canal+state+park+-+Manlius+Center+Road+%26Minoa/data=!4m2!3m1!1s0x89d98d20bb9439dd:0x8ea9c06c90a0c530</value>
+          </Data>
+          <Data name="Tags">
+            <value/>
+          </Data>
+          <Data name="Comment">
+            <value/>
+          </Data>
+        </ExtendedData>
+      </Placemark>
+      <Placemark>
+        <name>Bellamy Harbor Park</name>
+        <address>Bellamy Harbor Park https://www.google.com/maps/place/Bellamy+Harbor+Park/data=!4m2!3m1!1s0x89d9139d978eaa2f:0x66eb2df1af848036</address>
+        <description><![CDATA[Note: <br>URL: https://www.google.com/maps/place/Bellamy+Harbor+Park/data=!4m2!3m1!1s0x89d9139d978eaa2f:0x66eb2df1af848036<br>Tags: <br>Comment: ]]></description>
+        <styleUrl>#icon-1899-0288D1</styleUrl>
+        <ExtendedData>
+          <Data name="Note">
+            <value/>
+          </Data>
+          <Data name="URL">
+            <value>https://www.google.com/maps/place/Bellamy+Harbor+Park/data=!4m2!3m1!1s0x89d9139d978eaa2f:0x66eb2df1af848036</value>
+          </Data>
+          <Data name="Tags">
+            <value/>
+          </Data>
+          <Data name="Comment">
+            <value/>
+          </Data>
+        </ExtendedData>
+      </Placemark>
+      <Placemark>
+        <name>Lake Flower Boat Launch</name>
+        <address>Lake Flower Boat Launch https://www.google.com/maps/place/Lake+Flower+Boat+Launch/data=!4m2!3m1!1s0x4ccb1b2691ec1a21:0xc9fc8f8c2a268c43</address>
+        <description><![CDATA[Note: <br>URL: https://www.google.com/maps/place/Lake+Flower+Boat+Launch/data=!4m2!3m1!1s0x4ccb1b2691ec1a21:0xc9fc8f8c2a268c43<br>Tags: <br>Comment: ]]></description>
+        <styleUrl>#icon-1899-0288D1</styleUrl>
+        <ExtendedData>
+          <Data name="Note">
+            <value/>
+          </Data>
+          <Data name="URL">
+            <value>https://www.google.com/maps/place/Lake+Flower+Boat+Launch/data=!4m2!3m1!1s0x4ccb1b2691ec1a21:0xc9fc8f8c2a268c43</value>
+          </Data>
+          <Data name="Tags">
+            <value/>
+          </Data>
+          <Data name="Comment">
+            <value/>
+          </Data>
+        </ExtendedData>
+      </Placemark>
+      <Placemark>
+        <name>9293 Bonta Bridge Rd</name>
+        <address>9293 Bonta Bridge Rd https://www.google.com/maps/place/9293+Bonta+Bridge+Rd/data=!4m2!3m1!1s0x89d7569acb2b1675:0x6746282b3bf913b4</address>
+        <description><![CDATA[Note: <br>URL: https://www.google.com/maps/place/9293+Bonta+Bridge+Rd/data=!4m2!3m1!1s0x89d7569acb2b1675:0x6746282b3bf913b4<br>Tags: <br>Comment: ]]></description>
+        <styleUrl>#icon-1899-0288D1</styleUrl>
+        <ExtendedData>
+          <Data name="Note">
+            <value/>
+          </Data>
+          <Data name="URL">
+            <value>https://www.google.com/maps/place/9293+Bonta+Bridge+Rd/data=!4m2!3m1!1s0x89d7569acb2b1675:0x6746282b3bf913b4</value>
+          </Data>
+          <Data name="Tags">
+            <value/>
+          </Data>
+          <Data name="Comment">
+            <value/>
+          </Data>
+        </ExtendedData>
+      </Placemark>
+      <Placemark>
+        <name>1161 Old Rte 31</name>
+        <address>1161 Old Rte 31 https://www.google.com/maps/place/1161+Old+Rte+31/data=!4m2!3m1!1s0x89d9fd08a5594f27:0x3316c6d1a4be4ba0</address>
+        <description><![CDATA[Note: <br>URL: https://www.google.com/maps/place/1161+Old+Rte+31/data=!4m2!3m1!1s0x89d9fd08a5594f27:0x3316c6d1a4be4ba0<br>Tags: <br>Comment: ]]></description>
+        <styleUrl>#icon-1899-0288D1</styleUrl>
+        <ExtendedData>
+          <Data name="Note">
+            <value/>
+          </Data>
+          <Data name="URL">
+            <value>https://www.google.com/maps/place/1161+Old+Rte+31/data=!4m2!3m1!1s0x89d9fd08a5594f27:0x3316c6d1a4be4ba0</value>
+          </Data>
+          <Data name="Tags">
+            <value/>
+          </Data>
+          <Data name="Comment">
+            <value/>
+          </Data>
+        </ExtendedData>
+      </Placemark>
+      <Placemark>
+        <name>Dropped pin</name>
+        <description><![CDATA[Note: <br>URL: https://www.google.com/maps/search/43.098939,-76.4227233<br>Tags: <br>Comment: ]]></description>
+        <ExtendedData>
+          <Data name="Note">
+            <value/>
+          </Data>
+          <Data name="URL">
+            <value>https://www.google.com/maps/search/43.098939,-76.4227233</value>
+          </Data>
+          <Data name="Tags">
+            <value/>
+          </Data>
+          <Data name="Comment">
+            <value/>
+          </Data>
+        </ExtendedData>
+      </Placemark>
+      <Placemark>
+        <name>Lyons Falls, NY Lower Boat Launch</name>
+        <address>Lyons Falls, NY Lower Boat Launch https://www.google.com/maps/place/Lyons+Falls,+NY+Lower+Boat+Launch/data=!4m2!3m1!1s0x89d8e9004f4755cf:0xac81ed00c6470ee7</address>
+        <description><![CDATA[Note: <br>URL: https://www.google.com/maps/place/Lyons+Falls,+NY+Lower+Boat+Launch/data=!4m2!3m1!1s0x89d8e9004f4755cf:0xac81ed00c6470ee7<br>Tags: <br>Comment: ]]></description>
+        <styleUrl>#icon-1899-0288D1</styleUrl>
+        <ExtendedData>
+          <Data name="Note">
+            <value/>
+          </Data>
+          <Data name="URL">
+            <value>https://www.google.com/maps/place/Lyons+Falls,+NY+Lower+Boat+Launch/data=!4m2!3m1!1s0x89d8e9004f4755cf:0xac81ed00c6470ee7</value>
+          </Data>
+          <Data name="Tags">
+            <value/>
+          </Data>
+          <Data name="Comment">
+            <value/>
+          </Data>
+        </ExtendedData>
+      </Placemark>
+      <Placemark>
+        <name>Burdicks Crossing Fishing Access</name>
+        <address>Burdicks Crossing Fishing Access https://www.google.com/maps/place/Burdicks+Crossing+Fishing+Access/data=!4m2!3m1!1s0x89d8e9f4d3c5fb15:0xf38c04b81ea9cfdd</address>
+        <description><![CDATA[Note: <br>URL: https://www.google.com/maps/place/Burdicks+Crossing+Fishing+Access/data=!4m2!3m1!1s0x89d8e9f4d3c5fb15:0xf38c04b81ea9cfdd<br>Tags: <br>Comment: ]]></description>
+        <styleUrl>#icon-1899-0288D1</styleUrl>
+        <ExtendedData>
+          <Data name="Note">
+            <value/>
+          </Data>
+          <Data name="URL">
+            <value>https://www.google.com/maps/place/Burdicks+Crossing+Fishing+Access/data=!4m2!3m1!1s0x89d8e9f4d3c5fb15:0xf38c04b81ea9cfdd</value>
+          </Data>
+          <Data name="Tags">
+            <value/>
+          </Data>
+          <Data name="Comment">
+            <value/>
+          </Data>
+        </ExtendedData>
+      </Placemark>
+      <Placemark>
+        <name>Salmon River Reservoir Parking</name>
+        <address>Salmon River Reservoir Parking https://www.google.com/maps/place/Salmon+River+Reservoir+Parking/data=!4m2!3m1!1s0x89d8539522e5cf45:0xc70201ff2ab6b7f1</address>
+        <description><![CDATA[Note: <br>URL: https://www.google.com/maps/place/Salmon+River+Reservoir+Parking/data=!4m2!3m1!1s0x89d8539522e5cf45:0xc70201ff2ab6b7f1<br>Tags: <br>Comment: ]]></description>
+        <styleUrl>#icon-1899-0288D1</styleUrl>
+        <ExtendedData>
+          <Data name="Note">
+            <value/>
+          </Data>
+          <Data name="URL">
+            <value>https://www.google.com/maps/place/Salmon+River+Reservoir+Parking/data=!4m2!3m1!1s0x89d8539522e5cf45:0xc70201ff2ab6b7f1</value>
+          </Data>
+          <Data name="Tags">
+            <value/>
+          </Data>
+          <Data name="Comment">
+            <value/>
+          </Data>
+        </ExtendedData>
+      </Placemark>
+      <Placemark>
+        <name><![CDATA[42°14'17.1"N 75°50'46.4"W]]></name>
+        <description><![CDATA[Note: <br>URL: https://www.google.com/maps/search/42.238091,-75.846222<br>Tags: <br>Comment: ]]></description>
+        <ExtendedData>
+          <Data name="Note">
+            <value/>
+          </Data>
+          <Data name="URL">
+            <value>https://www.google.com/maps/search/42.238091,-75.846222</value>
+          </Data>
+          <Data name="Tags">
+            <value/>
+          </Data>
+          <Data name="Comment">
+            <value/>
+          </Data>
+        </ExtendedData>
+      </Placemark>
+      <Placemark>
+        <name>Baldwinsville Community Park</name>
+        <address>Baldwinsville Community Park https://www.google.com/maps/place/Baldwinsville+Community+Park/data=!4m2!3m1!1s0x89d9e345ee179ebd:0xe2f82c5c04e15278</address>
+        <description><![CDATA[Note: <br>URL: https://www.google.com/maps/place/Baldwinsville+Community+Park/data=!4m2!3m1!1s0x89d9e345ee179ebd:0xe2f82c5c04e15278<br>Tags: <br>Comment: ]]></description>
+        <styleUrl>#icon-1899-0288D1</styleUrl>
+        <ExtendedData>
+          <Data name="Note">
+            <value/>
+          </Data>
+          <Data name="URL">
+            <value>https://www.google.com/maps/place/Baldwinsville+Community+Park/data=!4m2!3m1!1s0x89d9e345ee179ebd:0xe2f82c5c04e15278</value>
+          </Data>
+          <Data name="Tags">
+            <value/>
+          </Data>
+          <Data name="Comment">
+            <value/>
+          </Data>
+        </ExtendedData>
+      </Placemark>
+      <Placemark>
+        <name><![CDATA[42°23'49.5"N 75°57'37.4"W]]></name>
+        <description><![CDATA[Note: <br>URL: https://www.google.com/maps/search/42.397081,-75.960375<br>Tags: <br>Comment: ]]></description>
+        <ExtendedData>
+          <Data name="Note">
+            <value/>
+          </Data>
+          <Data name="URL">
+            <value>https://www.google.com/maps/search/42.397081,-75.960375</value>
+          </Data>
+          <Data name="Tags">
+            <value/>
+          </Data>
+          <Data name="Comment">
+            <value/>
+          </Data>
+        </ExtendedData>
+      </Placemark>
+      <Placemark>
+        <name><![CDATA[42°23'58.0"N 75°58'19.7"W]]></name>
+        <description><![CDATA[Note: <br>URL: https://www.google.com/maps/search/42.39944,-75.972133<br>Tags: <br>Comment: ]]></description>
+        <ExtendedData>
+          <Data name="Note">
+            <value/>
+          </Data>
+          <Data name="URL">
+            <value>https://www.google.com/maps/search/42.39944,-75.972133</value>
+          </Data>
+          <Data name="Tags">
+            <value/>
+          </Data>
+          <Data name="Comment">
+            <value/>
+          </Data>
+        </ExtendedData>
+      </Placemark>
+      <Placemark>
+        <name>West Branch Fish Creek Fishing Access</name>
+        <address>West Branch Fish Creek Fishing Access https://www.google.com/maps/place/West+Branch+Fish+Creek+Fishing+Access/data=!4m2!3m1!1s0x89d9095e9f50040b:0x3fa870ef3324d36a</address>
+        <description><![CDATA[Note: <br>URL: https://www.google.com/maps/place/West+Branch+Fish+Creek+Fishing+Access/data=!4m2!3m1!1s0x89d9095e9f50040b:0x3fa870ef3324d36a<br>Tags: <br>Comment: ]]></description>
+        <styleUrl>#icon-1899-0288D1</styleUrl>
+        <ExtendedData>
+          <Data name="Note">
+            <value/>
+          </Data>
+          <Data name="URL">
+            <value>https://www.google.com/maps/place/West+Branch+Fish+Creek+Fishing+Access/data=!4m2!3m1!1s0x89d9095e9f50040b:0x3fa870ef3324d36a</value>
+          </Data>
+          <Data name="Tags">
+            <value/>
+          </Data>
+          <Data name="Comment">
+            <value/>
+          </Data>
+        </ExtendedData>
+      </Placemark>
+      <Placemark>
+        <name>Erie Canal 1st Bypass</name>
+        <description><![CDATA[Note: <br>URL: https://www.google.com/maps/place/Erie+Canal+1st+Bypass/data=!4m2!3m1!1s0x89d99ff6dcdd2927:0x663fe1ee498bee63<br>Tags: <br>Comment: ]]></description>
+        <ExtendedData>
+          <Data name="Note">
+            <value/>
+          </Data>
+          <Data name="URL">
+            <value>https://www.google.com/maps/place/Erie+Canal+1st+Bypass/data=!4m2!3m1!1s0x89d99ff6dcdd2927:0x663fe1ee498bee63</value>
+          </Data>
+          <Data name="Tags">
+            <value/>
+          </Data>
+          <Data name="Comment">
+            <value/>
+          </Data>
+        </ExtendedData>
+      </Placemark>
+      <Placemark>
+        <name>DEC Boat Launch</name>
+        <description><![CDATA[Note: <br>URL: https://www.google.com/maps/place/DEC+Boat+Launch/data=!4m2!3m1!1s0x89d90b6a13f1d29d:0x5692e1e40a0309c6<br>Tags: <br>Comment: ]]></description>
+        <ExtendedData>
+          <Data name="Note">
+            <value/>
+          </Data>
+          <Data name="URL">
+            <value>https://www.google.com/maps/place/DEC+Boat+Launch/data=!4m2!3m1!1s0x89d90b6a13f1d29d:0x5692e1e40a0309c6</value>
+          </Data>
+          <Data name="Tags">
+            <value/>
+          </Data>
+          <Data name="Comment">
+            <value/>
+          </Data>
+        </ExtendedData>
+      </Placemark>
+      <Placemark>
+        <name>Black River Waterway Access</name>
+        <description><![CDATA[Note: <br>URL: https://www.google.com/maps/place/Black+River+Waterway+Access/data=!4m2!3m1!1s0x89d89037fad22ab9:0xa3372e30062d21aa<br>Tags: <br>Comment: ]]></description>
+        <ExtendedData>
+          <Data name="Note">
+            <value/>
+          </Data>
+          <Data name="URL">
+            <value>https://www.google.com/maps/place/Black+River+Waterway+Access/data=!4m2!3m1!1s0x89d89037fad22ab9:0xa3372e30062d21aa</value>
+          </Data>
+          <Data name="Tags">
+            <value/>
+          </Data>
+          <Data name="Comment">
+            <value/>
+          </Data>
+        </ExtendedData>
+      </Placemark>
+      <Placemark>
+        <name>Riverbend Park</name>
+        <description><![CDATA[Note: <br>URL: https://www.google.com/maps/place/Riverbend+Park/data=!4m2!3m1!1s0x89d885a6be8e5bb1:0x18b5d6e45e2ef677<br>Tags: <br>Comment: ]]></description>
+        <ExtendedData>
+          <Data name="Note">
+            <value/>
+          </Data>
+          <Data name="URL">
+            <value>https://www.google.com/maps/place/Riverbend+Park/data=!4m2!3m1!1s0x89d885a6be8e5bb1:0x18b5d6e45e2ef677</value>
+          </Data>
+          <Data name="Tags">
+            <value/>
+          </Data>
+          <Data name="Comment">
+            <value/>
+          </Data>
+        </ExtendedData>
+      </Placemark>
+      <Placemark>
+        <name>West Carthage Boat Launch and park</name>
+        <address>West Carthage Boat Launch and park needs scouting https://www.google.com/maps/place/West+Carthage+Boat+Launch+and+park/data=!4m2!3m1!1s0x89d8874ff6fbde29:0xa8da7842425339cc</address>
+        <description><![CDATA[Note: needs scouting<br>URL: https://www.google.com/maps/place/West+Carthage+Boat+Launch+and+park/data=!4m2!3m1!1s0x89d8874ff6fbde29:0xa8da7842425339cc<br>Tags: <br>Comment: ]]></description>
+        <styleUrl>#icon-1899-0288D1</styleUrl>
+        <ExtendedData>
+          <Data name="Note">
+            <value>needs scouting</value>
+          </Data>
+          <Data name="URL">
+            <value>https://www.google.com/maps/place/West+Carthage+Boat+Launch+and+park/data=!4m2!3m1!1s0x89d8874ff6fbde29:0xa8da7842425339cc</value>
+          </Data>
+          <Data name="Tags">
+            <value/>
+          </Data>
+          <Data name="Comment">
+            <value/>
+          </Data>
+        </ExtendedData>
+      </Placemark>
+      <Placemark>
+        <name><![CDATA[43°42'42.6"N 75°23'59.5"W]]></name>
+        <description><![CDATA[Note: Needs scouting<br>URL: https://www.google.com/maps/search/43.711838,-75.399851<br>Tags: <br>Comment: ]]></description>
+        <ExtendedData>
+          <Data name="Note">
+            <value>Needs scouting</value>
+          </Data>
+          <Data name="URL">
+            <value>https://www.google.com/maps/search/43.711838,-75.399851</value>
+          </Data>
+          <Data name="Tags">
+            <value/>
+          </Data>
+          <Data name="Comment">
+            <value/>
+          </Data>
+        </ExtendedData>
+      </Placemark>
+      <Placemark>
+        <name>2998 Hyatt Rd</name>
+        <description><![CDATA[Note: Parking lot off Rt 89 Bridge over the Cayuga-Seneca Canal<br>URL: https://www.google.com/maps/place/2998+Hyatt+Rd/data=!4m2!3m1!1s0x89d0b69eb2ee8c8b:0x48cc346840eb4449<br>Tags: <br>Comment: ]]></description>
+        <ExtendedData>
+          <Data name="Note">
+            <value>Parking lot off Rt 89 Bridge over the Cayuga-Seneca Canal</value>
+          </Data>
+          <Data name="URL">
+            <value>https://www.google.com/maps/place/2998+Hyatt+Rd/data=!4m2!3m1!1s0x89d0b69eb2ee8c8b:0x48cc346840eb4449</value>
+          </Data>
+          <Data name="Tags">
+            <value/>
+          </Data>
+          <Data name="Comment">
+            <value/>
+          </Data>
+        </ExtendedData>
+      </Placemark>
+      <Placemark>
+        <name>6787 Plainville Rd</name>
+        <address>6787 Plainville Rd Seneca River at Jacks Reef https://www.google.com/maps/place/6787+Plainville+Rd/data=!4m2!3m1!1s0x89d9fd08d13e0fa7:0x573330faadf4e2e9</address>
+        <description><![CDATA[Note: Seneca River at Jacks Reef<br>URL: https://www.google.com/maps/place/6787+Plainville+Rd/data=!4m2!3m1!1s0x89d9fd08d13e0fa7:0x573330faadf4e2e9<br>Tags: <br>Comment: ]]></description>
+        <styleUrl>#icon-1899-0288D1</styleUrl>
+        <ExtendedData>
+          <Data name="Note">
+            <value>Seneca River at Jacks Reef</value>
+          </Data>
+          <Data name="URL">
+            <value>https://www.google.com/maps/place/6787+Plainville+Rd/data=!4m2!3m1!1s0x89d9fd08d13e0fa7:0x573330faadf4e2e9</value>
+          </Data>
+          <Data name="Tags">
+            <value/>
+          </Data>
+          <Data name="Comment">
+            <value/>
+          </Data>
+        </ExtendedData>
+      </Placemark>
+      <Placemark>
+        <name>Richmond Canoe Club</name>
+        <address>Richmond Canoe Club Richmond canoe club https://www.google.com/maps/place/Richmond+Canoe+Club/data=!4m2!3m1!1s0x48760c3fa8e5b155:0xcdbb8ad8140d0da4</address>
+        <description><![CDATA[Note: Richmond canoe club<br>URL: https://www.google.com/maps/place/Richmond+Canoe+Club/data=!4m2!3m1!1s0x48760c3fa8e5b155:0xcdbb8ad8140d0da4<br>Tags: <br>Comment: ]]></description>
+        <styleUrl>#icon-1899-0288D1</styleUrl>
+        <ExtendedData>
+          <Data name="Note">
+            <value>Richmond canoe club</value>
+          </Data>
+          <Data name="URL">
+            <value>https://www.google.com/maps/place/Richmond+Canoe+Club/data=!4m2!3m1!1s0x48760c3fa8e5b155:0xcdbb8ad8140d0da4</value>
+          </Data>
+          <Data name="Tags">
+            <value/>
+          </Data>
+          <Data name="Comment">
+            <value/>
+          </Data>
+        </ExtendedData>
+      </Placemark>
+      <Placemark>
+        <name>Boat Launch for Waneta and Lamoka Lakes</name>
+        <address>Boat Launch for Waneta and Lamoka Lakes https://www.google.com/maps/place/Boat+Launch+for+Waneta+and+Lamoka+Lakes/data=!4m2!3m1!1s0x89d0566cbf9b92bb:0xf10b8e9bc3a8a99c</address>
+        <description><![CDATA[Note: <br>URL: https://www.google.com/maps/place/Boat+Launch+for+Waneta+and+Lamoka+Lakes/data=!4m2!3m1!1s0x89d0566cbf9b92bb:0xf10b8e9bc3a8a99c<br>Tags: <br>Comment: ]]></description>
+        <styleUrl>#icon-1899-0288D1</styleUrl>
+        <ExtendedData>
+          <Data name="Note">
+            <value/>
+          </Data>
+          <Data name="URL">
+            <value>https://www.google.com/maps/place/Boat+Launch+for+Waneta+and+Lamoka+Lakes/data=!4m2!3m1!1s0x89d0566cbf9b92bb:0xf10b8e9bc3a8a99c</value>
+          </Data>
+          <Data name="Tags">
+            <value/>
+          </Data>
+          <Data name="Comment">
+            <value/>
+          </Data>
+        </ExtendedData>
+      </Placemark>
+      <Placemark>
+        <name>Boat ramp</name>
+        <description><![CDATA[Note: <br>URL: https://www.google.com/maps/place/Boat+ramp/data=!4m2!3m1!1s0x89d0552ad1d87ec5:0xe1a1fb8336e1e89c<br>Tags: <br>Comment: ]]></description>
+        <ExtendedData>
+          <Data name="Note">
+            <value/>
+          </Data>
+          <Data name="URL">
+            <value>https://www.google.com/maps/place/Boat+ramp/data=!4m2!3m1!1s0x89d0552ad1d87ec5:0xe1a1fb8336e1e89c</value>
+          </Data>
+          <Data name="Tags">
+            <value/>
+          </Data>
+          <Data name="Comment">
+            <value/>
+          </Data>
+        </ExtendedData>
+      </Placemark>
+      <Placemark>
+        <name>Clute Park</name>
+        <address>Clute Park https://www.google.com/maps/place/Clute+Park/data=!4m2!3m1!1s0x89d05fb032047305:0xf4a8a81c0cf71cec</address>
+        <description><![CDATA[Note: <br>URL: https://www.google.com/maps/place/Clute+Park/data=!4m2!3m1!1s0x89d05fb032047305:0xf4a8a81c0cf71cec<br>Tags: <br>Comment: ]]></description>
+        <styleUrl>#icon-1899-0288D1</styleUrl>
+        <ExtendedData>
+          <Data name="Note">
+            <value/>
+          </Data>
+          <Data name="URL">
+            <value>https://www.google.com/maps/place/Clute+Park/data=!4m2!3m1!1s0x89d05fb032047305:0xf4a8a81c0cf71cec</value>
+          </Data>
+          <Data name="Tags">
+            <value/>
+          </Data>
+          <Data name="Comment">
+            <value/>
+          </Data>
+        </ExtendedData>
+      </Placemark>
+      <Placemark>
+        <name>Onondaga Lake Park Public Canoe and Kayak Launch</name>
+        <address>Onondaga Lake Park Public Canoe and Kayak Launch https://www.google.com/maps/place/Onondaga+Lake+Park+Public+Canoe+and+Kayak+Launch/data=!4m2!3m1!1s0x89d9efe22d5f5cbd:0xabcf4401c1bf2e9a</address>
+        <description><![CDATA[Note: <br>URL: https://www.google.com/maps/place/Onondaga+Lake+Park+Public+Canoe+and+Kayak+Launch/data=!4m2!3m1!1s0x89d9efe22d5f5cbd:0xabcf4401c1bf2e9a<br>Tags: <br>Comment: ]]></description>
+        <styleUrl>#icon-1899-0288D1</styleUrl>
+        <ExtendedData>
+          <Data name="Note">
+            <value/>
+          </Data>
+          <Data name="URL">
+            <value>https://www.google.com/maps/place/Onondaga+Lake+Park+Public+Canoe+and+Kayak+Launch/data=!4m2!3m1!1s0x89d9efe22d5f5cbd:0xabcf4401c1bf2e9a</value>
+          </Data>
+          <Data name="Tags">
+            <value/>
+          </Data>
+          <Data name="Comment">
+            <value/>
+          </Data>
+        </ExtendedData>
+      </Placemark>
+      <Placemark>
+        <name>267 W Shr Trl</name>
+        <description><![CDATA[Note: <br>URL: https://www.google.com/maps/place/267+W+Shr+Trl/data=!4m2!3m1!1s0x89d9efdc2cfce479:0x80663c881d27a9cb<br>Tags: <br>Comment: ]]></description>
+        <ExtendedData>
+          <Data name="Note">
+            <value/>
+          </Data>
+          <Data name="URL">
+            <value>https://www.google.com/maps/place/267+W+Shr+Trl/data=!4m2!3m1!1s0x89d9efdc2cfce479:0x80663c881d27a9cb</value>
+          </Data>
+          <Data name="Tags">
+            <value/>
+          </Data>
+          <Data name="Comment">
+            <value/>
+          </Data>
+        </ExtendedData>
+      </Placemark>
+      <Placemark>
+        <name>State boat launch</name>
+        <description><![CDATA[Note: <br>URL: https://www.google.com/maps/place/State+boat+launch/data=!4m2!3m1!1s0x89d9efe6387ec8fb:0x83e98f32c0706d7c<br>Tags: <br>Comment: ]]></description>
+        <ExtendedData>
+          <Data name="Note">
+            <value/>
+          </Data>
+          <Data name="URL">
+            <value>https://www.google.com/maps/place/State+boat+launch/data=!4m2!3m1!1s0x89d9efe6387ec8fb:0x83e98f32c0706d7c</value>
+          </Data>
+          <Data name="Tags">
+            <value/>
+          </Data>
+          <Data name="Comment">
+            <value/>
+          </Data>
+        </ExtendedData>
+      </Placemark>
+      <Placemark>
+        <name><![CDATA[42°59'47.8"N 76°45'40.3"W]]></name>
+        <description><![CDATA[Note: <br>URL: https://www.google.com/maps/search/42.996614,-76.761182<br>Tags: <br>Comment: ]]></description>
+        <ExtendedData>
+          <Data name="Note">
+            <value/>
+          </Data>
+          <Data name="URL">
+            <value>https://www.google.com/maps/search/42.996614,-76.761182</value>
+          </Data>
+          <Data name="Tags">
+            <value/>
+          </Data>
+          <Data name="Comment">
+            <value/>
+          </Data>
+        </ExtendedData>
+      </Placemark>
+      <Placemark>
+        <name>DEC Boat Ramp</name>
+        <description><![CDATA[Note: <br>URL: https://www.google.com/maps/place/DEC+Boat+Ramp/data=!4m2!3m1!1s0x89d74dd7c61fab79:0x7f5ab297f06e5562<br>Tags: <br>Comment: ]]></description>
+        <ExtendedData>
+          <Data name="Note">
+            <value/>
+          </Data>
+          <Data name="URL">
+            <value>https://www.google.com/maps/place/DEC+Boat+Ramp/data=!4m2!3m1!1s0x89d74dd7c61fab79:0x7f5ab297f06e5562</value>
+          </Data>
+          <Data name="Tags">
+            <value/>
+          </Data>
+          <Data name="Comment">
+            <value/>
+          </Data>
+        </ExtendedData>
+      </Placemark>
+      <Placemark>
+        <name><![CDATA[45°45'08.2"N 74°01'10.2"W]]></name>
+        <description><![CDATA[Note: Rivière du nord launch spot. Lots of mud usually. Walk down the trail from the turn around circle.<br>URL: https://www.google.com/maps/search/45.752289,-74.019508<br>Tags: <br>Comment: ]]></description>
+        <ExtendedData>
+          <Data name="Note">
+            <value>Rivière du nord launch spot. Lots of mud usually. Walk down the trail from the turn around circle.</value>
+          </Data>
+          <Data name="URL">
+            <value>https://www.google.com/maps/search/45.752289,-74.019508</value>
+          </Data>
+          <Data name="Tags">
+            <value/>
+          </Data>
+          <Data name="Comment">
+            <value/>
+          </Data>
+        </ExtendedData>
+      </Placemark>
+      <Placemark>
+        <name><![CDATA[32°56'08.1"N 80°24'10.7"W]]></name>
+        <address><![CDATA[32°56'08.1"N 80°24'10.7"W Long Creek (Edisto River) Boat Landing https://www.google.com/maps/search/32.935574,-80.402975]]></address>
+        <description><![CDATA[Note: Long Creek (Edisto River) Boat Landing<br>URL: https://www.google.com/maps/search/32.935574,-80.402975<br>Tags: <br>Comment: ]]></description>
+        <styleUrl>#icon-1899-0288D1</styleUrl>
+        <ExtendedData>
+          <Data name="Note">
+            <value>Long Creek (Edisto River) Boat Landing</value>
+          </Data>
+          <Data name="URL">
+            <value>https://www.google.com/maps/search/32.935574,-80.402975</value>
+          </Data>
+          <Data name="Tags">
+            <value/>
+          </Data>
+          <Data name="Comment">
+            <value/>
+          </Data>
+        </ExtendedData>
+      </Placemark>
+      <Placemark>
+        <name>Newton Boathouse Public Parking</name>
+        <address>Newton Boathouse Public Parking wednesday neckra paddles https://www.google.com/maps/place/Newton+Boathouse+Public+Parking/data=!4m2!3m1!1s0x89e3833e83a90015:0x671361f9bb6e79f1</address>
+        <description><![CDATA[Note: wednesday neckra paddles<br>URL: https://www.google.com/maps/place/Newton+Boathouse+Public+Parking/data=!4m2!3m1!1s0x89e3833e83a90015:0x671361f9bb6e79f1<br>Tags: <br>Comment: ]]></description>
+        <styleUrl>#icon-1899-0288D1</styleUrl>
+        <ExtendedData>
+          <Data name="Note">
+            <value>wednesday neckra paddles</value>
+          </Data>
+          <Data name="URL">
+            <value>https://www.google.com/maps/place/Newton+Boathouse+Public+Parking/data=!4m2!3m1!1s0x89e3833e83a90015:0x671361f9bb6e79f1</value>
+          </Data>
+          <Data name="Tags">
+            <value/>
+          </Data>
+          <Data name="Comment">
+            <value/>
+          </Data>
+        </ExtendedData>
+      </Placemark>
+      <Placemark>
+        <name>Riverfront Park</name>
+        <description><![CDATA[Note: <br>URL: https://www.google.com/maps/place/Riverfront+Park/data=!4m2!3m1!1s0x89d9eb9a5a9c8691:0x243c0f57dd5139da<br>Tags: <br>Comment: ]]></description>
+        <ExtendedData>
+          <Data name="Note">
+            <value/>
+          </Data>
+          <Data name="URL">
+            <value>https://www.google.com/maps/place/Riverfront+Park/data=!4m2!3m1!1s0x89d9eb9a5a9c8691:0x243c0f57dd5139da</value>
+          </Data>
+          <Data name="Tags">
+            <value/>
+          </Data>
+          <Data name="Comment">
+            <value/>
+          </Data>
+        </ExtendedData>
+      </Placemark>
+      <Placemark>
+        <name>Otisco Lake DEC Boat Ramp</name>
+        <address>Otisco Lake DEC Boat Ramp https://www.google.com/maps/place/Otisco+Lake+DEC+Boat+Ramp/data=!4m2!3m1!1s0x89da1b63225db531:0xf9109a5aa3c3eda5</address>
+        <description><![CDATA[Note: <br>URL: https://www.google.com/maps/place/Otisco+Lake+DEC+Boat+Ramp/data=!4m2!3m1!1s0x89da1b63225db531:0xf9109a5aa3c3eda5<br>Tags: <br>Comment: ]]></description>
+        <styleUrl>#icon-1899-0288D1</styleUrl>
+        <ExtendedData>
+          <Data name="Note">
+            <value/>
+          </Data>
+          <Data name="URL">
+            <value>https://www.google.com/maps/place/Otisco+Lake+DEC+Boat+Ramp/data=!4m2!3m1!1s0x89da1b63225db531:0xf9109a5aa3c3eda5</value>
+          </Data>
+          <Data name="Tags">
+            <value/>
+          </Data>
+          <Data name="Comment">
+            <value/>
+          </Data>
+        </ExtendedData>
+      </Placemark>
+      <Placemark>
+        <name>West Branch Fish Creek Fishing Access</name>
+        <address>West Branch Fish Creek Fishing Access https://www.google.com/maps/place/West+Branch+Fish+Creek+Fishing+Access/data=!4m2!3m1!1s0x89d9af3204767031:0x7cc4e924d0822282</address>
+        <description><![CDATA[Note: <br>URL: https://www.google.com/maps/place/West+Branch+Fish+Creek+Fishing+Access/data=!4m2!3m1!1s0x89d9af3204767031:0x7cc4e924d0822282<br>Tags: <br>Comment: ]]></description>
+        <styleUrl>#icon-1899-0288D1</styleUrl>
+        <ExtendedData>
+          <Data name="Note">
+            <value/>
+          </Data>
+          <Data name="URL">
+            <value>https://www.google.com/maps/place/West+Branch+Fish+Creek+Fishing+Access/data=!4m2!3m1!1s0x89d9af3204767031:0x7cc4e924d0822282</value>
+          </Data>
+          <Data name="Tags">
+            <value/>
+          </Data>
+          <Data name="Comment">
+            <value/>
+          </Data>
+        </ExtendedData>
+      </Placemark>
+      <Placemark>
+        <name>Needham Street Launch</name>
+        <address>Needham Street Launch https://www.google.com/maps/place/Needham+Street+Launch/data=!4m2!3m1!1s0x89e37f6ac8ac3563:0x57344d6832005fe1</address>
+        <description><![CDATA[Note: <br>URL: https://www.google.com/maps/place/Needham+Street+Launch/data=!4m2!3m1!1s0x89e37f6ac8ac3563:0x57344d6832005fe1<br>Tags: <br>Comment: ]]></description>
+        <styleUrl>#icon-1899-0288D1</styleUrl>
+        <ExtendedData>
+          <Data name="Note">
+            <value/>
+          </Data>
+          <Data name="URL">
+            <value>https://www.google.com/maps/place/Needham+Street+Launch/data=!4m2!3m1!1s0x89e37f6ac8ac3563:0x57344d6832005fe1</value>
+          </Data>
+          <Data name="Tags">
+            <value/>
+          </Data>
+          <Data name="Comment">
+            <value/>
+          </Data>
+        </ExtendedData>
+      </Placemark>
+      <Placemark>
+        <name><![CDATA[Rock Creek Park & Campground]]></name>
+        <address><![CDATA[Rock Creek Park & Campground https://www.google.com/maps/place/Rock+Creek+Park+%26+Campground/data=!4m2!3m1!1s0x5495dd4f439786e3:0x2acae0d2b43aeaf8]]></address>
+        <description><![CDATA[Note: <br>URL: https://www.google.com/maps/place/Rock+Creek+Park+%26+Campground/data=!4m2!3m1!1s0x5495dd4f439786e3:0x2acae0d2b43aeaf8<br>Tags: <br>Comment: ]]></description>
+        <styleUrl>#icon-1899-0288D1</styleUrl>
+        <ExtendedData>
+          <Data name="Note">
+            <value/>
+          </Data>
+          <Data name="URL">
+            <value>https://www.google.com/maps/place/Rock+Creek+Park+%26+Campground/data=!4m2!3m1!1s0x5495dd4f439786e3:0x2acae0d2b43aeaf8</value>
+          </Data>
+          <Data name="Tags">
+            <value/>
+          </Data>
+          <Data name="Comment">
+            <value/>
+          </Data>
+        </ExtendedData>
+      </Placemark>
+      <Placemark>
+        <name>Wanda Canoe Club</name>
+        <address>Wanda Canoe Club https://www.google.com/maps/place/Wanda+Canoe+Club/data=!4m2!3m1!1s0x89c2f9dfbfcb0b65:0x8b7fbc5e5f043cbf</address>
+        <description><![CDATA[Note: <br>URL: https://www.google.com/maps/place/Wanda+Canoe+Club/data=!4m2!3m1!1s0x89c2f9dfbfcb0b65:0x8b7fbc5e5f043cbf<br>Tags: <br>Comment: ]]></description>
+        <styleUrl>#icon-1899-0288D1</styleUrl>
+        <ExtendedData>
+          <Data name="Note">
+            <value/>
+          </Data>
+          <Data name="URL">
+            <value>https://www.google.com/maps/place/Wanda+Canoe+Club/data=!4m2!3m1!1s0x89c2f9dfbfcb0b65:0x8b7fbc5e5f043cbf</value>
+          </Data>
+          <Data name="Tags">
+            <value/>
+          </Data>
+          <Data name="Comment">
+            <value/>
+          </Data>
+        </ExtendedData>
+      </Placemark>
+      <Placemark>
+        <name>Lambs Creek Boat Ramp</name>
+        <address>Lambs Creek Boat Ramp https://www.google.com/maps/place/Lambs+Creek+Boat+Ramp/data=!4m2!3m1!1s0x89d02a3006a37cbf:0x5a254f40da5da3af</address>
+        <description><![CDATA[Note: <br>URL: https://www.google.com/maps/place/Lambs+Creek+Boat+Ramp/data=!4m2!3m1!1s0x89d02a3006a37cbf:0x5a254f40da5da3af<br>Tags: <br>Comment: ]]></description>
+        <styleUrl>#icon-1899-0288D1</styleUrl>
+        <ExtendedData>
+          <Data name="Note">
+            <value/>
+          </Data>
+          <Data name="URL">
+            <value>https://www.google.com/maps/place/Lambs+Creek+Boat+Ramp/data=!4m2!3m1!1s0x89d02a3006a37cbf:0x5a254f40da5da3af</value>
+          </Data>
+          <Data name="Tags">
+            <value/>
+          </Data>
+          <Data name="Comment">
+            <value/>
+          </Data>
+        </ExtendedData>
+      </Placemark>
+      <Placemark>
+        <name>#15 White Wagon Boat Launch (Chemung River)</name>
+        <description><![CDATA[Note: <br>URL: https://www.google.com/maps/place/%2315+White+Wagon+Boat+Launch+(Chemung+River)/data=!4m2!3m1!1s0x89d00c3c84eaa40d:0x2bc32ac28509d5d2<br>Tags: <br>Comment: ]]></description>
+        <ExtendedData>
+          <Data name="Note">
+            <value/>
+          </Data>
+          <Data name="URL">
+            <value>https://www.google.com/maps/place/%2315+White+Wagon+Boat+Launch+(Chemung+River)/data=!4m2!3m1!1s0x89d00c3c84eaa40d:0x2bc32ac28509d5d2</value>
+          </Data>
+          <Data name="Tags">
+            <value/>
+          </Data>
+          <Data name="Comment">
+            <value/>
+          </Data>
+        </ExtendedData>
+      </Placemark>
+      <Placemark>
+        <name>Wyncoop Creek Boat Launch</name>
+        <description><![CDATA[Note: <br>URL: https://www.google.com/maps/place/Wyncoop+Creek+Boat+Launch/data=!4m2!3m1!1s0x89d00dfd9247cef9:0x822486c2a604e4bb<br>Tags: <br>Comment: ]]></description>
+        <ExtendedData>
+          <Data name="Note">
+            <value/>
+          </Data>
+          <Data name="URL">
+            <value>https://www.google.com/maps/place/Wyncoop+Creek+Boat+Launch/data=!4m2!3m1!1s0x89d00dfd9247cef9:0x822486c2a604e4bb</value>
+          </Data>
+          <Data name="Tags">
+            <value/>
+          </Data>
+          <Data name="Comment">
+            <value/>
+          </Data>
+        </ExtendedData>
+      </Placemark>
+      <Placemark>
+        <name>#14 Toll Bridge Park Boat Launch (Chemung River)</name>
+        <description><![CDATA[Note: <br>URL: https://www.google.com/maps/place/%2314+Toll+Bridge+Park+Boat+Launch+(Chemung+River)/data=!4m2!3m1!1s0x89d013fca72f7d29:0x80edecf837190b18<br>Tags: <br>Comment: ]]></description>
+        <ExtendedData>
+          <Data name="Note">
+            <value/>
+          </Data>
+          <Data name="URL">
+            <value>https://www.google.com/maps/place/%2314+Toll+Bridge+Park+Boat+Launch+(Chemung+River)/data=!4m2!3m1!1s0x89d013fca72f7d29:0x80edecf837190b18</value>
+          </Data>
+          <Data name="Tags">
+            <value/>
+          </Data>
+          <Data name="Comment">
+            <value/>
+          </Data>
+        </ExtendedData>
+      </Placemark>
+      <Placemark>
+        <name>Allan H. Treman State Marine Park</name>
+        <address>Allan H. Treman State Marine Park https://www.google.com/maps/place/Allan+H.+Treman+State+Marine+Park/data=!4m2!3m1!1s0x89d080cb659455d5:0xe72acc997bff7ae6</address>
+        <description><![CDATA[Note: <br>URL: https://www.google.com/maps/place/Allan+H.+Treman+State+Marine+Park/data=!4m2!3m1!1s0x89d080cb659455d5:0xe72acc997bff7ae6<br>Tags: <br>Comment: ]]></description>
+        <styleUrl>#icon-1899-0288D1</styleUrl>
+        <ExtendedData>
+          <Data name="Note">
+            <value/>
+          </Data>
+          <Data name="URL">
+            <value>https://www.google.com/maps/place/Allan+H.+Treman+State+Marine+Park/data=!4m2!3m1!1s0x89d080cb659455d5:0xe72acc997bff7ae6</value>
+          </Data>
+          <Data name="Tags">
+            <value/>
+          </Data>
+          <Data name="Comment">
+            <value/>
+          </Data>
+        </ExtendedData>
+      </Placemark>
+      <Placemark>
+        <name>Ithaca Dragon Boat Club</name>
+        <address>Ithaca Dragon Boat Club https://www.google.com/maps/place/Ithaca+Dragon+Boat+Club/data=!4m2!3m1!1s0x89d0817d672d9457:0xe4a1a875cfb2c0a</address>
+        <description><![CDATA[Note: <br>URL: https://www.google.com/maps/place/Ithaca+Dragon+Boat+Club/data=!4m2!3m1!1s0x89d0817d672d9457:0xe4a1a875cfb2c0a<br>Tags: <br>Comment: ]]></description>
+        <styleUrl>#icon-1899-0288D1</styleUrl>
+        <ExtendedData>
+          <Data name="Note">
+            <value/>
+          </Data>
+          <Data name="URL">
+            <value>https://www.google.com/maps/place/Ithaca+Dragon+Boat+Club/data=!4m2!3m1!1s0x89d0817d672d9457:0xe4a1a875cfb2c0a</value>
+          </Data>
+          <Data name="Tags">
+            <value/>
+          </Data>
+          <Data name="Comment">
+            <value/>
+          </Data>
+        </ExtendedData>
+      </Placemark>
+      <Placemark>
+        <name>Willow Dr</name>
+        <description><![CDATA[Note: <br>URL: https://www.google.com/maps/place/Willow+Dr/data=!4m2!3m1!1s0x89d99ff6d5249179:0x2929513876de388d<br>Tags: <br>Comment: ]]></description>
+        <ExtendedData>
+          <Data name="Note">
+            <value/>
+          </Data>
+          <Data name="URL">
+            <value>https://www.google.com/maps/place/Willow+Dr/data=!4m2!3m1!1s0x89d99ff6d5249179:0x2929513876de388d</value>
+          </Data>
+          <Data name="Tags">
+            <value/>
+          </Data>
+          <Data name="Comment">
+            <value/>
+          </Data>
+        </ExtendedData>
+      </Placemark>
+      <Placemark>
+        <name>Aqueduct Rowing Club</name>
+        <address>Aqueduct Rowing Club https://www.google.com/maps/place/Aqueduct+Rowing+Club/data=!4m2!3m1!1s0x89de6deb6f8ea65f:0x9a349f5f8c42c10</address>
+        <description><![CDATA[Note: <br>URL: https://www.google.com/maps/place/Aqueduct+Rowing+Club/data=!4m2!3m1!1s0x89de6deb6f8ea65f:0x9a349f5f8c42c10<br>Tags: <br>Comment: ]]></description>
+        <styleUrl>#icon-1899-0288D1</styleUrl>
+        <ExtendedData>
+          <Data name="Note">
+            <value/>
+          </Data>
+          <Data name="URL">
+            <value>https://www.google.com/maps/place/Aqueduct+Rowing+Club/data=!4m2!3m1!1s0x89de6deb6f8ea65f:0x9a349f5f8c42c10</value>
+          </Data>
+          <Data name="Tags">
+            <value/>
+          </Data>
+          <Data name="Comment">
+            <value/>
+          </Data>
+        </ExtendedData>
+      </Placemark>
+      <Placemark>
+        <name>Mercer Park</name>
+        <address>Mercer Park https://www.google.com/maps/place/Mercer+Park/data=!4m2!3m1!1s0x89d9e4f5a8d52c2b:0x8c7836a8ce65e869</address>
+        <description><![CDATA[Note: <br>URL: https://www.google.com/maps/place/Mercer+Park/data=!4m2!3m1!1s0x89d9e4f5a8d52c2b:0x8c7836a8ce65e869<br>Tags: <br>Comment: ]]></description>
+        <styleUrl>#icon-1899-0288D1</styleUrl>
+        <ExtendedData>
+          <Data name="Note">
+            <value/>
+          </Data>
+          <Data name="URL">
+            <value>https://www.google.com/maps/place/Mercer+Park/data=!4m2!3m1!1s0x89d9e4f5a8d52c2b:0x8c7836a8ce65e869</value>
+          </Data>
+          <Data name="Tags">
+            <value/>
+          </Data>
+          <Data name="Comment">
+            <value/>
+          </Data>
+        </ExtendedData>
+      </Placemark>
+      <Placemark>
+        <name>Emerson Park</name>
+        <description><![CDATA[Note: <br>URL: https://www.google.com/maps/place/Emerson+Park/data=!4m2!3m1!1s0x89d0a94f71926bf1:0x8eadd680a188f9bf<br>Tags: <br>Comment: ]]></description>
+        <ExtendedData>
+          <Data name="Note">
+            <value/>
+          </Data>
+          <Data name="URL">
+            <value>https://www.google.com/maps/place/Emerson+Park/data=!4m2!3m1!1s0x89d0a94f71926bf1:0x8eadd680a188f9bf</value>
+          </Data>
+          <Data name="Tags">
+            <value/>
+          </Data>
+          <Data name="Comment">
+            <value/>
+          </Data>
+        </ExtendedData>
+      </Placemark>
+      <Placemark>
+        <name>Black Creek boat launch</name>
+        <address>Black Creek boat launch https://www.google.com/maps/place/Black+Creek+boat+launch/data=!4m2!3m1!1s0x89d14d07a98c375f:0xcd20c3077696ea72</address>
+        <description><![CDATA[Note: <br>URL: https://www.google.com/maps/place/Black+Creek+boat+launch/data=!4m2!3m1!1s0x89d14d07a98c375f:0xcd20c3077696ea72<br>Tags: <br>Comment: ]]></description>
+        <styleUrl>#icon-1899-0288D1</styleUrl>
+        <ExtendedData>
+          <Data name="Note">
+            <value/>
+          </Data>
+          <Data name="URL">
+            <value>https://www.google.com/maps/place/Black+Creek+boat+launch/data=!4m2!3m1!1s0x89d14d07a98c375f:0xcd20c3077696ea72</value>
+          </Data>
+          <Data name="Tags">
+            <value/>
+          </Data>
+          <Data name="Comment">
+            <value/>
+          </Data>
+        </ExtendedData>
+      </Placemark>
+      <Placemark>
+        <name>BayCreek Paddling Center</name>
+        <address>BayCreek Paddling Center https://www.google.com/maps/place/BayCreek+Paddling+Center/data=!4m2!3m1!1s0x89d6ca301d468ad7:0xd18a6440d245d6a4</address>
+        <description><![CDATA[Note: <br>URL: https://www.google.com/maps/place/BayCreek+Paddling+Center/data=!4m2!3m1!1s0x89d6ca301d468ad7:0xd18a6440d245d6a4<br>Tags: <br>Comment: ]]></description>
+        <styleUrl>#icon-1899-0288D1</styleUrl>
+        <ExtendedData>
+          <Data name="Note">
+            <value/>
+          </Data>
+          <Data name="URL">
+            <value>https://www.google.com/maps/place/BayCreek+Paddling+Center/data=!4m2!3m1!1s0x89d6ca301d468ad7:0xd18a6440d245d6a4</value>
+          </Data>
+          <Data name="Tags">
+            <value/>
+          </Data>
+          <Data name="Comment">
+            <value/>
+          </Data>
+        </ExtendedData>
+      </Placemark>
+      <Placemark>
+        <name>LaSalles Landing Park</name>
+        <description><![CDATA[Note: <br>URL: https://www.google.com/maps/place/LaSalles+Landing+Park/data=!4m2!3m1!1s0x89d6ca2fa24d28a3:0x57a803b4fc0c872<br>Tags: <br>Comment: ]]></description>
+        <ExtendedData>
+          <Data name="Note">
+            <value/>
+          </Data>
+          <Data name="URL">
+            <value>https://www.google.com/maps/place/LaSalles+Landing+Park/data=!4m2!3m1!1s0x89d6ca2fa24d28a3:0x57a803b4fc0c872</value>
+          </Data>
+          <Data name="Tags">
+            <value/>
+          </Data>
+          <Data name="Comment">
+            <value/>
+          </Data>
+        </ExtendedData>
+      </Placemark>
+      <Placemark>
+        <name>Erie Canal Boat Company</name>
+        <address>Erie Canal Boat Company https://www.google.com/maps/place/Erie+Canal+Boat+Company/data=!4m2!3m1!1s0x89d6cccbdbc1edc9:0x5108ecd8f096f3e5</address>
+        <description><![CDATA[Note: <br>URL: https://www.google.com/maps/place/Erie+Canal+Boat+Company/data=!4m2!3m1!1s0x89d6cccbdbc1edc9:0x5108ecd8f096f3e5<br>Tags: <br>Comment: ]]></description>
+        <styleUrl>#icon-1899-0288D1</styleUrl>
+        <ExtendedData>
+          <Data name="Note">
+            <value/>
+          </Data>
+          <Data name="URL">
+            <value>https://www.google.com/maps/place/Erie+Canal+Boat+Company/data=!4m2!3m1!1s0x89d6cccbdbc1edc9:0x5108ecd8f096f3e5</value>
+          </Data>
+          <Data name="Tags">
+            <value/>
+          </Data>
+          <Data name="Comment">
+            <value/>
+          </Data>
+        </ExtendedData>
+      </Placemark>
+      <Placemark>
+        <name>Water’s Edge Campground</name>
+        <description><![CDATA[Note: <br>URL: https://www.google.com/maps/place/Water%E2%80%99s+Edge+Campground/data=!4m2!3m1!1s0x89daf92940481b6d:0x6333b822ee8e05cd<br>Tags: <br>Comment: ]]></description>
+        <ExtendedData>
+          <Data name="Note">
+            <value/>
+          </Data>
+          <Data name="URL">
+            <value>https://www.google.com/maps/place/Water%E2%80%99s+Edge+Campground/data=!4m2!3m1!1s0x89daf92940481b6d:0x6333b822ee8e05cd</value>
+          </Data>
+          <Data name="Tags">
+            <value/>
+          </Data>
+          <Data name="Comment">
+            <value/>
+          </Data>
+        </ExtendedData>
+      </Placemark>
+      <Placemark>
+        <name>Marathon Civic Center</name>
+        <address>Marathon Civic Center https://www.google.com/maps/place/Marathon+Civic+Center/data=!4m2!3m1!1s0x89da5cfc6fc40001:0x4abb73ef610b84a3</address>
+        <description><![CDATA[Note: <br>URL: https://www.google.com/maps/place/Marathon+Civic+Center/data=!4m2!3m1!1s0x89da5cfc6fc40001:0x4abb73ef610b84a3<br>Tags: <br>Comment: ]]></description>
+        <styleUrl>#icon-1899-0288D1</styleUrl>
+        <ExtendedData>
+          <Data name="Note">
+            <value/>
+          </Data>
+          <Data name="URL">
+            <value>https://www.google.com/maps/place/Marathon+Civic+Center/data=!4m2!3m1!1s0x89da5cfc6fc40001:0x4abb73ef610b84a3</value>
+          </Data>
+          <Data name="Tags">
+            <value/>
+          </Data>
+          <Data name="Comment">
+            <value/>
+          </Data>
+        </ExtendedData>
+      </Placemark>
+      <Placemark>
+        <name>Town of Cortlandville River Access and Parking</name>
+        <description><![CDATA[Note: <br>URL: https://www.google.com/maps/place/Town+of+Cortlandville+River+Access+and+Parking/data=!4m2!3m1!1s0x89da6a2f906fe3b9:0xbb4ef2939a116ef5<br>Tags: <br>Comment: ]]></description>
+        <ExtendedData>
+          <Data name="Note">
+            <value/>
+          </Data>
+          <Data name="URL">
+            <value>https://www.google.com/maps/place/Town+of+Cortlandville+River+Access+and+Parking/data=!4m2!3m1!1s0x89da6a2f906fe3b9:0xbb4ef2939a116ef5</value>
+          </Data>
+          <Data name="Tags">
+            <value/>
+          </Data>
+          <Data name="Comment">
+            <value/>
+          </Data>
+        </ExtendedData>
+      </Placemark>
+      <Placemark>
+        <name>Yaman Park</name>
+        <address>Yaman Park https://www.google.com/maps/place/Yaman+Park/data=!4m2!3m1!1s0x89da6b73bdde67cd:0x4f4c7f7feaedf55b</address>
+        <description><![CDATA[Note: <br>URL: https://www.google.com/maps/place/Yaman+Park/data=!4m2!3m1!1s0x89da6b73bdde67cd:0x4f4c7f7feaedf55b<br>Tags: <br>Comment: ]]></description>
+        <styleUrl>#icon-1899-0288D1</styleUrl>
+        <ExtendedData>
+          <Data name="Note">
+            <value/>
+          </Data>
+          <Data name="URL">
+            <value>https://www.google.com/maps/place/Yaman+Park/data=!4m2!3m1!1s0x89da6b73bdde67cd:0x4f4c7f7feaedf55b</value>
+          </Data>
+          <Data name="Tags">
+            <value/>
+          </Data>
+          <Data name="Comment">
+            <value/>
+          </Data>
+        </ExtendedData>
+      </Placemark>
+      <Placemark>
+        <name>Seven Valleys New Tech Academy</name>
+        <address>Seven Valleys New Tech Academy https://www.google.com/maps/place/Seven+Valleys+New+Tech+Academy/data=!4m2!3m1!1s0x89c2c882a835d027:0x4489c5e7ea1e13f5</address>
+        <description><![CDATA[Note: <br>URL: https://www.google.com/maps/place/Seven+Valleys+New+Tech+Academy/data=!4m2!3m1!1s0x89c2c882a835d027:0x4489c5e7ea1e13f5<br>Tags: <br>Comment: ]]></description>
+        <styleUrl>#icon-1899-0288D1</styleUrl>
+        <ExtendedData>
+          <Data name="Note">
+            <value/>
+          </Data>
+          <Data name="URL">
+            <value>https://www.google.com/maps/place/Seven+Valleys+New+Tech+Academy/data=!4m2!3m1!1s0x89c2c882a835d027:0x4489c5e7ea1e13f5</value>
+          </Data>
+          <Data name="Tags">
+            <value/>
+          </Data>
+          <Data name="Comment">
+            <value/>
+          </Data>
+        </ExtendedData>
+      </Placemark>
+      <Placemark>
+        <name>Andrew R. Fuller Park</name>
+        <address>Andrew R. Fuller Park https://www.google.com/maps/place/Andrew+R.+Fuller+Park/data=!4m2!3m1!1s0x89da11d9d3a2cd0f:0x23f114633b377a09</address>
+        <description><![CDATA[Note: <br>URL: https://www.google.com/maps/place/Andrew+R.+Fuller+Park/data=!4m2!3m1!1s0x89da11d9d3a2cd0f:0x23f114633b377a09<br>Tags: <br>Comment: ]]></description>
+        <styleUrl>#icon-1899-0288D1</styleUrl>
+        <ExtendedData>
+          <Data name="Note">
+            <value/>
+          </Data>
+          <Data name="URL">
+            <value>https://www.google.com/maps/place/Andrew+R.+Fuller+Park/data=!4m2!3m1!1s0x89da11d9d3a2cd0f:0x23f114633b377a09</value>
+          </Data>
+          <Data name="Tags">
+            <value/>
+          </Data>
+          <Data name="Comment">
+            <value/>
+          </Data>
+        </ExtendedData>
+      </Placemark>
+      <Placemark>
+        <name>Oak Island, Waterloo NY</name>
+        <description><![CDATA[Note: <br>URL: https://www.google.com/maps/place/Oak+Island,+Waterloo+NY/data=!4m2!3m1!1s0x89d0c85e8a294705:0xaf4aa95de6ed0aa6<br>Tags: <br>Comment: ]]></description>
+        <ExtendedData>
+          <Data name="Note">
+            <value/>
+          </Data>
+          <Data name="URL">
+            <value>https://www.google.com/maps/place/Oak+Island,+Waterloo+NY/data=!4m2!3m1!1s0x89d0c85e8a294705:0xaf4aa95de6ed0aa6</value>
+          </Data>
+          <Data name="Tags">
+            <value/>
+          </Data>
+          <Data name="Comment">
+            <value/>
+          </Data>
+        </ExtendedData>
+      </Placemark>
+      <Placemark>
+        <name>Seneca Yacht Club</name>
+        <address>Seneca Yacht Club https://www.google.com/maps/place/Seneca+Yacht+Club/data=!4m2!3m1!1s0x89d0c5ea733427fb:0x83d8ef494d067c63</address>
+        <description><![CDATA[Note: <br>URL: https://www.google.com/maps/place/Seneca+Yacht+Club/data=!4m2!3m1!1s0x89d0c5ea733427fb:0x83d8ef494d067c63<br>Tags: <br>Comment: ]]></description>
+        <styleUrl>#icon-1899-0288D1</styleUrl>
+        <ExtendedData>
+          <Data name="Note">
+            <value/>
+          </Data>
+          <Data name="URL">
+            <value>https://www.google.com/maps/place/Seneca+Yacht+Club/data=!4m2!3m1!1s0x89d0c5ea733427fb:0x83d8ef494d067c63</value>
+          </Data>
+          <Data name="Tags">
+            <value/>
+          </Data>
+          <Data name="Comment">
+            <value/>
+          </Data>
+        </ExtendedData>
+      </Placemark>
+      <Placemark>
+        <name><![CDATA[Locks CS2 & CS3 - NY Canal Corp]]></name>
+        <description><![CDATA[Note: <br>URL: https://www.google.com/maps/place/Locks+CS2+%26+CS3+-+NY+Canal+Corp/data=!4m2!3m1!1s0x89d0b653d114eb5b:0xbd108febeb1df7a<br>Tags: <br>Comment: ]]></description>
+        <ExtendedData>
+          <Data name="Note">
+            <value/>
+          </Data>
+          <Data name="URL">
+            <value>https://www.google.com/maps/place/Locks+CS2+%26+CS3+-+NY+Canal+Corp/data=!4m2!3m1!1s0x89d0b653d114eb5b:0xbd108febeb1df7a</value>
+          </Data>
+          <Data name="Tags">
+            <value/>
+          </Data>
+          <Data name="Comment">
+            <value/>
+          </Data>
+        </ExtendedData>
+      </Placemark>
+      <Placemark>
+        <name>Deese-Howard Boat Ramp</name>
+        <description><![CDATA[Note: <br>URL: https://www.google.com/maps/place/Deese-Howard+Boat+Ramp/data=!4m2!3m1!1s0x88eee16e68a09947:0xf3a3fae5a6b3c2e2<br>Tags: <br>Comment: ]]></description>
+        <ExtendedData>
+          <Data name="Note">
+            <value/>
+          </Data>
+          <Data name="URL">
+            <value>https://www.google.com/maps/place/Deese-Howard+Boat+Ramp/data=!4m2!3m1!1s0x88eee16e68a09947:0xf3a3fae5a6b3c2e2</value>
+          </Data>
+          <Data name="Tags">
+            <value/>
+          </Data>
+          <Data name="Comment">
+            <value/>
+          </Data>
+        </ExtendedData>
+      </Placemark>
+      <Placemark>
+        <name>35 Lakeview Ave</name>
+        <address>35 Lakeview Ave https://www.google.com/maps/place/35+Lakeview+Ave/data=!4m2!3m1!1s0x89d8b5539fdf109d:0xa4536f551474d752</address>
+        <description><![CDATA[Note: <br>URL: https://www.google.com/maps/place/35+Lakeview+Ave/data=!4m2!3m1!1s0x89d8b5539fdf109d:0xa4536f551474d752<br>Tags: <br>Comment: ]]></description>
+        <styleUrl>#icon-1899-0288D1</styleUrl>
+        <ExtendedData>
+          <Data name="Note">
+            <value/>
+          </Data>
+          <Data name="URL">
+            <value>https://www.google.com/maps/place/35+Lakeview+Ave/data=!4m2!3m1!1s0x89d8b5539fdf109d:0xa4536f551474d752</value>
+          </Data>
+          <Data name="Tags">
+            <value/>
+          </Data>
+          <Data name="Comment">
+            <value/>
+          </Data>
+        </ExtendedData>
+      </Placemark>
+      <Placemark>
+        <name>Raquette River Boat Launch aka The Crusher</name>
+        <address>Raquette River Boat Launch aka The Crusher https://www.google.com/maps/place/Raquette+River+Boat+Launch+aka+The+Crusher/data=!4m2!3m1!1s0x4ccb15748d00c24d:0x75b1e28aa7a573eb</address>
+        <description><![CDATA[Note: <br>URL: https://www.google.com/maps/place/Raquette+River+Boat+Launch+aka+The+Crusher/data=!4m2!3m1!1s0x4ccb15748d00c24d:0x75b1e28aa7a573eb<br>Tags: <br>Comment: ]]></description>
+        <styleUrl>#icon-1899-0288D1</styleUrl>
+        <ExtendedData>
+          <Data name="Note">
+            <value/>
+          </Data>
+          <Data name="URL">
+            <value>https://www.google.com/maps/place/Raquette+River+Boat+Launch+aka+The+Crusher/data=!4m2!3m1!1s0x4ccb15748d00c24d:0x75b1e28aa7a573eb</value>
+          </Data>
+          <Data name="Tags">
+            <value/>
+          </Data>
+          <Data name="Comment">
+            <value/>
+          </Data>
+        </ExtendedData>
+      </Placemark>
+      <Placemark>
+        <name>Tupper Lake Boat Launch</name>
+        <address>Tupper Lake Boat Launch https://www.google.com/maps/place/Tupper+Lake+Boat+Launch/data=!4m2!3m1!1s0x4ccb406302a1cf3b:0xb2bdccc21a8b90cb</address>
+        <description><![CDATA[Note: <br>URL: https://www.google.com/maps/place/Tupper+Lake+Boat+Launch/data=!4m2!3m1!1s0x4ccb406302a1cf3b:0xb2bdccc21a8b90cb<br>Tags: <br>Comment: ]]></description>
+        <styleUrl>#icon-1899-0288D1</styleUrl>
+        <ExtendedData>
+          <Data name="Note">
+            <value/>
+          </Data>
+          <Data name="URL">
+            <value>https://www.google.com/maps/place/Tupper+Lake+Boat+Launch/data=!4m2!3m1!1s0x4ccb406302a1cf3b:0xb2bdccc21a8b90cb</value>
+          </Data>
+          <Data name="Tags">
+            <value/>
+          </Data>
+          <Data name="Comment">
+            <value/>
+          </Data>
+        </ExtendedData>
+      </Placemark>
+      <Placemark>
+        <name>Munro Park</name>
+        <description><![CDATA[Note: <br>URL: https://www.google.com/maps/place/Munro+Park/data=!4m2!3m1!1s0x89d9f9203921547b:0x8365c526eb884d74<br>Tags: <br>Comment: ]]></description>
+        <ExtendedData>
+          <Data name="Note">
+            <value/>
+          </Data>
+          <Data name="URL">
+            <value>https://www.google.com/maps/place/Munro+Park/data=!4m2!3m1!1s0x89d9f9203921547b:0x8365c526eb884d74</value>
+          </Data>
+          <Data name="Tags">
+            <value/>
+          </Data>
+          <Data name="Comment">
+            <value/>
+          </Data>
+        </ExtendedData>
+      </Placemark>
+      <Placemark>
+        <name>Bonstead Rd Rd Public Boat Ramp</name>
+        <address>Bonstead Rd Rd Public Boat Ramp https://www.google.com/maps/place/Bonstead+Rd+Rd+Public+Boat+Ramp/data=!4m2!3m1!1s0x89d9e91696d1478b:0x7a28c2478521fb63</address>
+        <description><![CDATA[Note: <br>URL: https://www.google.com/maps/place/Bonstead+Rd+Rd+Public+Boat+Ramp/data=!4m2!3m1!1s0x89d9e91696d1478b:0x7a28c2478521fb63<br>Tags: <br>Comment: ]]></description>
+        <styleUrl>#icon-1899-0288D1</styleUrl>
+        <ExtendedData>
+          <Data name="Note">
+            <value/>
+          </Data>
+          <Data name="URL">
+            <value>https://www.google.com/maps/place/Bonstead+Rd+Rd+Public+Boat+Ramp/data=!4m2!3m1!1s0x89d9e91696d1478b:0x7a28c2478521fb63</value>
+          </Data>
+          <Data name="Tags">
+            <value/>
+          </Data>
+          <Data name="Comment">
+            <value/>
+          </Data>
+        </ExtendedData>
+      </Placemark>
+      <Placemark>
+        <name>Syracuse Chargers Boathouse</name>
+        <address>Syracuse Chargers Boathouse https://www.google.com/maps/place/Syracuse+Chargers+Boathouse/data=!4m2!3m1!1s0x89d9efdd6cbf8137:0xd57f62d33c99dcd8</address>
+        <description><![CDATA[Note: <br>URL: https://www.google.com/maps/place/Syracuse+Chargers+Boathouse/data=!4m2!3m1!1s0x89d9efdd6cbf8137:0xd57f62d33c99dcd8<br>Tags: <br>Comment: ]]></description>
+        <styleUrl>#icon-1899-0288D1</styleUrl>
+        <ExtendedData>
+          <Data name="Note">
+            <value/>
+          </Data>
+          <Data name="URL">
+            <value>https://www.google.com/maps/place/Syracuse+Chargers+Boathouse/data=!4m2!3m1!1s0x89d9efdd6cbf8137:0xd57f62d33c99dcd8</value>
+          </Data>
+          <Data name="Tags">
+            <value/>
+          </Data>
+          <Data name="Comment">
+            <value/>
+          </Data>
+        </ExtendedData>
+      </Placemark>
+      <Placemark>
+        <name>Long Lake Town Beach</name>
+        <address>Long Lake Town Beach https://www.google.com/maps/place/Long+Lake+Town+Beach/data=!4m2!3m1!1s0x4ccb32520c2925c1:0xbf796ae5c3c7b3cb</address>
+        <description><![CDATA[Note: <br>URL: https://www.google.com/maps/place/Long+Lake+Town+Beach/data=!4m2!3m1!1s0x4ccb32520c2925c1:0xbf796ae5c3c7b3cb<br>Tags: <br>Comment: ]]></description>
+        <styleUrl>#icon-1899-0288D1</styleUrl>
+        <ExtendedData>
+          <Data name="Note">
+            <value/>
+          </Data>
+          <Data name="URL">
+            <value>https://www.google.com/maps/place/Long+Lake+Town+Beach/data=!4m2!3m1!1s0x4ccb32520c2925c1:0xbf796ae5c3c7b3cb</value>
+          </Data>
+          <Data name="Tags">
+            <value/>
+          </Data>
+          <Data name="Comment">
+            <value/>
+          </Data>
+        </ExtendedData>
+      </Placemark>
+      <Placemark>
+        <name>Greene Community Ball Flats</name>
+        <address>Greene Community Ball Flats https://www.google.com/maps/place/Greene+Community+Ball+Flats/data=!4m2!3m1!1s0x89da55a89ad2fd6d:0x2502835d9d7d24b8</address>
+        <description><![CDATA[Note: <br>URL: https://www.google.com/maps/place/Greene+Community+Ball+Flats/data=!4m2!3m1!1s0x89da55a89ad2fd6d:0x2502835d9d7d24b8<br>Tags: <br>Comment: ]]></description>
+        <styleUrl>#icon-1899-0288D1</styleUrl>
+        <ExtendedData>
+          <Data name="Note">
+            <value/>
+          </Data>
+          <Data name="URL">
+            <value>https://www.google.com/maps/place/Greene+Community+Ball+Flats/data=!4m2!3m1!1s0x89da55a89ad2fd6d:0x2502835d9d7d24b8</value>
+          </Data>
+          <Data name="Tags">
+            <value/>
+          </Data>
+          <Data name="Comment">
+            <value/>
+          </Data>
+        </ExtendedData>
+      </Placemark>
+      <Placemark>
+        <name>Dorchester Park</name>
+        <address>Dorchester Park https://www.google.com/maps/place/Dorchester+Park/data=!4m2!3m1!1s0x89da5921fb24baad:0x8f71c964370a43</address>
+        <description><![CDATA[Note: <br>URL: https://www.google.com/maps/place/Dorchester+Park/data=!4m2!3m1!1s0x89da5921fb24baad:0x8f71c964370a43<br>Tags: <br>Comment: ]]></description>
+        <styleUrl>#icon-1899-0288D1</styleUrl>
+        <ExtendedData>
+          <Data name="Note">
+            <value/>
+          </Data>
+          <Data name="URL">
+            <value>https://www.google.com/maps/place/Dorchester+Park/data=!4m2!3m1!1s0x89da5921fb24baad:0x8f71c964370a43</value>
+          </Data>
+          <Data name="Tags">
+            <value/>
+          </Data>
+          <Data name="Comment">
+            <value/>
+          </Data>
+        </ExtendedData>
+      </Placemark>
+      <Placemark>
+        <name>Zaveral Racing Equipment Inc.</name>
+        <description><![CDATA[Note: <br>URL: https://www.google.com/maps/place/Zaveral+Racing+Equipment+Inc./data=!4m2!3m1!1s0x89dba2b0af64d887:0x2406624e06cd8974<br>Tags: <br>Comment: ]]></description>
+        <ExtendedData>
+          <Data name="Note">
+            <value/>
+          </Data>
+          <Data name="URL">
+            <value>https://www.google.com/maps/place/Zaveral+Racing+Equipment+Inc./data=!4m2!3m1!1s0x89dba2b0af64d887:0x2406624e06cd8974</value>
+          </Data>
+          <Data name="Tags">
+            <value/>
+          </Data>
+          <Data name="Comment">
+            <value/>
+          </Data>
+        </ExtendedData>
+      </Placemark>
+      <Placemark>
+        <name>Owasco Flats Nature Preserve</name>
+        <address>Owasco Flats Nature Preserve https://www.google.com/maps/place/Owasco+Flats+Nature+Preserve/data=!4m2!3m1!1s0x89d0a0ac8d2aabd5:0x4a9b0d15f233ee8b</address>
+        <description><![CDATA[Note: <br>URL: https://www.google.com/maps/place/Owasco+Flats+Nature+Preserve/data=!4m2!3m1!1s0x89d0a0ac8d2aabd5:0x4a9b0d15f233ee8b<br>Tags: <br>Comment: ]]></description>
+        <styleUrl>#icon-1899-0288D1</styleUrl>
+        <ExtendedData>
+          <Data name="Note">
+            <value/>
+          </Data>
+          <Data name="URL">
+            <value>https://www.google.com/maps/place/Owasco+Flats+Nature+Preserve/data=!4m2!3m1!1s0x89d0a0ac8d2aabd5:0x4a9b0d15f233ee8b</value>
+          </Data>
+          <Data name="Tags">
+            <value/>
+          </Data>
+          <Data name="Comment">
+            <value/>
+          </Data>
+        </ExtendedData>
+      </Placemark>
+      <Placemark>
+        <name><![CDATA[42°26'22.3"N 76°30'58.4"W]]></name>
+        <description><![CDATA[Note: Ithaca Inlet 13A parking<br>URL: https://www.google.com/maps/search/42.439529,-76.516218<br>Tags: <br>Comment: ]]></description>
+        <ExtendedData>
+          <Data name="Note">
+            <value>Ithaca Inlet 13A parking</value>
+          </Data>
+          <Data name="URL">
+            <value>https://www.google.com/maps/search/42.439529,-76.516218</value>
+          </Data>
+          <Data name="Tags">
+            <value/>
+          </Data>
+          <Data name="Comment">
+            <value/>
+          </Data>
+        </ExtendedData>
+      </Placemark>
+      <Placemark>
+        <name><![CDATA[42°40'34.3"N 76°04'25.9"W]]></name>
+        <description><![CDATA[Note: Paddle upstream for about a 2 mile loop<br>URL: https://www.google.com/maps/search/42.676185,-76.073859<br>Tags: <br>Comment: ]]></description>
+        <ExtendedData>
+          <Data name="Note">
+            <value>Paddle upstream for about a 2 mile loop</value>
+          </Data>
+          <Data name="URL">
+            <value>https://www.google.com/maps/search/42.676185,-76.073859</value>
+          </Data>
+          <Data name="Tags">
+            <value/>
+          </Data>
+          <Data name="Comment">
+            <value/>
+          </Data>
+        </ExtendedData>
+      </Placemark>
+      <Placemark>
+        <name>Saco River access</name>
+        <description><![CDATA[Note: <br>URL: https://www.google.com/maps/place/Saco+River+access/data=!4m2!3m1!1s0x4cb2fc2234b2d521:0xf54dbfe542015758<br>Tags: <br>Comment: ]]></description>
+        <ExtendedData>
+          <Data name="Note">
+            <value/>
+          </Data>
+          <Data name="URL">
+            <value>https://www.google.com/maps/place/Saco+River+access/data=!4m2!3m1!1s0x4cb2fc2234b2d521:0xf54dbfe542015758</value>
+          </Data>
+          <Data name="Tags">
+            <value/>
+          </Data>
+          <Data name="Comment">
+            <value/>
+          </Data>
+        </ExtendedData>
+      </Placemark>
+      <Placemark>
+        <name><![CDATA[43°57'20.0"N 70°52'59.7"W]]></name>
+        <description><![CDATA[Note: Corrupt local company has the free parking signs all ripped down so you end up paying them to park across the street<br>URL: https://www.google.com/maps/search/43.955549,-70.883249<br>Tags: <br>Comment: ]]></description>
+        <ExtendedData>
+          <Data name="Note">
+            <value>Corrupt local company has the free parking signs all ripped down so you end up paying them to park across the street</value>
+          </Data>
+          <Data name="URL">
+            <value>https://www.google.com/maps/search/43.955549,-70.883249</value>
+          </Data>
+          <Data name="Tags">
+            <value/>
+          </Data>
+          <Data name="Comment">
+            <value/>
+          </Data>
+        </ExtendedData>
+      </Placemark>
+      <Placemark>
+        <name><![CDATA[Walker's Bridge]]></name>
+        <address><![CDATA[Walker's Bridge https://www.google.com/maps/place/Walker's+Bridge/data=!4m2!3m1!1s0x4cb3a90dfc8adb67:0x51a1a932e1893260]]></address>
+        <description><![CDATA[Note: <br>URL: https://www.google.com/maps/place/Walker's+Bridge/data=!4m2!3m1!1s0x4cb3a90dfc8adb67:0x51a1a932e1893260<br>Tags: <br>Comment: ]]></description>
+        <styleUrl>#icon-1899-0288D1</styleUrl>
+        <ExtendedData>
+          <Data name="Note">
+            <value/>
+          </Data>
+          <Data name="URL">
+            <value><![CDATA[https://www.google.com/maps/place/Walker's+Bridge/data=!4m2!3m1!1s0x4cb3a90dfc8adb67:0x51a1a932e1893260]]></value>
+          </Data>
+          <Data name="Tags">
+            <value/>
+          </Data>
+          <Data name="Comment">
+            <value/>
+          </Data>
+        </ExtendedData>
+      </Placemark>
+      <Placemark>
+        <name>Portlandville Fishing Access Site</name>
+        <address>Portlandville Fishing Access Site https://www.google.com/maps/place/Portlandville+Fishing+Access+Site/data=!4m2!3m1!1s0x89dbf5e73b99ec3d:0xe0ddbff8b8fb07f4</address>
+        <description><![CDATA[Note: <br>URL: https://www.google.com/maps/place/Portlandville+Fishing+Access+Site/data=!4m2!3m1!1s0x89dbf5e73b99ec3d:0xe0ddbff8b8fb07f4<br>Tags: <br>Comment: ]]></description>
+        <styleUrl>#icon-1899-0288D1</styleUrl>
+        <ExtendedData>
+          <Data name="Note">
+            <value/>
+          </Data>
+          <Data name="URL">
+            <value>https://www.google.com/maps/place/Portlandville+Fishing+Access+Site/data=!4m2!3m1!1s0x89dbf5e73b99ec3d:0xe0ddbff8b8fb07f4</value>
+          </Data>
+          <Data name="Tags">
+            <value/>
+          </Data>
+          <Data name="Comment">
+            <value/>
+          </Data>
+        </ExtendedData>
+      </Placemark>
+      <Placemark>
+        <name>High Tor West River Unit WMA</name>
+        <address>High Tor West River Unit WMA https://www.google.com/maps/place/High+Tor+West+River+Unit+WMA/data=!4m2!3m1!1s0x89d11b024d3c297d:0x55e2056d9a88e787</address>
+        <description><![CDATA[Note: <br>URL: https://www.google.com/maps/place/High+Tor+West+River+Unit+WMA/data=!4m2!3m1!1s0x89d11b024d3c297d:0x55e2056d9a88e787<br>Tags: <br>Comment: ]]></description>
+        <styleUrl>#icon-1899-0288D1</styleUrl>
+        <ExtendedData>
+          <Data name="Note">
+            <value/>
+          </Data>
+          <Data name="URL">
+            <value>https://www.google.com/maps/place/High+Tor+West+River+Unit+WMA/data=!4m2!3m1!1s0x89d11b024d3c297d:0x55e2056d9a88e787</value>
+          </Data>
+          <Data name="Tags">
+            <value/>
+          </Data>
+          <Data name="Comment">
+            <value/>
+          </Data>
+        </ExtendedData>
+      </Placemark>
+      <Placemark>
+        <name><![CDATA[30°23'10.5"N 83°10'00.7"W]]></name>
+        <description><![CDATA[Note: Suwannee camp<br>URL: https://www.google.com/maps/search/30.386254,-83.166867<br>Tags: <br>Comment: ]]></description>
+        <ExtendedData>
+          <Data name="Note">
+            <value>Suwannee camp</value>
+          </Data>
+          <Data name="URL">
+            <value>https://www.google.com/maps/search/30.386254,-83.166867</value>
+          </Data>
+          <Data name="Tags">
+            <value/>
+          </Data>
+          <Data name="Comment">
+            <value/>
+          </Data>
+        </ExtendedData>
+      </Placemark>
+      <Placemark>
+        <name>Dropped pin</name>
+        <description><![CDATA[Note: Stoney creek / axtons landing<br>URL: https://www.google.com/maps/search/44.2055601,-74.3250941<br>Tags: <br>Comment: ]]></description>
+        <ExtendedData>
+          <Data name="Note">
+            <value>Stoney creek / axtons landing</value>
+          </Data>
+          <Data name="URL">
+            <value>https://www.google.com/maps/search/44.2055601,-74.3250941</value>
+          </Data>
+          <Data name="Tags">
+            <value/>
+          </Data>
+          <Data name="Comment">
+            <value/>
+          </Data>
+        </ExtendedData>
+      </Placemark>
+      <Placemark>
+        <name>Dropped pin</name>
+        <description><![CDATA[Note: Patrick’s paddle spot<br>URL: https://www.google.com/maps/search/42.8305165,-73.9896118<br>Tags: <br>Comment: ]]></description>
+        <ExtendedData>
+          <Data name="Note">
+            <value>Patrick’s paddle spot</value>
+          </Data>
+          <Data name="URL">
+            <value>https://www.google.com/maps/search/42.8305165,-73.9896118</value>
+          </Data>
+          <Data name="Tags">
+            <value/>
+          </Data>
+          <Data name="Comment">
+            <value/>
+          </Data>
+        </ExtendedData>
+      </Placemark>
+      <Placemark>
+        <name/>
+        <description><![CDATA[Note: Takeout for oyster fest<br>URL: https://www.google.com/maps/search/39.6602586,-74.5254574<br>Tags: <br>Comment: ]]></description>
+        <ExtendedData>
+          <Data name="Note">
+            <value>Takeout for oyster fest</value>
+          </Data>
+          <Data name="URL">
+            <value>https://www.google.com/maps/search/39.6602586,-74.5254574</value>
+          </Data>
+          <Data name="Tags">
+            <value/>
+          </Data>
+          <Data name="Comment">
+            <value/>
+          </Data>
+        </ExtendedData>
+      </Placemark>
+    </Folder>
+  </Document>
+</kml>
