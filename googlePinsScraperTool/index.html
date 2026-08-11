@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>googlePinsScraperTool - Files & Instructions</title>
+  <style>
+    body {
+      margin: 0;
+      min-height: 100vh;
+      font-family: system-ui, -apple-system, sans-serif;
+      background: #f3f7fb;
+      color: #1f2937;
+      padding: 32px 16px;
+    }
+    .container {
+      max-width: 800px;
+      margin: 0 auto;
+      background: white;
+      padding: 32px;
+      border-radius: 18px;
+      box-shadow: 0 24px 80px rgba(15, 23, 42, 0.12);
+    }
+    .topbar {
+      margin-bottom: 24px;
+    }
+    .topbar a {
+      color: #0f4c81;
+      text-decoration: none;
+      font-weight: 600;
+    }
+    .topbar a:hover {
+      text-decoration: underline;
+    }
+    h1 {
+      margin: 0 0 12px;
+      font-size: 2rem;
+      color: #0f4c81;
+    }
+    p {
+      color: #475569;
+      line-height: 1.6;
+    }
+    .file-list {
+      margin: 24px 0;
+      padding: 0;
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+    .file-item {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 14px 18px;
+      background: #f8fafc;
+      border: 1px solid #e2e8f0;
+      border-radius: 12px;
+    }
+    .file-info {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .file-name {
+      font-weight: 600;
+      color: #1e293b;
+    }
+    .file-desc {
+      font-size: 0.88rem;
+      color: #64748b;
+    }
+    .btn {
+      display: inline-block;
+      padding: 8px 16px;
+      background: #0f4c81;
+      color: white;
+      text-decoration: none;
+      border-radius: 8px;
+      font-size: 0.9rem;
+      font-weight: 600;
+    }
+    .btn:hover {
+      background: #0b3a5c;
+    }
+    .btn-secondary {
+      background: #475569;
+    }
+    .btn-secondary:hover {
+      background: #334155;
+    }
+    .doc-section {
+      margin-top: 36px;
+      padding-top: 24px;
+      border-top: 2px solid #f1f5f9;
+    }
+    pre {
+      background: #0f172a;
+      color: #f8fafc;
+      padding: 16px;
+      border-radius: 10px;
+      overflow-x: auto;
+      font-size: 0.9rem;
+    }
+    code {
+      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="topbar">
+      <a href="../index.html">&larr; Back to Home</a>
+    </div>
+
+    <h1>googlePinsScraperTool</h1>
+    <p>This tool extracts latitude/longitude coordinates from a Google Maps KML export and saves the results to a CSV file.</p>
+
+    <h2>Folder Files</h2>
+    <ul class="file-list">
+      <li class="file-item">
+        <div class="file-info">
+          <div>
+            <div class="file-name">extract_coordinates_final.py</div>
+            <div class="file-desc">Python script using Playwright to scrape/resolve Google Maps coordinates</div>
+          </div>
+        </div>
+        <a class="btn" href="extract_coordinates_final.py" download>Download</a>
+      </li>
+      <li class="file-item">
+        <div class="file-info">
+          <div>
+            <div class="file-name">Paddlespots.kml</div>
+            <div class="file-desc">Google Maps exported KML file</div>
+          </div>
+        </div>
+        <a class="btn" href="Paddlespots.kml" download>Download</a>
+      </li>
+      <li class="file-item">
+        <div class="file-info">
+          <div>
+            <div class="file-name">notes.md</div>
+            <div class="file-desc">Documentation and setup instructions</div>
+          </div>
+        </div>
+        <a class="btn btn-secondary" href="notes.md">View Raw</a>
+      </li>
+    </ul>
+
+    <div class="doc-section">
+      <h2>How to Run the Script</h2>
+
+      <h3>1. Requirements</h3>
+      <ul>
+        <li>Python 3.10 or newer</li>
+        <li>Playwright with Chromium browser</li>
+        <li>No Google API key required</li>
+      </ul>
+
+      <h3>2. Quick Start Command</h3>
+      <pre><code>python -m pip install playwright
+python -m playwright install chromium
+python extract_coordinates_final.py</code></pre>
+
+      <p>The extracted results will be saved to <code>paddlespots_coordinates.csv</code>.</p>
+    </div>
+  </div>
+</body>
+</html>
