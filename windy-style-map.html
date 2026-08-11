@@ -332,49 +332,55 @@
         const res = await fetch('Paddlespots.csv');
         if (!res.ok) return; // silently skip if not present
         const text = await res.text();
-        const lines = text.split(/\r?\n/);
-        const spots = [];
-        const coordRe = /maps\/search\/(?:@)?(-?\d+\.\d+),(-?\d+\.\d+)/i;
-        const decPairRe = /(-?\d+\.\d+),\s*(-?\d+\.\d+)/g;
-        const dmsRe = /(\d+°\d+'\d+(?:\.\d+)?\"?\s*[NS]).*?(\d+°\d+'\d+(?:\.\d+)?\"?\s*[EW])/i;
+        const lines = text.split(/\r?\n/).filter(l => l.trim().length > 0);
 
-        for (const line of lines) {
-          if (!line || line.trim().length === 0) continue;
-          // try maps/search pattern first
-          let m = line.match(coordRe);
-          let lat = null, lon = null;
-          if (m) {
-            lat = parseFloat(m[1]);
-            lon = parseFloat(m[2]);
-          } else {
-            // try any decimal pair in the line
-            const dd = [...line.matchAll(decPairRe)];
-            if (dd.length) {
-              lat = parseFloat(dd[0][1]);
-              lon = parseFloat(dd[0][2]);
-            } else {
-              // try DMS in the line
-              const dm = line.match(dmsRe);
-              if (dm) {
-                const latDms = dm[1];
-                const lonDms = dm[2];
-                const la = dmsToDecimal(latDms);
-                const lo = dmsToDecimal(lonDms);
-                if (la !== null && lo !== null) {
-                  lat = la; lon = lo;
-                }
-              }
+        // simple CSV row splitter that handles quoted fields
+        function csvSplit(line) {
+          const out = [];
+          let cur = '';
+          let inQuotes = false;
+          for (let i = 0; i < line.length; i++) {
+            const ch = line[i];
+            if (ch === '"') {
+              if (inQuotes && line[i+1] === '"') { cur += '"'; i++; }
+              else inQuotes = !inQuotes;
+              continue;
             }
+            if (ch === ',' && !inQuotes) {
+              out.push(cur);
+              cur = '';
+              continue;
+            }
+            cur += ch;
           }
+          out.push(cur);
+          return out;
+        }
 
-          if (lat === null || lon === null) continue;
+        if (lines.length < 1) return;
+        const header = csvSplit(lines[0]).map(h => h.trim().replace(/^"|"$/g, ''));
+        const coordsIndex = header.map(h => h.toLowerCase()).indexOf('coords');
+        if (coordsIndex === -1) {
+          console.warn('No Coords column found in Paddlespots.csv — skipping paddlespot load');
+          return;
+        }
 
+        const spots = [];
+        const decPairRe = /(-?\d+\.\d+)\s*,\s*(-?\d+\.\d+)/;
+
+        for (let i = 1; i < lines.length; i++) {
+          const row = csvSplit(lines[i]);
+          const coordsField = (row[coordsIndex] || '').trim();
+          if (!coordsField) continue;
+          const m = coordsField.match(decPairRe);
+          if (!m) continue;
+          const lat = parseFloat(m[1]);
+          const lon = parseFloat(m[2]);
+          if (Number.isNaN(lat) || Number.isNaN(lon)) continue;
           // filter to NY bounding box (approx)
-          if (lat >= 40.0 && lat <= 45.6 && lon >= -80.0 && lon <= -71.0) {
-            // extract a name if present (first CSV field)
-            const name = (line.split(',')[0] || '').replace(/^"|"$/g, '').trim() || 'Paddlespot';
-            spots.push({ name, lat, lon, raw: line });
-          }
+          if (lat < 40.0 || lat > 45.6 || lon < -80.0 || lon > -71.0) continue;
+          const name = (row[0] || '').replace(/^"|"$/g, '').trim() || 'Paddlespot';
+          spots.push({ name, lat, lon, raw: lines[i] });
         }
 
         const markers = spots.map(s => {
