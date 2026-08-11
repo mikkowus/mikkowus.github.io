@@ -519,8 +519,10 @@
               if (!driveEl) return;
               driveEl.innerHTML = `<strong>Drive:</strong> <input class="drive-origin" type="text" placeholder="Type starting address" style="width:170px;padding:4px 6px;border:1px solid #cbd5e1;border-radius:6px;font-size:0.82rem;" /> <button class="drive-go" type="button" style="padding:4px 10px;background:#0f4c81;color:white;border:none;border-radius:6px;font-size:0.82rem;cursor:pointer;">Go</button>`;
               popup.setContent(content).update();
-              driveEl.querySelector('.drive-go').addEventListener('click', async () => {
-                const q = driveEl.querySelector('.drive-origin').value.trim();
+              const originInput = driveEl.querySelector('.drive-origin');
+              const goButton = driveEl.querySelector('.drive-go');
+              async function lookupOrigin() {
+                const q = originInput.value.trim();
                 if (!q) return;
                 await setDriveText('Looking up address…');
                 try {
@@ -530,6 +532,13 @@
                   await setDriveText(`~${formatDriveDistance(info.distance)} · ${formatDriveDuration(info.duration)}`);
                 } catch (err) {
                   await setDriveText(`<span style="color:#a00;">${err.message}</span>`);
+                }
+              }
+              goButton.addEventListener('click', lookupOrigin);
+              originInput.addEventListener('keydown', (event) => {
+                if (event.key === 'Enter') {
+                  event.preventDefault();
+                  lookupOrigin();
                 }
               });
             }
