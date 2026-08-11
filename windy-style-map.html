@@ -359,23 +359,52 @@
 
         if (lines.length < 1) return;
         const header = csvSplit(lines[0]).map(h => h.trim().replace(/^"|"$/g, ''));
-        const coordsIndex = header.map(h => h.toLowerCase()).indexOf('coords');
-        if (coordsIndex === -1) {
-          console.warn('No Coords column found in Paddlespots.csv — skipping paddlespot load');
-          return;
-        }
+        const lower = header.map(h => h.toLowerCase());
+        const coordsIndex = lower.indexOf('coords');
+        const coordsLatIndex = lower.indexOf('coordslat');
+        const coordsLonIndex = lower.indexOf('coordslon');
 
         const spots = [];
         const decPairRe = /(-?\d+\.\d+)\s*,\s*(-?\d+\.\d+)/;
+        const numRe = /^-?\d+(?:\.\d+)?$/;
 
         for (let i = 1; i < lines.length; i++) {
           const row = csvSplit(lines[i]);
-          const coordsField = (row[coordsIndex] || '').trim();
-          if (!coordsField) continue;
-          const m = coordsField.match(decPairRe);
-          if (!m) continue;
-          const lat = parseFloat(m[1]);
-          const lon = parseFloat(m[2]);
+          let lat = null, lon = null;
+
+          // priority 1: single Coords field like "lat,lon"
+          if (coordsIndex !== -1) {
+            const coordsField = (row[coordsIndex] || '').trim();
+            if (coordsField) {
+              const m = coordsField.match(decPairRe);
+              if (m) { lat = parseFloat(m[1]); lon = parseFloat(m[2]); }
+            }
+          }
+
+          // priority 2: separate CoordsLat / CoordsLon columns
+          if ((lat === null || lon === null) && coordsLatIndex !== -1 && coordsLonIndex !== -1) {
+            const la = (row[coordsLatIndex] || '').trim();
+            const lo = (row[coordsLonIndex] || '').trim();
+            if (numRe.test(la) && numRe.test(lo)) {
+              lat = parseFloat(la); lon = parseFloat(lo);
+            }
+          }
+
+          // priority 3: fallback — check last two columns (handles unquoted appended values)
+          if ((lat === null || lon === null) && row.length >= 2) {
+            const lastTwo = row.slice(-2);
+            if (numRe.test(lastTwo[0]) && numRe.test(lastTwo[1])) {
+              lat = parseFloat(lastTwo[0]); lon = parseFloat(lastTwo[1]);
+            }
+          }
+
+          // priority 4: search the full CSV line for a decimal pair
+          if ((lat === null || lon === null)) {
+            const m = lines[i].match(decPairRe);
+            if (m) { lat = parseFloat(m[1]); lon = parseFloat(m[2]); }
+          }
+
+          if (lat === null || lon === null) continue;
           if (Number.isNaN(lat) || Number.isNaN(lon)) continue;
           // filter to NY bounding box (approx)
           if (lat < 40.0 || lat > 45.6 || lon < -80.0 || lon > -71.0) continue;
