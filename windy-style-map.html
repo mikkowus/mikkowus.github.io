@@ -498,7 +498,7 @@
             <div class="title">${escapeHtml(s.name)}</div>
             ${notesHtml}
             <div class="meta">Lat ${s.lat.toFixed(5)}, Lon ${s.lon.toFixed(5)}</div>
-            <div class="metric paddle-drive-status"><strong>Drive:</strong> Getting your location…</div>
+            <div class="metric paddle-drive-status"><strong>Drive:estimated, never correct</strong> Getting your location…</div>
             <div class="metric paddle-weather-status"><strong>Weather:</strong> Data loading…</div>
           `;
           // Keep clicks inside the popup from bubbling to the map (which would
@@ -512,7 +512,7 @@
             const driveEl = content.querySelector('.paddle-drive-status');
 
             async function setDriveText(html) {
-              if (driveEl) driveEl.innerHTML = `<strong>Drive:</strong> ${html}`;
+              if (driveEl) driveEl.innerHTML = `<strong>Drive:estimated, never correct</strong> ${html}`;
               popup.setContent(content).update();
             }
 
