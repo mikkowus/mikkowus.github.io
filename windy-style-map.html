@@ -127,6 +127,7 @@
 
   <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
   <script src="https://unpkg.com/leaflet.markercluster@1.5.3/dist/leaflet.markercluster.js"></script>
+  <script src="shared.js"></script>
   <script>
     const statusEl = document.getElementById('status');
     const map = L.map('map').setView([42.9, -75.7], 7);
@@ -226,15 +227,6 @@
       statusEl.textContent = text;
     }
 
-    function formatWindDirection(deg) {
-      if (!deg && deg !== 0) return 'Unknown';
-      const d = Number(deg);
-      if (Number.isNaN(d)) return 'Unknown';
-      const sectors = ['N', 'NNE', 'NE', 'ENE', 'E', 'ESE', 'SE', 'SSE', 'S', 'SSW', 'SW', 'WSW', 'W', 'WNW', 'NW', 'NNW'];
-      const index = Math.round(((d % 360) / 22.5)) % 16;
-      return `${sectors[index]} (${d}°)`;
-    }
-
     function makeWindPopup(lat, lon) {
       const container = document.createElement('div');
       container.className = 'wind-popup';
@@ -262,80 +254,12 @@
       return { container, status };
     }
 
-    async function fetchWind(lat, lon) {
-      const pointRes = await fetch(`https://api.weather.gov/points/${lat.toFixed(4)},${lon.toFixed(4)}`);
-      if (!pointRes.ok) throw new Error('Weather point lookup failed');
-      const pointData = await pointRes.json();
-      const forecastUrl = pointData.properties?.forecastHourly || pointData.properties?.forecast;
-      if (!forecastUrl) throw new Error('No forecast available for this location');
-      const forecastRes = await fetch(forecastUrl);
-      if (!forecastRes.ok) throw new Error('Weather forecast fetch failed');
-      const forecastData = await forecastRes.json();
-      const now = forecastData.properties?.periods?.[0];
-      if (!now) throw new Error('No forecast periods returned');
-      return {
-        temperature: now.temperature,
-        unit: now.temperatureUnit,
-        short: now.shortForecast,
-        windSpeed: now.windSpeed,
-        windDirection: now.windDirection,
-        detailed: now.detailedForecast,
-      };
-    }
-
     function updatePopupContent(statusEl, windData) {
       statusEl.innerHTML = `
         <div class="metric"><strong>Weather:</strong> ${windData.temperature}°${windData.unit}, ${windData.short}</div>
-        <div class="metric"><strong>Wind:</strong> ${windData.windSpeed} ${windData.windDirection || ''}${Number(windData.windDirection) >= 0 ? ' / ' + formatWindDirection(windData.windDirection) : ''}</div>
+        <div class="metric"><strong>Wind:</strong> ${windData.windSpeed} ${windData.windDirection || ''}</div>
         <div class="metric" style="color:#5b7281; font-size:0.88rem;">${windData.detailed || ''}</div>
       `;
-    }
-
-    function parseRdb(text) {
-      const lines = text.split(/\r?\n/).filter((line) => line.trim().length > 0 && !line.startsWith('#'));
-      if (lines.length < 2) return [];
-      const header = lines[0].split('\t');
-      return lines.slice(2).map((line) => {
-        const values = line.split('\t');
-        return header.reduce((obj, key, index) => {
-          obj[key] = values[index] === undefined ? '' : values[index];
-          return obj;
-        }, {});
-      }).filter((site) => site.dec_lat_va && site.dec_long_va);
-    }
-
-    async function fetchGaugeSites() {
-      const url = 'https://waterservices.usgs.gov/nwis/site/?format=rdb&stateCd=NY&siteType=ST&parameterCd=00065&siteStatus=active';
-      try {
-        const response = await fetch(url);
-        if (!response.ok) throw new Error('Unable to fetch USGS sites');
-        const text = await response.text();
-        const sites = parseRdb(text);
-        if (sites && sites.length) return sites;
-        throw new Error('Parsed zero sites from USGS');
-      } catch (err) {
-        console.warn('USGS fetch failed, falling back to local JSON', err);
-        try {
-          const fallback = await fetch('usgs-ny-sites.json');
-          if (!fallback.ok) throw new Error('Fallback JSON not found');
-          const data = await fallback.json();
-          return data;
-        } catch (err2) {
-          console.error('Fallback failed', err2);
-          return [];
-        }
-      }
-    }
-
-    async function fetchGaugeWaterHeight(siteNo) {
-      const url = `https://waterservices.usgs.gov/nwis/iv/?format=json&sites=${encodeURIComponent(siteNo)}&parameterCd=00065&siteStatus=active`;
-      const response = await fetch(url);
-      if (!response.ok) throw new Error('Failed to fetch water height');
-      const data = await response.json();
-      const timeSeries = data.value?.timeSeries || [];
-      if (timeSeries.length === 0) return null;
-      const reading = timeSeries[0].values?.[0]?.value?.[0];
-      return reading ? { value: reading.value, time: reading.dateTime } : null;
     }
 
     function buildGaugePopup(site) {
@@ -371,11 +295,11 @@
       try {
         const [water, weather] = await Promise.all([
           fetchGaugeWaterHeight(site.site_no),
-          fetchWind(parseFloat(site.dec_lat_va), parseFloat(site.dec_long_va)),
+          fetchWeather(parseFloat(site.dec_lat_va), parseFloat(site.dec_long_va)),
         ]);
 
         const waterText = water
-          ? `${water.value} ft as of ${new Date(water.time).toLocaleString()}`
+          ? `${water.value} ${water.unit} as of ${new Date(water.time).toLocaleString()}`
           : 'No real-time height available';
         if (statusElPopup) {
           statusElPopup.innerHTML = `<strong>Status:</strong> ${waterText}`;
@@ -385,8 +309,7 @@
           weatherElPopup.innerHTML = `<strong>Weather:</strong> ${weather.temperature}°${weather.unit}, ${weather.short}`;
         }
         if (windElPopup) {
-          const windDirectionText = Number(weather.windDirection) >= 0 ? ` / ${formatWindDirection(weather.windDirection)}` : '';
-          windElPopup.innerHTML = `<strong>Wind:</strong> ${weather.windSpeed} ${weather.windDirection || ''}${windDirectionText}`;
+          windElPopup.innerHTML = `<strong>Wind:</strong> ${weather.windSpeed} ${weather.windDirection || ''}`;
         }
 
         if (popup) {
@@ -416,7 +339,7 @@
       loadStatus('Loading wind data...');
 
       try {
-        const windData = await fetchWind(lat, lon);
+        const windData = await fetchWeather(lat, lon);
         updatePopupContent(status, windData);
         clickMarker.getPopup().setContent(container).update();
         loadStatus(`Wind at ${lat.toFixed(4)}, ${lon.toFixed(4)} loaded`);
@@ -468,61 +391,6 @@
       iconSize: [12, 12],
       iconAnchor: [6, 6],
     });
-
-    function dmsToDecimal(dms) {
-      const m = dms.match(/(\d+)[°\s]+(\d+)'[\s]?(\d+(?:\.\d+)?)\"?\s*([NSEW])/i);
-      if (!m) return null;
-      let deg = Number(m[1]);
-      const min = Number(m[2]);
-      const sec = Number(m[3]);
-      const dir = m[4].toUpperCase();
-      let dec = deg + min/60 + sec/3600;
-      if (dir === 'S' || dir === 'W') dec = -dec;
-      return dec;
-    }
-
-    // Drive distance / time helpers (OSRM routing + browser geolocation)
-    function formatDriveDistance(meters) {
-      const miles = meters / 1609.344;
-      return miles >= 10 ? `${Math.round(miles)} mi` : `${miles.toFixed(1)} mi`;
-    }
-
-    function formatDriveDuration(seconds) {
-      const mins = Math.round(seconds / 60);
-      if (mins < 60) return `${mins} min`;
-      const h = Math.floor(mins / 60);
-      const m = mins % 60;
-      return m ? `${h} hr ${m} min` : `${h} hr`;
-    }
-
-    function getCurrentPosition() {
-      return new Promise((resolve, reject) => {
-        if (!navigator.geolocation) return reject(new Error('Geolocation not supported'));
-        navigator.geolocation.getCurrentPosition(resolve, reject, {
-          timeout: 10000,
-          maximumAge: 300000,
-        });
-      });
-    }
-
-    async function fetchDriveInfo(originLat, originLon, destLat, destLon) {
-      const url = `https://router.project-osrm.org/route/v1/driving/${originLon},${originLat};${destLon},${destLat}?overview=false`;
-      const res = await fetch(url);
-      if (!res.ok) throw new Error('Routing request failed');
-      const data = await res.json();
-      if (data.code !== 'Ok' || !data.routes || !data.routes.length) throw new Error('No route found');
-      const route = data.routes[0];
-      return { distance: route.distance, duration: route.duration };
-    }
-
-    async function geocodeAddress(query) {
-      const url = `https://nominatim.openstreetmap.org/search?format=json&limit=1&q=${encodeURIComponent(query)}`;
-      const res = await fetch(url, { headers: { 'Accept': 'application/json' } });
-      if (!res.ok) throw new Error('Address lookup failed');
-      const data = await res.json();
-      if (!data.length) throw new Error('Address not found');
-      return { lat: parseFloat(data[0].lat), lon: parseFloat(data[0].lon) };
-    }
 
     async function loadPaddlespots() {
       try {
@@ -679,13 +547,12 @@
             if (weatherEl) weatherEl.innerHTML = '<strong>Weather:</strong> Loading…';
             if (windEl) windEl.innerHTML = '<strong>Wind:</strong> Loading…';
             try {
-              const w = await fetchWind(s.lat, s.lon);
+              const w = await fetchWeather(s.lat, s.lon);
               if (weatherEl) {
                 weatherEl.innerHTML = `<strong>Weather:</strong> ${w.temperature}°${w.unit}, ${w.short}`;
               }
               if (windEl) {
-                const windDirectionText = Number(w.windDirection) >= 0 ? ` / ${formatWindDirection(w.windDirection)}` : '';
-                windEl.innerHTML = `<strong>Wind:</strong> ${w.windSpeed} ${w.windDirection || ''}${windDirectionText}`;
+                windEl.innerHTML = `<strong>Wind:</strong> ${w.windSpeed} ${w.windDirection || ''}`;
               }
               popup.setContent(content).update();
             } catch (err) {

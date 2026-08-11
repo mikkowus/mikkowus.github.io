@@ -61,7 +61,8 @@
 <body>
   <div class="topbar">
     <div class="title">New York USGS Gauge Map</div>
-    <a href="canoe-launch-finder.html">Back to launch finder</a>
+    <a href="index.html">Home</a>
+    <a href="windy-style-map.html">Windy-Style Map</a>
     <div class="subtitle" id="status">Loading NY gauges…</div>
   </div>
   <div id="map"></div>
@@ -74,6 +75,7 @@
 
   <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
   <script src="https://unpkg.com/leaflet.markercluster@1.5.3/dist/leaflet.markercluster.js"></script>
+  <script src="shared.js"></script>
   <script>
     const statusEl = document.getElementById('status');
     const map = L.map('map').setView([43.0, -75.0], 6);
@@ -82,58 +84,6 @@
       attribution: '&copy; OpenStreetMap contributors',
       maxZoom: 18,
     }).addTo(map);
-
-    function parseRdb(text) {
-      const lines = text.split(/\r?\n/).filter((line) => line.trim().length > 0 && !line.startsWith('#'));
-      if (lines.length < 2) return [];
-      const header = lines[0].split('\t');
-      return lines.slice(2).map((line) => {
-        const values = line.split('\t');
-        return header.reduce((obj, key, index) => {
-          obj[key] = values[index] === undefined ? '' : values[index];
-          return obj;
-        }, {});
-      }).filter((site) => site.dec_lat_va && site.dec_long_va);
-    }
-
-    async function fetchSites() {
-      const url = 'https://waterservices.usgs.gov/nwis/site/?format=rdb&stateCd=NY&siteType=ST&parameterCd=00065&siteStatus=active';
-      const response = await fetch(url);
-      if (!response.ok) throw new Error('Unable to fetch USGS sites');
-      const text = await response.text();
-      return parseRdb(text);
-    }
-
-    async function fetchWaterHeight(siteNo) {
-      const url = `https://waterservices.usgs.gov/nwis/iv/?format=json&sites=${encodeURIComponent(siteNo)}&parameterCd=00065&siteStatus=active`;
-      const response = await fetch(url);
-      if (!response.ok) throw new Error('Failed to fetch water height');
-      const data = await response.json();
-      const timeSeries = data.value?.timeSeries || [];
-      if (timeSeries.length === 0) return null;
-      const reading = timeSeries[0].values?.[0]?.value?.[0];
-      return reading ? { value: reading.value, unit: reading.value ? timeSeries[0].variable.unit?.unitCode || 'ft' : 'ft', time: reading.dateTime } : null;
-    }
-
-    async function fetchWeather(lat, lon) {
-      const pointRes = await fetch(`https://api.weather.gov/points/${lat.toFixed(4)},${lon.toFixed(4)}`);
-      if (!pointRes.ok) throw new Error('Weather point lookup failed');
-      const point = await pointRes.json();
-      const forecastUrl = point.properties?.forecast;
-      if (!forecastUrl) throw new Error('No forecast available');
-      const forecastRes = await fetch(forecastUrl);
-      if (!forecastRes.ok) throw new Error('Weather forecast fetch failed');
-      const forecastData = await forecastRes.json();
-      const now = forecastData.properties?.periods?.[0];
-      return now ? {
-        temperature: now.temperature,
-        unit: now.temperatureUnit,
-        short: now.shortForecast,
-        detailed: now.detailedForecast,
-        windSpeed: now.windSpeed,
-        windDirection: now.windDirection,
-      } : null;
-    }
 
     function formatPopup(site) {
       const container = document.createElement('div');
@@ -168,7 +118,7 @@
       container.textContent = 'Loading water height…';
       try {
         const [water, weather] = await Promise.all([
-          fetchWaterHeight(site.site_no),
+          fetchGaugeWaterHeight(site.site_no),
           fetchWeather(parseFloat(site.dec_lat_va), parseFloat(site.dec_long_va)),
         ]);
         const waterText = water
@@ -194,7 +144,7 @@
 
     async function initMap() {
       try {
-        const sites = await fetchSites();
+        const sites = await fetchGaugeSites();
         statusEl.textContent = `${sites.length} gauges loaded`;
 
         const cluster = L.markerClusterGroup();
