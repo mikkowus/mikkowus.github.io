@@ -250,7 +250,7 @@
 
       const directions = document.createElement('div');
       directions.className = 'metric';
-      directions.innerHTML = `<a href="https://www.google.com/maps/dir/?api=1&destination=${lat},${lon}&travelmode=driving" target="_blank" rel="noopener" style="color:#0f4c81;font-weight:700;">Google Maps directions</a>`;
+      directions.innerHTML = `<a href="https://www.google.com/maps/search/${lat},${lon}" target="_blank" rel="noopener" style="color:#0f4c81;font-weight:700;">Google Maps pin</a>`;
       container.appendChild(directions);
 
       const status = document.createElement('div');
