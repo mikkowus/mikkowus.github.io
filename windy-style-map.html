@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Windy-Style Wind Map</title>
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+  <link rel="stylesheet" href="https://unpkg.com/leaflet.markercluster@1.5.3/dist/MarkerCluster.css" />
+  <link rel="stylesheet" href="https://unpkg.com/leaflet.markercluster@1.5.3/dist/MarkerCluster.Default.css" />
+  <style>
+    body { margin: 0; font-family: system-ui, sans-serif; background: #eef4fb; }
+    #map { position: absolute; inset: 0; }
+    .topbar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      min-height: 72px;
+      padding: 12px 18px;
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      background: rgba(14, 46, 87, 0.94);
+      color: white;
+      z-index: 1000;
+      box-shadow: 0 10px 36px rgba(3, 12, 31, 0.16);
+    }
+    .topbar .brand { font-size: 1.1rem; font-weight: 700; letter-spacing: 0.02em; }
+    .topbar .subtitle { color: #d2e3ff; font-size: 0.95rem; margin-left: auto; }
+    .topbar a { color: #a9cfff; text-decoration: none; font-weight: 600; }
+    .leaflet-popup-content-wrapper { border-radius: 18px; border: 1px solid rgba(255,255,255,0.88); box-shadow: 0 14px 36px rgba(0,0,0,0.18); }
+    .wind-popup { min-width: 240px; font-family: system-ui, sans-serif; color: #14233a; }
+    .wind-popup .title { font-size: 1rem; font-weight: 700; margin-bottom: 6px; }
+    .wind-popup .meta { color: #50637b; font-size: 0.92rem; margin-bottom: 12px; }
+    .wind-popup .metric { margin: 10px 0; display: grid; gap: 6px; }
+    .wind-popup .metric strong { display: inline-block; width: 76px; color: #0f4c81; }
+    .wind-popup .wind-arrow { display: inline-flex; align-items: center; gap: 8px; margin-top: 6px; }
+    .wind-popup .wind-arrow span.arrow { display: inline-block; width: 24px; height: 24px; line-height: 24px; text-align: center; border-radius: 50%; background: rgba(15, 76, 129, 0.12); color: #0f4c81; font-size: 1rem; transform-origin: center; }
+    .status-box {
+      position: absolute;
+      bottom: 18px;
+      left: 18px;
+      padding: 12px 14px;
+      background: rgba(255,255,255,0.95);
+      border-radius: 14px;
+      box-shadow: 0 12px 32px rgba(0,0,0,0.12);
+      color: #172a44;
+      font-size: 0.95rem;
+      z-index: 1000;
+      max-width: 340px;
+    }
+  </style>
+</head>
+<body>
+  <div class="topbar">
+    <a href="index.html">Home</a>
+    <div class="brand">Windy-Style Wind Map</div>
+    <a href="ny-gauges-map.html">NY Gauges Map</a>
+    <div class="subtitle">Click anywhere to inspect wind and direction</div>
+  </div>
+  <div id="map"></div>
+  <div class="status-box" id="status">Click any point on the map to load wind data.</div>
+
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+  <script src="https://unpkg.com/leaflet.markercluster@1.5.3/dist/leaflet.markercluster.js"></script>
+  <script>
+    const statusEl = document.getElementById('status');
+    const map = L.map('map').setView([42.9, -75.7], 7);
+
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+      attribution: '&copy; OpenStreetMap contributors',
+      maxZoom: 18,
+    }).addTo(map);
+
+    let clickMarker = null;
+
+    const gaugeIcon = {
+      radius: 6,
+      color: '#f59e0b',
+      fillColor: '#0f4c81',
+      fillOpacity: 1,
+      weight: 2,
+    };
+
+    function loadStatus(text) {
+      statusEl.textContent = text;
+    }
+
+    function formatWindDirection(deg) {
+      if (!deg && deg !== 0) return 'Unknown';
+      const d = Number(deg);
+      if (Number.isNaN(d)) return 'Unknown';
+      const sectors = ['N', 'NNE', 'NE', 'ENE', 'E', 'ESE', 'SE', 'SSE', 'S', 'SSW', 'SW', 'WSW', 'W', 'WNW', 'NW', 'NNW'];
+      const index = Math.round(((d % 360) / 22.5)) % 16;
+      return `${sectors[index]} (${d}°)`;
+    }
+
+    function makeWindPopup(lat, lon) {
+      const container = document.createElement('div');
+      container.className = 'wind-popup';
+
+      const title = document.createElement('div');
+      title.className = 'title';
+      title.textContent = 'Wind observation';
+      container.appendChild(title);
+
+      const meta = document.createElement('div');
+      meta.className = 'meta';
+      meta.textContent = `Lat ${lat.toFixed(4)}, Lon ${lon.toFixed(4)}`;
+      container.appendChild(meta);
+
+      const status = document.createElement('div');
+      status.className = 'metric';
+      status.textContent = 'Loading wind data…';
+      container.appendChild(status);
+
+      return { container, status };
+    }
+
+    async function fetchWind(lat, lon) {
+      const pointRes = await fetch(`https://api.weather.gov/points/${lat.toFixed(4)},${lon.toFixed(4)}`);
+      if (!pointRes.ok) throw new Error('Weather point lookup failed');
+      const pointData = await pointRes.json();
+      const forecastUrl = pointData.properties?.forecastHourly || pointData.properties?.forecast;
+      if (!forecastUrl) throw new Error('No forecast available for this location');
+      const forecastRes = await fetch(forecastUrl);
+      if (!forecastRes.ok) throw new Error('Weather forecast fetch failed');
+      const forecastData = await forecastRes.json();
+      const now = forecastData.properties?.periods?.[0];
+      if (!now) throw new Error('No forecast periods returned');
+      return {
+        temperature: now.temperature,
+        unit: now.temperatureUnit,
+        short: now.shortForecast,
+        windSpeed: now.windSpeed,
+        windDirection: now.windDirection,
+        detailed: now.detailedForecast,
+      };
+    }
+
+    function updatePopupContent(statusEl, windData) {
+      statusEl.innerHTML = `
+        <div class="metric"><strong>Temp:</strong> ${windData.temperature}°${windData.unit}</div>
+        <div class="metric"><strong>Weather:</strong> ${windData.short}</div>
+        <div class="metric wind-arrow"><span class="arrow" style="transform: rotate(${(Number(windData.windDirection) + 180) % 360}deg)">↑</span><strong>Wind:</strong> ${windData.windSpeed} ${windData.windDirection ? windData.windDirection + ' / ' + formatWindDirection(windData.windDirection) : ''}</div>
+        <div class="metric" style="color:#5b7281; font-size:0.88rem;">${windData.detailed || ''}</div>
+      `;
+    }
+
+    function parseRdb(text) {
+      const lines = text.split(/\r?\n/).filter((line) => line.trim().length > 0 && !line.startsWith('#'));
+      if (lines.length < 2) return [];
+      const header = lines[0].split('\t');
+      return lines.slice(2).map((line) => {
+        const values = line.split('\t');
+        return header.reduce((obj, key, index) => {
+          obj[key] = values[index] === undefined ? '' : values[index];
+          return obj;
+        }, {});
+      }).filter((site) => site.dec_lat_va && site.dec_long_va);
+    }
+
+    async function fetchGaugeSites() {
+      const url = 'https://waterservices.usgs.gov/nwis/site/?format=rdb&stateCd=NY&siteType=ST&parameterCd=00065&siteStatus=active';
+      const response = await fetch(url);
+      if (!response.ok) throw new Error('Unable to fetch USGS sites');
+      const text = await response.text();
+      return parseRdb(text);
+    }
+
+    async function fetchGaugeWaterHeight(siteNo) {
+      const url = `https://waterservices.usgs.gov/nwis/iv/?format=json&sites=${encodeURIComponent(siteNo)}&parameterCd=00065&siteStatus=active`;
+      const response = await fetch(url);
+      if (!response.ok) throw new Error('Failed to fetch water height');
+      const data = await response.json();
+      const timeSeries = data.value?.timeSeries || [];
+      if (timeSeries.length === 0) return null;
+      const reading = timeSeries[0].values?.[0]?.value?.[0];
+      return reading ? { value: reading.value, time: reading.dateTime } : null;
+    }
+
+    function buildGaugePopup(site) {
+      const container = document.createElement('div');
+      container.className = 'wind-popup';
+      container.innerHTML = `
+        <div class="title">${site.station_nm || 'USGS gauge'}</div>
+        <div class="meta">USGS ${site.site_no}</div>
+        <div class="metric"><strong>Location:</strong> ${site.dec_lat_va}, ${site.dec_long_va}</div>
+        <div class="metric"><strong>Status:</strong> Loading…</div>
+      `;
+      return container;
+    }
+
+    async function loadGaugeSite(site, marker) {
+      const popup = marker.getPopup();
+      const statusElPopup = popup?.getContent()?.querySelector('.metric:last-child');
+      if (statusElPopup) {
+        statusElPopup.innerHTML = '<strong>Status:</strong> Loading…';
+      }
+      try {
+        const water = await fetchGaugeWaterHeight(site.site_no);
+        const text = water
+          ? `<strong>Status:</strong> ${water.value} ft as of ${new Date(water.time).toLocaleString()}`
+          : '<strong>Status:</strong> No real-time height available';
+        if (statusElPopup) {
+          statusElPopup.innerHTML = text;
+          marker.getPopup().setContent(popup.getContent()).update();
+        }
+      } catch (err) {
+        if (statusElPopup) {
+          statusElPopup.innerHTML = `<strong>Status:</strong> <span style="color:#a00;">${err.message}</span>`;
+          marker.getPopup().setContent(popup.getContent()).update();
+        }
+      }
+    }
+
+    async function showWindAt(lat, lon) {
+      if (clickMarker) {
+        clickMarker.remove();
+      }
+
+      const { container, status } = makeWindPopup(lat, lon);
+      clickMarker = L.marker([lat, lon]).addTo(map);
+      clickMarker.bindPopup(container).openPopup();
+      loadStatus('Loading wind data...');
+
+      try {
+        const windData = await fetchWind(lat, lon);
+        updatePopupContent(status, windData);
+        clickMarker.getPopup().setContent(container).update();
+        loadStatus(`Wind at ${lat.toFixed(4)}, ${lon.toFixed(4)} loaded`);
+      } catch (err) {
+        status.textContent = err.message;
+        clickMarker.getPopup().setContent(container).update();
+        loadStatus('Unable to load wind data');
+        console.error(err);
+      }
+    }
+
+    async function loadGaugeMarkers() {
+      try {
+        const sites = await fetchGaugeSites();
+        const cluster = L.markerClusterGroup();
+        sites.forEach((site) => {
+          const lat = parseFloat(site.dec_lat_va);
+          const lon = parseFloat(site.dec_long_va);
+          if (Number.isNaN(lat) || Number.isNaN(lon)) return;
+          const marker = L.circleMarker([lat, lon], gaugeIcon);
+          marker.bindPopup(buildGaugePopup(site), { minWidth: 240 });
+          marker.on('popupopen', () => loadGaugeSite(site, marker));
+          cluster.addLayer(marker);
+        });
+        map.addLayer(cluster);
+        loadStatus(`Loaded ${sites.length} NY USGS gauges. Zoom in to split clusters or click a marker for status. Click anywhere else for wind.`);
+      } catch (err) {
+        console.error(err);
+        loadStatus('Unable to load NY USGS gauges.');
+      }
+    }
+
+    map.on('click', (event) => {
+      const { lat, lng } = event.latlng;
+      showWindAt(lat, lng);
+    });
+
+    loadStatus('Click anywhere on the map to view current wind conditions.');
+    loadGaugeMarkers();
+  </script>
+</body>
+</html>
