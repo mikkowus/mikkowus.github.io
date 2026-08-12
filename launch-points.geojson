@@ -3,34 +3,26 @@
   "features": [
     {
       "type": "Feature",
-      "geometry": { "type": "Point", "coordinates": [-76.5019, 42.4440] },
+      "geometry": { "type": "Point", "coordinates": [-76.1576747, 42.6085092] },
       "properties": {
         "id": "yaman-park",
         "name": "Yaman Park",
-        "description": "Quiet carry-in launch on the Cayuga Inlet. Gentle current and easy parking make it a good spot for beginners; paddle out to the lake mouth or upstream toward the flood control channel.",
+        "description": "Public boat launch on the Tioughnioga River in Cortland.",
         "region": "NY",
-        "water_body_name": "Cayuga Inlet",
+        "water_body_name": "Tioughnioga River",
         "water_body_type": "river",
-        "access_type": "carry-in",
-        "parking_notes": "Free lot, about 10 spaces. Best water level is between 3.5 ft and 5 ft.",
-        "tags": ["beginner-friendly", "scenic"],
-        "nearest_gauge_site_no": "04234000",
-        "source_url": "https://www.google.com/maps/search/42.4440,-76.5019",
+        "access_type": "public-boat-launch",
+        "parking_notes": "Best water level reported between 3.5 ft and 5 ft.",
+        "tags": [],
+        "nearest_gauge_site_no": "01509000",
+        "source_url": "https://www.google.com/maps/search/42.6085092,-76.1576747",
         "photos": [],
-        "tracks": [
-          {
-            "id": "yaman-inlet-loop",
-            "name": "Inlet loop",
-            "distance_mi": 4.2,
-            "gpx": "tracks/yaman-inlet-loop.gpx",
-            "description": "Out-and-back from the launch to the lake mouth and back."
-          }
-        ]
+        "tracks": []
       }
     },
     {
       "type": "Feature",
-      "geometry": { "type": "Point", "coordinates": [-76.5286, 42.5033] },
+      "geometry": { "type": "Point", "coordinates": [-76.5033635, 42.4616703] },
       "properties": {
         "id": "stewart-park",
         "name": "Stewart Park",
@@ -42,18 +34,18 @@
         "parking_notes": "Large free lot, rarely full.",
         "tags": ["family-friendly", "wide-open-water"],
         "nearest_gauge_site_no": "",
-        "source_url": "https://www.google.com/maps/search/42.5033,-76.5286",
+        "source_url": "https://www.google.com/maps/search/42.4616703,-76.5033635",
         "photos": [],
         "tracks": []
       }
     },
     {
       "type": "Feature",
-      "geometry": { "type": "Point", "coordinates": [-76.3958, 42.6209] },
+      "geometry": { "type": "Point", "coordinates": [-76.5493868, 42.5372942] },
       "properties": {
-        "id": "myers-point-park",
-        "name": "Myers Point Park",
-        "description": "Sandy beach launch on the east side of Cayuga Lake. Good sunset paddling, and a short hop across to the Lansing shoreline.",
+        "id": "myers-park",
+        "name": "Myers Park",
+        "description": "Paddling access point on the east shore of Cayuga Lake in the Town of Lansing.",
         "region": "NY",
         "water_body_name": "Cayuga Lake",
         "water_body_type": "lake",
@@ -61,9 +53,17 @@
         "parking_notes": "Small lot, fills up on summer weekends.",
         "tags": ["scenic"],
         "nearest_gauge_site_no": "",
-        "source_url": "https://www.google.com/maps/search/42.6209,-76.3958",
+        "source_url": "https://www.google.com/maps/search/42.5372942,-76.5493868",
         "photos": [],
-        "tracks": []
+        "tracks": [
+          {
+            "id": "myers-park-shoreline-loop",
+            "name": "Shoreline loop (sample route)",
+            "distance_mi": 0.8,
+            "gpx": "tracks/myers-park-shoreline-loop.gpx",
+            "description": "Illustrative sample route for testing the Routes layer -- not a verified real paddling route. Replace with an actual GPS track."
+          }
+        ]
       }
     }
   ]
