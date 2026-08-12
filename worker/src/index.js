@@ -1,4 +1,7 @@
 const SESSION_DAYS = 30;
+const LOGIN_ATTEMPT_WINDOW_MINUTES = 15;
+const MAX_FAILED_ATTEMPTS_PER_NAME = 5;
+const MAX_FAILED_ATTEMPTS_PER_IP = 20;
 
 function corsHeaders(request, env) {
   const allowed = (env.ALLOWED_ORIGINS || '').split(',').map((s) => s.trim()).filter(Boolean);
@@ -23,6 +26,15 @@ function json(data, status, extraHeaders) {
 async function sha256Hex(input) {
   const buf = await crypto.subtle.digest('SHA-256', new TextEncoder().encode(input));
   return [...new Uint8Array(buf)].map((b) => b.toString(16).padStart(2, '0')).join('');
+}
+
+function timingSafeEqual(a, b) {
+  if (a.length !== b.length) return false;
+  let mismatch = 0;
+  for (let i = 0; i < a.length; i++) {
+    mismatch |= a.charCodeAt(i) ^ b.charCodeAt(i);
+  }
+  return mismatch === 0;
 }
 
 async function authenticate(request, env) {
@@ -64,11 +76,26 @@ async function handleLogin(request, env) {
   const body = await request.json().catch(() => null);
   if (!body || !body.name || !body.code) return json({ error: 'name and code are required' }, 400);
 
-  const contributor = await env.DB.prepare('SELECT * FROM contributors WHERE name = ?').bind(body.name).first();
-  if (!contributor) return json({ error: 'Invalid name or code' }, 401);
+  const ip = request.headers.get('CF-Connecting-IP') || 'unknown';
+  const window = `datetime('now', '-${LOGIN_ATTEMPT_WINDOW_MINUTES} minutes')`;
+  const [byName, byIp] = await Promise.all([
+    env.DB.prepare(`SELECT COUNT(*) AS count FROM login_attempts WHERE name = ? AND success = 0 AND attempted_at > ${window}`)
+      .bind(body.name).first(),
+    env.DB.prepare(`SELECT COUNT(*) AS count FROM login_attempts WHERE ip = ? AND success = 0 AND attempted_at > ${window}`)
+      .bind(ip).first(),
+  ]);
+  if ((byName?.count || 0) >= MAX_FAILED_ATTEMPTS_PER_NAME || (byIp?.count || 0) >= MAX_FAILED_ATTEMPTS_PER_IP) {
+    return json({ error: 'Too many attempts. Try again later.' }, 429);
+  }
 
+  const contributor = await env.DB.prepare('SELECT * FROM contributors WHERE name = ?').bind(body.name).first();
   const hash = await sha256Hex(`${body.name}:${body.code}`);
-  if (hash !== contributor.access_code_hash) return json({ error: 'Invalid name or code' }, 401);
+  const ok = !!contributor && timingSafeEqual(hash, contributor.access_code_hash);
+
+  await env.DB.prepare('INSERT INTO login_attempts (name, ip, success) VALUES (?, ?, ?)')
+    .bind(body.name, ip, ok ? 1 : 0).run();
+
+  if (!ok) return json({ error: 'Invalid name or code' }, 401);
 
   const token = crypto.randomUUID();
   const expiresAt = new Date(Date.now() + SESSION_DAYS * 24 * 60 * 60 * 1000).toISOString();
@@ -208,7 +235,8 @@ export default {
       Object.entries(headers).forEach(([k, v]) => merged.set(k, v));
       return new Response(response.body, { status: response.status, headers: merged });
     } catch (err) {
-      return json({ error: err.message || 'Internal error' }, 500, headers);
+      console.error(err);
+      return json({ error: 'Internal error' }, 500, headers);
     }
   },
 };
