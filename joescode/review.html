@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Review Launch Point Submissions</title>
+  <style>
+    body { margin: 0; font-family: system-ui, sans-serif; background: #eef4fb; color: #14233a; }
+    .wrap { max-width: 640px; margin: 0 auto; padding: 16px; padding-bottom: 48px; }
+    h1 { font-size: 1.3rem; color: #0f4c81; margin: 8px 0 16px; }
+    .card { background: white; border-radius: 14px; padding: 16px; box-shadow: 0 8px 24px rgba(15, 23, 42, 0.08); margin-bottom: 16px; }
+    label { display: block; font-weight: 600; font-size: 0.9rem; margin: 12px 0 4px; }
+    input, textarea { width: 100%; padding: 10px; border: 1px solid #cbd5e1; border-radius: 8px; font-size: 1rem; box-sizing: border-box; font-family: inherit; }
+    button { font-size: 0.95rem; font-weight: 700; padding: 10px 14px; border: none; border-radius: 8px; cursor: pointer; }
+    .btn-primary { background: #0f4c81; color: white; }
+    .btn-approve { background: #16a34a; color: white; }
+    .btn-reject { background: #dc2626; color: white; }
+    .btn-link { background: none; color: #0f4c81; text-decoration: underline; padding: 4px; }
+    .status { margin-top: 10px; font-size: 0.9rem; }
+    .status.error { color: #b91c1c; }
+    .status.ok { color: #166534; }
+    .submission { border-top: 1px solid #eef2f7; padding: 14px 0; }
+    .submission:first-child { border-top: none; }
+    .submission .title { font-weight: 700; }
+    .submission .meta { color: #50637b; font-size: 0.85rem; margin: 4px 0 8px; }
+    .submission .actions { display: flex; gap: 8px; margin-top: 10px; }
+    #exportOutput { min-height: 140px; font-family: monospace; font-size: 0.8rem; }
+    .hidden { display: none; }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <h1>Review Launch Point Submissions</h1>
+
+    <div id="loginCard" class="card hidden">
+      <label for="loginName">Name</label>
+      <input id="loginName" type="text" autocomplete="username" />
+      <label for="loginCode">Access code</label>
+      <input id="loginCode" type="password" autocomplete="current-password" />
+      <button class="btn-primary" id="loginBtn" type="button">Log in</button>
+      <div class="status error" id="loginStatus"></div>
+    </div>
+
+    <div id="deniedCard" class="card hidden">
+      Logged in as <strong id="deniedName"></strong>, but this page requires the owner role.
+      <button class="btn-link" id="logoutBtn2" type="button">Log out</button>
+    </div>
+
+    <div id="mainCard" class="card hidden">
+      <div style="display:flex; justify-content:space-between; align-items:center;">
+        <span>Owner: <strong id="whoName"></strong></span>
+        <button class="btn-link" id="logoutBtn" type="button">Log out</button>
+      </div>
+      <div style="margin-top:12px;">
+        <button class="btn-primary" id="refreshBtn" type="button">Refresh pending</button>
+      </div>
+      <div id="pendingList"></div>
+      <div class="status" id="listStatus"></div>
+    </div>
+
+    <div id="exportCard" class="card hidden">
+      <strong>Export approved submissions</strong>
+      <div>
+        <button class="btn-link" id="exportBtn" type="button">Export approved as GeoJSON</button>
+      </div>
+      <textarea id="exportOutput" readonly placeholder="Click export to fetch approved submissions as a ready-to-paste GeoJSON FeatureCollection."></textarea>
+      <div class="status">Paste the result into launch-points.geojson, run scripts/validate_launch_points.py, then commit through a normal PR.</div>
+    </div>
+  </div>
+
+  <script>
+    // joescode/ test copy: always points at Joe's own deployed staging
+    // Worker (see worker/README.md) -- unlike the root copy, this one isn't
+    // meant to be tested against a local `wrangler dev`, so there's no
+    // localhost branch here.
+    const API_BASE = 'https://launch-points-api.joseph-schlimmer.workers.dev';
+
+    const AUTH_KEY = 'launchPointAuth';
+
+    function getAuth() {
+      try {
+        const auth = JSON.parse(localStorage.getItem(AUTH_KEY));
+        if (!auth || !auth.token || new Date(auth.expiresAt) <= new Date()) return null;
+        return auth;
+      } catch {
+        return null;
+      }
+    }
+    function setAuth(auth) { localStorage.setItem(AUTH_KEY, JSON.stringify(auth)); }
+    function clearAuth() { localStorage.removeItem(AUTH_KEY); }
+
+    const loginCard = document.getElementById('loginCard');
+    const deniedCard = document.getElementById('deniedCard');
+    const mainCard = document.getElementById('mainCard');
+    const exportCard = document.getElementById('exportCard');
+
+    function render() {
+      const auth = getAuth();
+      [loginCard, deniedCard, mainCard, exportCard].forEach((el) => el.classList.add('hidden'));
+      if (!auth) {
+        loginCard.classList.remove('hidden');
+      } else if (auth.role !== 'owner') {
+        deniedCard.classList.remove('hidden');
+        document.getElementById('deniedName').textContent = auth.name;
+      } else {
+        mainCard.classList.remove('hidden');
+        exportCard.classList.remove('hidden');
+        document.getElementById('whoName').textContent = auth.name;
+        loadPending();
+      }
+    }
+
+    document.getElementById('loginBtn').addEventListener('click', async () => {
+      const name = document.getElementById('loginName').value.trim();
+      const code = document.getElementById('loginCode').value;
+      const loginStatus = document.getElementById('loginStatus');
+      loginStatus.textContent = '';
+      try {
+        const res = await fetch(`${API_BASE}/api/login`, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ name, code }),
+        });
+        const data = await res.json();
+        if (!res.ok) throw new Error(data.error || 'Login failed');
+        setAuth(data);
+        render();
+      } catch (err) {
+        loginStatus.textContent = err.message;
+      }
+    });
+
+    document.getElementById('logoutBtn').addEventListener('click', () => { clearAuth(); render(); });
+    document.getElementById('logoutBtn2').addEventListener('click', () => { clearAuth(); render(); });
+
+    function escapeHtml(str) {
+      return (str || '').replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
+    }
+
+    async function loadPending() {
+      const listStatus = document.getElementById('listStatus');
+      const pendingList = document.getElementById('pendingList');
+      const auth = getAuth();
+      listStatus.className = 'status';
+      listStatus.textContent = 'Loading…';
+      try {
+        const res = await fetch(`${API_BASE}/api/submissions?status=pending`, {
+          headers: { Authorization: `Bearer ${auth.token}` },
+        });
+        if (!res.ok) throw new Error(`Server responded ${res.status}`);
+        const rows = await res.json();
+        listStatus.textContent = rows.length ? '' : 'No pending submissions.';
+        pendingList.innerHTML = rows.map((row) => `
+          <div class="submission" data-id="${row.id}">
+            <div class="title">${escapeHtml(row.name)}</div>
+            <div class="meta">
+              ${escapeHtml(row.region || '')} · ${escapeHtml(row.water_body_name || '')} (${escapeHtml(row.water_body_type || 'unspecified')})<br>
+              ${row.lat.toFixed(5)}, ${row.lon.toFixed(5)} —
+              <a href="https://www.google.com/maps/search/${row.lat},${row.lon}" target="_blank" rel="noopener">View on Google Maps</a><br>
+              Submitted ${new Date(row.submitted_at).toLocaleString()}
+            </div>
+            <div>${escapeHtml(row.description || '')}</div>
+            <label>Reviewer notes (optional)</label>
+            <input class="reviewer-notes" type="text" />
+            <div class="actions">
+              <button class="btn-approve" data-action="approve" data-id="${row.id}" type="button">Approve</button>
+              <button class="btn-reject" data-action="reject" data-id="${row.id}" type="button">Reject</button>
+            </div>
+          </div>
+        `).join('');
+      } catch (err) {
+        listStatus.className = 'status error';
+        listStatus.textContent = err.message;
+      }
+    }
+
+    document.getElementById('refreshBtn').addEventListener('click', loadPending);
+
+    document.getElementById('pendingList').addEventListener('click', async (event) => {
+      const button = event.target.closest('button[data-action]');
+      if (!button) return;
+      const auth = getAuth();
+      const submissionEl = button.closest('.submission');
+      const reviewerNotes = submissionEl.querySelector('.reviewer-notes').value.trim();
+      button.disabled = true;
+      try {
+        const res = await fetch(`${API_BASE}/api/submissions/${button.dataset.id}/${button.dataset.action}`, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json', Authorization: `Bearer ${auth.token}` },
+          body: JSON.stringify({ reviewer_notes: reviewerNotes || undefined }),
+        });
+        if (!res.ok) throw new Error((await res.json().catch(() => ({}))).error || `Server responded ${res.status}`);
+        submissionEl.remove();
+      } catch (err) {
+        button.disabled = false;
+        alert(err.message);
+      }
+    });
+
+    document.getElementById('exportBtn').addEventListener('click', async () => {
+      const auth = getAuth();
+      const output = document.getElementById('exportOutput');
+      output.value = 'Loading…';
+      try {
+        const res = await fetch(`${API_BASE}/api/submissions?status=approved&format=geojson`, {
+          headers: { Authorization: `Bearer ${auth.token}` },
+        });
+        if (!res.ok) throw new Error(`Server responded ${res.status}`);
+        const data = await res.json();
+        output.value = JSON.stringify(data, null, 2);
+      } catch (err) {
+        output.value = `Error: ${err.message}`;
+      }
+    });
+
+    render();
+  </script>
+</body>
+</html>
