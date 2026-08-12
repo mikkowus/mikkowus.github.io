@@ -130,7 +130,7 @@
   <div class="topbar">
     <a href="index.html">Home</a>
     <div class="brand">Windy-Style Wind Map</div>
-    <button class="locate-button" id="locateButton" type="button"> 🧭 </button>
+    <button class="locate-button" id="locateButton" type="button"> 🧭 My Position </button>
     <button class="radar-toggle" id="radarToggle" type="button">Radar: Off</button>
     <div class="fc-stepper" id="fcStepper">
       <button type="button" id="fcMinus" aria-label="Earlier forecast">−</button>
@@ -232,15 +232,15 @@
     // Locate button: center the map on the user's position
     const locateButton = document.getElementById('locateButton');
     locateButton.addEventListener('click', async () => {
-      locateButton.textContent = '📍 Locating…';
+      locateButton.textContent = '🧭 Locating…';
       try {
         const pos = await getCurrentPosition();
         map.setView([pos.coords.latitude, pos.coords.longitude], 11);
-        locateButton.textContent = '📍 You';
+        locateButton.textContent = '🧭 You are here';
         loadStatus(`Centered on your location (${pos.coords.latitude.toFixed(4)}, ${pos.coords.longitude.toFixed(4)})`);
-        setTimeout(() => { locateButton.textContent = '📍 Locate'; }, 2500);
+        setTimeout(() => { locateButton.textContent = '🧭 My Position'; }, 2500);
       } catch (err) {
-        locateButton.textContent = '📍 Locate';
+        locateButton.textContent = '🧭 My Position';
         loadStatus(`Location error: ${err.message}`);
       }
     });
