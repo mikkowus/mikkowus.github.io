@@ -45,6 +45,26 @@
     }
     .radar-toggle:hover { background: rgba(220, 38, 38, 0.45); }
     .radar-toggle.active { background: #dc2626; border-color: #ef4444; color: white; }
+    .layer-toggle {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 7px 14px;
+      border: 2px solid #16a34a;
+      border-radius: 999px;
+      background: rgba(22, 163, 74, 0.25);
+      color: #dcfce7;
+      font-size: 0.9rem;
+      font-weight: 700;
+      cursor: pointer;
+      transition: background 0.2s ease, border-color 0.2s ease;
+      user-select: none;
+    }
+    .layer-toggle:hover { background: rgba(22, 163, 74, 0.45); }
+    .layer-toggle.active { background: #16a34a; border-color: #22c55e; color: white; }
+    .layer-toggle.routes-toggle { border-color: #7c3aed; background: rgba(124, 58, 237, 0.25); color: #ede9fe; }
+    .layer-toggle.routes-toggle:hover { background: rgba(124, 58, 237, 0.45); }
+    .layer-toggle.routes-toggle.active { background: #7c3aed; border-color: #8b5cf6; color: white; }
     .locate-button {
       display: inline-flex;
       align-items: center;
@@ -100,7 +120,7 @@
       .topbar { padding: 8px 10px; gap: 8px; min-height: 56px; }
       .topbar .brand { font-size: 0.95rem; }
       .topbar .subtitle { display: none; }
-      .radar-toggle { font-size: 0.8rem; padding: 6px 10px; }
+      .radar-toggle, .layer-toggle { font-size: 0.8rem; padding: 6px 10px; }
       .fc-stepper { top: 64px; right: 8px; }
     }
     .leaflet-popup-content-wrapper { border-radius: 18px; border: 1px solid rgba(255,255,255,0.88); box-shadow: 0 14px 36px rgba(0,0,0,0.18); }
@@ -130,6 +150,9 @@
   <div class="topbar">
     <a href="index.html">Home</a>
     <div class="brand">Windy-Style Wind Map</div>
+    <div class="subtitle">Click anywhere to inspect wind and direction</div>
+    <button class="layer-toggle active" id="launchPointsToggle" type="button">Launch Points: On</button>
+    <button class="layer-toggle routes-toggle" id="routesToggle" type="button">Routes: Off</button>
     <button class="locate-button" id="locateButton" type="button"> 🧭 My Position </button>
     <button class="radar-toggle" id="radarToggle" type="button">Radar: Off</button>
     <div class="fc-stepper" id="fcStepper">
@@ -143,6 +166,8 @@
 
   <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
   <script src="https://unpkg.com/leaflet.markercluster@1.5.3/dist/leaflet.markercluster.js"></script>
+  <script src="https://unpkg.com/leaflet-gpx@2.2.0/gpx.js"></script>
+  <script src="shared.js"></script>
   <script>
     const statusEl = document.getElementById('status');
     const map = L.map('map').setView([42.9, -75.7], 7);
@@ -258,14 +283,7 @@
       statusEl.textContent = text;
     }
 
-    function formatWindDirection(deg) {
-      if (!deg && deg !== 0) return 'Unknown';
-      const d = Number(deg);
-      if (Number.isNaN(d)) return 'Unknown';
-      const sectors = ['N', 'NNE', 'NE', 'ENE', 'E', 'ESE', 'SE', 'SSE', 'S', 'SSW', 'SW', 'WSW', 'W', 'WNW', 'NW', 'NNW'];
-      const index = Math.round(((d % 360) / 22.5)) % 16;
-      return `${sectors[index]} (${d}°)`;
-    }
+    const escapeHtml = (str) => (str || '').replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
 
     function makeWindPopup(lat, lon) {
       const container = document.createElement('div');
@@ -294,81 +312,12 @@
       return { container, status };
     }
 
-    async function fetchWind(lat, lon) {
-      const pointRes = await fetch(`https://api.weather.gov/points/${lat.toFixed(4)},${lon.toFixed(4)}`);
-      if (!pointRes.ok) throw new Error('Weather point lookup failed');
-      const pointData = await pointRes.json();
-      const forecastUrl = pointData.properties?.forecastHourly || pointData.properties?.forecast;
-      if (!forecastUrl) throw new Error('No forecast available for this location');
-      const forecastRes = await fetch(forecastUrl);
-      if (!forecastRes.ok) throw new Error('Weather forecast fetch failed');
-      const forecastData = await forecastRes.json();
-      const now = forecastData.properties?.periods?.[0];
-      if (!now) throw new Error('No forecast periods returned');
-      return {
-        temperature: now.temperature,
-        unit: now.temperatureUnit,
-        short: now.shortForecast,
-        humidity: now.relativeHumidity?.value,
-        windSpeed: now.windSpeed,
-        windDirection: now.windDirection,
-        detailed: now.detailedForecast,
-      };
-    }
-
     function updatePopupContent(statusEl, windData) {
       statusEl.innerHTML = `
-        <div class="metric"><strong>Weather:</strong> ${windData.temperature}°${windData.unit}, ${windData.short}, ${windData.humidity != null ? windData.humidity + '% humidity' : ''}</div>
-        <div class="metric"><strong>Wind:</strong> ${windData.windSpeed} ${windData.windDirection || ''}${Number(windData.windDirection) >= 0 ? ' / ' + formatWindDirection(windData.windDirection) : ''}</div>
+        <div class="metric"><strong>Weather:</strong> ${windData.temperature}°${windData.unit}, ${windData.short}${windData.humidity != null ? ', ' + windData.humidity + '% humidity' : ''}</div>
+        <div class="metric"><strong>Wind:</strong> ${windData.windSpeed} ${windData.windDirection || ''}</div>
         <div class="metric" style="color:#5b7281; font-size:0.88rem;">${windData.detailed || ''}</div>
       `;
-    }
-
-    function parseRdb(text) {
-      const lines = text.split(/\r?\n/).filter((line) => line.trim().length > 0 && !line.startsWith('#'));
-      if (lines.length < 2) return [];
-      const header = lines[0].split('\t');
-      return lines.slice(2).map((line) => {
-        const values = line.split('\t');
-        return header.reduce((obj, key, index) => {
-          obj[key] = values[index] === undefined ? '' : values[index];
-          return obj;
-        }, {});
-      }).filter((site) => site.dec_lat_va && site.dec_long_va);
-    }
-
-    async function fetchGaugeSites() {
-      const url = 'https://waterservices.usgs.gov/nwis/site/?format=rdb&stateCd=NY&siteType=ST&parameterCd=00065&siteStatus=active';
-      try {
-        const response = await fetch(url);
-        if (!response.ok) throw new Error('Unable to fetch USGS sites');
-        const text = await response.text();
-        const sites = parseRdb(text);
-        if (sites && sites.length) return sites;
-        throw new Error('Parsed zero sites from USGS');
-      } catch (err) {
-        console.warn('USGS fetch failed, falling back to local JSON', err);
-        try {
-          const fallback = await fetch('usgs-ny-sites.json');
-          if (!fallback.ok) throw new Error('Fallback JSON not found');
-          const data = await fallback.json();
-          return data;
-        } catch (err2) {
-          console.error('Fallback failed', err2);
-          return [];
-        }
-      }
-    }
-
-    async function fetchGaugeWaterHeight(siteNo) {
-      const url = `https://waterservices.usgs.gov/nwis/iv/?format=json&sites=${encodeURIComponent(siteNo)}&parameterCd=00065&siteStatus=active`;
-      const response = await fetch(url);
-      if (!response.ok) throw new Error('Failed to fetch water height');
-      const data = await response.json();
-      const timeSeries = data.value?.timeSeries || [];
-      if (timeSeries.length === 0) return null;
-      const reading = timeSeries[0].values?.[0]?.value?.[0];
-      return reading ? { value: reading.value, time: reading.dateTime } : null;
     }
 
     function buildGaugePopup(site) {
@@ -404,22 +353,21 @@
       try {
         const [water, weather] = await Promise.all([
           fetchGaugeWaterHeight(site.site_no),
-          fetchWind(parseFloat(site.dec_lat_va), parseFloat(site.dec_long_va)),
+          fetchWeather(parseFloat(site.dec_lat_va), parseFloat(site.dec_long_va)),
         ]);
 
         const waterText = water
-          ? `${water.value} ft as of ${new Date(water.time).toLocaleString()}`
+          ? `${water.value} ${water.unit} as of ${new Date(water.time).toLocaleString()}`
           : 'No real-time height available';
         if (statusElPopup) {
           statusElPopup.innerHTML = `<strong>Status:</strong> ${waterText}`;
         }
 
         if (weatherElPopup) {
-          weatherElPopup.innerHTML = `<strong>Weather:</strong> ${weather.temperature}°${weather.unit}, ${weather.short}, ${weather.humidity != null ? weather.humidity + '% humidity' : ''}`;
+          weatherElPopup.innerHTML = `<strong>Weather:</strong> ${weather.temperature}°${weather.unit}, ${weather.short}${weather.humidity != null ? ', ' + weather.humidity + '% humidity' : ''}`;
         }
         if (windElPopup) {
-          const windDirectionText = Number(weather.windDirection) >= 0 ? ` / ${formatWindDirection(weather.windDirection)}` : '';
-          windElPopup.innerHTML = `<strong>Wind:</strong> ${weather.windSpeed} ${weather.windDirection || ''}${windDirectionText}`;
+          windElPopup.innerHTML = `<strong>Wind:</strong> ${weather.windSpeed} ${weather.windDirection || ''}`;
         }
 
         if (popup) {
@@ -449,7 +397,7 @@
       loadStatus('Loading wind data...');
 
       try {
-        const windData = await fetchWind(lat, lon);
+        const windData = await fetchWeather(lat, lon);
         updatePopupContent(status, windData);
         clickMarker.getPopup().setContent(container).update();
         loadStatus(`Wind at ${lat.toFixed(4)}, ${lon.toFixed(4)} loaded`);
@@ -501,61 +449,6 @@
       iconSize: [12, 12],
       iconAnchor: [6, 6],
     });
-
-    function dmsToDecimal(dms) {
-      const m = dms.match(/(\d+)[°\s]+(\d+)'[\s]?(\d+(?:\.\d+)?)\"?\s*([NSEW])/i);
-      if (!m) return null;
-      let deg = Number(m[1]);
-      const min = Number(m[2]);
-      const sec = Number(m[3]);
-      const dir = m[4].toUpperCase();
-      let dec = deg + min/60 + sec/3600;
-      if (dir === 'S' || dir === 'W') dec = -dec;
-      return dec;
-    }
-
-    // Drive distance / time helpers (OSRM routing + browser geolocation)
-    function formatDriveDistance(meters) {
-      const miles = meters / 1609.344;
-      return miles >= 10 ? `${Math.round(miles)} mi` : `${miles.toFixed(1)} mi`;
-    }
-
-    function formatDriveDuration(seconds) {
-      const mins = Math.round(seconds / 60);
-      if (mins < 60) return `${mins} min`;
-      const h = Math.floor(mins / 60);
-      const m = mins % 60;
-      return m ? `${h} hr ${m} min` : `${h} hr`;
-    }
-
-    function getCurrentPosition() {
-      return new Promise((resolve, reject) => {
-        if (!navigator.geolocation) return reject(new Error('Geolocation not supported'));
-        navigator.geolocation.getCurrentPosition(resolve, reject, {
-          timeout: 10000,
-          maximumAge: 300000,
-        });
-      });
-    }
-
-    async function fetchDriveInfo(originLat, originLon, destLat, destLon) {
-      const url = `https://router.project-osrm.org/route/v1/driving/${originLon},${originLat};${destLon},${destLat}?overview=false`;
-      const res = await fetch(url);
-      if (!res.ok) throw new Error('Routing request failed');
-      const data = await res.json();
-      if (data.code !== 'Ok' || !data.routes || !data.routes.length) throw new Error('No route found');
-      const route = data.routes[0];
-      return { distance: route.distance, duration: route.duration };
-    }
-
-    async function geocodeAddress(query) {
-      const url = `https://nominatim.openstreetmap.org/search?format=json&limit=1&q=${encodeURIComponent(query)}`;
-      const res = await fetch(url, { headers: { 'Accept': 'application/json' } });
-      if (!res.ok) throw new Error('Address lookup failed');
-      const data = await res.json();
-      if (!data.length) throw new Error('Address not found');
-      return { lat: parseFloat(data[0].lat), lon: parseFloat(data[0].lon) };
-    }
 
     async function loadPaddlespots() {
       try {
@@ -628,10 +521,6 @@
           const notes = (notesIndex !== -1 ? row[notesIndex] : '').replace(/^"|"$/g, '').trim();
           spots.push({ name, notes, lat, lon });
         }
-        
-
-
-        const escapeHtml = (str) => (str || '').replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
 
         const markers = spots.map(s => {
           const m = L.marker([s.lat, s.lon], { icon: paddlespotIcon });
@@ -712,13 +601,12 @@
             if (weatherEl) weatherEl.innerHTML = '<strong>Weather:</strong> Loading…';
             if (windEl) windEl.innerHTML = '<strong>Wind:</strong> Loading…';
             try {
-              const w = await fetchWind(s.lat, s.lon);
+              const w = await fetchWeather(s.lat, s.lon);
               if (weatherEl) {
-                weatherEl.innerHTML = `<strong>Weather:</strong> ${w.temperature}°${w.unit}, ${w.short}, ${w.humidity != null ? w.humidity + '% humidity' : ''}`;
+                weatherEl.innerHTML = `<strong>Weather:</strong> ${w.temperature}°${w.unit}, ${w.short}${w.humidity != null ? ', ' + w.humidity + '% humidity' : ''}`;
               }
               if (windEl) {
-                const windDirectionText = Number(w.windDirection) >= 0 ? ` / ${formatWindDirection(w.windDirection)}` : '';
-                windEl.innerHTML = `<strong>Wind:</strong> ${w.windSpeed} ${w.windDirection || ''}${windDirectionText}`;
+                windEl.innerHTML = `<strong>Wind:</strong> ${w.windSpeed} ${w.windDirection || ''}`;
               }
               popup.setContent(content).update();
             } catch (err) {
@@ -738,6 +626,168 @@
       }
     }
 
+    // Curated canoe launch points (launch-points.geojson) — kept as its own
+    // layer rather than merged into clusterGroup, so it can be toggled
+    // independently of the paddlespots/gauges cluster.
+    const launchPointIcon = L.divIcon({
+      html: '<div style="width:14px;height:14px;border-radius:50%;background:#16a34a;border:2px solid #86efac;box-shadow:0 1px 4px rgba(0,0,0,0.25);"></div>',
+      className: '',
+      iconSize: [14, 14],
+      iconAnchor: [7, 7],
+    });
+
+    const launchPointsLayer = L.layerGroup().addTo(map);
+    const routesLayer = L.layerGroup();
+    let launchPointsOn = true;
+    let routesOn = false;
+    const gpxLayersByTrackId = new Map();
+
+    function waterBodyMeta(props) {
+      const parts = [props.region, props.water_body_name].filter(Boolean).join(' · ');
+      return props.water_body_type ? `${parts} (${props.water_body_type})` : parts;
+    }
+
+    function tagsHtml(tags) {
+      if (!tags || !tags.length) return '';
+      const pills = tags.map(t => `<span style="display:inline-block; background:#dcfce7; color:#166534; border-radius:999px; padding:2px 10px; font-size:0.78rem; margin:2px 4px 2px 0;">${escapeHtml(t)}</span>`).join('');
+      return `<div class="metric">${pills}</div>`;
+    }
+
+    function tracksHtml(tracks) {
+      if (!tracks || !tracks.length) return '';
+      const items = tracks.map(t => `
+        <div style="margin:4px 0;">
+          ${escapeHtml(t.name)}${t.distance_mi ? ` — ${t.distance_mi} mi` : ''}
+          <button type="button" class="show-route-btn" data-track-id="${escapeHtml(t.id)}" style="margin-left:6px; padding:2px 8px; background:#7c3aed; color:white; border:none; border-radius:6px; font-size:0.78rem; cursor:pointer;">Show route</button>
+        </div>`).join('');
+      return `<div class="metric"><strong>Routes:</strong></div>${items}`;
+    }
+
+    function buildLaunchPointPopup(props) {
+      const container = document.createElement('div');
+      container.className = 'wind-popup';
+      container.innerHTML = `
+        <div class="title">${escapeHtml(props.name)}</div>
+        <div class="meta">${escapeHtml(waterBodyMeta(props))}</div>
+        ${props.description ? `<div class="metric">${escapeHtml(props.description)}</div>` : ''}
+        ${tagsHtml(props.tags)}
+        ${props.access_type || props.parking_notes ? `<div class="metric"><strong>Access:</strong> ${escapeHtml([props.access_type, props.parking_notes].filter(Boolean).join(' — '))}</div>` : ''}
+        <div class="metric launch-gauge-status" style="${props.nearest_gauge_site_no ? '' : 'display:none;'}"><strong>Gauge:</strong> Loading…</div>
+        <div class="metric launch-weather-status"><strong>Weather:</strong> Loading…</div>
+        <div class="metric launch-wind-status"><strong>Wind:</strong> Loading…</div>
+        ${props.source_url ? `<div class="metric"><a href="${props.source_url}" target="_blank" rel="noopener" style="color:#0f4c81;font-weight:700;">View on Google Maps</a></div>` : ''}
+        ${tracksHtml(props.tracks)}
+      `;
+      L.DomEvent.disableClickPropagation(container);
+      return container;
+    }
+
+    function showRoute(trackId) {
+      const layer = gpxLayersByTrackId.get(trackId);
+      if (!layer) return;
+      if (!routesOn) routesToggle.click();
+      if (layer.getLayers().length) {
+        map.fitBounds(layer.getBounds());
+      } else {
+        layer.on('loaded', (e) => map.fitBounds(e.target.getBounds()));
+      }
+    }
+
+    async function loadLaunchPoints() {
+      try {
+        const res = await fetch('launch-points.geojson');
+        if (!res.ok) return; // silently skip if not present
+        const geojson = await res.json();
+        const features = geojson.features || [];
+
+        features.forEach((feature) => {
+          const [lon, lat] = feature.geometry.coordinates;
+          const props = feature.properties || {};
+          const marker = L.marker([lat, lon], { icon: launchPointIcon });
+          marker.bindPopup(buildLaunchPointPopup(props), { minWidth: 240 });
+
+          (props.tracks || []).forEach((track) => {
+            if (!gpxLayersByTrackId.has(track.id)) {
+              const gpxLayer = new L.GPX(track.gpx, {
+                async: true,
+                markers: { startIcon: null, endIcon: null },
+                polyline_options: { color: '#7c3aed', weight: 4, opacity: 0.8 },
+              });
+              gpxLayer.bindPopup(`${escapeHtml(track.name)}${track.distance_mi ? ` — ${track.distance_mi} mi` : ''} (from ${escapeHtml(props.name)})`);
+              gpxLayer.addTo(routesLayer);
+              gpxLayersByTrackId.set(track.id, gpxLayer);
+            }
+          });
+
+          marker.on('popupopen', async () => {
+            const popup = marker.getPopup();
+            const content = popup.getContent();
+            const gaugeEl = content.querySelector('.launch-gauge-status');
+            const weatherEl = content.querySelector('.launch-weather-status');
+            const windEl = content.querySelector('.launch-wind-status');
+            content.querySelectorAll('.show-route-btn').forEach((btn) => {
+              btn.addEventListener('click', () => showRoute(btn.dataset.trackId));
+            });
+
+            if (gaugeEl && props.nearest_gauge_site_no) {
+              try {
+                const water = await fetchGaugeWaterHeight(props.nearest_gauge_site_no);
+                gaugeEl.innerHTML = `<strong>Gauge:</strong> ${water ? `${water.value} ${water.unit} as of ${new Date(water.time).toLocaleString()}` : 'No real-time height available'}`;
+              } catch (err) {
+                gaugeEl.innerHTML = `<strong>Gauge:</strong> <span style="color:#a00;">${err.message}</span>`;
+              }
+              popup.setContent(content).update();
+            }
+
+            try {
+              const w = await fetchWeather(lat, lon);
+              if (weatherEl) weatherEl.innerHTML = `<strong>Weather:</strong> ${w.temperature}°${w.unit}, ${w.short}${w.humidity != null ? ', ' + w.humidity + '% humidity' : ''}`;
+              if (windEl) windEl.innerHTML = `<strong>Wind:</strong> ${w.windSpeed} ${w.windDirection || ''}`;
+            } catch (err) {
+              if (weatherEl) weatherEl.innerHTML = `<strong>Weather:</strong> <span style="color:#a00;">${err.message}</span>`;
+              if (windEl) windEl.innerHTML = '<strong>Wind:</strong> n/a';
+            }
+            popup.setContent(content).update();
+          });
+
+          launchPointsLayer.addLayer(marker);
+        });
+
+        loadStatus(`Loaded ${features.length} canoe launch points from launch-points.geojson`);
+      } catch (err) {
+        console.error('Failed to load launch points', err);
+      }
+    }
+
+    const launchPointsToggle = document.getElementById('launchPointsToggle');
+    const routesToggle = document.getElementById('routesToggle');
+
+    launchPointsToggle.addEventListener('click', () => {
+      launchPointsOn = !launchPointsOn;
+      if (launchPointsOn) {
+        map.addLayer(launchPointsLayer);
+        launchPointsToggle.classList.add('active');
+        launchPointsToggle.textContent = 'Launch Points: On';
+      } else {
+        map.removeLayer(launchPointsLayer);
+        launchPointsToggle.classList.remove('active');
+        launchPointsToggle.textContent = 'Launch Points: Off';
+      }
+    });
+
+    routesToggle.addEventListener('click', () => {
+      routesOn = !routesOn;
+      if (routesOn) {
+        map.addLayer(routesLayer);
+        routesToggle.classList.add('active');
+        routesToggle.textContent = 'Routes: On';
+      } else {
+        map.removeLayer(routesLayer);
+        routesToggle.classList.remove('active');
+        routesToggle.textContent = 'Routes: Off';
+      }
+    });
+
     map.on('click', (event) => {
       const { lat, lng } = event.latlng;
       showWindAt(lat, lng);
@@ -746,6 +796,7 @@
     loadStatus('Click anywhere on the map to view current wind conditions.');
     loadGaugeMarkers();
     loadPaddlespots();
+    loadLaunchPoints();
   </script>
 </body>
 </html>

@@ -1,0 +1,14 @@
+{
+  "name": "launch-points-api",
+  "private": true,
+  "version": "1.0.0",
+  "scripts": {
+    "dev": "wrangler dev",
+    "deploy": "wrangler deploy",
+    "migrate:local": "wrangler d1 migrations apply launch-points-db --local",
+    "migrate:remote": "wrangler d1 migrations apply launch-points-db --remote"
+  },
+  "devDependencies": {
+    "wrangler": "^4.0.0"
+  }
+}
