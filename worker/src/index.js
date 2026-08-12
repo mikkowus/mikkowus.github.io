@@ -87,8 +87,8 @@ async function handleCreateSubmission(request, env, contributor) {
   const result = await env.DB.prepare(
     `INSERT INTO submissions
       (name, description, region, water_body_name, water_body_type, access_type,
-       parking_notes, tags, nearest_gauge_site_no, source_url, lat, lon, submitted_by)
-     VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`
+       parking_notes, tags, nearest_gauge_site_no, source_url, lat, lon, submitted_by, source)
+     VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`
   ).bind(
     body.name,
     body.description || null,
@@ -102,10 +102,43 @@ async function handleCreateSubmission(request, env, contributor) {
     body.source_url || null,
     body.lat,
     body.lon,
-    contributor.id
+    contributor.id,
+    body.source === 'bulk-import' ? 'bulk-import' : 'mobile'
   ).run();
 
   return json({ id: result.meta.last_row_id }, 201);
+}
+
+async function handleGeocode(request, env, contributor) {
+  if (contributor.role !== 'owner') return json({ error: 'Owner role required' }, 403);
+  if (!env.GOOGLE_MAPS_API_KEY) return json({ error: 'GOOGLE_MAPS_API_KEY not configured' }, 500);
+
+  const body = await request.json().catch(() => null);
+  const query = (body?.query || '').trim();
+  if (!query) return json({ error: 'query is required' }, 400);
+
+  const url = new URL('https://maps.googleapis.com/maps/api/place/findplacefromtext/json');
+  url.searchParams.set('input', query);
+  url.searchParams.set('inputtype', 'textquery');
+  url.searchParams.set('fields', 'place_id,geometry,formatted_address,name');
+  url.searchParams.set('key', env.GOOGLE_MAPS_API_KEY);
+
+  const res = await fetch(url);
+  if (!res.ok) return json({ error: `Places API responded ${res.status}` }, 502);
+  const data = await res.json();
+
+  if (data.status !== 'OK' || !data.candidates?.length) {
+    return json({ error: data.status || 'No match found' }, 404);
+  }
+
+  const c = data.candidates[0];
+  return json({
+    lat: c.geometry.location.lat,
+    lng: c.geometry.location.lng,
+    formatted_address: c.formatted_address || '',
+    place_id: c.place_id || '',
+    matched_name: c.name || '',
+  }, 200);
 }
 
 async function handleListSubmissions(request, env, contributor, status) {
@@ -147,6 +180,10 @@ export default {
 
       if (request.method === 'POST' && url.pathname === '/api/login') {
         response = await handleLogin(request, env);
+      } else if (url.pathname === '/api/import/geocode' && request.method === 'POST') {
+        const contributor = await authenticate(request, env);
+        if (!contributor) return json({ error: 'Unauthorized' }, 401, headers);
+        response = await handleGeocode(request, env, contributor);
       } else if (url.pathname === '/api/submissions' && request.method === 'POST') {
         const contributor = await authenticate(request, env);
         if (!contributor) return json({ error: 'Unauthorized' }, 401, headers);

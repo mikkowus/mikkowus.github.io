@@ -151,7 +151,7 @@
     <a href="index.html">Home</a>
     <div class="brand">Windy-Style Wind Map</div>
     <div class="subtitle">Click anywhere to inspect wind and direction</div>
-    <!--<button class="layer-toggle active" id="launchPointsToggle" type="button">Launch Points: On</button>-->
+    <!--<button class="layer-toggle active" id="paddlespotsToggle" type="button">Paddlespots: On</button>-->
     <!--<button class="layer-toggle routes-toggle" id="routesToggle" type="button">Routes: Off</button>-->
     <button class="locate-button" id="locateButton" type="button"> 🧭 My Position </button>
     <button class="radar-toggle" id="radarToggle" type="button">Radar: Off</button>
@@ -409,7 +409,8 @@
       }
     }
 
-    // shared cluster group so paddlespots and gauges cluster together
+    // cluster group for USGS gauges (paddlespots have their own cluster
+    // group further down, so the two can be toggled independently)
     const clusterGroup = L.markerClusterGroup({
       disableClusteringAtZoom: 9,
       spiderfyOnMaxZoom: true,
@@ -442,203 +443,22 @@
       }
     }
 
-    // paddlespot icon (blue) and loader
+    // Paddlespots (paddlespots.geojson) — a separate cluster group from the
+    // USGS gauges above, so it can be toggled independently.
     const paddlespotIcon = L.divIcon({
-      html: '<div style="width:12px;height:12px;border-radius:50%;background:#2563eb;border:2px solid #60a5fa;box-shadow:0 1px 4px rgba(0,0,0,0.18);"></div>',
-      className: '',
-      iconSize: [12, 12],
-      iconAnchor: [6, 6],
-    });
-
-    async function loadPaddlespots() {
-      try {
-        const res = await fetch('paddlespots_coordinates.csv');
-        if (!res.ok) return; // silently skip if not present
-        const text = await res.text();
-        const lines = text.split(/\r?\n/).filter(l => l.trim().length > 0);
-
-        // simple CSV row splitter that handles quoted fields
-        function csvSplit(line) {
-          const out = [];
-          let cur = '';
-          let inQuotes = false;
-          for (let i = 0; i < line.length; i++) {
-            const ch = line[i];
-            if (ch === '"') {
-              if (inQuotes && line[i+1] === '"') { cur += '"'; i++; }
-              else inQuotes = !inQuotes;
-              continue;
-            }
-            if (ch === ',' && !inQuotes) {
-              out.push(cur);
-              cur = '';
-              continue;
-            }
-            cur += ch;
-          }
-          out.push(cur);
-          return out;
-        }
-
-        if (lines.length < 1) return;
-        const header = csvSplit(lines[0]).map(h => h.trim().replace(/^"|"$/g, ''));
-        const lower = header.map(h => h.toLowerCase());
-        const nameIndex = lower.indexOf('name');
-        const notesIndex = lower.indexOf('notes');
-        const latIndex = lower.indexOf('latitude');
-        const lonIndex = lower.indexOf('longitude');
-
-        const spots = [];
-        const numRe = /^-?\d+(?:\.\d+)?$/;
-
-        for (let i = 1; i < lines.length; i++) {
-          const row = csvSplit(lines[i]);
-          let lat = null, lon = null;
-
-          if (latIndex !== -1 && lonIndex !== -1) {
-            const la = (row[latIndex] || '').trim();
-            const lo = (row[lonIndex] || '').trim();
-            if (numRe.test(la) && numRe.test(lo)) {
-              lat = parseFloat(la);
-              lon = parseFloat(lo);
-            }
-          }
-
-          // fallback: check last two columns
-          if ((lat === null || lon === null) && row.length >= 2) {
-            const lastTwo = row.slice(-2);
-            if (numRe.test(lastTwo[0]) && numRe.test(lastTwo[1])) {
-              lat = parseFloat(lastTwo[0]);
-              lon = parseFloat(lastTwo[1]);
-            }
-          }
-
-          if (lat === null || lon === null) continue;
-          if (Number.isNaN(lat) || Number.isNaN(lon)) continue;
-          // filter to NY bounding box (approx)
-          if (lat < 40.0 || lat > 45.6 || lon < -80.0 || lon > -71.0) continue;
-          const name = (nameIndex !== -1 ? row[nameIndex] : row[0] || '').replace(/^"|"$/g, '').trim() || 'Paddlespot';
-          const notes = (notesIndex !== -1 ? row[notesIndex] : '').replace(/^"|"$/g, '').trim();
-          spots.push({ name, notes, lat, lon });
-        }
-
-        const markers = spots.map(s => {
-          const m = L.marker([s.lat, s.lon], { icon: paddlespotIcon });
-          const container = document.createElement('div');
-          container.className = 'wind-popup';
-          const notesHtml = s.notes ? `<div class="metric" style="background:#eff6ff; border-left:3px solid #2563eb; padding:6px 10px; margin:8px 0; border-radius:4px; font-size:0.88rem; color:#1e40af;"><strong>Note:</strong> ${escapeHtml(s.notes)}</div>` : '';
-          container.innerHTML = `
-            <div class="title">${escapeHtml(s.name)}</div>
-            ${notesHtml}
-            <div class="meta">Lat ${s.lat.toFixed(5)}, Lon ${s.lon.toFixed(5)}</div>
-            <div class="metric paddle-drive-status"><span style="white-space:nowrap;"><strong style="display:inline; font-size:0.85rem; font-weight:700;">Drive:</strong> <span style="font-size:0.72rem; font-weight:400; color:#50637b;">(inaccurate)</span></span> Getting your location…</div>
-            <div class="metric paddle-weather-status"><strong>Weather:</strong> Data loading…</div>
-            <div class="metric paddle-wind-status"><strong>Wind:</strong> Loading…</div>
-          `;
-          // Keep clicks inside the popup from bubbling to the map (which would
-          // close this popup and open a wind-observation popup instead).
-          L.DomEvent.disableClickPropagation(container);
-          m.bindPopup(container, { minWidth: 220 });
-          m.on('popupopen', async () => {
-            const popup = m.getPopup();
-            const content = popup.getContent();
-            const weatherEl = content.querySelector('.paddle-weather-status');
-            const windEl = content.querySelector('.paddle-wind-status');
-            const driveEl = content.querySelector('.paddle-drive-status');
-
-            async function setDriveText(html) {
-              if (driveEl) driveEl.innerHTML = `<span style="white-space:nowrap;"><strong style="display:inline; font-size:0.85rem; font-weight:700;">Drive:</strong> <span style="font-size:0.72rem; font-weight:400; color:#50637b;">(inaccurate)</span></span> ${html}`;
-              popup.setContent(content).update();
-            }
-
-            function driveResultHtml(info, originLat, originLon) {
-              const dest = `${s.lat},${s.lon}`;
-              const originParam = (originLat !== undefined && originLon !== undefined) ? `&origin=${originLat},${originLon}` : '';
-              const url = `https://www.google.com/maps/dir/?api=1&destination=${dest}${originParam}&travelmode=driving`;
-              return `~${formatDriveDistance(info.distance)} · ${formatDriveDuration(info.duration)} <a href="${url}" target="_blank" rel="noopener" style="color:#0f4c81;font-weight:700;">(Google Maps directions)</a>`;
-            }
-
-            async function showDriveAddressFallback() {
-              if (!driveEl) return;
-              driveEl.innerHTML = `<span style="white-space:nowrap;"><strong style="display:inline; font-size:0.85rem; font-weight:700;">Drive:</strong> <span style="font-size:0.72rem; font-weight:400; color:#50637b;">(inaccurate)</span></span> <input class="drive-origin" type="text" placeholder="Type starting address" style="width:170px;padding:4px 6px;border:1px solid #cbd5e1;border-radius:6px;font-size:0.82rem;" /> <button class="drive-go" type="button" style="padding:4px 10px;background:#0f4c81;color:white;border:none;border-radius:6px;font-size:0.82rem;cursor:pointer;">Go</button>`;
-              popup.setContent(content).update();
-              const originInput = driveEl.querySelector('.drive-origin');
-              const goButton = driveEl.querySelector('.drive-go');
-              async function lookupOrigin() {
-                const q = originInput.value.trim();
-                if (!q) return;
-                await setDriveText('Looking up address…');
-                try {
-                  const origin = await geocodeAddress(q);
-                  await setDriveText('Calculating route…');
-                  const info = await fetchDriveInfo(origin.lat, origin.lon, s.lat, s.lon);
-                  await setDriveText(driveResultHtml(info, origin.lat, origin.lon));
-                } catch (err) {
-                  await setDriveText(`<span style="color:#a00;">${err.message}</span>`);
-                }
-              }
-              goButton.addEventListener('click', lookupOrigin);
-              originInput.addEventListener('keydown', (event) => {
-                if (event.key === 'Enter') {
-                  event.preventDefault();
-                  lookupOrigin();
-                }
-              });
-            }
-
-            if (driveEl) {
-              try {
-                const pos = await getCurrentPosition();
-                await setDriveText('Calculating route…');
-                const info = await fetchDriveInfo(pos.coords.latitude, pos.coords.longitude, s.lat, s.lon);
-                await setDriveText(driveResultHtml(info, pos.coords.latitude, pos.coords.longitude));
-              } catch (err) {
-                await setDriveText(`<span style="color:#a00;">${err.message}</span>`);
-                showDriveAddressFallback();
-              }
-            }
-
-            if (weatherEl) weatherEl.innerHTML = '<strong>Weather:</strong> Loading…';
-            if (windEl) windEl.innerHTML = '<strong>Wind:</strong> Loading…';
-            try {
-              const w = await fetchWeather(s.lat, s.lon);
-              if (weatherEl) {
-                weatherEl.innerHTML = `<strong>Weather:</strong> ${w.temperature}°${w.unit}, ${w.short}${w.humidity != null ? ', ' + w.humidity + '% humidity' : ''}`;
-              }
-              if (windEl) {
-                windEl.innerHTML = `<strong>Wind:</strong> ${w.windSpeed} ${w.windDirection || ''}`;
-              }
-              popup.setContent(content).update();
-            } catch (err) {
-              if (weatherEl) weatherEl.innerHTML = `<strong>Weather:</strong> <span style="color:#a00;">${err.message}</span>`;
-              if (windEl) windEl.innerHTML = '<strong>Wind:</strong> n/a';
-              popup.setContent(content).update();
-            }
-          });
-          return m;
-        });
-        clusterGroup.addLayers(markers);
-        if (spots.length > 0) {
-          loadStatus(`Loaded ${spots.length} paddlespots (NY) from paddlespots_coordinates.csv`);
-        }
-      } catch (err) {
-        console.error('Failed to load paddlespots', err);
-      }
-    }
-
-    // Curated canoe launch points (launch-points.geojson) — kept as its own
-    // layer rather than merged into clusterGroup, so it can be toggled
-    // independently of the paddlespots/gauges cluster.
-    const launchPointIcon = L.divIcon({
       html: '<div style="width:14px;height:14px;border-radius:50%;background:#16a34a;border:2px solid #86efac;box-shadow:0 1px 4px rgba(0,0,0,0.25);"></div>',
       className: '',
       iconSize: [14, 14],
       iconAnchor: [7, 7],
     });
 
-    const launchPointsLayer = L.layerGroup().addTo(map);
+    const paddlespotsLayer = L.markerClusterGroup({
+      disableClusteringAtZoom: 9,
+      spiderfyOnMaxZoom: true,
+    });
+    map.addLayer(paddlespotsLayer);
     const routesLayer = L.layerGroup();
-    let launchPointsOn = true;
+    let paddlespotsOn = true;
     let routesOn = false;
     const gpxLayersByTrackId = new Map();
 
@@ -663,7 +483,7 @@
       return `<div class="metric"><strong>Routes:</strong></div>${items}`;
     }
 
-    function buildLaunchPointPopup(props) {
+    function buildPaddlespotPopup(props) {
       const container = document.createElement('div');
       container.className = 'wind-popup';
       container.innerHTML = `
@@ -672,9 +492,10 @@
         ${props.description ? `<div class="metric">${escapeHtml(props.description)}</div>` : ''}
         ${tagsHtml(props.tags)}
         ${props.access_type || props.parking_notes ? `<div class="metric"><strong>Access:</strong> ${escapeHtml([props.access_type, props.parking_notes].filter(Boolean).join(' — '))}</div>` : ''}
-        <div class="metric launch-gauge-status" style="${props.nearest_gauge_site_no ? '' : 'display:none;'}"><strong>Gauge:</strong> Loading…</div>
-        <div class="metric launch-weather-status"><strong>Weather:</strong> Loading…</div>
-        <div class="metric launch-wind-status"><strong>Wind:</strong> Loading…</div>
+        <div class="metric paddlespot-drive-status"><span style="white-space:nowrap;"><strong style="display:inline; font-size:0.85rem; font-weight:700;">Drive:</strong> <span style="font-size:0.72rem; font-weight:400; color:#50637b;">(inaccurate)</span></span> Getting your location…</div>
+        <div class="metric paddlespot-gauge-status" style="${props.nearest_gauge_site_no ? '' : 'display:none;'}"><strong>Gauge:</strong> Loading…</div>
+        <div class="metric paddlespot-weather-status"><strong>Weather:</strong> Loading…</div>
+        <div class="metric paddlespot-wind-status"><strong>Wind:</strong> Loading…</div>
         ${props.source_url ? `<div class="metric"><a href="${props.source_url}" target="_blank" rel="noopener" style="color:#0f4c81;font-weight:700;">View on Google Maps</a></div>` : ''}
         ${tracksHtml(props.tracks)}
       `;
@@ -685,7 +506,7 @@
     function showRoute(trackId) {
       const layer = gpxLayersByTrackId.get(trackId);
       if (!layer) return;
-      if (!routesOn) routesToggle.click();
+      if (!routesOn) setRoutesOn(true);
       if (layer.getLayers().length) {
         map.fitBounds(layer.getBounds());
       } else {
@@ -693,18 +514,19 @@
       }
     }
 
-    async function loadLaunchPoints() {
+    async function loadPaddlespots() {
       try {
-        const res = await fetch('launch-points.geojson');
+        const res = await fetch('paddlespots.geojson');
         if (!res.ok) return; // silently skip if not present
         const geojson = await res.json();
         const features = geojson.features || [];
+        const markers = [];
 
         features.forEach((feature) => {
           const [lon, lat] = feature.geometry.coordinates;
           const props = feature.properties || {};
-          const marker = L.marker([lat, lon], { icon: launchPointIcon });
-          marker.bindPopup(buildLaunchPointPopup(props), { minWidth: 240 });
+          const marker = L.marker([lat, lon], { icon: paddlespotIcon });
+          marker.bindPopup(buildPaddlespotPopup(props), { minWidth: 240 });
 
           (props.tracks || []).forEach((track) => {
             if (!gpxLayersByTrackId.has(track.id)) {
@@ -722,12 +544,65 @@
           marker.on('popupopen', async () => {
             const popup = marker.getPopup();
             const content = popup.getContent();
-            const gaugeEl = content.querySelector('.launch-gauge-status');
-            const weatherEl = content.querySelector('.launch-weather-status');
-            const windEl = content.querySelector('.launch-wind-status');
+            const gaugeEl = content.querySelector('.paddlespot-gauge-status');
+            const weatherEl = content.querySelector('.paddlespot-weather-status');
+            const windEl = content.querySelector('.paddlespot-wind-status');
+            const driveEl = content.querySelector('.paddlespot-drive-status');
             content.querySelectorAll('.show-route-btn').forEach((btn) => {
               btn.addEventListener('click', () => showRoute(btn.dataset.trackId));
             });
+
+            async function setDriveText(html) {
+              if (driveEl) driveEl.innerHTML = `<span style="white-space:nowrap;"><strong style="display:inline; font-size:0.85rem; font-weight:700;">Drive:</strong> <span style="font-size:0.72rem; font-weight:400; color:#50637b;">(inaccurate)</span></span> ${html}`;
+              popup.setContent(content).update();
+            }
+
+            function driveResultHtml(info, originLat, originLon) {
+              const dest = `${lat},${lon}`;
+              const originParam = (originLat !== undefined && originLon !== undefined) ? `&origin=${originLat},${originLon}` : '';
+              const url = `https://www.google.com/maps/dir/?api=1&destination=${dest}${originParam}&travelmode=driving`;
+              return `~${formatDriveDistance(info.distance)} · ${formatDriveDuration(info.duration)} <a href="${url}" target="_blank" rel="noopener" style="color:#0f4c81;font-weight:700;">(Google Maps directions)</a>`;
+            }
+
+            async function showDriveAddressFallback() {
+              if (!driveEl) return;
+              driveEl.innerHTML = `<span style="white-space:nowrap;"><strong style="display:inline; font-size:0.85rem; font-weight:700;">Drive:</strong> <span style="font-size:0.72rem; font-weight:400; color:#50637b;">(inaccurate)</span></span> <input class="drive-origin" type="text" placeholder="Type starting address" style="width:170px;padding:4px 6px;border:1px solid #cbd5e1;border-radius:6px;font-size:0.82rem;" /> <button class="drive-go" type="button" style="padding:4px 10px;background:#0f4c81;color:white;border:none;border-radius:6px;font-size:0.82rem;cursor:pointer;">Go</button>`;
+              popup.setContent(content).update();
+              const originInput = driveEl.querySelector('.drive-origin');
+              const goButton = driveEl.querySelector('.drive-go');
+              async function lookupOrigin() {
+                const q = originInput.value.trim();
+                if (!q) return;
+                await setDriveText('Looking up address…');
+                try {
+                  const origin = await geocodeAddress(q);
+                  await setDriveText('Calculating route…');
+                  const info = await fetchDriveInfo(origin.lat, origin.lon, lat, lon);
+                  await setDriveText(driveResultHtml(info, origin.lat, origin.lon));
+                } catch (err) {
+                  await setDriveText(`<span style="color:#a00;">${err.message}</span>`);
+                }
+              }
+              goButton.addEventListener('click', lookupOrigin);
+              originInput.addEventListener('keydown', (event) => {
+                if (event.key === 'Enter') {
+                  event.preventDefault();
+                  lookupOrigin();
+                }
+              });
+            }
+
+            if (driveEl) {
+              try {
+                const pos = await getCurrentPosition();
+                await setDriveText('Calculating route…');
+                const info = await fetchDriveInfo(pos.coords.latitude, pos.coords.longitude, lat, lon);
+                await setDriveText(driveResultHtml(info, pos.coords.latitude, pos.coords.longitude));
+              } catch (err) {
+                await setDriveText(`<span style="color:#a00;">${err.message}</span>`);
+                showDriveAddressFallback();
+              }
+            }
 
             if (gaugeEl && props.nearest_gauge_site_no) {
               try {
@@ -750,43 +625,63 @@
             popup.setContent(content).update();
           });
 
-          launchPointsLayer.addLayer(marker);
+          markers.push(marker);
         });
 
-        loadStatus(`Loaded ${features.length} canoe launch points from launch-points.geojson`);
+        paddlespotsLayer.addLayers(markers);
+        loadStatus(`Loaded ${features.length} paddlespots from paddlespots.geojson`);
       } catch (err) {
-        console.error('Failed to load launch points', err);
+        console.error('Failed to load paddlespots', err);
       }
     }
 
-    const launchPointsToggle = document.getElementById('launchPointsToggle');
+    // Buttons are optional here (the site owner has toggled hiding them via
+    // HTML comments) -- the underlying layers still work either way, just
+    // without a UI control to flip them when the button is absent.
+    const paddlespotsToggle = document.getElementById('paddlespotsToggle');
     const routesToggle = document.getElementById('routesToggle');
 
-    launchPointsToggle.addEventListener('click', () => {
-      launchPointsOn = !launchPointsOn;
-      if (launchPointsOn) {
-        map.addLayer(launchPointsLayer);
-        launchPointsToggle.classList.add('active');
-        launchPointsToggle.textContent = 'Launch Points: On';
+    function setPaddlespotsOn(on) {
+      paddlespotsOn = on;
+      if (on) {
+        map.addLayer(paddlespotsLayer);
+        if (paddlespotsToggle) {
+          paddlespotsToggle.classList.add('active');
+          paddlespotsToggle.textContent = 'Paddlespots: On';
+        }
       } else {
-        map.removeLayer(launchPointsLayer);
-        launchPointsToggle.classList.remove('active');
-        launchPointsToggle.textContent = 'Launch Points: Off';
+        map.removeLayer(paddlespotsLayer);
+        if (paddlespotsToggle) {
+          paddlespotsToggle.classList.remove('active');
+          paddlespotsToggle.textContent = 'Paddlespots: Off';
+        }
       }
-    });
+    }
 
-    routesToggle.addEventListener('click', () => {
-      routesOn = !routesOn;
-      if (routesOn) {
+    function setRoutesOn(on) {
+      routesOn = on;
+      if (on) {
         map.addLayer(routesLayer);
-        routesToggle.classList.add('active');
-        routesToggle.textContent = 'Routes: On';
+        if (routesToggle) {
+          routesToggle.classList.add('active');
+          routesToggle.textContent = 'Routes: On';
+        }
       } else {
         map.removeLayer(routesLayer);
-        routesToggle.classList.remove('active');
-        routesToggle.textContent = 'Routes: Off';
+        if (routesToggle) {
+          routesToggle.classList.remove('active');
+          routesToggle.textContent = 'Routes: Off';
+        }
       }
-    });
+    }
+
+    if (paddlespotsToggle) {
+      paddlespotsToggle.addEventListener('click', () => setPaddlespotsOn(!paddlespotsOn));
+    }
+
+    if (routesToggle) {
+      routesToggle.addEventListener('click', () => setRoutesOn(!routesOn));
+    }
 
     map.on('click', (event) => {
       const { lat, lng } = event.latlng;
@@ -796,7 +691,6 @@
     loadStatus('Click anywhere on the map to view current wind conditions.');
     loadGaugeMarkers();
     loadPaddlespots();
-    loadLaunchPoints();
   </script>
 </body>
 </html>

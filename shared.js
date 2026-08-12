@@ -100,6 +100,22 @@ async function geocodeAddress(query) {
   return result;
 }
 
+const reverseGeocodeCache = new Map();
+
+// Used to classify a point's US state when there's no other source for it
+// (e.g. a Google Takeout "dropped pin" save, which only carries coordinates).
+async function reverseGeocodeState(lat, lon) {
+  const key = `${lat.toFixed(4)},${lon.toFixed(4)}`;
+  if (reverseGeocodeCache.has(key)) return reverseGeocodeCache.get(key);
+  const url = `https://nominatim.openstreetmap.org/reverse?format=json&lat=${lat}&lon=${lon}&zoom=8`;
+  const res = await fetch(url, { headers: { 'Accept': 'application/json' } });
+  if (!res.ok) throw new Error('Reverse geocode failed');
+  const data = await res.json();
+  const state = data.address?.state || null;
+  reverseGeocodeCache.set(key, state);
+  return state;
+}
+
 const driveInfoCache = new Map();
 
 async function fetchDriveInfo(originLat, originLon, destLat, destLon) {

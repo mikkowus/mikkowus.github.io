@@ -1,12 +1,12 @@
 {
   "$schema": "node_modules/wrangler/config-schema.json",
-  "name": "launch-points-api",
+  "name": "paddlespots-api",
   "main": "src/index.js",
   "compatibility_date": "2025-01-01",
   "d1_databases": [
     {
       "binding": "DB",
-      "database_name": "launch-points-db",
+      "database_name": "paddlespots-db",
       "database_id": "REPLACE_WITH_DATABASE_ID_FROM_WRANGLER_D1_CREATE",
       "migrations_dir": "migrations"
     }

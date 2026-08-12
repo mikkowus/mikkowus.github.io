@@ -64,7 +64,7 @@
         <button class="btn-link" id="exportBtn" type="button">Export approved as GeoJSON</button>
       </div>
       <textarea id="exportOutput" readonly placeholder="Click export to fetch approved submissions as a ready-to-paste GeoJSON FeatureCollection."></textarea>
-      <div class="status">Paste the result into launch-points.geojson, run scripts/validate_launch_points.py, then commit through a normal PR.</div>
+      <div class="status">Paste the result into paddlespots.geojson, run scripts/validate_paddlespots.py, then commit through a normal PR.</div>
     </div>
   </div>
 
@@ -150,7 +150,7 @@
         listStatus.textContent = rows.length ? '' : 'No pending submissions.';
         pendingList.innerHTML = rows.map((row) => `
           <div class="submission" data-id="${row.id}">
-            <div class="title">${escapeHtml(row.name)}</div>
+            <div class="title">${escapeHtml(row.name)} ${row.source === 'bulk-import' ? '<span style="background:#e0e7ff; color:#3730a3; border-radius:999px; padding:1px 8px; font-size:0.72rem; font-weight:700;">bulk import</span>' : ''}</div>
             <div class="meta">
               ${escapeHtml(row.region || '')} · ${escapeHtml(row.water_body_name || '')} (${escapeHtml(row.water_body_type || 'unspecified')})<br>
               ${row.lat.toFixed(5)}, ${row.lon.toFixed(5)} —

@@ -1,0 +1,2418 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -76.1576747,
+          42.6085092
+        ]
+      },
+      "properties": {
+        "id": "yaman-park",
+        "name": "Yaman Park",
+        "description": "Public boat launch on the Tioughnioga River in Cortland.",
+        "region": "NY",
+        "water_body_name": "Tioughnioga River",
+        "water_body_type": "river",
+        "access_type": "public-boat-launch",
+        "parking_notes": "Best water level reported between 3.5 ft and 5 ft.",
+        "tags": [],
+        "nearest_gauge_site_no": "01509000",
+        "source_url": "https://www.google.com/maps/search/42.6085092,-76.1576747",
+        "photos": [],
+        "tracks": []
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -76.5033635,
+          42.4616703
+        ]
+      },
+      "properties": {
+        "id": "stewart-park",
+        "name": "Stewart Park",
+        "description": "Public boat launch at the south end of Cayuga Lake, right next to the fairgrounds. Wide-open water with room to spread out, but can get choppy when it's windy.",
+        "region": "NY",
+        "water_body_name": "Cayuga Lake",
+        "water_body_type": "lake",
+        "access_type": "public-boat-launch",
+        "parking_notes": "Large free lot, rarely full.",
+        "tags": [
+          "family-friendly",
+          "wide-open-water"
+        ],
+        "nearest_gauge_site_no": "",
+        "source_url": "https://www.google.com/maps/search/42.4616703,-76.5033635",
+        "photos": [],
+        "tracks": []
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -76.5493868,
+          42.5372942
+        ]
+      },
+      "properties": {
+        "id": "myers-park",
+        "name": "Myers Park",
+        "description": "Paddling access point on the east shore of Cayuga Lake in the Town of Lansing.",
+        "region": "NY",
+        "water_body_name": "Cayuga Lake",
+        "water_body_type": "lake",
+        "access_type": "beach",
+        "parking_notes": "Small lot, fills up on summer weekends.",
+        "tags": [
+          "scenic"
+        ],
+        "nearest_gauge_site_no": "",
+        "source_url": "https://www.google.com/maps/search/42.5372942,-76.5493868",
+        "photos": [],
+        "tracks": [
+          {
+            "id": "myers-park-shoreline-loop",
+            "name": "Shoreline loop (sample route)",
+            "distance_mi": 0.8,
+            "gpx": "tracks/myers-park-shoreline-loop.gpx",
+            "description": "Illustrative sample route for testing the Routes layer -- not a verified real paddling route. Replace with an actual GPS track."
+          }
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -74.986589,
+          42.507172
+        ]
+      },
+      "properties": {
+        "id": "42-30-25-8-n-74-59-11-7-w",
+        "name": "42\u00b030'25.8\"N 74\u00b059'11.7\"W",
+        "description": "",
+        "region": "NY",
+        "water_body_name": "",
+        "water_body_type": "",
+        "access_type": "",
+        "parking_notes": "",
+        "tags": [],
+        "nearest_gauge_site_no": "",
+        "source_url": "https://www.google.com/maps/search/42.507172,-74.986589",
+        "photos": [],
+        "tracks": []
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -74.9423089,
+          42.55682789999999
+        ]
+      },
+      "properties": {
+        "id": "crumhorn-fishing-access-site",
+        "name": "Crumhorn Fishing Access Site",
+        "description": "",
+        "region": "NY",
+        "water_body_name": "",
+        "water_body_type": "",
+        "access_type": "",
+        "parking_notes": "",
+        "tags": [],
+        "nearest_gauge_site_no": "",
+        "source_url": "https://www.google.com/maps/place/Crumhorn+Fishing+Access+Site/data=!4m2!3m1!1s0x89dc0b3784972f5b:0x8e1f324c39b1e23e",
+        "photos": [],
+        "tracks": []
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -75.1638265,
+          43.4069248
+        ]
+      },
+      "properties": {
+        "id": "dropped-pin",
+        "name": "Dropped pin",
+        "description": "",
+        "region": "NY",
+        "water_body_name": "",
+        "water_body_type": "",
+        "access_type": "",
+        "parking_notes": "",
+        "tags": [],
+        "nearest_gauge_site_no": "",
+        "source_url": "https://www.google.com/maps/search/43.4069248,-75.1638265",
+        "photos": [],
+        "tracks": []
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -74.9516913,
+          42.5996498
+        ]
+      },
+      "properties": {
+        "id": "dropped-pin-2",
+        "name": "Dropped pin",
+        "description": "",
+        "region": "NY",
+        "water_body_name": "",
+        "water_body_type": "",
+        "access_type": "",
+        "parking_notes": "",
+        "tags": [],
+        "nearest_gauge_site_no": "",
+        "source_url": "https://www.google.com/maps/search/42.5996498,-74.9516913",
+        "photos": [],
+        "tracks": []
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -75.4783896,
+          43.2030853
+        ]
+      },
+      "properties": {
+        "id": "dropped-pin-3",
+        "name": "Dropped pin",
+        "description": "Muck Road Erie Canal",
+        "region": "NY",
+        "water_body_name": "",
+        "water_body_type": "",
+        "access_type": "",
+        "parking_notes": "",
+        "tags": [],
+        "nearest_gauge_site_no": "",
+        "source_url": "https://www.google.com/maps/search/43.2030853,-75.4783896",
+        "photos": [],
+        "tracks": []
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -76.2689208,
+          43.0630814
+        ]
+      },
+      "properties": {
+        "id": "nancy-brown-wildlife-sanctuary",
+        "name": "Nancy Brown Wildlife Sanctuary",
+        "description": "",
+        "region": "NY",
+        "water_body_name": "",
+        "water_body_type": "",
+        "access_type": "",
+        "parking_notes": "",
+        "tags": [],
+        "nearest_gauge_site_no": "",
+        "source_url": "https://www.google.com/maps/place/Nancy+Brown+Wildlife+Sanctuary/data=!4m2!3m1!1s0x89d9f112babfb565:0x7b5006c56d398921",
+        "photos": [],
+        "tracks": []
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -76.30297689999999,
+          43.0524822
+        ]
+      },
+      "properties": {
+        "id": "erie-canal-park",
+        "name": "Erie Canal Park",
+        "description": "",
+        "region": "NY",
+        "water_body_name": "",
+        "water_body_type": "",
+        "access_type": "",
+        "parking_notes": "",
+        "tags": [],
+        "nearest_gauge_site_no": "",
+        "source_url": "https://www.google.com/maps/place/Erie+Canal+Park/data=!4m2!3m1!1s0x89d9fa4b87b34c35:0x78e0b1be70147d93",
+        "photos": [],
+        "tracks": []
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -75.3999672,
+          42.3138478
+        ]
+      },
+      "properties": {
+        "id": "dropped-pin-4",
+        "name": "Dropped pin",
+        "description": "",
+        "region": "NY",
+        "water_body_name": "",
+        "water_body_type": "",
+        "access_type": "",
+        "parking_notes": "",
+        "tags": [],
+        "nearest_gauge_site_no": "",
+        "source_url": "https://www.google.com/maps/search/42.3138478,-75.3999672",
+        "photos": [],
+        "tracks": []
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -76.22842279999999,
+          43.07804429999999
+        ]
+      },
+      "properties": {
+        "id": "honeywell-canoe-and-kayak-launch",
+        "name": "Honeywell Canoe and Kayak Launch",
+        "description": "",
+        "region": "NY",
+        "water_body_name": "",
+        "water_body_type": "",
+        "access_type": "",
+        "parking_notes": "",
+        "tags": [],
+        "nearest_gauge_site_no": "",
+        "source_url": "https://www.google.com/maps/place/Honeywell+Canoe+and+Kayak+Launch/data=!4m2!3m1!1s0x89d9f1c32cb2eb81:0x2fbee96d605675fb",
+        "photos": [],
+        "tracks": []
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -76.20548819999999,
+          43.0724605
+        ]
+      },
+      "properties": {
+        "id": "ken-lynch-boat-launch",
+        "name": "ken lynch boat launch",
+        "description": "",
+        "region": "NY",
+        "water_body_name": "",
+        "water_body_type": "",
+        "access_type": "",
+        "parking_notes": "",
+        "tags": [],
+        "nearest_gauge_site_no": "",
+        "source_url": "https://www.google.com/maps/place/ken+lynch+boat+launch/data=!4m2!3m1!1s0x89d9f175d5ebe5cd:0x2c152bfd0d97fbf0",
+        "photos": [],
+        "tracks": []
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -77.1540665,
+          43.0394467
+        ]
+      },
+      "properties": {
+        "id": "dropped-pin-5",
+        "name": "Dropped pin",
+        "description": "",
+        "region": "NY",
+        "water_body_name": "",
+        "water_body_type": "",
+        "access_type": "",
+        "parking_notes": "",
+        "tags": [],
+        "nearest_gauge_site_no": "",
+        "source_url": "https://www.google.com/maps/search/43.0394467,-77.1540665",
+        "photos": [],
+        "tracks": []
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -77.3019278,
+          43.072683
+        ]
+      },
+      "properties": {
+        "id": "macedon-canal-park",
+        "name": "Macedon Canal Park",
+        "description": "",
+        "region": "NY",
+        "water_body_name": "",
+        "water_body_type": "",
+        "access_type": "",
+        "parking_notes": "",
+        "tags": [],
+        "nearest_gauge_site_no": "",
+        "source_url": "https://www.google.com/maps/place/Macedon+Canal+Park/data=!4m2!3m1!1s0x89d12cb09fe16a7b:0x7ebb36aa8d21cd94",
+        "photos": [],
+        "tracks": []
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -75.3988853,
+          43.7110185
+        ]
+      },
+      "properties": {
+        "id": "dropped-pin-6",
+        "name": "Dropped pin",
+        "description": "",
+        "region": "NY",
+        "water_body_name": "",
+        "water_body_type": "",
+        "access_type": "",
+        "parking_notes": "",
+        "tags": [],
+        "nearest_gauge_site_no": "",
+        "source_url": "https://www.google.com/maps/search/43.7110185,-75.3988853",
+        "photos": [],
+        "tracks": []
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -75.4143844,
+          42.3151769
+        ]
+      },
+      "properties": {
+        "id": "dropped-pin-7",
+        "name": "Dropped pin",
+        "description": "Generation gap start",
+        "region": "NY",
+        "water_body_name": "",
+        "water_body_type": "",
+        "access_type": "",
+        "parking_notes": "",
+        "tags": [],
+        "nearest_gauge_site_no": "",
+        "source_url": "https://www.google.com/maps/search/42.3151769,-75.4143844",
+        "photos": [],
+        "tracks": []
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -74.1548262,
+          44.3260846
+        ]
+      },
+      "properties": {
+        "id": "ampersand-bay-public-boat-launch",
+        "name": "Ampersand Bay Public Boat Launch",
+        "description": "",
+        "region": "NY",
+        "water_body_name": "",
+        "water_body_type": "",
+        "access_type": "",
+        "parking_notes": "",
+        "tags": [],
+        "nearest_gauge_site_no": "",
+        "source_url": "https://www.google.com/maps/place/Ampersand+Bay+Public+Boat+Launch/data=!4m2!3m1!1s0x4ccb1b0012941fd3:0xa94783659d7fc167",
+        "photos": [],
+        "tracks": []
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -74.4621828,
+          44.1963505
+        ]
+      },
+      "properties": {
+        "id": "dropped-pin-8",
+        "name": "Dropped pin",
+        "description": "",
+        "region": "NY",
+        "water_body_name": "",
+        "water_body_type": "",
+        "access_type": "",
+        "parking_notes": "",
+        "tags": [],
+        "nearest_gauge_site_no": "",
+        "source_url": "https://www.google.com/maps/search/44.1963505,-74.4621828",
+        "photos": [],
+        "tracks": []
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -77.636561,
+          43.12285
+        ]
+      },
+      "properties": {
+        "id": "genesee-waterways-center",
+        "name": "Genesee Waterways Center",
+        "description": "",
+        "region": "NY",
+        "water_body_name": "",
+        "water_body_type": "",
+        "access_type": "",
+        "parking_notes": "",
+        "tags": [],
+        "nearest_gauge_site_no": "",
+        "source_url": "https://www.google.com/maps/place/Genesee+Waterways+Center/data=!4m2!3m1!1s0x89d6b4b389bd4537:0xa82ab002bfe74b15",
+        "photos": [],
+        "tracks": []
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -77.56401129999999,
+          43.23841220000001
+        ]
+      },
+      "properties": {
+        "id": "lake-ontario-sand-beach",
+        "name": "Lake Ontario Sand Beach",
+        "description": "Outrigger recommended",
+        "region": "NY",
+        "water_body_name": "",
+        "water_body_type": "",
+        "access_type": "",
+        "parking_notes": "",
+        "tags": [],
+        "nearest_gauge_site_no": "",
+        "source_url": "https://www.google.com/maps/place/Lake+Ontario+Sand+Beach/data=!4m2!3m1!1s0x89d6b7cf05916d9b:0xf9d5d5416f5c6fcf",
+        "photos": [],
+        "tracks": []
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -77.53497209999999,
+          43.2346972
+        ]
+      },
+      "properties": {
+        "id": "irondequoit-bay-small-boat-harbor",
+        "name": "Irondequoit Bay Small Boat Harbor",
+        "description": "",
+        "region": "NY",
+        "water_body_name": "",
+        "water_body_type": "",
+        "access_type": "",
+        "parking_notes": "",
+        "tags": [],
+        "nearest_gauge_site_no": "",
+        "source_url": "https://www.google.com/maps/place/Irondequoit+Bay+Small+Boat+Harbor/data=!4m2!3m1!1s0x89d6c8465e95041b:0x72f02c6e56a462fc",
+        "photos": [],
+        "tracks": []
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -77.52774950000001,
+          43.1831655
+        ]
+      },
+      "properties": {
+        "id": "irondequoit-bay-park-west-boat-launch",
+        "name": "Irondequoit Bay Park West Boat Launch",
+        "description": "",
+        "region": "NY",
+        "water_body_name": "",
+        "water_body_type": "",
+        "access_type": "",
+        "parking_notes": "",
+        "tags": [],
+        "nearest_gauge_site_no": "",
+        "source_url": "https://www.google.com/maps/place/Irondequoit+Bay+Park+West+Boat+Launch/data=!4m2!3m1!1s0x89d6ca27e17f01a5:0x1ee3e86661b113a3",
+        "photos": [],
+        "tracks": []
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.7415551,
+          43.8738142
+        ]
+      },
+      "properties": {
+        "id": "schroon-river-fishing-access-route-74",
+        "name": "Schroon River Fishing Access (Route 74)",
+        "description": "",
+        "region": "NY",
+        "water_body_name": "",
+        "water_body_type": "",
+        "access_type": "",
+        "parking_notes": "",
+        "tags": [],
+        "nearest_gauge_site_no": "",
+        "source_url": "https://www.google.com/maps/place/Schroon+River+Fishing+Access+(Route+74)/data=!4m2!3m1!1s0x4ccab564aa92a399:0xbf9472cb1348c2be",
+        "photos": [],
+        "tracks": []
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -76.336732,
+          43.158067
+        ]
+      },
+      "properties": {
+        "id": "43-09-29-0-n-76-20-12-2-w",
+        "name": "43\u00b009'29.0\"N 76\u00b020'12.2\"W",
+        "description": "",
+        "region": "NY",
+        "water_body_name": "",
+        "water_body_type": "",
+        "access_type": "",
+        "parking_notes": "",
+        "tags": [],
+        "nearest_gauge_site_no": "",
+        "source_url": "https://www.google.com/maps/search/43.158067,-76.336732",
+        "photos": [],
+        "tracks": []
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -76.857635,
+          42.90223
+        ]
+      },
+      "properties": {
+        "id": "42-54-08-0-n-76-51-27-5-w",
+        "name": "42\u00b054'08.0\"N 76\u00b051'27.5\"W",
+        "description": "",
+        "region": "NY",
+        "water_body_name": "",
+        "water_body_type": "",
+        "access_type": "",
+        "parking_notes": "",
+        "tags": [],
+        "nearest_gauge_site_no": "",
+        "source_url": "https://www.google.com/maps/search/42.90223,-76.857635",
+        "photos": [],
+        "tracks": []
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.7741373,
+          40.7443214
+        ]
+      },
+      "properties": {
+        "id": "202-296-ny-13a",
+        "name": "202-296 NY-13A",
+        "description": "",
+        "region": "NY",
+        "water_body_name": "",
+        "water_body_type": "",
+        "access_type": "",
+        "parking_notes": "",
+        "tags": [],
+        "nearest_gauge_site_no": "",
+        "source_url": "https://www.google.com/maps/place/202-296+NY-13A/data=!4m2!3m1!1s0x89d0816dcb558869:0x23a0cf3b7dc4ff81",
+        "photos": [],
+        "tracks": []
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -75.846767,
+          42.2375226
+        ]
+      },
+      "properties": {
+        "id": "state-fishing-acc",
+        "name": "State Fishing Acc",
+        "description": "",
+        "region": "NY",
+        "water_body_name": "",
+        "water_body_type": "",
+        "access_type": "",
+        "parking_notes": "",
+        "tags": [],
+        "nearest_gauge_site_no": "",
+        "source_url": "https://www.google.com/maps/place/State+Fishing+Acc/data=!4m2!3m1!1s0x89daf90ca3706065:0x690ed85ccc86fb30",
+        "photos": [],
+        "tracks": []
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -76.2137578,
+          43.2048725
+        ]
+      },
+      "properties": {
+        "id": "oak-orchard-rd-by-mud-creek",
+        "name": "Oak Orchard Rd by Mud Creek",
+        "description": "Oak Orchard Rd by Mud Creek",
+        "region": "NY",
+        "water_body_name": "",
+        "water_body_type": "",
+        "access_type": "",
+        "parking_notes": "",
+        "tags": [],
+        "nearest_gauge_site_no": "",
+        "source_url": "https://www.google.com/maps/search/43.2048725,-76.2137578",
+        "photos": [],
+        "tracks": []
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -75.1583377,
+          42.4005725
+        ]
+      },
+      "properties": {
+        "id": "robinson-launch-on-the-susquehanna",
+        "name": "Robinson Launch on the Susquehanna",
+        "description": "Robinson Launch",
+        "region": "NY",
+        "water_body_name": "",
+        "water_body_type": "",
+        "access_type": "",
+        "parking_notes": "",
+        "tags": [],
+        "nearest_gauge_site_no": "",
+        "source_url": "https://www.google.com/maps/search/42.4005725,-75.1583377",
+        "photos": [],
+        "tracks": []
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -75.1162265,
+          42.4475515
+        ]
+      },
+      "properties": {
+        "id": "hem-street-memorial-county-park",
+        "name": "Hem Street Memorial County Park",
+        "description": "Otego Creek",
+        "region": "NY",
+        "water_body_name": "",
+        "water_body_type": "",
+        "access_type": "",
+        "parking_notes": "",
+        "tags": [],
+        "nearest_gauge_site_no": "",
+        "source_url": "https://www.google.com/maps/place/Hem+Street+Memorial+County+Park/data=!4m2!3m1!1s0x89db8dcb9a2e3b29:0x7e0c70c127f7411c",
+        "photos": [],
+        "tracks": []
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -75.2088506,
+          42.3707696
+        ]
+      },
+      "properties": {
+        "id": "wells-bridge-fishing-access",
+        "name": "Wells Bridge Fishing Access",
+        "description": "",
+        "region": "NY",
+        "water_body_name": "",
+        "water_body_type": "",
+        "access_type": "",
+        "parking_notes": "",
+        "tags": [],
+        "nearest_gauge_site_no": "",
+        "source_url": "https://www.google.com/maps/place/Wells+Bridge+Fishing+Access/data=!4m2!3m1!1s0x89db91002938a56f:0x327688c287f4b82f",
+        "photos": [],
+        "tracks": []
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.660166,
+          43.09217
+        ]
+      },
+      "properties": {
+        "id": "43-05-31-8-n-73-39-36-6-w",
+        "name": "43\u00b005'31.8\"N 73\u00b039'36.6\"W",
+        "description": "Bryant Bridge Road paddle spot",
+        "region": "NY",
+        "water_body_name": "",
+        "water_body_type": "",
+        "access_type": "",
+        "parking_notes": "",
+        "tags": [],
+        "nearest_gauge_site_no": "",
+        "source_url": "https://www.google.com/maps/search/43.09217,-73.660166",
+        "photos": [],
+        "tracks": []
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.7469091,
+          43.5116052
+        ]
+      },
+      "properties": {
+        "id": "schroon-river-canoe-kayak-access-at-county-home-bridge-warrensburg",
+        "name": "Schroon River Canoe/kayak Access at County Home Bridge, Warrensburg",
+        "description": "10/10 would recommend",
+        "region": "NY",
+        "water_body_name": "",
+        "water_body_type": "",
+        "access_type": "",
+        "parking_notes": "",
+        "tags": [],
+        "nearest_gauge_site_no": "",
+        "source_url": "https://www.google.com/maps/place/Schroon+River+Canoe%2Fkayak+Access+at+County+Home+Bridge,+Warrensburg/data=!4m2!3m1!1s0x89dfc22088578603:0x508750ff1f8aaa72",
+        "photos": [],
+        "tracks": []
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -76.4228199,
+          42.9109221
+        ]
+      },
+      "properties": {
+        "id": "dec-boat-launch-skaneateles-lake",
+        "name": "DEC Boat Launch, Skaneateles Lake",
+        "description": "",
+        "region": "NY",
+        "water_body_name": "",
+        "water_body_type": "",
+        "access_type": "",
+        "parking_notes": "",
+        "tags": [],
+        "nearest_gauge_site_no": "",
+        "source_url": "https://www.google.com/maps/place/DEC+Boat+Launch,+Skaneateles+Lake/data=!4m2!3m1!1s0x89da00cee985e163:0x5e429851dfd02e96",
+        "photos": [],
+        "tracks": []
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.779399,
+          43.6759117
+        ]
+      },
+      "properties": {
+        "id": "starbuckville-dam",
+        "name": "Starbuckville Dam",
+        "description": "",
+        "region": "NY",
+        "water_body_name": "",
+        "water_body_type": "",
+        "access_type": "",
+        "parking_notes": "",
+        "tags": [],
+        "nearest_gauge_site_no": "",
+        "source_url": "https://www.google.com/maps/place/Starbuckville+Dam/data=!4m2!3m1!1s0x89dfed91add39ac1:0x4ead75375f9ed98d",
+        "photos": [],
+        "tracks": []
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.8091354,
+          43.7260589
+        ]
+      },
+      "properties": {
+        "id": "schroon-lake-waterway-access",
+        "name": "Schroon Lake Waterway Access",
+        "description": "",
+        "region": "NY",
+        "water_body_name": "",
+        "water_body_type": "",
+        "access_type": "",
+        "parking_notes": "",
+        "tags": [],
+        "nearest_gauge_site_no": "",
+        "source_url": "https://www.google.com/maps/place/Schroon+Lake+Waterway+Access/data=!4m2!3m1!1s0x89dff2e33eeed991:0xa395b56541e5f58",
+        "photos": [],
+        "tracks": []
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -76.80176279999999,
+          42.9097038
+        ]
+      },
+      "properties": {
+        "id": "seneca-falls-recreation-park",
+        "name": "Seneca Falls Recreation & Park",
+        "description": "",
+        "region": "NY",
+        "water_body_name": "",
+        "water_body_type": "",
+        "access_type": "",
+        "parking_notes": "",
+        "tags": [],
+        "nearest_gauge_site_no": "",
+        "source_url": "https://www.google.com/maps/place/Seneca+Falls+Recreation+%26+Park/data=!4m2!3m1!1s0x89d0b7b548a4ec31:0x494dce0d78c622ed",
+        "photos": [],
+        "tracks": []
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -76.7337707,
+          42.9464038
+        ]
+      },
+      "properties": {
+        "id": "mud-lock-dec-boat-ramp",
+        "name": "Mud Lock DEC Boat Ramp",
+        "description": "",
+        "region": "NY",
+        "water_body_name": "",
+        "water_body_type": "",
+        "access_type": "",
+        "parking_notes": "",
+        "tags": [],
+        "nearest_gauge_site_no": "",
+        "source_url": "https://www.google.com/maps/place/Mud+Lock+DEC+Boat+Ramp/data=!4m2!3m1!1s0x89d0b5bc32bb088f:0x11abf9fd50c831da",
+        "photos": [],
+        "tracks": []
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -76.2789793,
+          43.2008431
+        ]
+      },
+      "properties": {
+        "id": "three-rivers-point",
+        "name": "Three Rivers Point",
+        "description": "",
+        "region": "NY",
+        "water_body_name": "",
+        "water_body_type": "",
+        "access_type": "",
+        "parking_notes": "",
+        "tags": [],
+        "nearest_gauge_site_no": "",
+        "source_url": "https://www.google.com/maps/place/Three+Rivers+Point/data=!4m2!3m1!1s0x89d9e604cd9e0739:0xd461472ee612b26b",
+        "photos": [],
+        "tracks": []
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -76.30275639999999,
+          43.2295792
+        ]
+      },
+      "properties": {
+        "id": "lock-island-park",
+        "name": "Lock Island Park",
+        "description": "",
+        "region": "NY",
+        "water_body_name": "",
+        "water_body_type": "",
+        "access_type": "",
+        "parking_notes": "",
+        "tags": [],
+        "nearest_gauge_site_no": "",
+        "source_url": "https://www.google.com/maps/place/Lock+Island+Park/data=!4m2!3m1!1s0x89d9e64c52018735:0x18a9c145bf67964b",
+        "photos": [],
+        "tracks": []
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -75.8661041,
+          42.9263252
+        ]
+      },
+      "properties": {
+        "id": "gypsy-bay-park",
+        "name": "Gypsy Bay Park",
+        "description": "",
+        "region": "NY",
+        "water_body_name": "",
+        "water_body_type": "",
+        "access_type": "",
+        "parking_notes": "",
+        "tags": [],
+        "nearest_gauge_site_no": "",
+        "source_url": "https://www.google.com/maps/place/Gypsy+Bay+Park/data=!4m2!3m1!1s0x89d98790b2b1fa1b:0x5e7899b66c1ce88c",
+        "photos": [],
+        "tracks": []
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.433522,
+          43.5751524
+        ]
+      },
+      "properties": {
+        "id": "south-bay-state-boat-launch",
+        "name": "South Bay State Boat Launch",
+        "description": "",
+        "region": "NY",
+        "water_body_name": "",
+        "water_body_type": "",
+        "access_type": "",
+        "parking_notes": "",
+        "tags": [],
+        "nearest_gauge_site_no": "",
+        "source_url": "https://www.google.com/maps/place/South+Bay+State+Boat+Launch/data=!4m2!3m1!1s0x89e009913006a109:0x1b0eedd4ebe0ed45",
+        "photos": [],
+        "tracks": []
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -76.00054519999999,
+          43.0534511
+        ]
+      },
+      "properties": {
+        "id": "erie-canal-state-park-manlius-center-road-minoa",
+        "name": "Erie canal state park - Manlius Center Road &Minoa",
+        "description": "",
+        "region": "NY",
+        "water_body_name": "",
+        "water_body_type": "",
+        "access_type": "",
+        "parking_notes": "",
+        "tags": [],
+        "nearest_gauge_site_no": "",
+        "source_url": "https://www.google.com/maps/place/Erie+canal+state+park+-+Manlius+Center+Road+%26Minoa/data=!4m2!3m1!1s0x89d98d20bb9439dd:0x8ea9c06c90a0c530",
+        "photos": [],
+        "tracks": []
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -75.4496843,
+          43.2020444
+        ]
+      },
+      "properties": {
+        "id": "bellamy-harbor-park",
+        "name": "Bellamy Harbor Park",
+        "description": "",
+        "region": "NY",
+        "water_body_name": "",
+        "water_body_type": "",
+        "access_type": "",
+        "parking_notes": "",
+        "tags": [],
+        "nearest_gauge_site_no": "",
+        "source_url": "https://www.google.com/maps/place/Bellamy+Harbor+Park/data=!4m2!3m1!1s0x89d9139d978eaa2f:0x66eb2df1af848036",
+        "photos": [],
+        "tracks": []
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -74.1255438,
+          44.3233619
+        ]
+      },
+      "properties": {
+        "id": "lake-flower-boat-launch",
+        "name": "Lake Flower Boat Launch",
+        "description": "",
+        "region": "NY",
+        "water_body_name": "",
+        "water_body_type": "",
+        "access_type": "",
+        "parking_notes": "",
+        "tags": [],
+        "nearest_gauge_site_no": "",
+        "source_url": "https://www.google.com/maps/place/Lake+Flower+Boat+Launch/data=!4m2!3m1!1s0x4ccb1b2691ec1a21:0xc9fc8f8c2a268c43",
+        "photos": [],
+        "tracks": []
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -76.5130174,
+          43.0672509
+        ]
+      },
+      "properties": {
+        "id": "9293-bonta-bridge-rd",
+        "name": "9293 Bonta Bridge Rd",
+        "description": "",
+        "region": "NY",
+        "water_body_name": "",
+        "water_body_type": "",
+        "access_type": "",
+        "parking_notes": "",
+        "tags": [],
+        "nearest_gauge_site_no": "",
+        "source_url": "https://www.google.com/maps/place/9293+Bonta+Bridge+Rd/data=!4m2!3m1!1s0x89d7569acb2b1675:0x6746282b3bf913b4",
+        "photos": [],
+        "tracks": []
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -76.4227233,
+          43.098939
+        ]
+      },
+      "properties": {
+        "id": "dropped-pin-9",
+        "name": "Dropped pin",
+        "description": "",
+        "region": "NY",
+        "water_body_name": "",
+        "water_body_type": "",
+        "access_type": "",
+        "parking_notes": "",
+        "tags": [],
+        "nearest_gauge_site_no": "",
+        "source_url": "https://www.google.com/maps/search/43.098939,-76.4227233",
+        "photos": [],
+        "tracks": []
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -75.35790399999999,
+          43.620692
+        ]
+      },
+      "properties": {
+        "id": "lyons-falls-ny-lower-boat-launch",
+        "name": "Lyons Falls, NY Lower Boat Launch",
+        "description": "",
+        "region": "NY",
+        "water_body_name": "",
+        "water_body_type": "",
+        "access_type": "",
+        "parking_notes": "",
+        "tags": [],
+        "nearest_gauge_site_no": "",
+        "source_url": "https://www.google.com/maps/place/Lyons+Falls,+NY+Lower+Boat+Launch/data=!4m2!3m1!1s0x89d8e9004f4755cf:0xac81ed00c6470ee7",
+        "photos": [],
+        "tracks": []
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -75.3648279,
+          43.6788753
+        ]
+      },
+      "properties": {
+        "id": "burdicks-crossing-fishing-access",
+        "name": "Burdicks Crossing Fishing Access",
+        "description": "",
+        "region": "NY",
+        "water_body_name": "",
+        "water_body_type": "",
+        "access_type": "",
+        "parking_notes": "",
+        "tags": [],
+        "nearest_gauge_site_no": "",
+        "source_url": "https://www.google.com/maps/place/Burdicks+Crossing+Fishing+Access/data=!4m2!3m1!1s0x89d8e9f4d3c5fb15:0xf38c04b81ea9cfdd",
+        "photos": [],
+        "tracks": []
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -75.88888159999999,
+          43.5512153
+        ]
+      },
+      "properties": {
+        "id": "salmon-river-reservoir-parking",
+        "name": "Salmon River Reservoir Parking",
+        "description": "",
+        "region": "NY",
+        "water_body_name": "",
+        "water_body_type": "",
+        "access_type": "",
+        "parking_notes": "",
+        "tags": [],
+        "nearest_gauge_site_no": "",
+        "source_url": "https://www.google.com/maps/place/Salmon+River+Reservoir+Parking/data=!4m2!3m1!1s0x89d8539522e5cf45:0xc70201ff2ab6b7f1",
+        "photos": [],
+        "tracks": []
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -76.3211278,
+          43.1462047
+        ]
+      },
+      "properties": {
+        "id": "baldwinsville-community-park",
+        "name": "Baldwinsville Community Park",
+        "description": "",
+        "region": "NY",
+        "water_body_name": "",
+        "water_body_type": "",
+        "access_type": "",
+        "parking_notes": "",
+        "tags": [],
+        "nearest_gauge_site_no": "",
+        "source_url": "https://www.google.com/maps/place/Baldwinsville+Community+Park/data=!4m2!3m1!1s0x89d9e345ee179ebd:0xe2f82c5c04e15278",
+        "photos": [],
+        "tracks": []
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -75.960375,
+          42.397081
+        ]
+      },
+      "properties": {
+        "id": "42-23-49-5-n-75-57-37-4-w",
+        "name": "42\u00b023'49.5\"N 75\u00b057'37.4\"W",
+        "description": "",
+        "region": "NY",
+        "water_body_name": "",
+        "water_body_type": "",
+        "access_type": "",
+        "parking_notes": "",
+        "tags": [],
+        "nearest_gauge_site_no": "",
+        "source_url": "https://www.google.com/maps/search/42.397081,-75.960375",
+        "photos": [],
+        "tracks": []
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -75.972133,
+          42.39944
+        ]
+      },
+      "properties": {
+        "id": "42-23-58-0-n-75-58-19-7-w",
+        "name": "42\u00b023'58.0\"N 75\u00b058'19.7\"W",
+        "description": "",
+        "region": "NY",
+        "water_body_name": "",
+        "water_body_type": "",
+        "access_type": "",
+        "parking_notes": "",
+        "tags": [],
+        "nearest_gauge_site_no": "",
+        "source_url": "https://www.google.com/maps/search/42.39944,-75.972133",
+        "photos": [],
+        "tracks": []
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -75.6398815,
+          43.2679336
+        ]
+      },
+      "properties": {
+        "id": "west-branch-fish-creek-fishing-access",
+        "name": "West Branch Fish Creek Fishing Access",
+        "description": "",
+        "region": "NY",
+        "water_body_name": "",
+        "water_body_type": "",
+        "access_type": "",
+        "parking_notes": "",
+        "tags": [],
+        "nearest_gauge_site_no": "",
+        "source_url": "https://www.google.com/maps/place/West+Branch+Fish+Creek+Fishing+Access/data=!4m2!3m1!1s0x89d9095e9f50040b:0x3fa870ef3324d36a",
+        "photos": [],
+        "tracks": []
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -75.72907289999999,
+          43.19535
+        ]
+      },
+      "properties": {
+        "id": "erie-canal-1st-bypass",
+        "name": "Erie Canal 1st Bypass",
+        "description": "",
+        "region": "NY",
+        "water_body_name": "",
+        "water_body_type": "",
+        "access_type": "",
+        "parking_notes": "",
+        "tags": [],
+        "nearest_gauge_site_no": "",
+        "source_url": "https://www.google.com/maps/place/Erie+Canal+1st+Bypass/data=!4m2!3m1!1s0x89d99ff6dcdd2927:0x663fe1ee498bee63",
+        "photos": [],
+        "tracks": []
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -74.0855188,
+          41.8019075
+        ]
+      },
+      "properties": {
+        "id": "dec-boat-launch",
+        "name": "DEC Boat Launch",
+        "description": "",
+        "region": "NY",
+        "water_body_name": "",
+        "water_body_type": "",
+        "access_type": "",
+        "parking_notes": "",
+        "tags": [],
+        "nearest_gauge_site_no": "",
+        "source_url": "https://www.google.com/maps/place/DEC+Boat+Launch/data=!4m2!3m1!1s0x89d90b6a13f1d29d:0x5692e1e40a0309c6",
+        "photos": [],
+        "tracks": []
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -77.6839177,
+          43.096229
+        ]
+      },
+      "properties": {
+        "id": "black-river-waterway-access",
+        "name": "Black River Waterway Access",
+        "description": "",
+        "region": "NY",
+        "water_body_name": "",
+        "water_body_type": "",
+        "access_type": "",
+        "parking_notes": "",
+        "tags": [],
+        "nearest_gauge_site_no": "",
+        "source_url": "https://www.google.com/maps/place/Black+River+Waterway+Access/data=!4m2!3m1!1s0x89d89037fad22ab9:0xa3372e30062d21aa",
+        "photos": [],
+        "tracks": []
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -75.628229,
+          43.9844016
+        ]
+      },
+      "properties": {
+        "id": "west-carthage-boat-launch-and-park",
+        "name": "West Carthage Boat Launch and park",
+        "description": "needs scouting",
+        "region": "NY",
+        "water_body_name": "",
+        "water_body_type": "",
+        "access_type": "",
+        "parking_notes": "",
+        "tags": [],
+        "nearest_gauge_site_no": "",
+        "source_url": "https://www.google.com/maps/place/West+Carthage+Boat+Launch+and+park/data=!4m2!3m1!1s0x89d8874ff6fbde29:0xa8da7842425339cc",
+        "photos": [],
+        "tracks": []
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -76.7699696,
+          42.9362549
+        ]
+      },
+      "properties": {
+        "id": "2998-hyatt-rd",
+        "name": "2998 Hyatt Rd",
+        "description": "Parking lot off Rt 89 Bridge over the Cayuga-Seneca Canal",
+        "region": "NY",
+        "water_body_name": "",
+        "water_body_type": "",
+        "access_type": "",
+        "parking_notes": "",
+        "tags": [],
+        "nearest_gauge_site_no": "",
+        "source_url": "https://www.google.com/maps/place/2998+Hyatt+Rd/data=!4m2!3m1!1s0x89d0b69eb2ee8c8b:0x48cc346840eb4449",
+        "photos": [],
+        "tracks": []
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -77.08886199999999,
+          42.42174139999999
+        ]
+      },
+      "properties": {
+        "id": "boat-launch-for-waneta-and-lamoka-lakes",
+        "name": "Boat Launch for Waneta and Lamoka Lakes",
+        "description": "",
+        "region": "NY",
+        "water_body_name": "",
+        "water_body_type": "",
+        "access_type": "",
+        "parking_notes": "",
+        "tags": [],
+        "nearest_gauge_site_no": "",
+        "source_url": "https://www.google.com/maps/place/Boat+Launch+for+Waneta+and+Lamoka+Lakes/data=!4m2!3m1!1s0x89d0566cbf9b92bb:0xf10b8e9bc3a8a99c",
+        "photos": [],
+        "tracks": []
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -76.8596697,
+          42.3854106
+        ]
+      },
+      "properties": {
+        "id": "clute-park",
+        "name": "Clute Park",
+        "description": "",
+        "region": "NY",
+        "water_body_name": "",
+        "water_body_type": "",
+        "access_type": "",
+        "parking_notes": "",
+        "tags": [],
+        "nearest_gauge_site_no": "",
+        "source_url": "https://www.google.com/maps/place/Clute+Park/data=!4m2!3m1!1s0x89d05fb032047305:0xf4a8a81c0cf71cec",
+        "photos": [],
+        "tracks": []
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -76.2474024,
+          43.12086499999999
+        ]
+      },
+      "properties": {
+        "id": "onondaga-lake-park-public-canoe-and-kayak-launch",
+        "name": "Onondaga Lake Park Public Canoe and Kayak Launch",
+        "description": "",
+        "region": "NY",
+        "water_body_name": "",
+        "water_body_type": "",
+        "access_type": "",
+        "parking_notes": "",
+        "tags": [],
+        "nearest_gauge_site_no": "",
+        "source_url": "https://www.google.com/maps/place/Onondaga+Lake+Park+Public+Canoe+and+Kayak+Launch/data=!4m2!3m1!1s0x89d9efe22d5f5cbd:0xabcf4401c1bf2e9a",
+        "photos": [],
+        "tracks": []
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -76.2448718,
+          43.1163959
+        ]
+      },
+      "properties": {
+        "id": "267-w-shr-trl",
+        "name": "267 W Shr Trl",
+        "description": "",
+        "region": "NY",
+        "water_body_name": "",
+        "water_body_type": "",
+        "access_type": "",
+        "parking_notes": "",
+        "tags": [],
+        "nearest_gauge_site_no": "",
+        "source_url": "https://www.google.com/maps/place/267+W+Shr+Trl/data=!4m2!3m1!1s0x89d9efdc2cfce479:0x80663c881d27a9cb",
+        "photos": [],
+        "tracks": []
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -76.761182,
+          42.996614
+        ]
+      },
+      "properties": {
+        "id": "42-59-47-8-n-76-45-40-3-w",
+        "name": "42\u00b059'47.8\"N 76\u00b045'40.3\"W",
+        "description": "",
+        "region": "NY",
+        "water_body_name": "",
+        "water_body_type": "",
+        "access_type": "",
+        "parking_notes": "",
+        "tags": [],
+        "nearest_gauge_site_no": "",
+        "source_url": "https://www.google.com/maps/search/42.996614,-76.761182",
+        "photos": [],
+        "tracks": []
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -76.26388060000001,
+          42.843534
+        ]
+      },
+      "properties": {
+        "id": "otisco-lake-dec-boat-ramp",
+        "name": "Otisco Lake DEC Boat Ramp",
+        "description": "",
+        "region": "NY",
+        "water_body_name": "",
+        "water_body_type": "",
+        "access_type": "",
+        "parking_notes": "",
+        "tags": [],
+        "nearest_gauge_site_no": "",
+        "source_url": "https://www.google.com/maps/place/Otisco+Lake+DEC+Boat+Ramp/data=!4m2!3m1!1s0x89da1b63225db531:0xf9109a5aa3c3eda5",
+        "photos": [],
+        "tracks": []
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -76.5772109,
+          42.0069509
+        ]
+      },
+      "properties": {
+        "id": "15-white-wagon-boat-launch-chemung-river",
+        "name": "#15 White Wagon Boat Launch (Chemung River)",
+        "description": "",
+        "region": "NY",
+        "water_body_name": "",
+        "water_body_type": "",
+        "access_type": "",
+        "parking_notes": "",
+        "tags": [],
+        "nearest_gauge_site_no": "",
+        "source_url": "https://www.google.com/maps/place/%2315+White+Wagon+Boat+Launch+(Chemung+River)/data=!4m2!3m1!1s0x89d00c3c84eaa40d:0x2bc32ac28509d5d2",
+        "photos": [],
+        "tracks": []
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -76.63392329999999,
+          42.00328
+        ]
+      },
+      "properties": {
+        "id": "wyncoop-creek-boat-launch",
+        "name": "Wyncoop Creek Boat Launch",
+        "description": "",
+        "region": "NY",
+        "water_body_name": "",
+        "water_body_type": "",
+        "access_type": "",
+        "parking_notes": "",
+        "tags": [],
+        "nearest_gauge_site_no": "",
+        "source_url": "https://www.google.com/maps/place/Wyncoop+Creek+Boat+Launch/data=!4m2!3m1!1s0x89d00dfd9247cef9:0x822486c2a604e4bb",
+        "photos": [],
+        "tracks": []
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -76.723146,
+          42.0175929
+        ]
+      },
+      "properties": {
+        "id": "14-toll-bridge-park-boat-launch-chemung-river",
+        "name": "#14 Toll Bridge Park Boat Launch (Chemung River)",
+        "description": "",
+        "region": "NY",
+        "water_body_name": "",
+        "water_body_type": "",
+        "access_type": "",
+        "parking_notes": "",
+        "tags": [],
+        "nearest_gauge_site_no": "",
+        "source_url": "https://www.google.com/maps/place/%2314+Toll+Bridge+Park+Boat+Launch+(Chemung+River)/data=!4m2!3m1!1s0x89d013fca72f7d29:0x80edecf837190b18",
+        "photos": [],
+        "tracks": []
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -76.512653,
+          42.4573166
+        ]
+      },
+      "properties": {
+        "id": "allan-h-treman-state-marine-park",
+        "name": "Allan H. Treman State Marine Park",
+        "description": "",
+        "region": "NY",
+        "water_body_name": "",
+        "water_body_type": "",
+        "access_type": "",
+        "parking_notes": "",
+        "tags": [],
+        "nearest_gauge_site_no": "",
+        "source_url": "https://www.google.com/maps/place/Allan+H.+Treman+State+Marine+Park/data=!4m2!3m1!1s0x89d080cb659455d5:0xe72acc997bff7ae6",
+        "photos": [],
+        "tracks": []
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -76.5124743,
+          42.4529589
+        ]
+      },
+      "properties": {
+        "id": "ithaca-dragon-boat-club",
+        "name": "Ithaca Dragon Boat Club",
+        "description": "",
+        "region": "NY",
+        "water_body_name": "",
+        "water_body_type": "",
+        "access_type": "",
+        "parking_notes": "",
+        "tags": [],
+        "nearest_gauge_site_no": "",
+        "source_url": "https://www.google.com/maps/place/Ithaca+Dragon+Boat+Club/data=!4m2!3m1!1s0x89d0817d672d9457:0xe4a1a875cfb2c0a",
+        "photos": [],
+        "tracks": []
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.88944359999999,
+          42.8489863
+        ]
+      },
+      "properties": {
+        "id": "aqueduct-rowing-club",
+        "name": "Aqueduct Rowing Club",
+        "description": "",
+        "region": "NY",
+        "water_body_name": "",
+        "water_body_type": "",
+        "access_type": "",
+        "parking_notes": "",
+        "tags": [],
+        "nearest_gauge_site_no": "",
+        "source_url": "https://www.google.com/maps/place/Aqueduct+Rowing+Club/data=!4m2!3m1!1s0x89de6deb6f8ea65f:0x9a349f5f8c42c10",
+        "photos": [],
+        "tracks": []
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -77.681128,
+          43.094474
+        ]
+      },
+      "properties": {
+        "id": "black-creek-boat-launch",
+        "name": "Black Creek boat launch",
+        "description": "",
+        "region": "NY",
+        "water_body_name": "",
+        "water_body_type": "",
+        "access_type": "",
+        "parking_notes": "",
+        "tags": [],
+        "nearest_gauge_site_no": "",
+        "source_url": "https://www.google.com/maps/place/Black+Creek+boat+launch/data=!4m2!3m1!1s0x89d14d07a98c375f:0xcd20c3077696ea72",
+        "photos": [],
+        "tracks": []
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -77.52618919999999,
+          43.1757378
+        ]
+      },
+      "properties": {
+        "id": "baycreek-paddling-center",
+        "name": "BayCreek Paddling Center",
+        "description": "",
+        "region": "NY",
+        "water_body_name": "",
+        "water_body_type": "",
+        "access_type": "",
+        "parking_notes": "",
+        "tags": [],
+        "nearest_gauge_site_no": "",
+        "source_url": "https://www.google.com/maps/place/BayCreek+Paddling+Center/data=!4m2!3m1!1s0x89d6ca301d468ad7:0xd18a6440d245d6a4",
+        "photos": [],
+        "tracks": []
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -77.4431996,
+          43.1028579
+        ]
+      },
+      "properties": {
+        "id": "erie-canal-boat-company",
+        "name": "Erie Canal Boat Company",
+        "description": "",
+        "region": "NY",
+        "water_body_name": "",
+        "water_body_type": "",
+        "access_type": "",
+        "parking_notes": "",
+        "tags": [],
+        "nearest_gauge_site_no": "",
+        "source_url": "https://www.google.com/maps/place/Erie+Canal+Boat+Company/data=!4m2!3m1!1s0x89d6cccbdbc1edc9:0x5108ecd8f096f3e5",
+        "photos": [],
+        "tracks": []
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -76.0339778,
+          42.43915579999999
+        ]
+      },
+      "properties": {
+        "id": "marathon-civic-center",
+        "name": "Marathon Civic Center",
+        "description": "",
+        "region": "NY",
+        "water_body_name": "",
+        "water_body_type": "",
+        "access_type": "",
+        "parking_notes": "",
+        "tags": [],
+        "nearest_gauge_site_no": "",
+        "source_url": "https://www.google.com/maps/place/Marathon+Civic+Center/data=!4m2!3m1!1s0x89da5cfc6fc40001:0x4abb73ef610b84a3",
+        "photos": [],
+        "tracks": []
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -76.1594159,
+          42.5996874
+        ]
+      },
+      "properties": {
+        "id": "seven-valleys-new-tech-academy",
+        "name": "Seven Valleys New Tech Academy",
+        "description": "",
+        "region": "NY",
+        "water_body_name": "",
+        "water_body_type": "",
+        "access_type": "",
+        "parking_notes": "",
+        "tags": [],
+        "nearest_gauge_site_no": "",
+        "source_url": "https://www.google.com/maps/place/Seven+Valleys+New+Tech+Academy/data=!4m2!3m1!1s0x89c2c882a835d027:0x4489c5e7ea1e13f5",
+        "photos": [],
+        "tracks": []
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -76.26796139999999,
+          42.7600689
+        ]
+      },
+      "properties": {
+        "id": "andrew-r-fuller-park",
+        "name": "Andrew R. Fuller Park",
+        "description": "",
+        "region": "NY",
+        "water_body_name": "",
+        "water_body_type": "",
+        "access_type": "",
+        "parking_notes": "",
+        "tags": [],
+        "nearest_gauge_site_no": "",
+        "source_url": "https://www.google.com/maps/place/Andrew+R.+Fuller+Park/data=!4m2!3m1!1s0x89da11d9d3a2cd0f:0x23f114633b377a09",
+        "photos": [],
+        "tracks": []
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -76.8670229,
+          42.9011611
+        ]
+      },
+      "properties": {
+        "id": "oak-island-waterloo-ny",
+        "name": "Oak Island, Waterloo NY",
+        "description": "",
+        "region": "NY",
+        "water_body_name": "",
+        "water_body_type": "",
+        "access_type": "",
+        "parking_notes": "",
+        "tags": [],
+        "nearest_gauge_site_no": "",
+        "source_url": "https://www.google.com/maps/place/Oak+Island,+Waterloo+NY/data=!4m2!3m1!1s0x89d0c85e8a294705:0xaf4aa95de6ed0aa6",
+        "photos": [],
+        "tracks": []
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -76.94009679999999,
+          42.8667066
+        ]
+      },
+      "properties": {
+        "id": "seneca-yacht-club",
+        "name": "Seneca Yacht Club",
+        "description": "",
+        "region": "NY",
+        "water_body_name": "",
+        "water_body_type": "",
+        "access_type": "",
+        "parking_notes": "",
+        "tags": [],
+        "nearest_gauge_site_no": "",
+        "source_url": "https://www.google.com/maps/place/Seneca+Yacht+Club/data=!4m2!3m1!1s0x89d0c5ea733427fb:0x83d8ef494d067c63",
+        "photos": [],
+        "tracks": []
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -76.7859878,
+          42.9147109
+        ]
+      },
+      "properties": {
+        "id": "locks-cs2-cs3-ny-canal-corp",
+        "name": "Locks CS2 & CS3 - NY Canal Corp",
+        "description": "",
+        "region": "NY",
+        "water_body_name": "",
+        "water_body_type": "",
+        "access_type": "",
+        "parking_notes": "",
+        "tags": [],
+        "nearest_gauge_site_no": "",
+        "source_url": "https://www.google.com/maps/place/Locks+CS2+%26+CS3+-+NY+Canal+Corp/data=!4m2!3m1!1s0x89d0b653d114eb5b:0xbd108febeb1df7a",
+        "photos": [],
+        "tracks": []
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.9127982,
+          41.7249522
+        ]
+      },
+      "properties": {
+        "id": "35-lakeview-ave",
+        "name": "35 Lakeview Ave",
+        "description": "",
+        "region": "NY",
+        "water_body_name": "",
+        "water_body_type": "",
+        "access_type": "",
+        "parking_notes": "",
+        "tags": [],
+        "nearest_gauge_site_no": "",
+        "source_url": "https://www.google.com/maps/place/35+Lakeview+Ave/data=!4m2!3m1!1s0x89d8b5539fdf109d:0xa4536f551474d752",
+        "photos": [],
+        "tracks": []
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -74.3875645,
+          44.2393434
+        ]
+      },
+      "properties": {
+        "id": "raquette-river-boat-launch-aka-the-crusher",
+        "name": "Raquette River Boat Launch aka The Crusher",
+        "description": "",
+        "region": "NY",
+        "water_body_name": "",
+        "water_body_type": "",
+        "access_type": "",
+        "parking_notes": "",
+        "tags": [],
+        "nearest_gauge_site_no": "",
+        "source_url": "https://www.google.com/maps/place/Raquette+River+Boat+Launch+aka+The+Crusher/data=!4m2!3m1!1s0x4ccb15748d00c24d:0x75b1e28aa7a573eb",
+        "photos": [],
+        "tracks": []
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -74.48377219999999,
+          44.195713
+        ]
+      },
+      "properties": {
+        "id": "tupper-lake-boat-launch",
+        "name": "Tupper Lake Boat Launch",
+        "description": "",
+        "region": "NY",
+        "water_body_name": "",
+        "water_body_type": "",
+        "access_type": "",
+        "parking_notes": "",
+        "tags": [],
+        "nearest_gauge_site_no": "",
+        "source_url": "https://www.google.com/maps/place/Tupper+Lake+Boat+Launch/data=!4m2!3m1!1s0x4ccb406302a1cf3b:0xb2bdccc21a8b90cb",
+        "photos": [],
+        "tracks": []
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -76.266211,
+          43.21023599999999
+        ]
+      },
+      "properties": {
+        "id": "bonstead-rd-rd-public-boat-ramp",
+        "name": "Bonstead Rd Rd Public Boat Ramp",
+        "description": "",
+        "region": "NY",
+        "water_body_name": "",
+        "water_body_type": "",
+        "access_type": "",
+        "parking_notes": "",
+        "tags": [],
+        "nearest_gauge_site_no": "",
+        "source_url": "https://www.google.com/maps/place/Bonstead+Rd+Rd+Public+Boat+Ramp/data=!4m2!3m1!1s0x89d9e91696d1478b:0x7a28c2478521fb63",
+        "photos": [],
+        "tracks": []
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -76.24646899999999,
+          43.1193109
+        ]
+      },
+      "properties": {
+        "id": "syracuse-chargers-boathouse",
+        "name": "Syracuse Chargers Boathouse",
+        "description": "",
+        "region": "NY",
+        "water_body_name": "",
+        "water_body_type": "",
+        "access_type": "",
+        "parking_notes": "",
+        "tags": [],
+        "nearest_gauge_site_no": "",
+        "source_url": "https://www.google.com/maps/place/Syracuse+Chargers+Boathouse/data=!4m2!3m1!1s0x89d9efdd6cbf8137:0xd57f62d33c99dcd8",
+        "photos": [],
+        "tracks": []
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -74.423973,
+          43.9742393
+        ]
+      },
+      "properties": {
+        "id": "long-lake-town-beach",
+        "name": "Long Lake Town Beach",
+        "description": "",
+        "region": "NY",
+        "water_body_name": "",
+        "water_body_type": "",
+        "access_type": "",
+        "parking_notes": "",
+        "tags": [],
+        "nearest_gauge_site_no": "",
+        "source_url": "https://www.google.com/maps/place/Long+Lake+Town+Beach/data=!4m2!3m1!1s0x4ccb32520c2925c1:0xbf796ae5c3c7b3cb",
+        "photos": [],
+        "tracks": []
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -75.76720519999999,
+          42.3305551
+        ]
+      },
+      "properties": {
+        "id": "greene-community-ball-flats",
+        "name": "Greene Community Ball Flats",
+        "description": "",
+        "region": "NY",
+        "water_body_name": "",
+        "water_body_type": "",
+        "access_type": "",
+        "parking_notes": "",
+        "tags": [],
+        "nearest_gauge_site_no": "",
+        "source_url": "https://www.google.com/maps/place/Greene+Community+Ball+Flats/data=!4m2!3m1!1s0x89da55a89ad2fd6d:0x2502835d9d7d24b8",
+        "photos": [],
+        "tracks": []
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -75.24429599999999,
+          42.3667545
+        ]
+      },
+      "properties": {
+        "id": "zaveral-racing-equipment-inc",
+        "name": "Zaveral Racing Equipment Inc.",
+        "description": "",
+        "region": "NY",
+        "water_body_name": "",
+        "water_body_type": "",
+        "access_type": "",
+        "parking_notes": "",
+        "tags": [],
+        "nearest_gauge_site_no": "",
+        "source_url": "https://www.google.com/maps/place/Zaveral+Racing+Equipment+Inc./data=!4m2!3m1!1s0x89dba2b0af64d887:0x2406624e06cd8974",
+        "photos": [],
+        "tracks": []
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -76.46447119999999,
+          42.754922
+        ]
+      },
+      "properties": {
+        "id": "owasco-flats-nature-preserve",
+        "name": "Owasco Flats Nature Preserve",
+        "description": "",
+        "region": "NY",
+        "water_body_name": "",
+        "water_body_type": "",
+        "access_type": "",
+        "parking_notes": "",
+        "tags": [],
+        "nearest_gauge_site_no": "",
+        "source_url": "https://www.google.com/maps/place/Owasco+Flats+Nature+Preserve/data=!4m2!3m1!1s0x89d0a0ac8d2aabd5:0x4a9b0d15f233ee8b",
+        "photos": [],
+        "tracks": []
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -76.516218,
+          42.439529
+        ]
+      },
+      "properties": {
+        "id": "42-26-22-3-n-76-30-58-4-w",
+        "name": "42\u00b026'22.3\"N 76\u00b030'58.4\"W",
+        "description": "Ithaca Inlet 13A parking",
+        "region": "NY",
+        "water_body_name": "",
+        "water_body_type": "",
+        "access_type": "",
+        "parking_notes": "",
+        "tags": [],
+        "nearest_gauge_site_no": "",
+        "source_url": "https://www.google.com/maps/search/42.439529,-76.516218",
+        "photos": [],
+        "tracks": []
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -76.073859,
+          42.676185
+        ]
+      },
+      "properties": {
+        "id": "42-40-34-3-n-76-04-25-9-w",
+        "name": "42\u00b040'34.3\"N 76\u00b004'25.9\"W",
+        "description": "Paddle upstream for about a 2 mile loop",
+        "region": "NY",
+        "water_body_name": "",
+        "water_body_type": "",
+        "access_type": "",
+        "parking_notes": "",
+        "tags": [],
+        "nearest_gauge_site_no": "",
+        "source_url": "https://www.google.com/maps/search/42.676185,-76.073859",
+        "photos": [],
+        "tracks": []
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -74.9711598,
+          42.5284123
+        ]
+      },
+      "properties": {
+        "id": "portlandville-fishing-access-site",
+        "name": "Portlandville Fishing Access Site",
+        "description": "",
+        "region": "NY",
+        "water_body_name": "",
+        "water_body_type": "",
+        "access_type": "",
+        "parking_notes": "",
+        "tags": [],
+        "nearest_gauge_site_no": "",
+        "source_url": "https://www.google.com/maps/place/Portlandville+Fishing+Access+Site/data=!4m2!3m1!1s0x89dbf5e73b99ec3d:0xe0ddbff8b8fb07f4",
+        "photos": [],
+        "tracks": []
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -77.33987340000002,
+          42.6511317
+        ]
+      },
+      "properties": {
+        "id": "high-tor-west-river-unit-wma",
+        "name": "High Tor West River Unit WMA",
+        "description": "",
+        "region": "NY",
+        "water_body_name": "",
+        "water_body_type": "",
+        "access_type": "",
+        "parking_notes": "",
+        "tags": [],
+        "nearest_gauge_site_no": "",
+        "source_url": "https://www.google.com/maps/place/High+Tor+West+River+Unit+WMA/data=!4m2!3m1!1s0x89d11b024d3c297d:0x55e2056d9a88e787",
+        "photos": [],
+        "tracks": []
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -74.3250941,
+          44.2055601
+        ]
+      },
+      "properties": {
+        "id": "dropped-pin-10",
+        "name": "Dropped pin",
+        "description": "Stoney creek / axtons landing",
+        "region": "NY",
+        "water_body_name": "",
+        "water_body_type": "",
+        "access_type": "",
+        "parking_notes": "",
+        "tags": [],
+        "nearest_gauge_site_no": "",
+        "source_url": "https://www.google.com/maps/search/44.2055601,-74.3250941",
+        "photos": [],
+        "tracks": []
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.9896118,
+          42.8305165
+        ]
+      },
+      "properties": {
+        "id": "dropped-pin-11",
+        "name": "Dropped pin",
+        "description": "Patrick\u2019s paddle spot",
+        "region": "NY",
+        "water_body_name": "",
+        "water_body_type": "",
+        "access_type": "",
+        "parking_notes": "",
+        "tags": [],
+        "nearest_gauge_site_no": "",
+        "source_url": "https://www.google.com/maps/search/42.8305165,-73.9896118",
+        "photos": [],
+        "tracks": []
+      }
+    }
+  ]
+}

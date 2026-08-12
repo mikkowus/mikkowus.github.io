@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Paddlespots Contributor Tools</title>
+  <style>
+    body {
+      margin: 0;
+      min-height: 100vh;
+      font-family: system-ui, sans-serif;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: #f3f7fb;
+      color: #1f2937;
+    }
+    .container {
+      max-width: 480px;
+      padding: 32px;
+      background: white;
+      border-radius: 18px;
+      box-shadow: 0 24px 80px rgba(15, 23, 42, 0.12);
+      text-align: center;
+    }
+    h1 { margin: 0 0 8px; font-size: 1.6rem; color: #0f4c81; }
+    p.note { margin: 0 0 24px; line-height: 1.5; color: #64748b; font-size: 0.9rem; }
+    a.button {
+      display: block;
+      padding: 14px 20px;
+      background: #0f4c81;
+      color: white;
+      text-decoration: none;
+      border-radius: 12px;
+      font-weight: 600;
+      margin-bottom: 10px;
+      text-align: left;
+    }
+    a.button:hover { background: #0b3a5c; }
+    a.button .desc { display: block; font-size: 0.8rem; font-weight: 400; color: #cfe0f0; margin-top: 2px; }
+    a.home-link { display: inline-block; margin-top: 16px; color: #64748b; font-size: 0.85rem; }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Contributor Tools</h1>
+    <p class="note">Each of these requires logging in with a contributor or owner access code.</p>
+    <a class="button" href="add-location.html">
+      Add a location
+      <span class="desc">Submit a new paddlespot by GPS capture or dropping a pin</span>
+    </a>
+    <a class="button" href="review.html">
+      Review submissions
+      <span class="desc">Owner-only: approve/reject pending submissions, export as GeoJSON</span>
+    </a>
+    <a class="button" href="import-takeout.html">
+      Import Takeout data
+      <span class="desc">Owner-only: bulk-import a Google Takeout Maps list CSV</span>
+    </a>
+    <a class="home-link" href="index.html">&larr; Back to the map</a>
+  </div>
+</body>
+</html>

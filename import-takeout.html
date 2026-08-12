@@ -1,0 +1,428 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Import Takeout Paddlespots</title>
+  <style>
+    body { margin: 0; font-family: system-ui, sans-serif; background: #eef4fb; color: #14233a; }
+    .wrap { max-width: 720px; margin: 0 auto; padding: 16px; padding-bottom: 48px; }
+    h1 { font-size: 1.3rem; color: #0f4c81; margin: 8px 0 16px; }
+    .card { background: white; border-radius: 14px; padding: 16px; box-shadow: 0 8px 24px rgba(15, 23, 42, 0.08); margin-bottom: 16px; }
+    label { display: block; font-weight: 600; font-size: 0.9rem; margin: 12px 0 4px; }
+    input, textarea { width: 100%; padding: 10px; border: 1px solid #cbd5e1; border-radius: 8px; font-size: 1rem; box-sizing: border-box; font-family: inherit; }
+    button { font-size: 0.95rem; font-weight: 700; padding: 10px 14px; border: none; border-radius: 8px; cursor: pointer; }
+    .btn-primary { background: #0f4c81; color: white; }
+    .btn-link { background: none; color: #0f4c81; text-decoration: underline; padding: 4px; }
+    .status { margin-top: 10px; font-size: 0.9rem; }
+    .status.error { color: #b91c1c; }
+    .status.ok { color: #166534; }
+    .hidden { display: none; }
+    .row-item { display: flex; align-items: flex-start; gap: 8px; padding: 8px 0; border-top: 1px solid #eef2f7; font-size: 0.88rem; }
+    .row-item:first-child { border-top: none; }
+    .row-item .meta { color: #50637b; font-size: 0.8rem; }
+    .pill { display: inline-block; border-radius: 999px; padding: 1px 8px; font-size: 0.72rem; font-weight: 700; margin-left: 6px; }
+    .pill-skip { background: #fee2e2; color: #991b1b; }
+    .pill-dupe { background: #fef3c7; color: #92400e; }
+    .log { font-family: monospace; font-size: 0.78rem; white-space: pre-wrap; max-height: 160px; overflow-y: auto; background: #f8fafc; border-radius: 8px; padding: 8px; margin-top: 8px; }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <h1>Import Takeout Paddlespots</h1>
+
+    <div id="loginCard" class="card hidden">
+      <label for="loginName">Name</label>
+      <input id="loginName" type="text" autocomplete="username" />
+      <label for="loginCode">Access code</label>
+      <input id="loginCode" type="password" autocomplete="current-password" />
+      <button class="btn-primary" id="loginBtn" type="button">Log in</button>
+      <div class="status error" id="loginStatus"></div>
+    </div>
+
+    <div id="deniedCard" class="card hidden">
+      Logged in as <strong id="deniedName"></strong>, but this page requires the owner role.
+      <button class="btn-link" id="logoutBtn2" type="button">Log out</button>
+    </div>
+
+    <div id="mainCard" class="card hidden">
+      <p>
+        Upload a Google Takeout Maps list CSV (e.g. <code>Takeout/Saved/Paddlespots.csv</code>).
+        Rows are classified, place-type rows are geocoded via the Places API, everything is
+        filtered to New York and checked against the live dataset for duplicates, then you
+        choose what to actually submit to the review queue.
+      </p>
+      <label for="csvFile">Takeout CSV file</label>
+      <input id="csvFile" type="file" accept=".csv" />
+      <button class="btn-primary" id="processBtn" type="button" style="margin-top:12px;">Process file</button>
+      <div class="status" id="processStatus"></div>
+      <div class="log hidden" id="log"></div>
+    </div>
+
+    <div class="card hidden" id="reviewCard">
+      <div style="display:flex; justify-content:space-between; align-items:center;">
+        <strong id="reviewSummary"></strong>
+        <button class="btn-link" id="logoutBtn" type="button">Log out</button>
+      </div>
+      <div id="reviewList" style="margin-top:10px;"></div>
+      <button class="btn-primary" id="submitBtn" type="button" style="margin-top:12px;">Submit checked rows to review queue</button>
+      <div class="status" id="submitStatus"></div>
+    </div>
+  </div>
+
+  <script src="shared.js"></script>
+  <script>
+    const API_BASE = location.hostname === 'localhost' || location.hostname === '127.0.0.1'
+      ? 'http://localhost:8787'
+      : 'https://launch-points-api.YOUR-SUBDOMAIN.workers.dev';
+
+    const AUTH_KEY = 'launchPointAuth';
+    const GEOCODE_DELAY_MS = 200;
+    const DUPLICATE_RADIUS_METERS = 180;
+
+    function getAuth() {
+      try {
+        const auth = JSON.parse(localStorage.getItem(AUTH_KEY));
+        if (!auth || !auth.token || new Date(auth.expiresAt) <= new Date()) return null;
+        return auth;
+      } catch {
+        return null;
+      }
+    }
+    function setAuth(auth) { localStorage.setItem(AUTH_KEY, JSON.stringify(auth)); }
+    function clearAuth() { localStorage.removeItem(AUTH_KEY); }
+
+    const loginCard = document.getElementById('loginCard');
+    const deniedCard = document.getElementById('deniedCard');
+    const mainCard = document.getElementById('mainCard');
+    const reviewCard = document.getElementById('reviewCard');
+    const logEl = document.getElementById('log');
+
+    function log(msg) {
+      logEl.classList.remove('hidden');
+      logEl.textContent += msg + '\n';
+      logEl.scrollTop = logEl.scrollHeight;
+    }
+
+    function render() {
+      const auth = getAuth();
+      [loginCard, deniedCard, mainCard].forEach((el) => el.classList.add('hidden'));
+      reviewCard.classList.add('hidden');
+      if (!auth) {
+        loginCard.classList.remove('hidden');
+      } else if (auth.role !== 'owner') {
+        deniedCard.classList.remove('hidden');
+        document.getElementById('deniedName').textContent = auth.name;
+      } else {
+        mainCard.classList.remove('hidden');
+      }
+    }
+
+    document.getElementById('loginBtn').addEventListener('click', async () => {
+      const name = document.getElementById('loginName').value.trim();
+      const code = document.getElementById('loginCode').value;
+      const loginStatus = document.getElementById('loginStatus');
+      loginStatus.textContent = '';
+      try {
+        const res = await fetch(`${API_BASE}/api/login`, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ name, code }),
+        });
+        const data = await res.json();
+        if (!res.ok) throw new Error(data.error || 'Login failed');
+        setAuth(data);
+        render();
+      } catch (err) {
+        loginStatus.textContent = err.message;
+      }
+    });
+
+    document.getElementById('logoutBtn').addEventListener('click', () => { clearAuth(); render(); });
+    document.getElementById('logoutBtn2').addEventListener('click', () => { clearAuth(); render(); });
+
+    function escapeHtml(str) {
+      return (str || '').replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
+    }
+
+    // --- CSV parsing (Takeout "Saved" list format: Title,Note,URL,Tags,Comment) ---
+    function csvSplit(line) {
+      const out = [];
+      let cur = '';
+      let inQuotes = false;
+      for (let i = 0; i < line.length; i++) {
+        const ch = line[i];
+        if (ch === '"') {
+          if (inQuotes && line[i + 1] === '"') { cur += '"'; i++; }
+          else inQuotes = !inQuotes;
+          continue;
+        }
+        if (ch === ',' && !inQuotes) { out.push(cur); cur = ''; continue; }
+        cur += ch;
+      }
+      out.push(cur);
+      return out;
+    }
+
+    function parseTakeoutCsv(text) {
+      const lines = text.split(/\r?\n/).filter((l) => l.trim().length > 0);
+      if (!lines.length) return [];
+      const header = csvSplit(lines[0]).map((h) => h.trim());
+      const idx = {
+        title: header.indexOf('Title'),
+        note: header.indexOf('Note'),
+        url: header.indexOf('URL'),
+      };
+      const records = [];
+      for (let i = 1; i < lines.length; i++) {
+        const row = csvSplit(lines[i]);
+        const title = (row[idx.title] || '').trim();
+        if (!title) continue;
+        records.push({
+          title,
+          note: (row[idx.note] || '').trim(),
+          url: (row[idx.url] || '').trim(),
+        });
+      }
+      return records;
+    }
+
+    // --- URL classification (mirrors extract_saved_places.py's classify_url) ---
+    const COORD_URL_RE = /\/maps\/search\/(-?\d+\.\d+),(-?\d+\.\d+)/;
+
+    function classifyUrl(url) {
+      if (url.includes('/maps/search/')) {
+        const m = url.match(COORD_URL_RE);
+        if (m) return { kind: 'coords', lat: parseFloat(m[1]), lng: parseFloat(m[2]) };
+      }
+      if (url.includes('/maps/place/')) return { kind: 'place' };
+      return { kind: 'other' };
+    }
+
+    // Titles like "Dropped pin" or a bare DMS coordinate string are Google's
+    // fallback label when a save has no real name -- they carry no
+    // identifying information, so two rows sharing one of these "names" are
+    // NOT evidence of being the same place. Name-based dedup only applies to
+    // genuinely specific titles; generic ones rely on proximity alone.
+    const GENERIC_TITLE_RE = /^\d+°/;
+    function isGenericTitle(title) {
+      return title.trim().toLowerCase() === 'dropped pin' || GENERIC_TITLE_RE.test(title.trim());
+    }
+
+    function isNyAddress(formattedAddress) {
+      // Google's formatted_address sometimes ends with a trailing country
+      // clause (", United States") and sometimes doesn't -- allow either.
+      return /,\s*NY\s*\d{0,5}(,.*)?$/.test(formattedAddress || '');
+    }
+
+    function meters_between(lat1, lon1, lat2, lon2) {
+      const r = 6371000;
+      const p1 = (lat1 * Math.PI) / 180;
+      const p2 = (lat2 * Math.PI) / 180;
+      const dp = ((lat2 - lat1) * Math.PI) / 180;
+      const dl = ((lon2 - lon1) * Math.PI) / 180;
+      const a = Math.sin(dp / 2) ** 2 + Math.cos(p1) * Math.cos(p2) * Math.sin(dl / 2) ** 2;
+      return 2 * r * Math.asin(Math.sqrt(a));
+    }
+
+    function slugify(text, existingIds) {
+      let slug = text.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-+|-+$/g, '') || 'spot';
+      let candidate = slug;
+      let n = 2;
+      while (existingIds.has(candidate)) { candidate = `${slug}-${n}`; n++; }
+      existingIds.add(candidate);
+      return candidate;
+    }
+
+    async function geocodePlace(title, token) {
+      const res = await fetch(`${API_BASE}/api/import/geocode`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', Authorization: `Bearer ${token}` },
+        body: JSON.stringify({ query: title }),
+      });
+      const data = await res.json().catch(() => ({}));
+      if (!res.ok) throw new Error(data.error || `HTTP ${res.status}`);
+      return data;
+    }
+
+    let pendingRows = []; // rows that survived classification+NY filter+dedup, ready for review
+
+    async function processFile(file, auth) {
+      const processStatus = document.getElementById('processStatus');
+      const text = await file.text();
+      const records = parseTakeoutCsv(text);
+      log(`Parsed ${records.length} rows from ${file.name}`);
+
+      const existingRes = await fetch('paddlespots.geojson');
+      const existing = existingRes.ok ? await existingRes.json() : { features: [] };
+      const existingIds = new Set(existing.features.map((f) => f.properties.id));
+      const existingPoints = existing.features.map((f) => [
+        f.properties.name, f.geometry.coordinates[1], f.geometry.coordinates[0],
+      ]);
+
+      const candidates = [];
+      let skippedOther = 0, skippedNotNy = 0, skippedGeocodeFailed = 0;
+
+      for (const rec of records) {
+        const cls = classifyUrl(rec.url);
+        if (cls.kind === 'other') { skippedOther++; continue; }
+
+        let lat, lng, formattedAddress = '';
+        if (cls.kind === 'coords') {
+          lat = cls.lat; lng = cls.lng;
+          try {
+            const state = await reverseGeocodeState(lat, lng);
+            if (state !== 'New York') { skippedNotNy++; continue; }
+          } catch (err) {
+            log(`  ! reverse geocode failed for "${rec.title}": ${err.message} (skipped)`);
+            skippedNotNy++;
+            continue;
+          }
+        } else {
+          processStatus.textContent = `Geocoding "${rec.title}"…`;
+          try {
+            const geo = await geocodePlace(rec.title, auth.token);
+            lat = geo.lat; lng = geo.lng; formattedAddress = geo.formatted_address;
+          } catch (err) {
+            log(`  ! geocode failed for "${rec.title}": ${err.message} (skipped)`);
+            skippedGeocodeFailed++;
+            await new Promise((r) => setTimeout(r, GEOCODE_DELAY_MS));
+            continue;
+          }
+          if (!isNyAddress(formattedAddress)) { skippedNotNy++; await new Promise((r) => setTimeout(r, GEOCODE_DELAY_MS)); continue; }
+          await new Promise((r) => setTimeout(r, GEOCODE_DELAY_MS));
+        }
+
+        candidates.push({ title: rec.title, note: rec.note, url: rec.url, lat, lng });
+      }
+
+      log(`Classified: ${candidates.length} in NY, ${skippedOther} non-Maps saves, ${skippedNotNy} outside NY, ${skippedGeocodeFailed} failed to geocode`);
+
+      // Dedupe: exact-coordinate collisions within the batch, then name/proximity
+      // against both the existing dataset and each other.
+      const byCoords = new Map();
+      for (const c of candidates) {
+        const key = `${c.lat.toFixed(6)},${c.lng.toFixed(6)}`;
+        const cur = byCoords.get(key);
+        if (!cur) { byCoords.set(key, c); continue; }
+        if (c.note && !cur.note) byCoords.set(key, c);
+        else if (c.title.length > cur.title.length) byCoords.set(key, c);
+      }
+
+      // Same-name matching only applies to non-generic titles (see
+      // isGenericTitle) -- a generous radius catches a re-pin of the same
+      // real place; the tight radius catches anything close regardless of title.
+      const SAME_NAME_RADIUS_METERS = 5000;
+      const kept = [];
+      const dupes = [];
+      const importedPoints = [];
+      for (const c of byCoords.values()) {
+        const cTitle = c.title.trim().toLowerCase();
+        const generic = isGenericTitle(c.title);
+        const near = [...existingPoints, ...importedPoints].find(([name, lat, lng]) => {
+          const dist = meters_between(lat, lng, c.lat, c.lng);
+          if (dist <= DUPLICATE_RADIUS_METERS) return true;
+          return !generic && name.trim().toLowerCase() === cTitle && dist <= SAME_NAME_RADIUS_METERS;
+        });
+        if (near) { dupes.push({ ...c, reason: `duplicate of "${near[0]}"` }); continue; }
+        importedPoints.push([c.title, c.lat, c.lng]);
+        kept.push(c);
+      }
+
+      log(`After dedup: ${kept.length} ready to review, ${dupes.length} skipped as duplicates`);
+      pendingRows = kept.map((c) => ({ ...c, id: slugify(c.title, existingIds), checked: true }));
+      renderReview(dupes);
+    }
+
+    function renderReview(dupes) {
+      const reviewList = document.getElementById('reviewList');
+      document.getElementById('reviewSummary').textContent =
+        `${pendingRows.length} ready to submit, ${dupes.length} skipped as duplicates`;
+
+      const readyHtml = pendingRows.map((r, i) => `
+        <div class="row-item">
+          <input type="checkbox" data-index="${i}" ${r.checked ? 'checked' : ''} />
+          <div>
+            <div>${escapeHtml(r.title)}</div>
+            <div class="meta">${r.lat.toFixed(5)}, ${r.lng.toFixed(5)}${r.note ? ' — ' + escapeHtml(r.note) : ''}</div>
+          </div>
+        </div>
+      `).join('');
+      const dupeHtml = dupes.map((d) => `
+        <div class="row-item">
+          <div>
+            <div>${escapeHtml(d.title)} <span class="pill pill-dupe">duplicate</span></div>
+            <div class="meta">${d.reason}</div>
+          </div>
+        </div>
+      `).join('');
+
+      reviewList.innerHTML = readyHtml + dupeHtml;
+      reviewList.querySelectorAll('input[type="checkbox"]').forEach((cb) => {
+        cb.addEventListener('change', () => {
+          pendingRows[Number(cb.dataset.index)].checked = cb.checked;
+        });
+      });
+      reviewCard.classList.remove('hidden');
+    }
+
+    document.getElementById('processBtn').addEventListener('click', async () => {
+      const auth = getAuth();
+      if (!auth) { render(); return; }
+      const fileInput = document.getElementById('csvFile');
+      const processStatus = document.getElementById('processStatus');
+      if (!fileInput.files.length) {
+        processStatus.className = 'status error';
+        processStatus.textContent = 'Choose a CSV file first.';
+        return;
+      }
+      logEl.textContent = '';
+      processStatus.className = 'status';
+      processStatus.textContent = 'Processing…';
+      try {
+        await processFile(fileInput.files[0], auth);
+        processStatus.textContent = 'Done. Review the rows below.';
+      } catch (err) {
+        processStatus.className = 'status error';
+        processStatus.textContent = err.message;
+      }
+    });
+
+    document.getElementById('submitBtn').addEventListener('click', async () => {
+      const auth = getAuth();
+      if (!auth) { render(); return; }
+      const submitStatus = document.getElementById('submitStatus');
+      const toSubmit = pendingRows.filter((r) => r.checked);
+      submitStatus.className = 'status';
+      let submitted = 0, failed = 0;
+      for (const r of toSubmit) {
+        submitStatus.textContent = `Submitting ${submitted + failed + 1}/${toSubmit.length}…`;
+        try {
+          const res = await fetch(`${API_BASE}/api/submissions`, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json', Authorization: `Bearer ${auth.token}` },
+            body: JSON.stringify({
+              name: r.title,
+              description: r.note || '',
+              region: 'NY',
+              lat: r.lat,
+              lon: r.lng,
+              tags: [],
+              source: 'bulk-import',
+            }),
+          });
+          if (!res.ok) throw new Error((await res.json().catch(() => ({}))).error || `HTTP ${res.status}`);
+          submitted++;
+        } catch (err) {
+          failed++;
+          log(`  ! submit failed for "${r.title}": ${err.message}`);
+        }
+      }
+      submitStatus.className = failed ? 'status error' : 'status ok';
+      submitStatus.textContent = `Submitted ${submitted}, failed ${failed}. Review them in review.html.`;
+    });
+
+    render();
+  </script>
+</body>
+</html>

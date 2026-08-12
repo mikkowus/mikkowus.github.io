@@ -1,15 +1,20 @@
-"""Sanity-check launch-points.geojson before committing new entries.
+"""Sanity-check paddlespots.geojson before committing new entries.
 
 Not a build step -- run manually after editing the file:
-    python3 scripts/validate_launch_points.py
+    python3 scripts/validate_paddlespots.py
+
+Most entries are real but sparse (imported from a Google Takeout export with
+little beyond a name and coordinates), so only id/name/region are required --
+water_body_name/type, access_type, description etc. are enrichable over time
+and an empty value there is honest, not an error.
 """
 import json
 from pathlib import Path
 
 REPO_ROOT = Path(__file__).resolve().parents[1]
-GEOJSON_PATH = REPO_ROOT / 'launch-points.geojson'
+GEOJSON_PATH = REPO_ROOT / 'paddlespots.geojson'
 
-REQUIRED_PROPERTIES = ['id', 'name', 'description', 'region', 'water_body_name', 'water_body_type']
+REQUIRED_PROPERTIES = ['id', 'name', 'region']
 WATER_BODY_TYPES = {'river', 'lake', 'pond', 'reservoir', 'canal', 'bay'}
 ACCESS_TYPES = {'public-boat-launch', 'carry-in', 'beach', 'private-permission-required'}
 
@@ -68,7 +73,7 @@ def main():
             print(f'  - {e}')
         raise SystemExit(1)
 
-    print(f'OK: {len(data.get("features", []))} launch points validated.')
+    print(f'OK: {len(data.get("features", []))} paddlespots validated.')
 
 
 if __name__ == '__main__':

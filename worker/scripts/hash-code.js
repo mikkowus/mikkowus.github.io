@@ -16,4 +16,4 @@ if (!name || !code) {
 const hash = crypto.createHash('sha256').update(`${name}:${code}`).digest('hex');
 const safeName = name.replace(/'/g, "''");
 
-console.log(`npx wrangler d1 execute launch-points-db --remote --command="INSERT INTO contributors (name, access_code_hash, role) VALUES ('${safeName}', '${hash}', '${role || 'contributor'}')"`);
+console.log(`npx wrangler d1 execute paddlespots-db --remote --command="INSERT INTO contributors (name, access_code_hash, role) VALUES ('${safeName}', '${hash}', '${role || 'contributor'}')"`);
