@@ -1,0 +1,70 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "geometry": { "type": "Point", "coordinates": [-76.5019, 42.4440] },
+      "properties": {
+        "id": "yaman-park",
+        "name": "Yaman Park",
+        "description": "Quiet carry-in launch on the Cayuga Inlet. Gentle current and easy parking make it a good spot for beginners; paddle out to the lake mouth or upstream toward the flood control channel.",
+        "region": "NY",
+        "water_body_name": "Cayuga Inlet",
+        "water_body_type": "river",
+        "access_type": "carry-in",
+        "parking_notes": "Free lot, about 10 spaces. Best water level is between 3.5 ft and 5 ft.",
+        "tags": ["beginner-friendly", "scenic"],
+        "nearest_gauge_site_no": "04234000",
+        "source_url": "https://www.google.com/maps/search/42.4440,-76.5019",
+        "photos": [],
+        "tracks": [
+          {
+            "id": "yaman-inlet-loop",
+            "name": "Inlet loop",
+            "distance_mi": 4.2,
+            "gpx": "tracks/yaman-inlet-loop.gpx",
+            "description": "Out-and-back from the launch to the lake mouth and back."
+          }
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": { "type": "Point", "coordinates": [-76.5286, 42.5033] },
+      "properties": {
+        "id": "stewart-park",
+        "name": "Stewart Park",
+        "description": "Public boat launch at the south end of Cayuga Lake, right next to the fairgrounds. Wide-open water with room to spread out, but can get choppy when it's windy.",
+        "region": "NY",
+        "water_body_name": "Cayuga Lake",
+        "water_body_type": "lake",
+        "access_type": "public-boat-launch",
+        "parking_notes": "Large free lot, rarely full.",
+        "tags": ["family-friendly", "wide-open-water"],
+        "nearest_gauge_site_no": "",
+        "source_url": "https://www.google.com/maps/search/42.5033,-76.5286",
+        "photos": [],
+        "tracks": []
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": { "type": "Point", "coordinates": [-76.3958, 42.6209] },
+      "properties": {
+        "id": "myers-point-park",
+        "name": "Myers Point Park",
+        "description": "Sandy beach launch on the east side of Cayuga Lake. Good sunset paddling, and a short hop across to the Lansing shoreline.",
+        "region": "NY",
+        "water_body_name": "Cayuga Lake",
+        "water_body_type": "lake",
+        "access_type": "beach",
+        "parking_notes": "Small lot, fills up on summer weekends.",
+        "tags": ["scenic"],
+        "nearest_gauge_site_no": "",
+        "source_url": "https://www.google.com/maps/search/42.6209,-76.3958",
+        "photos": [],
+        "tracks": []
+      }
+    }
+  ]
+}

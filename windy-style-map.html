@@ -45,6 +45,26 @@
     }
     .radar-toggle:hover { background: rgba(220, 38, 38, 0.45); }
     .radar-toggle.active { background: #dc2626; border-color: #ef4444; color: white; }
+    .layer-toggle {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 7px 14px;
+      border: 2px solid #16a34a;
+      border-radius: 999px;
+      background: rgba(22, 163, 74, 0.25);
+      color: #dcfce7;
+      font-size: 0.9rem;
+      font-weight: 700;
+      cursor: pointer;
+      transition: background 0.2s ease, border-color 0.2s ease;
+      user-select: none;
+    }
+    .layer-toggle:hover { background: rgba(22, 163, 74, 0.45); }
+    .layer-toggle.active { background: #16a34a; border-color: #22c55e; color: white; }
+    .layer-toggle.routes-toggle { border-color: #7c3aed; background: rgba(124, 58, 237, 0.25); color: #ede9fe; }
+    .layer-toggle.routes-toggle:hover { background: rgba(124, 58, 237, 0.45); }
+    .layer-toggle.routes-toggle.active { background: #7c3aed; border-color: #8b5cf6; color: white; }
     .fc-stepper {
       position: fixed;
       top: 80px;
@@ -83,7 +103,7 @@
       .topbar { padding: 8px 10px; gap: 8px; min-height: 56px; }
       .topbar .brand { font-size: 0.95rem; }
       .topbar .subtitle { display: none; }
-      .radar-toggle { font-size: 0.8rem; padding: 6px 10px; }
+      .radar-toggle, .layer-toggle { font-size: 0.8rem; padding: 6px 10px; }
       .fc-stepper { top: 64px; right: 8px; }
     }
     .leaflet-popup-content-wrapper { border-radius: 18px; border: 1px solid rgba(255,255,255,0.88); box-shadow: 0 14px 36px rgba(0,0,0,0.18); }
@@ -115,6 +135,8 @@
     <div class="brand">Windy-Style Wind Map</div>
     <a href="ny-gauges-map.html">NY Gauges Map</a>
     <div class="subtitle">Click anywhere to inspect wind and direction</div>
+    <button class="layer-toggle active" id="launchPointsToggle" type="button">Launch Points: On</button>
+    <button class="layer-toggle routes-toggle" id="routesToggle" type="button">Routes: Off</button>
     <button class="radar-toggle" id="radarToggle" type="button">Radar: Off</button>
     <div class="fc-stepper" id="fcStepper">
       <button type="button" id="fcMinus" aria-label="Earlier forecast">−</button>
@@ -127,6 +149,7 @@
 
   <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
   <script src="https://unpkg.com/leaflet.markercluster@1.5.3/dist/leaflet.markercluster.js"></script>
+  <script src="https://unpkg.com/leaflet-gpx@2.2.0/gpx.js"></script>
   <script src="shared.js"></script>
   <script>
     const statusEl = document.getElementById('status');
@@ -226,6 +249,8 @@
     function loadStatus(text) {
       statusEl.textContent = text;
     }
+
+    const escapeHtml = (str) => (str || '').replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
 
     function makeWindPopup(lat, lon) {
       const container = document.createElement('div');
@@ -463,10 +488,6 @@
           const notes = (notesIndex !== -1 ? row[notesIndex] : '').replace(/^"|"$/g, '').trim();
           spots.push({ name, notes, lat, lon });
         }
-        
-
-
-        const escapeHtml = (str) => (str || '').replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
 
         const markers = spots.map(s => {
           const m = L.marker([s.lat, s.lon], { icon: paddlespotIcon });
@@ -572,6 +593,168 @@
       }
     }
 
+    // Curated canoe launch points (launch-points.geojson) — kept as its own
+    // layer rather than merged into clusterGroup, so it can be toggled
+    // independently of the paddlespots/gauges cluster.
+    const launchPointIcon = L.divIcon({
+      html: '<div style="width:14px;height:14px;border-radius:50%;background:#16a34a;border:2px solid #86efac;box-shadow:0 1px 4px rgba(0,0,0,0.25);"></div>',
+      className: '',
+      iconSize: [14, 14],
+      iconAnchor: [7, 7],
+    });
+
+    const launchPointsLayer = L.layerGroup().addTo(map);
+    const routesLayer = L.layerGroup();
+    let launchPointsOn = true;
+    let routesOn = false;
+    const gpxLayersByTrackId = new Map();
+
+    function waterBodyMeta(props) {
+      const parts = [props.region, props.water_body_name].filter(Boolean).join(' · ');
+      return props.water_body_type ? `${parts} (${props.water_body_type})` : parts;
+    }
+
+    function tagsHtml(tags) {
+      if (!tags || !tags.length) return '';
+      const pills = tags.map(t => `<span style="display:inline-block; background:#dcfce7; color:#166534; border-radius:999px; padding:2px 10px; font-size:0.78rem; margin:2px 4px 2px 0;">${escapeHtml(t)}</span>`).join('');
+      return `<div class="metric">${pills}</div>`;
+    }
+
+    function tracksHtml(tracks) {
+      if (!tracks || !tracks.length) return '';
+      const items = tracks.map(t => `
+        <div style="margin:4px 0;">
+          ${escapeHtml(t.name)}${t.distance_mi ? ` — ${t.distance_mi} mi` : ''}
+          <button type="button" class="show-route-btn" data-track-id="${escapeHtml(t.id)}" style="margin-left:6px; padding:2px 8px; background:#7c3aed; color:white; border:none; border-radius:6px; font-size:0.78rem; cursor:pointer;">Show route</button>
+        </div>`).join('');
+      return `<div class="metric"><strong>Routes:</strong></div>${items}`;
+    }
+
+    function buildLaunchPointPopup(props) {
+      const container = document.createElement('div');
+      container.className = 'wind-popup';
+      container.innerHTML = `
+        <div class="title">${escapeHtml(props.name)}</div>
+        <div class="meta">${escapeHtml(waterBodyMeta(props))}</div>
+        ${props.description ? `<div class="metric">${escapeHtml(props.description)}</div>` : ''}
+        ${tagsHtml(props.tags)}
+        ${props.access_type || props.parking_notes ? `<div class="metric"><strong>Access:</strong> ${escapeHtml([props.access_type, props.parking_notes].filter(Boolean).join(' — '))}</div>` : ''}
+        <div class="metric launch-gauge-status" style="${props.nearest_gauge_site_no ? '' : 'display:none;'}"><strong>Gauge:</strong> Loading…</div>
+        <div class="metric launch-weather-status"><strong>Weather:</strong> Loading…</div>
+        <div class="metric launch-wind-status"><strong>Wind:</strong> Loading…</div>
+        ${props.source_url ? `<div class="metric"><a href="${props.source_url}" target="_blank" rel="noopener" style="color:#0f4c81;font-weight:700;">View on Google Maps</a></div>` : ''}
+        ${tracksHtml(props.tracks)}
+      `;
+      L.DomEvent.disableClickPropagation(container);
+      return container;
+    }
+
+    function showRoute(trackId) {
+      const layer = gpxLayersByTrackId.get(trackId);
+      if (!layer) return;
+      if (!routesOn) routesToggle.click();
+      if (layer.getLayers().length) {
+        map.fitBounds(layer.getBounds());
+      } else {
+        layer.on('loaded', (e) => map.fitBounds(e.target.getBounds()));
+      }
+    }
+
+    async function loadLaunchPoints() {
+      try {
+        const res = await fetch('launch-points.geojson');
+        if (!res.ok) return; // silently skip if not present
+        const geojson = await res.json();
+        const features = geojson.features || [];
+
+        features.forEach((feature) => {
+          const [lon, lat] = feature.geometry.coordinates;
+          const props = feature.properties || {};
+          const marker = L.marker([lat, lon], { icon: launchPointIcon });
+          marker.bindPopup(buildLaunchPointPopup(props), { minWidth: 240 });
+
+          (props.tracks || []).forEach((track) => {
+            if (!gpxLayersByTrackId.has(track.id)) {
+              const gpxLayer = new L.GPX(track.gpx, {
+                async: true,
+                markers: { startIcon: null, endIcon: null },
+                polyline_options: { color: '#7c3aed', weight: 4, opacity: 0.8 },
+              });
+              gpxLayer.bindPopup(`${escapeHtml(track.name)}${track.distance_mi ? ` — ${track.distance_mi} mi` : ''} (from ${escapeHtml(props.name)})`);
+              gpxLayer.addTo(routesLayer);
+              gpxLayersByTrackId.set(track.id, gpxLayer);
+            }
+          });
+
+          marker.on('popupopen', async () => {
+            const popup = marker.getPopup();
+            const content = popup.getContent();
+            const gaugeEl = content.querySelector('.launch-gauge-status');
+            const weatherEl = content.querySelector('.launch-weather-status');
+            const windEl = content.querySelector('.launch-wind-status');
+            content.querySelectorAll('.show-route-btn').forEach((btn) => {
+              btn.addEventListener('click', () => showRoute(btn.dataset.trackId));
+            });
+
+            if (gaugeEl && props.nearest_gauge_site_no) {
+              try {
+                const water = await fetchGaugeWaterHeight(props.nearest_gauge_site_no);
+                gaugeEl.innerHTML = `<strong>Gauge:</strong> ${water ? `${water.value} ${water.unit} as of ${new Date(water.time).toLocaleString()}` : 'No real-time height available'}`;
+              } catch (err) {
+                gaugeEl.innerHTML = `<strong>Gauge:</strong> <span style="color:#a00;">${err.message}</span>`;
+              }
+              popup.setContent(content).update();
+            }
+
+            try {
+              const w = await fetchWeather(lat, lon);
+              if (weatherEl) weatherEl.innerHTML = `<strong>Weather:</strong> ${w.temperature}°${w.unit}, ${w.short}`;
+              if (windEl) windEl.innerHTML = `<strong>Wind:</strong> ${w.windSpeed} ${w.windDirection || ''}`;
+            } catch (err) {
+              if (weatherEl) weatherEl.innerHTML = `<strong>Weather:</strong> <span style="color:#a00;">${err.message}</span>`;
+              if (windEl) windEl.innerHTML = '<strong>Wind:</strong> n/a';
+            }
+            popup.setContent(content).update();
+          });
+
+          launchPointsLayer.addLayer(marker);
+        });
+
+        loadStatus(`Loaded ${features.length} canoe launch points from launch-points.geojson`);
+      } catch (err) {
+        console.error('Failed to load launch points', err);
+      }
+    }
+
+    const launchPointsToggle = document.getElementById('launchPointsToggle');
+    const routesToggle = document.getElementById('routesToggle');
+
+    launchPointsToggle.addEventListener('click', () => {
+      launchPointsOn = !launchPointsOn;
+      if (launchPointsOn) {
+        map.addLayer(launchPointsLayer);
+        launchPointsToggle.classList.add('active');
+        launchPointsToggle.textContent = 'Launch Points: On';
+      } else {
+        map.removeLayer(launchPointsLayer);
+        launchPointsToggle.classList.remove('active');
+        launchPointsToggle.textContent = 'Launch Points: Off';
+      }
+    });
+
+    routesToggle.addEventListener('click', () => {
+      routesOn = !routesOn;
+      if (routesOn) {
+        map.addLayer(routesLayer);
+        routesToggle.classList.add('active');
+        routesToggle.textContent = 'Routes: On';
+      } else {
+        map.removeLayer(routesLayer);
+        routesToggle.classList.remove('active');
+        routesToggle.textContent = 'Routes: Off';
+      }
+    });
+
     map.on('click', (event) => {
       const { lat, lng } = event.latlng;
       showWindAt(lat, lng);
@@ -580,6 +763,7 @@
     loadStatus('Click anywhere on the map to view current wind conditions.');
     loadGaugeMarkers();
     loadPaddlespots();
+    loadLaunchPoints();
   </script>
 </body>
 </html>
