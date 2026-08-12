@@ -65,6 +65,23 @@
     .layer-toggle.routes-toggle { border-color: #7c3aed; background: rgba(124, 58, 237, 0.25); color: #ede9fe; }
     .layer-toggle.routes-toggle:hover { background: rgba(124, 58, 237, 0.45); }
     .layer-toggle.routes-toggle.active { background: #7c3aed; border-color: #8b5cf6; color: white; }
+    .locate-button {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 7px 14px;
+      border: 2px solid #2563eb;
+      border-radius: 999px;
+      background: rgba(37, 99, 235, 0.25);
+      color: #dbeafe;
+      font-size: 0.9rem;
+      font-weight: 700;
+      cursor: pointer;
+      transition: background 0.2s ease, border-color 0.2s ease;
+      user-select: none;
+    }
+    .locate-button:hover { background: rgba(37, 99, 235, 0.45); }
+    .locate-button.active { background: #2563eb; border-color: #3b82f6; color: white; }
     .fc-stepper {
       position: fixed;
       top: 80px;
@@ -133,10 +150,10 @@
   <div class="topbar">
     <a href="index.html">Home</a>
     <div class="brand">Windy-Style Wind Map</div>
-    <a href="ny-gauges-map.html">NY Gauges Map</a>
     <div class="subtitle">Click anywhere to inspect wind and direction</div>
     <button class="layer-toggle active" id="launchPointsToggle" type="button">Launch Points: On</button>
     <button class="layer-toggle routes-toggle" id="routesToggle" type="button">Routes: Off</button>
+    <button class="locate-button" id="locateButton" type="button"> 🧭 My Position </button>
     <button class="radar-toggle" id="radarToggle" type="button">Radar: Off</button>
     <div class="fc-stepper" id="fcStepper">
       <button type="button" id="fcMinus" aria-label="Earlier forecast">−</button>
@@ -237,6 +254,22 @@
       selectForecast(Math.min(maxMinutes, forecastMin + stepMinutes));
     });
 
+    // Locate button: center the map on the user's position
+    const locateButton = document.getElementById('locateButton');
+    locateButton.addEventListener('click', async () => {
+      locateButton.textContent = '🧭 Locating…';
+      try {
+        const pos = await getCurrentPosition();
+        map.setView([pos.coords.latitude, pos.coords.longitude], 11);
+        locateButton.textContent = '🧭 You are here';
+        loadStatus(`Centered on your location (${pos.coords.latitude.toFixed(4)}, ${pos.coords.longitude.toFixed(4)})`);
+        setTimeout(() => { locateButton.textContent = '🧭 My Position'; }, 2500);
+      } catch (err) {
+        locateButton.textContent = '🧭 My Position';
+        loadStatus(`Location error: ${err.message}`);
+      }
+    });
+
     let clickMarker = null;
 
     const gaugeIcon = L.divIcon({
@@ -281,7 +314,7 @@
 
     function updatePopupContent(statusEl, windData) {
       statusEl.innerHTML = `
-        <div class="metric"><strong>Weather:</strong> ${windData.temperature}°${windData.unit}, ${windData.short}</div>
+        <div class="metric"><strong>Weather:</strong> ${windData.temperature}°${windData.unit}, ${windData.short}${windData.humidity != null ? ', ' + windData.humidity + '% humidity' : ''}</div>
         <div class="metric"><strong>Wind:</strong> ${windData.windSpeed} ${windData.windDirection || ''}</div>
         <div class="metric" style="color:#5b7281; font-size:0.88rem;">${windData.detailed || ''}</div>
       `;
@@ -331,7 +364,7 @@
         }
 
         if (weatherElPopup) {
-          weatherElPopup.innerHTML = `<strong>Weather:</strong> ${weather.temperature}°${weather.unit}, ${weather.short}`;
+          weatherElPopup.innerHTML = `<strong>Weather:</strong> ${weather.temperature}°${weather.unit}, ${weather.short}${weather.humidity != null ? ', ' + weather.humidity + '% humidity' : ''}`;
         }
         if (windElPopup) {
           windElPopup.innerHTML = `<strong>Wind:</strong> ${weather.windSpeed} ${weather.windDirection || ''}`;
@@ -570,7 +603,7 @@
             try {
               const w = await fetchWeather(s.lat, s.lon);
               if (weatherEl) {
-                weatherEl.innerHTML = `<strong>Weather:</strong> ${w.temperature}°${w.unit}, ${w.short}`;
+                weatherEl.innerHTML = `<strong>Weather:</strong> ${w.temperature}°${w.unit}, ${w.short}${w.humidity != null ? ', ' + w.humidity + '% humidity' : ''}`;
               }
               if (windEl) {
                 windEl.innerHTML = `<strong>Wind:</strong> ${w.windSpeed} ${w.windDirection || ''}`;
@@ -708,7 +741,7 @@
 
             try {
               const w = await fetchWeather(lat, lon);
-              if (weatherEl) weatherEl.innerHTML = `<strong>Weather:</strong> ${w.temperature}°${w.unit}, ${w.short}`;
+              if (weatherEl) weatherEl.innerHTML = `<strong>Weather:</strong> ${w.temperature}°${w.unit}, ${w.short}${w.humidity != null ? ', ' + w.humidity + '% humidity' : ''}`;
               if (windEl) windEl.innerHTML = `<strong>Wind:</strong> ${w.windSpeed} ${w.windDirection || ''}`;
             } catch (err) {
               if (weatherEl) weatherEl.innerHTML = `<strong>Weather:</strong> <span style="color:#a00;">${err.message}</span>`;

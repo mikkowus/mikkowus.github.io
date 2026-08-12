@@ -25,3 +25,8 @@ which reads a Google Maps KML export directly and writes
 `paddlespots_coordinates.csv` — the file the map pages actually load. These
 scripts are no longer part of the data pipeline; they're kept only because
 `Paddlespots.csv` (their output) is still in the repo as historical raw data.
+Note: these scripts hardcode a `Paddlespots.csv` path at the repo root or an
+old local `c:\paddleMap\` path — the file itself has since moved to
+`googlePinsScraperTool/Paddlespots.csv`, so re-running these as-is would need
+that path updated first. They're historical/already-applied, not meant to be
+re-run.

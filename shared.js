@@ -1,6 +1,6 @@
-// Shared helpers used by windy-style-map.html and ny-gauges-map.html.
-// Keeping USGS/weather/routing fetch logic in one place avoids the two
-// pages drifting apart when one gets a bug fix and the other doesn't.
+// Shared helpers used by windy-style-map.html, add-location.html, and
+// review.html. Keeping USGS/weather/routing fetch logic in one place avoids
+// pages drifting apart when one gets a bug fix and the others don't.
 
 function parseRdb(text) {
   const lines = text.split(/\r?\n/).filter((line) => line.trim().length > 0 && !line.startsWith('#'));
@@ -76,6 +76,7 @@ async function fetchWeather(lat, lon) {
     temperature: now.temperature,
     unit: now.temperatureUnit,
     short: now.shortForecast,
+    humidity: now.relativeHumidity?.value,
     windSpeed: now.windSpeed,
     windDirection: now.windDirection,
     detailed: now.detailedForecast,
