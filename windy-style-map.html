@@ -277,6 +277,7 @@
         temperature: now.temperature,
         unit: now.temperatureUnit,
         short: now.shortForecast,
+        humidity: now.relativeHumidity?.value,
         windSpeed: now.windSpeed,
         windDirection: now.windDirection,
         detailed: now.detailedForecast,
@@ -285,7 +286,7 @@
 
     function updatePopupContent(statusEl, windData) {
       statusEl.innerHTML = `
-        <div class="metric"><strong>Weather:</strong> ${windData.temperature}°${windData.unit}, ${windData.short}</div>
+        <div class="metric"><strong>Weather:</strong> ${windData.temperature}°${windData.unit}, ${windData.short}, ${windData.humidity != null ? windData.humidity + '% humidity' : ''}</div>
         <div class="metric"><strong>Wind:</strong> ${windData.windSpeed} ${windData.windDirection || ''}${Number(windData.windDirection) >= 0 ? ' / ' + formatWindDirection(windData.windDirection) : ''}</div>
         <div class="metric" style="color:#5b7281; font-size:0.88rem;">${windData.detailed || ''}</div>
       `;
@@ -382,7 +383,7 @@
         }
 
         if (weatherElPopup) {
-          weatherElPopup.innerHTML = `<strong>Weather:</strong> ${weather.temperature}°${weather.unit}, ${weather.short}`;
+          weatherElPopup.innerHTML = `<strong>Weather:</strong> ${weather.temperature}°${weather.unit}, ${weather.short}, ${weather.humidity != null ? weather.humidity + '% humidity' : ''}`;
         }
         if (windElPopup) {
           const windDirectionText = Number(weather.windDirection) >= 0 ? ` / ${formatWindDirection(weather.windDirection)}` : '';
@@ -681,7 +682,7 @@
             try {
               const w = await fetchWind(s.lat, s.lon);
               if (weatherEl) {
-                weatherEl.innerHTML = `<strong>Weather:</strong> ${w.temperature}°${w.unit}, ${w.short}`;
+                weatherEl.innerHTML = `<strong>Weather:</strong> ${w.temperature}°${w.unit}, ${w.short}, ${w.humidity != null ? w.humidity + '% humidity' : ''}`;
               }
               if (windEl) {
                 const windDirectionText = Number(w.windDirection) >= 0 ? ` / ${formatWindDirection(w.windDirection)}` : '';
