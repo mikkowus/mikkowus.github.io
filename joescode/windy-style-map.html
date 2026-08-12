@@ -1,0 +1,821 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Windy-Style Wind Map</title>
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+  <link rel="stylesheet" href="https://unpkg.com/leaflet.markercluster@1.5.3/dist/MarkerCluster.css" />
+  <link rel="stylesheet" href="https://unpkg.com/leaflet.markercluster@1.5.3/dist/MarkerCluster.Default.css" />
+  <style>
+    body { margin: 0; font-family: system-ui, sans-serif; background: #eef4fb; }
+    #map { position: absolute; inset: 0; }
+    .topbar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      min-height: 72px;
+      padding: 12px 18px;
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      background: rgba(14, 46, 87, 0.94);
+      color: white;
+      z-index: 1000;
+      box-shadow: 0 10px 36px rgba(3, 12, 31, 0.16);
+    }
+    .topbar .brand { font-size: 1.1rem; font-weight: 700; letter-spacing: 0.02em; }
+    .topbar .subtitle { color: #d2e3ff; font-size: 0.95rem; margin-left: auto; }
+    .topbar a { color: #a9cfff; text-decoration: none; font-weight: 600; }
+    .radar-toggle {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 7px 14px;
+      border: 2px solid #dc2626;
+      border-radius: 999px;
+      background: rgba(220, 38, 38, 0.25);
+      color: #ffe4e6;
+      font-size: 0.9rem;
+      font-weight: 700;
+      cursor: pointer;
+      transition: background 0.2s ease, border-color 0.2s ease;
+      user-select: none;
+    }
+    .radar-toggle:hover { background: rgba(220, 38, 38, 0.45); }
+    .radar-toggle.active { background: #dc2626; border-color: #ef4444; color: white; }
+    .layer-toggle {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 7px 14px;
+      border: 2px solid #16a34a;
+      border-radius: 999px;
+      background: rgba(22, 163, 74, 0.25);
+      color: #dcfce7;
+      font-size: 0.9rem;
+      font-weight: 700;
+      cursor: pointer;
+      transition: background 0.2s ease, border-color 0.2s ease;
+      user-select: none;
+    }
+    .layer-toggle:hover { background: rgba(22, 163, 74, 0.45); }
+    .layer-toggle.active { background: #16a34a; border-color: #22c55e; color: white; }
+    .layer-toggle.routes-toggle { border-color: #7c3aed; background: rgba(124, 58, 237, 0.25); color: #ede9fe; }
+    .layer-toggle.routes-toggle:hover { background: rgba(124, 58, 237, 0.45); }
+    .layer-toggle.routes-toggle.active { background: #7c3aed; border-color: #8b5cf6; color: white; }
+    .locate-button {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 7px 14px;
+      border: 2px solid #2563eb;
+      border-radius: 999px;
+      background: rgba(37, 99, 235, 0.25);
+      color: #dbeafe;
+      font-size: 0.9rem;
+      font-weight: 700;
+      cursor: pointer;
+      transition: background 0.2s ease, border-color 0.2s ease;
+      user-select: none;
+    }
+    .locate-button:hover { background: rgba(37, 99, 235, 0.45); }
+    .locate-button.active { background: #2563eb; border-color: #3b82f6; color: white; }
+    .fc-stepper {
+      position: fixed;
+      top: 80px;
+      right: 12px;
+      display: none;
+      align-items: center;
+      gap: 2px;
+      background: rgba(14, 46, 87, 0.94);
+      padding: 4px 6px;
+      border-radius: 999px;
+      box-shadow: 0 8px 24px rgba(3, 12, 31, 0.2);
+      z-index: 1000;
+    }
+    .fc-stepper button {
+      border: none;
+      background: transparent;
+      color: #fff;
+      font-size: 1.2rem;
+      font-weight: 700;
+      line-height: 1;
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      cursor: pointer;
+      user-select: none;
+    }
+    .fc-stepper button:hover { background: rgba(255,255,255,0.15); }
+    .fc-stepper .fc-value {
+      color: #d2e3ff;
+      font-size: 0.85rem;
+      font-weight: 700;
+      min-width: 46px;
+      text-align: center;
+    }
+    @media (max-width: 640px) {
+      .topbar { padding: 8px 10px; gap: 8px; min-height: 56px; }
+      .topbar .brand { font-size: 0.95rem; }
+      .topbar .subtitle { display: none; }
+      .radar-toggle, .layer-toggle { font-size: 0.8rem; padding: 6px 10px; }
+      .fc-stepper { top: 64px; right: 8px; }
+    }
+    .leaflet-popup-content-wrapper { border-radius: 18px; border: 1px solid rgba(255,255,255,0.88); box-shadow: 0 14px 36px rgba(0,0,0,0.18); }
+    .wind-popup { min-width: 240px; font-family: system-ui, sans-serif; color: #14233a; }
+    .wind-popup .title { font-size: 1rem; font-weight: 700; margin-bottom: 6px; }
+    .wind-popup .meta { color: #50637b; font-size: 0.92rem; margin-bottom: 12px; }
+    .wind-popup .metric { margin: 10px 0; display: flex; align-items: baseline; gap: 6px; flex-wrap: wrap; }
+    .wind-popup .metric strong { display: inline-block; width: 76px; color: #0f4c81; }
+    .wind-popup .wind-arrow { display: inline-flex; align-items: center; gap: 8px; margin-top: 6px; }
+    .wind-popup .wind-arrow span.arrow { display: inline-block; width: 24px; height: 24px; line-height: 24px; text-align: center; border-radius: 50%; background: rgba(15, 76, 129, 0.12); color: #0f4c81; font-size: 1rem; transform-origin: center; }
+    .status-box {
+      position: absolute;
+      bottom: 18px;
+      left: 18px;
+      padding: 12px 14px;
+      background: rgba(255,255,255,0.95);
+      border-radius: 14px;
+      box-shadow: 0 12px 32px rgba(0,0,0,0.12);
+      color: #172a44;
+      font-size: 0.95rem;
+      z-index: 1000;
+      max-width: 340px;
+    }
+  </style>
+</head>
+<body>
+  <div class="topbar">
+    <a href="index.html">Home</a>
+    <div class="brand">Windy-Style Wind Map</div>
+    <div class="subtitle">Click anywhere to inspect wind and direction</div>
+    <!--<button class="layer-toggle active" id="launchPointsToggle" type="button">Launch Points: On</button>-->
+    <!--<button class="layer-toggle routes-toggle" id="routesToggle" type="button">Routes: Off</button>-->
+    <button class="locate-button" id="locateButton" type="button"> 🧭 My Position </button>
+    <button class="radar-toggle" id="radarToggle" type="button">Radar: Off</button>
+    <div class="fc-stepper" id="fcStepper">
+      <button type="button" id="fcMinus" aria-label="Earlier forecast">−</button>
+      <span class="fc-value" id="fcValue">Now</span>
+      <button type="button" id="fcPlus" aria-label="Later forecast">+</button>
+    </div>
+  </div>
+  <div id="map"></div>
+  <div class="status-box" id="status">Click any point on the map to load wind data.</div>
+
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+  <script src="https://unpkg.com/leaflet.markercluster@1.5.3/dist/leaflet.markercluster.js"></script>
+  <script src="https://unpkg.com/leaflet-gpx@2.2.0/gpx.js"></script>
+  <script src="shared.js"></script>
+  <script>
+    const statusEl = document.getElementById('status');
+    const map = L.map('map').setView([42.9, -75.7], 7);
+
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+      attribution: '&copy; OpenStreetMap contributors',
+      maxZoom: 18,
+    }).addTo(map);
+
+    // Optional weather radar overlay (IEM NEXRAD composite + HRRR forecast)
+    const radarLayer = L.tileLayer('https://mesonet.agron.iastate.edu/cache/tile.py/1.0.0/nexrad-n0q-900913/{z}/{x}/{y}.png', {
+      attribution: 'Radar &copy; <a href="https://mesonet.agron.iastate.edu/">IEM NEXRAD</a>',
+      opacity: 0.6,
+      maxZoom: 15,
+      maxNativeZoom: 8,
+      zIndex: 500,
+    });
+
+    function hrrrForecastLayer(min) {
+      const f = String(min).padStart(4, '0');
+      return L.tileLayer(`https://mesonet.agron.iastate.edu/cache/tile.py/1.0.0/hrrr::REFD-F${f}-0/{z}/{x}/{y}.png`, {
+        attribution: 'Forecast &copy; <a href="https://rapidrefresh.noaa.gov/hrrr/">HRRR</a> via <a href="https://mesonet.agron.iastate.edu/">IEM</a>',
+        opacity: 0.6,
+        maxZoom: 15,
+        maxNativeZoom: 8,
+        zIndex: 500,
+      });
+    }
+
+    const radarToggle = document.getElementById('radarToggle');
+    const fcStepper = document.getElementById('fcStepper');
+    const fcMinus = document.getElementById('fcMinus');
+    const fcPlus = document.getElementById('fcPlus');
+    const fcValue = document.getElementById('fcValue');
+    const stepMinutes = 60;
+    const maxMinutes = 6 * stepMinutes;
+    let forecastMin = 0;
+    let radarOn = false;
+    let currentRadarLayer = null;
+
+    function setRadarLayer(layer) {
+      if (currentRadarLayer) map.removeLayer(currentRadarLayer);
+      currentRadarLayer = layer;
+      currentRadarLayer.addTo(map);
+    }
+    
+
+    function selectForecast(min) {
+      forecastMin = min;
+      fcValue.textContent = min === 0 ? 'Now' : `+${min / stepMinutes}h`;
+      if (min === 0) {
+        setRadarLayer(radarLayer);
+        loadStatus('Weather radar overlay enabled (IEM NEXRAD current).');
+      } else {
+        setRadarLayer(hrrrForecastLayer(min));
+        loadStatus(`Weather radar forecast enabled (HRRR +${min / stepMinutes}h).`);
+      }
+    }
+
+    radarToggle.addEventListener('click', () => {
+      radarOn = !radarOn;
+      if (radarOn) {
+        fcStepper.style.display = 'flex';
+        selectForecast(0);
+        radarToggle.classList.add('active');
+        radarToggle.textContent = 'Radar: On';
+      } else {
+        fcStepper.style.display = 'none';
+        if (currentRadarLayer) map.removeLayer(currentRadarLayer);
+        currentRadarLayer = null;
+        radarToggle.classList.remove('active');
+        radarToggle.textContent = 'Radar: Off';
+        loadStatus('Weather radar overlay disabled.');
+      }
+    });
+
+    fcMinus.addEventListener('click', () => {
+      if (!radarOn) return;
+      selectForecast(Math.max(0, forecastMin - stepMinutes));
+    });
+
+    fcPlus.addEventListener('click', () => {
+      if (!radarOn) return;
+      selectForecast(Math.min(maxMinutes, forecastMin + stepMinutes));
+    });
+
+    // Locate button: center the map on the user's position
+    const locateButton = document.getElementById('locateButton');
+    locateButton.addEventListener('click', async () => {
+      locateButton.textContent = '🧭 Locating…';
+      try {
+        const pos = await getCurrentPosition();
+        map.setView([pos.coords.latitude, pos.coords.longitude], 11);
+        locateButton.textContent = '🧭 You are here';
+        loadStatus(`Centered on your location (${pos.coords.latitude.toFixed(4)}, ${pos.coords.longitude.toFixed(4)})`);
+        setTimeout(() => { locateButton.textContent = '🧭 My Position'; }, 2500);
+      } catch (err) {
+        locateButton.textContent = '🧭 My Position';
+        loadStatus(`Location error: ${err.message}`);
+      }
+    });
+
+    let clickMarker = null;
+
+    const gaugeIcon = L.divIcon({
+      html: '<div style="width:12px;height:12px;border-radius:50%;background:#dc2626;border:2px solid #f59e0b;box-shadow:0 1px 4px rgba(0,0,0,0.25);"></div>',
+      className: '',
+      iconSize: [12, 12],
+      iconAnchor: [6, 6],
+    });
+
+    function loadStatus(text) {
+      statusEl.textContent = text;
+    }
+
+    const escapeHtml = (str) => (str || '').replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
+
+    function makeWindPopup(lat, lon) {
+      const container = document.createElement('div');
+      container.className = 'wind-popup';
+
+      const title = document.createElement('div');
+      title.className = 'title';
+      title.textContent = 'Wind observation';
+      container.appendChild(title);
+
+      const meta = document.createElement('div');
+      meta.className = 'meta';
+      meta.textContent = `Lat ${lat.toFixed(4)}, Lon ${lon.toFixed(4)}`;
+      container.appendChild(meta);
+
+      const directions = document.createElement('div');
+      directions.className = 'metric';
+      directions.innerHTML = `<a href="https://www.google.com/maps/search/${lat},${lon}" target="_blank" rel="noopener" style="color:#0f4c81;font-weight:700;">Google Maps pin</a>`;
+      container.appendChild(directions);
+
+      const status = document.createElement('div');
+      status.className = 'metric';
+      status.textContent = 'Loading wind data…';
+      container.appendChild(status);
+
+      return { container, status };
+    }
+
+    function updatePopupContent(statusEl, windData) {
+      statusEl.innerHTML = `
+        <div class="metric"><strong>Weather:</strong> ${windData.temperature}°${windData.unit}, ${windData.short}${windData.humidity != null ? ', ' + windData.humidity + '% humidity' : ''}</div>
+        <div class="metric"><strong>Wind:</strong> ${windData.windSpeed} ${windData.windDirection || ''}</div>
+        <div class="metric" style="color:#5b7281; font-size:0.88rem;">${windData.detailed || ''}</div>
+      `;
+    }
+
+    function buildGaugePopup(site) {
+      const container = document.createElement('div');
+      container.className = 'wind-popup';
+      container.innerHTML = `
+        <div class="title">${site.station_nm || 'USGS gauge'}</div>
+        <div class="meta">USGS ${site.site_no}</div>
+        <div class="metric"><strong>Location:</strong> ${site.dec_lat_va}, ${site.dec_long_va}</div>
+        <div class="metric gauge-water-status"><strong>Status:</strong> Data loading…</div>
+        <div class="metric gauge-weather-status"><strong>Weather:</strong> Loading…</div>
+        <div class="metric gauge-wind-status"><strong>Wind:</strong> Loading…</div>
+      `;
+      L.DomEvent.disableClickPropagation(container);
+      return container;
+    }
+
+    async function loadGaugeSite(site, marker) {
+      const popup = marker.getPopup();
+      const popupContent = popup?.getContent();
+      const statusElPopup = popupContent?.querySelector('.gauge-water-status');
+      const weatherElPopup = popupContent?.querySelector('.gauge-weather-status');
+      const windElPopup = popupContent?.querySelector('.gauge-wind-status');
+      if (statusElPopup) {
+        statusElPopup.innerHTML = '<strong>Status:</strong> Data loading…';
+      }
+      if (weatherElPopup) {
+        weatherElPopup.innerHTML = '<strong>Weather:</strong> Loading…';
+      }
+      if (windElPopup) {
+        windElPopup.innerHTML = '<strong>Wind:</strong> Loading…';
+      }
+      try {
+        const [water, weather] = await Promise.all([
+          fetchGaugeWaterHeight(site.site_no),
+          fetchWeather(parseFloat(site.dec_lat_va), parseFloat(site.dec_long_va)),
+        ]);
+
+        const waterText = water
+          ? `${water.value} ${water.unit} as of ${new Date(water.time).toLocaleString()}`
+          : 'No real-time height available';
+        if (statusElPopup) {
+          statusElPopup.innerHTML = `<strong>Status:</strong> ${waterText}`;
+        }
+
+        if (weatherElPopup) {
+          weatherElPopup.innerHTML = `<strong>Weather:</strong> ${weather.temperature}°${weather.unit}, ${weather.short}${weather.humidity != null ? ', ' + weather.humidity + '% humidity' : ''}`;
+        }
+        if (windElPopup) {
+          windElPopup.innerHTML = `<strong>Wind:</strong> ${weather.windSpeed} ${weather.windDirection || ''}`;
+        }
+
+        if (popup) {
+          marker.getPopup().setContent(popup.getContent()).update();
+        }
+      } catch (err) {
+        if (weatherElPopup) {
+          weatherElPopup.innerHTML = `<strong>Weather:</strong> <span style="color:#a00;">${err.message}</span>`;
+        }
+        if (windElPopup) {
+          windElPopup.innerHTML = '<strong>Wind:</strong> n/a';
+        }
+        if (popup) {
+          marker.getPopup().setContent(popup.getContent()).update();
+        }
+      }
+    }
+
+    async function showWindAt(lat, lon) {
+      if (clickMarker) {
+        clickMarker.remove();
+      }
+
+      const { container, status } = makeWindPopup(lat, lon);
+      clickMarker = L.marker([lat, lon]).addTo(map);
+      clickMarker.bindPopup(container).openPopup();
+      loadStatus('Loading wind data...');
+
+      try {
+        const windData = await fetchWeather(lat, lon);
+        updatePopupContent(status, windData);
+        clickMarker.getPopup().setContent(container).update();
+        loadStatus(`Wind at ${lat.toFixed(4)}, ${lon.toFixed(4)} loaded`);
+      } catch (err) {
+        status.textContent = err.message;
+        clickMarker.getPopup().setContent(container).update();
+        loadStatus('Unable to load wind data');
+        console.error(err);
+      }
+    }
+
+    // shared cluster group so paddlespots and gauges cluster together
+    const clusterGroup = L.markerClusterGroup({
+      disableClusteringAtZoom: 9,
+      spiderfyOnMaxZoom: true,
+    });
+    map.addLayer(clusterGroup);
+
+    async function loadGaugeMarkers() {
+      try {
+        const sites = await fetchGaugeSites();
+        const markers = [];
+
+        sites.forEach((site) => {
+          const lat = parseFloat(site.dec_lat_va);
+          const lon = parseFloat(site.dec_long_va);
+          if (Number.isNaN(lat) || Number.isNaN(lon)) return;
+          const marker = L.marker([lat, lon], { icon: gaugeIcon });
+          marker.bindPopup(buildGaugePopup(site), { minWidth: 240 });
+          marker.on('popupopen', () => {
+            marker.openPopup();
+            loadGaugeSite(site, marker);
+          });
+          markers.push(marker);
+        });
+
+        clusterGroup.addLayers(markers);
+        loadStatus(`Loaded ${sites.length} NY USGS gauges. Click a marker for status. Click anywhere else for wind.`);
+      } catch (err) {
+        console.error(err);
+        loadStatus('Unable to load NY USGS gauges. USGS service may be unavailable.');
+      }
+    }
+
+    // paddlespot icon (blue) and loader
+    const paddlespotIcon = L.divIcon({
+      html: '<div style="width:12px;height:12px;border-radius:50%;background:#2563eb;border:2px solid #60a5fa;box-shadow:0 1px 4px rgba(0,0,0,0.18);"></div>',
+      className: '',
+      iconSize: [12, 12],
+      iconAnchor: [6, 6],
+    });
+
+    async function loadPaddlespots() {
+      try {
+        const res = await fetch('paddlespots_coordinates.csv');
+        if (!res.ok) return; // silently skip if not present
+        const text = await res.text();
+        const lines = text.split(/\r?\n/).filter(l => l.trim().length > 0);
+
+        // simple CSV row splitter that handles quoted fields
+        function csvSplit(line) {
+          const out = [];
+          let cur = '';
+          let inQuotes = false;
+          for (let i = 0; i < line.length; i++) {
+            const ch = line[i];
+            if (ch === '"') {
+              if (inQuotes && line[i+1] === '"') { cur += '"'; i++; }
+              else inQuotes = !inQuotes;
+              continue;
+            }
+            if (ch === ',' && !inQuotes) {
+              out.push(cur);
+              cur = '';
+              continue;
+            }
+            cur += ch;
+          }
+          out.push(cur);
+          return out;
+        }
+
+        if (lines.length < 1) return;
+        const header = csvSplit(lines[0]).map(h => h.trim().replace(/^"|"$/g, ''));
+        const lower = header.map(h => h.toLowerCase());
+        const nameIndex = lower.indexOf('name');
+        const notesIndex = lower.indexOf('notes');
+        const latIndex = lower.indexOf('latitude');
+        const lonIndex = lower.indexOf('longitude');
+
+        const spots = [];
+        const numRe = /^-?\d+(?:\.\d+)?$/;
+
+        for (let i = 1; i < lines.length; i++) {
+          const row = csvSplit(lines[i]);
+          let lat = null, lon = null;
+
+          if (latIndex !== -1 && lonIndex !== -1) {
+            const la = (row[latIndex] || '').trim();
+            const lo = (row[lonIndex] || '').trim();
+            if (numRe.test(la) && numRe.test(lo)) {
+              lat = parseFloat(la);
+              lon = parseFloat(lo);
+            }
+          }
+
+          // fallback: check last two columns
+          if ((lat === null || lon === null) && row.length >= 2) {
+            const lastTwo = row.slice(-2);
+            if (numRe.test(lastTwo[0]) && numRe.test(lastTwo[1])) {
+              lat = parseFloat(lastTwo[0]);
+              lon = parseFloat(lastTwo[1]);
+            }
+          }
+
+          if (lat === null || lon === null) continue;
+          if (Number.isNaN(lat) || Number.isNaN(lon)) continue;
+          // filter to NY bounding box (approx)
+          if (lat < 40.0 || lat > 45.6 || lon < -80.0 || lon > -71.0) continue;
+          const name = (nameIndex !== -1 ? row[nameIndex] : row[0] || '').replace(/^"|"$/g, '').trim() || 'Paddlespot';
+          const notes = (notesIndex !== -1 ? row[notesIndex] : '').replace(/^"|"$/g, '').trim();
+          spots.push({ name, notes, lat, lon });
+        }
+
+        const markers = spots.map(s => {
+          const m = L.marker([s.lat, s.lon], { icon: paddlespotIcon });
+          const container = document.createElement('div');
+          container.className = 'wind-popup';
+          const notesHtml = s.notes ? `<div class="metric" style="background:#eff6ff; border-left:3px solid #2563eb; padding:6px 10px; margin:8px 0; border-radius:4px; font-size:0.88rem; color:#1e40af;"><strong>Note:</strong> ${escapeHtml(s.notes)}</div>` : '';
+          container.innerHTML = `
+            <div class="title">${escapeHtml(s.name)}</div>
+            ${notesHtml}
+            <div class="meta">Lat ${s.lat.toFixed(5)}, Lon ${s.lon.toFixed(5)}</div>
+            <div class="metric paddle-drive-status"><span style="white-space:nowrap;"><strong style="display:inline; font-size:0.85rem; font-weight:700;">Drive:</strong> <span style="font-size:0.72rem; font-weight:400; color:#50637b;">(inaccurate)</span></span> Getting your location…</div>
+            <div class="metric paddle-weather-status"><strong>Weather:</strong> Data loading…</div>
+            <div class="metric paddle-wind-status"><strong>Wind:</strong> Loading…</div>
+          `;
+          // Keep clicks inside the popup from bubbling to the map (which would
+          // close this popup and open a wind-observation popup instead).
+          L.DomEvent.disableClickPropagation(container);
+          m.bindPopup(container, { minWidth: 220 });
+          m.on('popupopen', async () => {
+            const popup = m.getPopup();
+            const content = popup.getContent();
+            const weatherEl = content.querySelector('.paddle-weather-status');
+            const windEl = content.querySelector('.paddle-wind-status');
+            const driveEl = content.querySelector('.paddle-drive-status');
+
+            async function setDriveText(html) {
+              if (driveEl) driveEl.innerHTML = `<span style="white-space:nowrap;"><strong style="display:inline; font-size:0.85rem; font-weight:700;">Drive:</strong> <span style="font-size:0.72rem; font-weight:400; color:#50637b;">(inaccurate)</span></span> ${html}`;
+              popup.setContent(content).update();
+            }
+
+            function driveResultHtml(info, originLat, originLon) {
+              const dest = `${s.lat},${s.lon}`;
+              const originParam = (originLat !== undefined && originLon !== undefined) ? `&origin=${originLat},${originLon}` : '';
+              const url = `https://www.google.com/maps/dir/?api=1&destination=${dest}${originParam}&travelmode=driving`;
+              return `~${formatDriveDistance(info.distance)} · ${formatDriveDuration(info.duration)} <a href="${url}" target="_blank" rel="noopener" style="color:#0f4c81;font-weight:700;">(Google Maps directions)</a>`;
+            }
+
+            async function showDriveAddressFallback() {
+              if (!driveEl) return;
+              driveEl.innerHTML = `<span style="white-space:nowrap;"><strong style="display:inline; font-size:0.85rem; font-weight:700;">Drive:</strong> <span style="font-size:0.72rem; font-weight:400; color:#50637b;">(inaccurate)</span></span> <input class="drive-origin" type="text" placeholder="Type starting address" style="width:170px;padding:4px 6px;border:1px solid #cbd5e1;border-radius:6px;font-size:0.82rem;" /> <button class="drive-go" type="button" style="padding:4px 10px;background:#0f4c81;color:white;border:none;border-radius:6px;font-size:0.82rem;cursor:pointer;">Go</button>`;
+              popup.setContent(content).update();
+              const originInput = driveEl.querySelector('.drive-origin');
+              const goButton = driveEl.querySelector('.drive-go');
+              async function lookupOrigin() {
+                const q = originInput.value.trim();
+                if (!q) return;
+                await setDriveText('Looking up address…');
+                try {
+                  const origin = await geocodeAddress(q);
+                  await setDriveText('Calculating route…');
+                  const info = await fetchDriveInfo(origin.lat, origin.lon, s.lat, s.lon);
+                  await setDriveText(driveResultHtml(info, origin.lat, origin.lon));
+                } catch (err) {
+                  await setDriveText(`<span style="color:#a00;">${err.message}</span>`);
+                }
+              }
+              goButton.addEventListener('click', lookupOrigin);
+              originInput.addEventListener('keydown', (event) => {
+                if (event.key === 'Enter') {
+                  event.preventDefault();
+                  lookupOrigin();
+                }
+              });
+            }
+
+            if (driveEl) {
+              try {
+                const pos = await getCurrentPosition();
+                await setDriveText('Calculating route…');
+                const info = await fetchDriveInfo(pos.coords.latitude, pos.coords.longitude, s.lat, s.lon);
+                await setDriveText(driveResultHtml(info, pos.coords.latitude, pos.coords.longitude));
+              } catch (err) {
+                await setDriveText(`<span style="color:#a00;">${err.message}</span>`);
+                showDriveAddressFallback();
+              }
+            }
+
+            if (weatherEl) weatherEl.innerHTML = '<strong>Weather:</strong> Loading…';
+            if (windEl) windEl.innerHTML = '<strong>Wind:</strong> Loading…';
+            try {
+              const w = await fetchWeather(s.lat, s.lon);
+              if (weatherEl) {
+                weatherEl.innerHTML = `<strong>Weather:</strong> ${w.temperature}°${w.unit}, ${w.short}${w.humidity != null ? ', ' + w.humidity + '% humidity' : ''}`;
+              }
+              if (windEl) {
+                windEl.innerHTML = `<strong>Wind:</strong> ${w.windSpeed} ${w.windDirection || ''}`;
+              }
+              popup.setContent(content).update();
+            } catch (err) {
+              if (weatherEl) weatherEl.innerHTML = `<strong>Weather:</strong> <span style="color:#a00;">${err.message}</span>`;
+              if (windEl) windEl.innerHTML = '<strong>Wind:</strong> n/a';
+              popup.setContent(content).update();
+            }
+          });
+          return m;
+        });
+        clusterGroup.addLayers(markers);
+        if (spots.length > 0) {
+          loadStatus(`Loaded ${spots.length} paddlespots (NY) from paddlespots_coordinates.csv`);
+        }
+      } catch (err) {
+        console.error('Failed to load paddlespots', err);
+      }
+    }
+
+    // Curated canoe launch points (launch-points.geojson) — kept as its own
+    // layer rather than merged into clusterGroup, so it can be toggled
+    // independently of the paddlespots/gauges cluster.
+    const launchPointIcon = L.divIcon({
+      html: '<div style="width:14px;height:14px;border-radius:50%;background:#16a34a;border:2px solid #86efac;box-shadow:0 1px 4px rgba(0,0,0,0.25);"></div>',
+      className: '',
+      iconSize: [14, 14],
+      iconAnchor: [7, 7],
+    });
+
+    const launchPointsLayer = L.layerGroup().addTo(map);
+    const routesLayer = L.layerGroup();
+    let launchPointsOn = true;
+    let routesOn = false;
+    const gpxLayersByTrackId = new Map();
+
+    function waterBodyMeta(props) {
+      const parts = [props.region, props.water_body_name].filter(Boolean).join(' · ');
+      return props.water_body_type ? `${parts} (${props.water_body_type})` : parts;
+    }
+
+    function tagsHtml(tags) {
+      if (!tags || !tags.length) return '';
+      const pills = tags.map(t => `<span style="display:inline-block; background:#dcfce7; color:#166534; border-radius:999px; padding:2px 10px; font-size:0.78rem; margin:2px 4px 2px 0;">${escapeHtml(t)}</span>`).join('');
+      return `<div class="metric">${pills}</div>`;
+    }
+
+    function tracksHtml(tracks) {
+      if (!tracks || !tracks.length) return '';
+      const items = tracks.map(t => `
+        <div style="margin:4px 0;">
+          ${escapeHtml(t.name)}${t.distance_mi ? ` — ${t.distance_mi} mi` : ''}
+          <button type="button" class="show-route-btn" data-track-id="${escapeHtml(t.id)}" style="margin-left:6px; padding:2px 8px; background:#7c3aed; color:white; border:none; border-radius:6px; font-size:0.78rem; cursor:pointer;">Show route</button>
+        </div>`).join('');
+      return `<div class="metric"><strong>Routes:</strong></div>${items}`;
+    }
+
+    function buildLaunchPointPopup(props) {
+      const container = document.createElement('div');
+      container.className = 'wind-popup';
+      container.innerHTML = `
+        <div class="title">${escapeHtml(props.name)}</div>
+        <div class="meta">${escapeHtml(waterBodyMeta(props))}</div>
+        ${props.description ? `<div class="metric">${escapeHtml(props.description)}</div>` : ''}
+        ${tagsHtml(props.tags)}
+        ${props.access_type || props.parking_notes ? `<div class="metric"><strong>Access:</strong> ${escapeHtml([props.access_type, props.parking_notes].filter(Boolean).join(' — '))}</div>` : ''}
+        <div class="metric launch-gauge-status" style="${props.nearest_gauge_site_no ? '' : 'display:none;'}"><strong>Gauge:</strong> Loading…</div>
+        <div class="metric launch-weather-status"><strong>Weather:</strong> Loading…</div>
+        <div class="metric launch-wind-status"><strong>Wind:</strong> Loading…</div>
+        ${props.source_url ? `<div class="metric"><a href="${props.source_url}" target="_blank" rel="noopener" style="color:#0f4c81;font-weight:700;">View on Google Maps</a></div>` : ''}
+        ${tracksHtml(props.tracks)}
+      `;
+      L.DomEvent.disableClickPropagation(container);
+      return container;
+    }
+
+    function showRoute(trackId) {
+      const layer = gpxLayersByTrackId.get(trackId);
+      if (!layer) return;
+      if (!routesOn) setRoutesOn(true);
+      if (layer.getLayers().length) {
+        map.fitBounds(layer.getBounds());
+      } else {
+        layer.on('loaded', (e) => map.fitBounds(e.target.getBounds()));
+      }
+    }
+
+    async function loadLaunchPoints() {
+      try {
+        const res = await fetch('launch-points.geojson');
+        if (!res.ok) return; // silently skip if not present
+        const geojson = await res.json();
+        const features = geojson.features || [];
+
+        features.forEach((feature) => {
+          const [lon, lat] = feature.geometry.coordinates;
+          const props = feature.properties || {};
+          const marker = L.marker([lat, lon], { icon: launchPointIcon });
+          marker.bindPopup(buildLaunchPointPopup(props), { minWidth: 240 });
+
+          (props.tracks || []).forEach((track) => {
+            if (!gpxLayersByTrackId.has(track.id)) {
+              const gpxLayer = new L.GPX(track.gpx, {
+                async: true,
+                markers: { startIcon: null, endIcon: null },
+                polyline_options: { color: '#7c3aed', weight: 4, opacity: 0.8 },
+              });
+              gpxLayer.bindPopup(`${escapeHtml(track.name)}${track.distance_mi ? ` — ${track.distance_mi} mi` : ''} (from ${escapeHtml(props.name)})`);
+              gpxLayer.addTo(routesLayer);
+              gpxLayersByTrackId.set(track.id, gpxLayer);
+            }
+          });
+
+          marker.on('popupopen', async () => {
+            const popup = marker.getPopup();
+            const content = popup.getContent();
+            const gaugeEl = content.querySelector('.launch-gauge-status');
+            const weatherEl = content.querySelector('.launch-weather-status');
+            const windEl = content.querySelector('.launch-wind-status');
+            content.querySelectorAll('.show-route-btn').forEach((btn) => {
+              btn.addEventListener('click', () => showRoute(btn.dataset.trackId));
+            });
+
+            if (gaugeEl && props.nearest_gauge_site_no) {
+              try {
+                const water = await fetchGaugeWaterHeight(props.nearest_gauge_site_no);
+                gaugeEl.innerHTML = `<strong>Gauge:</strong> ${water ? `${water.value} ${water.unit} as of ${new Date(water.time).toLocaleString()}` : 'No real-time height available'}`;
+              } catch (err) {
+                gaugeEl.innerHTML = `<strong>Gauge:</strong> <span style="color:#a00;">${err.message}</span>`;
+              }
+              popup.setContent(content).update();
+            }
+
+            try {
+              const w = await fetchWeather(lat, lon);
+              if (weatherEl) weatherEl.innerHTML = `<strong>Weather:</strong> ${w.temperature}°${w.unit}, ${w.short}${w.humidity != null ? ', ' + w.humidity + '% humidity' : ''}`;
+              if (windEl) windEl.innerHTML = `<strong>Wind:</strong> ${w.windSpeed} ${w.windDirection || ''}`;
+            } catch (err) {
+              if (weatherEl) weatherEl.innerHTML = `<strong>Weather:</strong> <span style="color:#a00;">${err.message}</span>`;
+              if (windEl) windEl.innerHTML = '<strong>Wind:</strong> n/a';
+            }
+            popup.setContent(content).update();
+          });
+
+          launchPointsLayer.addLayer(marker);
+        });
+
+        loadStatus(`Loaded ${features.length} canoe launch points from launch-points.geojson`);
+      } catch (err) {
+        console.error('Failed to load launch points', err);
+      }
+    }
+
+    // Buttons are optional here (the site owner has toggled hiding them via
+    // HTML comments) -- the underlying layers still work either way, just
+    // without a UI control to flip them when the button is absent.
+    const launchPointsToggle = document.getElementById('launchPointsToggle');
+    const routesToggle = document.getElementById('routesToggle');
+
+    function setLaunchPointsOn(on) {
+      launchPointsOn = on;
+      if (on) {
+        map.addLayer(launchPointsLayer);
+        if (launchPointsToggle) {
+          launchPointsToggle.classList.add('active');
+          launchPointsToggle.textContent = 'Launch Points: On';
+        }
+      } else {
+        map.removeLayer(launchPointsLayer);
+        if (launchPointsToggle) {
+          launchPointsToggle.classList.remove('active');
+          launchPointsToggle.textContent = 'Launch Points: Off';
+        }
+      }
+    }
+
+    function setRoutesOn(on) {
+      routesOn = on;
+      if (on) {
+        map.addLayer(routesLayer);
+        if (routesToggle) {
+          routesToggle.classList.add('active');
+          routesToggle.textContent = 'Routes: On';
+        }
+      } else {
+        map.removeLayer(routesLayer);
+        if (routesToggle) {
+          routesToggle.classList.remove('active');
+          routesToggle.textContent = 'Routes: Off';
+        }
+      }
+    }
+
+    if (launchPointsToggle) {
+      launchPointsToggle.addEventListener('click', () => setLaunchPointsOn(!launchPointsOn));
+    }
+
+    if (routesToggle) {
+      routesToggle.addEventListener('click', () => setRoutesOn(!routesOn));
+    }
+
+    map.on('click', (event) => {
+      const { lat, lng } = event.latlng;
+      showWindAt(lat, lng);
+    });
+
+    loadStatus('Click anywhere on the map to view current wind conditions.');
+    loadGaugeMarkers();
+    loadPaddlespots();
+    loadLaunchPoints();
+  </script>
+</body>
+</html>

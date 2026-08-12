@@ -1,1 +1,81 @@
-Hello world! make stuff here
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>joescode test hub</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: system-ui, sans-serif;
+      background: #eef4fb;
+      color: #14233a;
+    }
+    .wrap { max-width: 640px; margin: 0 auto; padding: 24px 16px 48px; }
+    h1 { font-size: 1.4rem; color: #0f4c81; margin: 8px 0 4px; }
+    .note { color: #50637b; font-size: 0.9rem; margin-bottom: 20px; }
+    .card { background: white; border-radius: 14px; padding: 18px 20px; box-shadow: 0 8px 24px rgba(15, 23, 42, 0.08); margin-bottom: 18px; }
+    .card h2 { font-size: 1.05rem; margin: 0 0 10px; color: #163d57; }
+    a.button {
+      display: block;
+      padding: 12px 16px;
+      background: #0f4c81;
+      color: white;
+      text-decoration: none;
+      border-radius: 10px;
+      font-weight: 700;
+      margin-bottom: 8px;
+      text-align: center;
+    }
+    a.button:hover { background: #0b3a5c; }
+    a.button.secondary { background: #2563eb; }
+    a.button.secondary:hover { background: #1d4ed8; }
+    ul.checklist { padding-left: 20px; margin: 0; }
+    ul.checklist li { margin-bottom: 8px; line-height: 1.4; }
+    code { background: #eef2f7; padding: 1px 6px; border-radius: 4px; font-size: 0.85em; }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <h1>joescode test hub</h1>
+    <p class="note">
+      Temporary staging area for testing the canoe launch-points feature before it's changed
+      at the real site root. Not linked from the real site nav — this page and everything
+      under <code>joescode/</code> is just for verifying changes before/after they go through
+      a normal PR.
+    </p>
+
+    <div class="card">
+      <h2>What changed this round</h2>
+      <p>
+        The three seed entries in <code>launch-points.geojson</code> had placeholder
+        coordinates that didn't match their real-world locations:
+      </p>
+      <ul class="checklist">
+        <li><strong>Stewart Park</strong> was landing in the middle of Cayuga Lake — moved to its real shore location.</li>
+        <li><strong>"Myers Point Park"</strong> was misnamed and mislocated — corrected to <strong>Myers Park</strong> (Town of Lansing) at its real shoreline location.</li>
+        <li><strong>Yaman Park</strong> was placed near Ithaca on the Cayuga Inlet — the real Yaman Park is a boat launch in <strong>Cortland, NY</strong> on the Tioughnioga River; description, access type, and nearest USGS gauge corrected to match.</li>
+        <li>The sample GPS route (for testing the "Routes" layer) moved from the old Yaman Park spot to the corrected Myers Park location.</li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <h2>Pages</h2>
+      <a class="button" href="windy-style-map.html">Map (gauges, paddlespots, launch points, routes)</a>
+      <a class="button secondary" href="add-location.html">Add a location (mobile)</a>
+      <a class="button secondary" href="review.html">Review submissions (owner)</a>
+    </div>
+
+    <div class="card">
+      <h2>Checklist</h2>
+      <ul class="checklist">
+        <li>Open the map. If the "Launch Points"/"Routes" toggle buttons aren't visible, the layers should still be there by default -- click a green marker anyway.</li>
+        <li>Click each of the 3 launch points (near Ithaca, near Lansing on Cayuga Lake, and near Cortland) and confirm the marker sits on real land/shoreline, not in open water.</li>
+        <li>Open Myers Park's popup, click "Show route," and confirm a sample route line renders near the correct shoreline.</li>
+        <li>On <strong>Add a location</strong>: log in, use "Use my location" or tap the map to place a pin, fill in the form, and save.</li>
+        <li>On <strong>Review submissions</strong>: log in as the owner, confirm the test submission shows up pending, approve it, then use "Export approved as GeoJSON" and sanity-check the output shape.</li>
+      </ul>
+    </div>
+  </div>
+</body>
+</html>
