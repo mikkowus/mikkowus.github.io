@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Add a Launch Point</title>
+  <link rel="manifest" href="manifest.json" />
+  <meta name="theme-color" content="#0f4c81" />
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+  <style>
+    :root { color-scheme: light; }
+    body {
+      margin: 0;
+      font-family: system-ui, sans-serif;
+      background: #eef4fb;
+      color: #14233a;
+    }
+    .wrap { max-width: 480px; margin: 0 auto; padding: 16px; padding-bottom: 48px; }
+    h1 { font-size: 1.3rem; color: #0f4c81; margin: 8px 0 16px; }
+    .card {
+      background: white;
+      border-radius: 14px;
+      padding: 16px;
+      box-shadow: 0 8px 24px rgba(15, 23, 42, 0.08);
+      margin-bottom: 16px;
+    }
+    label { display: block; font-weight: 600; font-size: 0.9rem; margin: 12px 0 4px; }
+    input, select, textarea {
+      width: 100%;
+      padding: 10px;
+      border: 1px solid #cbd5e1;
+      border-radius: 8px;
+      font-size: 1rem;
+      box-sizing: border-box;
+      font-family: inherit;
+    }
+    textarea { resize: vertical; min-height: 60px; }
+    button {
+      font-size: 1rem;
+      font-weight: 700;
+      padding: 12px 16px;
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+    }
+    .btn-primary { background: #0f4c81; color: white; width: 100%; margin-top: 16px; }
+    .btn-secondary { background: #e2e8f0; color: #0f4c81; width: 100%; }
+    .btn-link { background: none; color: #0f4c81; text-decoration: underline; padding: 4px; }
+    #pickMap { height: 220px; border-radius: 10px; margin: 10px 0; }
+    .status { margin-top: 10px; font-size: 0.9rem; }
+    .status.error { color: #b91c1c; }
+    .status.ok { color: #166534; }
+    .topbar { display: flex; align-items: center; justify-content: space-between; margin-bottom: 8px; }
+    .topbar .who { font-size: 0.85rem; color: #50637b; }
+    .draft-item { display: flex; justify-content: space-between; align-items: center; padding: 8px 0; border-top: 1px solid #eef2f7; font-size: 0.9rem; }
+    .draft-item:first-child { border-top: none; }
+    .pill { display: inline-block; background: #fef3c7; color: #92400e; border-radius: 999px; padding: 2px 8px; font-size: 0.75rem; }
+    #loginView.hidden, #mainView.hidden { display: none; }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <h1>Add a Launch Point</h1>
+
+    <div id="loginView" class="card hidden">
+      <label for="loginName">Name</label>
+      <input id="loginName" type="text" autocomplete="username" />
+      <label for="loginCode">Access code</label>
+      <input id="loginCode" type="password" autocomplete="current-password" />
+      <button class="btn-primary" id="loginBtn" type="button">Log in</button>
+      <div class="status error" id="loginStatus"></div>
+    </div>
+
+    <div id="mainView" class="card hidden">
+      <div class="topbar">
+        <span class="who">Logged in as <strong id="whoName"></strong></span>
+        <button class="btn-link" id="logoutBtn" type="button">Log out</button>
+      </div>
+
+      <button class="btn-secondary" id="locateBtn" type="button">Use my location</button>
+      <div id="pickMap"></div>
+      <div class="status" id="locateStatus">Tap the map or use your location to place the pin.</div>
+
+      <label for="fName">Name</label>
+      <input id="fName" type="text" required />
+
+      <label for="fDescription">Description</label>
+      <textarea id="fDescription"></textarea>
+
+      <label for="fRegion">Region</label>
+      <input id="fRegion" type="text" value="NY" />
+
+      <label for="fWaterBodyName">Water body name</label>
+      <input id="fWaterBodyName" type="text" />
+
+      <label for="fWaterBodyType">Water body type</label>
+      <select id="fWaterBodyType">
+        <option value="">(unspecified)</option>
+        <option value="river">River</option>
+        <option value="lake">Lake</option>
+        <option value="pond">Pond</option>
+        <option value="reservoir">Reservoir</option>
+        <option value="canal">Canal</option>
+        <option value="bay">Bay</option>
+      </select>
+
+      <label for="fAccessType">Access type</label>
+      <select id="fAccessType">
+        <option value="">(unspecified)</option>
+        <option value="public-boat-launch">Public boat launch</option>
+        <option value="carry-in">Carry-in</option>
+        <option value="beach">Beach</option>
+        <option value="private-permission-required">Private (permission required)</option>
+      </select>
+
+      <label for="fParkingNotes">Parking notes</label>
+      <textarea id="fParkingNotes"></textarea>
+
+      <label for="fTags">Tags (comma-separated)</label>
+      <input id="fTags" type="text" placeholder="beginner-friendly, scenic" />
+
+      <label for="fGaugeSite">Nearest USGS gauge site # (optional)</label>
+      <input id="fGaugeSite" type="text" />
+
+      <label for="fSourceUrl">Source URL (optional)</label>
+      <input id="fSourceUrl" type="url" />
+
+      <button class="btn-primary" id="saveBtn" type="button">Save</button>
+      <div class="status" id="saveStatus"></div>
+    </div>
+
+    <div class="card" id="draftsCard" style="display:none;">
+      <div class="topbar">
+        <strong>Unsynced drafts</strong>
+        <button class="btn-link" id="syncNowBtn" type="button">Sync now</button>
+      </div>
+      <div id="draftsList"></div>
+    </div>
+  </div>
+
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+  <script src="shared.js"></script>
+  <script src="offline-queue.js"></script>
+  <script>
+    // During local dev this file is served from the same http.server as the
+    // rest of the site, so "localhost" always means "hit the local wrangler
+    // dev API". Replace the production URL after `wrangler deploy`.
+    const API_BASE = location.hostname === 'localhost' || location.hostname === '127.0.0.1'
+      ? 'http://localhost:8787'
+      : 'https://launch-points-api.YOUR-SUBDOMAIN.workers.dev';
+
+    const AUTH_KEY = 'launchPointAuth';
+
+    function getAuth() {
+      try {
+        const auth = JSON.parse(localStorage.getItem(AUTH_KEY));
+        if (!auth || !auth.token || new Date(auth.expiresAt) <= new Date()) return null;
+        return auth;
+      } catch {
+        return null;
+      }
+    }
+
+    function setAuth(auth) {
+      localStorage.setItem(AUTH_KEY, JSON.stringify(auth));
+    }
+
+    function clearAuth() {
+      localStorage.removeItem(AUTH_KEY);
+    }
+
+    const loginView = document.getElementById('loginView');
+    const mainView = document.getElementById('mainView');
+    const loginStatus = document.getElementById('loginStatus');
+    const whoName = document.getElementById('whoName');
+
+    function showLoggedIn(auth) {
+      loginView.classList.add('hidden');
+      mainView.classList.remove('hidden');
+      whoName.textContent = auth.name;
+    }
+
+    function showLoggedOut() {
+      mainView.classList.add('hidden');
+      loginView.classList.remove('hidden');
+    }
+
+    document.getElementById('loginBtn').addEventListener('click', async () => {
+      const name = document.getElementById('loginName').value.trim();
+      const code = document.getElementById('loginCode').value;
+      loginStatus.textContent = '';
+      if (!name || !code) {
+        loginStatus.textContent = 'Enter both your name and access code.';
+        return;
+      }
+      try {
+        const res = await fetch(`${API_BASE}/api/login`, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ name, code }),
+        });
+        const data = await res.json();
+        if (!res.ok) throw new Error(data.error || 'Login failed');
+        setAuth(data);
+        showLoggedIn(data);
+        renderDrafts();
+      } catch (err) {
+        loginStatus.textContent = navigator.onLine === false
+          ? 'You appear to be offline — logging in for the first time requires a connection.'
+          : err.message;
+      }
+    });
+
+    document.getElementById('logoutBtn').addEventListener('click', () => {
+      clearAuth();
+      showLoggedOut();
+    });
+
+    // --- Map / pin picking ---
+    const pickMap = L.map('pickMap').setView([42.44, -76.50], 12);
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+      attribution: '&copy; OpenStreetMap contributors',
+      maxZoom: 18,
+    }).addTo(pickMap);
+    const pickMarker = L.marker([42.44, -76.50], { draggable: true }).addTo(pickMap);
+
+    pickMap.on('click', (e) => pickMarker.setLatLng(e.latlng));
+
+    document.getElementById('locateBtn').addEventListener('click', async () => {
+      const locateStatus = document.getElementById('locateStatus');
+      locateStatus.textContent = 'Getting your location…';
+      try {
+        const pos = await getCurrentPosition();
+        const latlng = [pos.coords.latitude, pos.coords.longitude];
+        pickMarker.setLatLng(latlng);
+        pickMap.setView(latlng, 15);
+        locateStatus.textContent = `Pin placed at ${latlng[0].toFixed(5)}, ${latlng[1].toFixed(5)}. Drag to adjust.`;
+      } catch (err) {
+        locateStatus.textContent = `Could not get your location (${err.message}). Tap the map to place the pin manually.`;
+      }
+    });
+
+    // --- Save ---
+    function buildPayload() {
+      const latlng = pickMarker.getLatLng();
+      const tags = document.getElementById('fTags').value
+        .split(',').map((t) => t.trim()).filter(Boolean);
+      return {
+        name: document.getElementById('fName').value.trim(),
+        description: document.getElementById('fDescription').value.trim(),
+        region: document.getElementById('fRegion').value.trim(),
+        water_body_name: document.getElementById('fWaterBodyName').value.trim(),
+        water_body_type: document.getElementById('fWaterBodyType').value,
+        access_type: document.getElementById('fAccessType').value,
+        parking_notes: document.getElementById('fParkingNotes').value.trim(),
+        tags,
+        nearest_gauge_site_no: document.getElementById('fGaugeSite').value.trim(),
+        source_url: document.getElementById('fSourceUrl').value.trim(),
+        lat: latlng.lat,
+        lon: latlng.lng,
+      };
+    }
+
+    function clearForm() {
+      ['fName', 'fDescription', 'fWaterBodyName', 'fParkingNotes', 'fTags', 'fGaugeSite', 'fSourceUrl'].forEach((id) => {
+        document.getElementById(id).value = '';
+      });
+      document.getElementById('fRegion').value = 'NY';
+      document.getElementById('fWaterBodyType').value = '';
+      document.getElementById('fAccessType').value = '';
+    }
+
+    async function submitPayload(payload, token) {
+      const res = await fetch(`${API_BASE}/api/submissions`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', Authorization: `Bearer ${token}` },
+        body: JSON.stringify(payload),
+      });
+      if (!res.ok) {
+        const data = await res.json().catch(() => ({}));
+        throw new Error(data.error || `Server responded ${res.status}`);
+      }
+    }
+
+    document.getElementById('saveBtn').addEventListener('click', async () => {
+      const saveStatus = document.getElementById('saveStatus');
+      const auth = getAuth();
+      if (!auth) { showLoggedOut(); return; }
+
+      const payload = buildPayload();
+      if (!payload.name) {
+        saveStatus.className = 'status error';
+        saveStatus.textContent = 'Name is required.';
+        return;
+      }
+
+      if (navigator.onLine) {
+        try {
+          saveStatus.className = 'status';
+          saveStatus.textContent = 'Saving…';
+          await submitPayload(payload, auth.token);
+          saveStatus.className = 'status ok';
+          saveStatus.textContent = 'Saved! Submitted for review.';
+          clearForm();
+          return;
+        } catch (err) {
+          // Fall through to local queueing -- the submission itself may have
+          // failed for a reason unrelated to connectivity (e.g. an expired
+          // session), but queueing it locally means the data is never lost.
+          console.warn('Direct submit failed, queueing locally', err);
+        }
+      }
+
+      await saveDraft(payload);
+      saveStatus.className = 'status ok';
+      saveStatus.textContent = 'Saved locally — will sync when back online.';
+      clearForm();
+      renderDrafts();
+    });
+
+    // --- Offline drafts ---
+    async function renderDrafts() {
+      const draftsCard = document.getElementById('draftsCard');
+      const draftsList = document.getElementById('draftsList');
+      const drafts = await getUnsyncedDrafts();
+      if (!drafts.length) {
+        draftsCard.style.display = 'none';
+        return;
+      }
+      draftsCard.style.display = 'block';
+      draftsList.innerHTML = drafts.map((d) => `
+        <div class="draft-item">
+          <span>${(d.payload.name || 'Untitled').replace(/&/g, '&amp;').replace(/</g, '&lt;')}</span>
+          <span class="pill">not synced</span>
+        </div>
+      `).join('');
+    }
+
+    async function trySync() {
+      const auth = getAuth();
+      if (!auth || !navigator.onLine) return;
+      const { synced } = await flushDrafts(API_BASE, auth.token);
+      if (synced > 0) renderDrafts();
+    }
+
+    document.getElementById('syncNowBtn').addEventListener('click', trySync);
+    window.addEventListener('online', trySync);
+
+    // --- Init ---
+    const initialAuth = getAuth();
+    if (initialAuth) {
+      showLoggedIn(initialAuth);
+    } else {
+      showLoggedOut();
+    }
+    renderDrafts();
+    trySync();
+
+    if ('serviceWorker' in navigator) {
+      navigator.serviceWorker.register('sw.js').catch((err) => console.warn('Service worker registration failed', err));
+    }
+  </script>
+</body>
+</html>
