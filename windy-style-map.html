@@ -685,7 +685,7 @@
     function showRoute(trackId) {
       const layer = gpxLayersByTrackId.get(trackId);
       if (!layer) return;
-      if (!routesOn) routesToggle.click();
+      if (!routesOn) setRoutesOn(true);
       if (layer.getLayers().length) {
         map.fitBounds(layer.getBounds());
       } else {
@@ -759,34 +759,53 @@
       }
     }
 
+    // Buttons are optional here (the site owner has toggled hiding them via
+    // HTML comments) -- the underlying layers still work either way, just
+    // without a UI control to flip them when the button is absent.
     const launchPointsToggle = document.getElementById('launchPointsToggle');
     const routesToggle = document.getElementById('routesToggle');
 
-    launchPointsToggle.addEventListener('click', () => {
-      launchPointsOn = !launchPointsOn;
-      if (launchPointsOn) {
+    function setLaunchPointsOn(on) {
+      launchPointsOn = on;
+      if (on) {
         map.addLayer(launchPointsLayer);
-        launchPointsToggle.classList.add('active');
-        launchPointsToggle.textContent = 'Launch Points: On';
+        if (launchPointsToggle) {
+          launchPointsToggle.classList.add('active');
+          launchPointsToggle.textContent = 'Launch Points: On';
+        }
       } else {
         map.removeLayer(launchPointsLayer);
-        launchPointsToggle.classList.remove('active');
-        launchPointsToggle.textContent = 'Launch Points: Off';
+        if (launchPointsToggle) {
+          launchPointsToggle.classList.remove('active');
+          launchPointsToggle.textContent = 'Launch Points: Off';
+        }
       }
-    });
+    }
 
-    routesToggle.addEventListener('click', () => {
-      routesOn = !routesOn;
-      if (routesOn) {
+    function setRoutesOn(on) {
+      routesOn = on;
+      if (on) {
         map.addLayer(routesLayer);
-        routesToggle.classList.add('active');
-        routesToggle.textContent = 'Routes: On';
+        if (routesToggle) {
+          routesToggle.classList.add('active');
+          routesToggle.textContent = 'Routes: On';
+        }
       } else {
         map.removeLayer(routesLayer);
-        routesToggle.classList.remove('active');
-        routesToggle.textContent = 'Routes: Off';
+        if (routesToggle) {
+          routesToggle.classList.remove('active');
+          routesToggle.textContent = 'Routes: Off';
+        }
       }
-    });
+    }
+
+    if (launchPointsToggle) {
+      launchPointsToggle.addEventListener('click', () => setLaunchPointsOn(!launchPointsOn));
+    }
+
+    if (routesToggle) {
+      routesToggle.addEventListener('click', () => setRoutesOn(!routesOn));
+    }
 
     map.on('click', (event) => {
       const { lat, lng } = event.latlng;
