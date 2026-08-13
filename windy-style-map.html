@@ -65,16 +65,23 @@
     }
     .map-zoom-controls button:hover { background: rgba(255, 255, 255, 0.15); }
     .radar-controls {
+      --radar-control-height: 34px;
       display: flex;
       flex-direction: column;
       align-items: center;
       gap: 4px;
+      flex: 0 0 108px;
+      width: 108px;
     }
     .radar-toggle {
       display: inline-flex;
+      box-sizing: border-box;
       align-items: center;
       gap: 8px;
+      justify-content: center;
+      height: var(--radar-control-height);
       padding: 7px 14px;
+      width: 100%;
       border: 2px solid #dc2626;
       border-radius: 999px;
       background: rgba(220, 38, 38, 0.25);
@@ -139,10 +146,13 @@
     .fc-stepper {
       position: static;
       display: none;
+      box-sizing: border-box;
       align-items: center;
       gap: 2px;
       background: rgba(14, 46, 87, 0.508);
-      padding: 4px 6px;
+      height: var(--radar-control-height);
+      padding: 0 6px;
+      width: 100%;
       border-radius: 999px;
       box-shadow: 0 8px 24px rgba(3, 12, 31, 0.2);
       z-index: 1000;
@@ -154,8 +164,9 @@
       font-size: 1.2rem;
       font-weight: 700;
       line-height: 1;
-      width: 32px;
-      height: 32px;
+      width: auto;
+      flex: 1 1 0;
+      height: 100%;
       border-radius: 50%;
       cursor: pointer;
       user-select: none;
@@ -165,7 +176,8 @@
       color: #d2e3ff;
       font-size: 0.85rem;
       font-weight: 700;
-      min-width: 46px;
+      min-width: 0;
+      flex: 1 1 0;
       text-align: center;
     }
     @media (max-width: 640px) {
@@ -173,6 +185,7 @@
       .topbar .brand { font-size: 0.95rem; }
       .topbar .subtitle { display: none; }
       .radar-toggle { font-size: 0.8rem; padding: 6px 10px; }
+      .radar-controls { --radar-control-height: 30px; }
       .map-controls-bottom { left: 8px; right: 8px; bottom: 68px; gap: 6px; }
       .locate-button { flex: 0 0 auto; font-size: 0.8rem; padding: 6px 10px; }
       .coords-box { min-width: 0; flex: 1 1 auto; }
