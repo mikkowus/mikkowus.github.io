@@ -34,6 +34,7 @@
       right: 18px;
       bottom: 18px;
       display: flex;
+      flex-wrap: wrap;
       align-items: center;
       justify-content: center;
       gap: 10px;
@@ -41,6 +42,34 @@
       pointer-events: none;
     }
     .map-controls-bottom > * { pointer-events: auto; }
+    .map-zoom-controls {
+      display: inline-flex;
+      align-items: center;
+      gap: 2px;
+      padding: 4px;
+      border-radius: 10px;
+      background: rgba(14, 46, 87, 0.94);
+      box-shadow: 0 8px 24px rgba(3, 12, 31, 0.2);
+    }
+    .map-zoom-controls button {
+      width: 32px;
+      height: 32px;
+      border: none;
+      border-radius: 7px;
+      background: transparent;
+      color: #fff;
+      font-size: 1.25rem;
+      font-weight: 700;
+      line-height: 1;
+      cursor: pointer;
+    }
+    .map-zoom-controls button:hover { background: rgba(255, 255, 255, 0.15); }
+    .radar-controls {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 4px;
+    }
     .radar-toggle {
       display: inline-flex;
       align-items: center;
@@ -108,9 +137,7 @@
     }
     .coords-box button:hover { background: rgba(14, 46, 87, 1); }
     .fc-stepper {
-      position: fixed;
-      top: 80px;
-      right: 12px;
+      position: static;
       display: none;
       align-items: center;
       gap: 2px;
@@ -151,7 +178,7 @@
       .coords-box { min-width: 0; flex: 1 1 auto; }
       .coords-box input { width: 100%; min-width: 0; font-size: 0.8rem; padding: 6px 8px; }
       .coords-box button { padding: 6px 8px; font-size: 0.78rem; }
-      .fc-stepper { top: 64px; right: 8px; }
+      .status-box { top: 80px; left: 8px; right: 8px; bottom: auto; max-width: none; }
     }
     .leaflet-popup-content-wrapper { border-radius: 18px; border: 1px solid rgba(255,255,255,0.88); box-shadow: 0 14px 36px rgba(0,0,0,0.18); }
     .wind-popup { min-width: 240px; font-family: system-ui, sans-serif; color: #14233a; }
@@ -162,8 +189,8 @@
     .wind-popup .wind-arrow { display: inline-flex; align-items: center; gap: 8px; margin-top: 6px; }
     .wind-popup .wind-arrow span.arrow { display: inline-block; width: 24px; height: 24px; line-height: 24px; text-align: center; border-radius: 50%; background: rgba(15, 76, 129, 0.12); color: #0f4c81; font-size: 1rem; transform-origin: center; }
     .status-box {
-      position: absolute;
-      bottom: 18px;
+      position: fixed;
+      top: 104px;
       left: 18px;
       padding: 12px 14px;
       background: rgba(255,255,255,0.95);
@@ -180,19 +207,25 @@
   <div class="topbar">
     <a href="index.html">Home</a>
     <div class="brand">Paddle Planner!</div>
-    <div class="fc-stepper" id="fcStepper">
-      <button type="button" id="fcMinus" aria-label="Earlier forecast">−</button>
-      <span class="fc-value" id="fcValue">Now</span>
-      <button type="button" id="fcPlus" aria-label="Later forecast">+</button>
-    </div>
   </div>
   <div id="map"></div>
   <div class="map-controls-bottom">
-    <button class="radar-toggle" id="radarToggle" type="button">Radar: Off</button>
+    <div class="radar-controls">
+      <button class="radar-toggle" id="radarToggle" type="button">Radar: Off</button>
+      <div class="fc-stepper" id="fcStepper">
+        <button type="button" id="fcMinus" aria-label="Earlier forecast">−</button>
+        <span class="fc-value" id="fcValue">Now</span>
+        <button type="button" id="fcPlus" aria-label="Later forecast">+</button>
+      </div>
+    </div>
     <button class="locate-button" id="locateButton" type="button"> 🧭 </button>
     <div class="coords-box">
       <input id="coordsInput" type="text" placeholder="Paste lat, lon" aria-label="Latitude and longitude" />
       <button id="coordsGo" type="button">Go</button>
+    </div>
+    <div class="map-zoom-controls" aria-label="Map zoom controls">
+      <button id="zoomOut" type="button" aria-label="Zoom out">−</button>
+      <button id="zoomIn" type="button" aria-label="Zoom in">+</button>
     </div>
   </div>
   <div class="status-box" id="status">Click any point on the map to load wind data.</div>
@@ -202,7 +235,8 @@
   <script>
     const statusEl = document.getElementById('status');
     const map = L.map('map', { zoomControl: false }).setView([42.9, -75.7], 7);
-    L.control.zoom({ position: 'bottomright' }).addTo(map);
+    document.getElementById('zoomOut').addEventListener('click', () => map.zoomOut());
+    document.getElementById('zoomIn').addEventListener('click', () => map.zoomIn());
 
     L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
       attribution: '&copy; OpenStreetMap contributors',
