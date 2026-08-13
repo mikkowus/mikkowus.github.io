@@ -180,7 +180,6 @@
   <div class="topbar">
     <a href="index.html">Home</a>
     <div class="brand">Paddle Planner!</div>
-    <button class="radar-toggle" id="radarToggle" type="button">Radar: Off</button>
     <div class="fc-stepper" id="fcStepper">
       <button type="button" id="fcMinus" aria-label="Earlier forecast">−</button>
       <span class="fc-value" id="fcValue">Now</span>
@@ -189,6 +188,7 @@
   </div>
   <div id="map"></div>
   <div class="map-controls-bottom">
+    <button class="radar-toggle" id="radarToggle" type="button">Radar: Off</button>
     <button class="locate-button" id="locateButton" type="button"> 🧭 </button>
     <div class="coords-box">
       <input id="coordsInput" type="text" placeholder="Paste lat, lon" aria-label="Latitude and longitude" />
@@ -201,7 +201,8 @@
   <script src="https://unpkg.com/leaflet.markercluster@1.5.3/dist/leaflet.markercluster.js"></script>
   <script>
     const statusEl = document.getElementById('status');
-    const map = L.map('map').setView([42.9, -75.7], 7);
+    const map = L.map('map', { zoomControl: false }).setView([42.9, -75.7], 7);
+    L.control.zoom({ position: 'bottomright' }).addTo(map);
 
     L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
       attribution: '&copy; OpenStreetMap contributors',
