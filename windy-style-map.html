@@ -111,11 +111,11 @@
       margin-left: 2px;
     }
     .coords-box input {
-      width: 220px;
+      width: 150px;
       padding: 7px 10px;
       border-radius: 10px;
       border: 1px solid rgba(255, 255, 255, 0.45);
-      background: rgba(14, 46, 87, 0.75);
+      background: rgba(14, 46, 87, 0.547);
       color: #fff;
       font-size: 0.88rem;
       outline: none;
@@ -141,7 +141,7 @@
       display: none;
       align-items: center;
       gap: 2px;
-      background: rgba(14, 46, 87, 0.94);
+      background: rgba(14, 46, 87, 0.508);
       padding: 4px 6px;
       border-radius: 999px;
       box-shadow: 0 8px 24px rgba(3, 12, 31, 0.2);
@@ -214,7 +214,7 @@
       <button class="radar-toggle" id="radarToggle" type="button">Radar: Off</button>
       <div class="fc-stepper" id="fcStepper">
         <button type="button" id="fcMinus" aria-label="Earlier forecast">−</button>
-        <span class="fc-value" id="fcValue">Now</span>
+        <span class="fc-value" id="fcValue">0</span>
         <button type="button" id="fcPlus" aria-label="Later forecast">+</button>
       </div>
     </div>
@@ -285,7 +285,7 @@
 
     function selectForecast(min) {
       forecastMin = min;
-      fcValue.textContent = min === 0 ? 'Now' : `+${min / stepMinutes}h`;
+      fcValue.textContent = min === 0 ? '0' : `+${min / stepMinutes}h`;
       if (min === 0) {
         setRadarLayer(radarLayer);
         loadStatus('Weather radar overlay enabled (IEM NEXRAD current).');
