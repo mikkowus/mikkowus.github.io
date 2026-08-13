@@ -921,7 +921,7 @@
         });
         clusterGroup.addLayers(markers);
         if (spots.length > 0) {
-          loadStatus(`Loaded ${spots.length} paddlespots (NY) from paddlespots_coordinates.csv`);
+          loadStatus(`Loaded ${spots.length} paddlespots (NY). Click a marker for drive/weather/wind info.`);
         }
       } catch (err) {
         console.error('Failed to load paddlespots', err);
