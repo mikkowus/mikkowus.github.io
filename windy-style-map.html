@@ -28,6 +28,19 @@
     .topbar .brand { font-size: 1.1rem; font-weight: 700; letter-spacing: 0.02em; }
     .topbar .subtitle { color: #d2e3ff; font-size: 0.95rem; margin-left: auto; }
     .topbar a { color: #a9cfff; text-decoration: none; font-weight: 600; }
+    .map-controls-bottom {
+      position: fixed;
+      left: 18px;
+      right: 18px;
+      bottom: 18px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      z-index: 1000;
+      pointer-events: none;
+    }
+    .map-controls-bottom > * { pointer-events: auto; }
     .radar-toggle {
       display: inline-flex;
       align-items: center;
@@ -133,7 +146,10 @@
       .topbar .brand { font-size: 0.95rem; }
       .topbar .subtitle { display: none; }
       .radar-toggle { font-size: 0.8rem; padding: 6px 10px; }
-      .coords-box input { width: 140px; font-size: 0.8rem; padding: 6px 8px; }
+      .map-controls-bottom { left: 8px; right: 8px; bottom: 68px; gap: 6px; }
+      .locate-button { flex: 0 0 auto; font-size: 0.8rem; padding: 6px 10px; }
+      .coords-box { min-width: 0; flex: 1 1 auto; }
+      .coords-box input { width: 100%; min-width: 0; font-size: 0.8rem; padding: 6px 8px; }
       .coords-box button { padding: 6px 8px; font-size: 0.78rem; }
       .fc-stepper { top: 64px; right: 8px; }
     }
@@ -164,11 +180,6 @@
   <div class="topbar">
     <a href="index.html">Home</a>
     <div class="brand">Windy-Style Wind Map</div>
-    <button class="locate-button" id="locateButton" type="button"> 🧭 My Position </button>
-    <div class="coords-box">
-      <input id="coordsInput" type="text" placeholder="Paste lat, lon" aria-label="Latitude and longitude" />
-      <button id="coordsGo" type="button">Go</button>
-    </div>
     <button class="radar-toggle" id="radarToggle" type="button">Radar: Off</button>
     <div class="fc-stepper" id="fcStepper">
       <button type="button" id="fcMinus" aria-label="Earlier forecast">−</button>
@@ -177,6 +188,13 @@
     </div>
   </div>
   <div id="map"></div>
+  <div class="map-controls-bottom">
+    <button class="locate-button" id="locateButton" type="button"> 🧭 My Position </button>
+    <div class="coords-box">
+      <input id="coordsInput" type="text" placeholder="Paste lat, lon" aria-label="Latitude and longitude" />
+      <button id="coordsGo" type="button">Go</button>
+    </div>
+  </div>
   <div class="status-box" id="status">Click any point on the map to load wind data.</div>
 
   <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
