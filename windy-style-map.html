@@ -65,7 +65,7 @@
       padding: 7px 14px;
       border: 2px solid #2563eb;
       border-radius: 999px;
-      background: rgba(37, 99, 235, 0.25);
+      background: rgba(37, 99, 235, 0.55);
       color: #dbeafe;
       font-size: 0.9rem;
       font-weight: 700;
@@ -73,7 +73,7 @@
       transition: background 0.2s ease, border-color 0.2s ease;
       user-select: none;
     }
-    .locate-button:hover { background: rgba(37, 99, 235, 0.45); }
+    .locate-button:hover { background: rgba(37, 99, 235, 0.75); }
     .locate-button.active { background: #2563eb; border-color: #3b82f6; color: white; }
     .coords-box {
       display: inline-flex;
@@ -86,7 +86,7 @@
       padding: 7px 10px;
       border-radius: 10px;
       border: 1px solid rgba(255, 255, 255, 0.45);
-      background: rgba(255, 255, 255, 0.12);
+      background: rgba(14, 46, 87, 0.75);
       color: #fff;
       font-size: 0.88rem;
       outline: none;
@@ -100,13 +100,13 @@
       padding: 7px 12px;
       border-radius: 10px;
       border: 1px solid rgba(255, 255, 255, 0.5);
-      background: rgba(255, 255, 255, 0.16);
+      background: rgba(14, 46, 87, 0.85);
       color: #fff;
       font-size: 0.85rem;
       font-weight: 700;
       cursor: pointer;
     }
-    .coords-box button:hover { background: rgba(255, 255, 255, 0.28); }
+    .coords-box button:hover { background: rgba(14, 46, 87, 1); }
     .fc-stepper {
       position: fixed;
       top: 80px;
@@ -179,7 +179,7 @@
 <body>
   <div class="topbar">
     <a href="index.html">Home</a>
-    <div class="brand">Windy-Style Wind Map</div>
+    <div class="brand">Paddle Planner</div>
     <button class="radar-toggle" id="radarToggle" type="button">Radar: Off</button>
     <div class="fc-stepper" id="fcStepper">
       <button type="button" id="fcMinus" aria-label="Earlier forecast">−</button>
@@ -189,7 +189,7 @@
   </div>
   <div id="map"></div>
   <div class="map-controls-bottom">
-    <button class="locate-button" id="locateButton" type="button"> 🧭 My Position </button>
+    <button class="locate-button" id="locateButton" type="button"> 🧭 </button>
     <div class="coords-box">
       <input id="coordsInput" type="text" placeholder="Paste lat, lon" aria-label="Latitude and longitude" />
       <button id="coordsGo" type="button">Go</button>
@@ -304,6 +304,7 @@
     });
 
     let clickMarker = null;
+    let statusHideTimer = null;
 
     const gaugeIcon = L.divIcon({
       html: '<div style="width:12px;height:12px;border-radius:50%;background:#dc2626;border:2px solid #f59e0b;box-shadow:0 1px 4px rgba(0,0,0,0.25);"></div>',
@@ -314,6 +315,11 @@
 
     function loadStatus(text) {
       statusEl.textContent = text;
+      statusEl.style.display = 'block';
+      if (statusHideTimer) clearTimeout(statusHideTimer);
+      statusHideTimer = setTimeout(() => {
+        statusEl.style.display = 'none';
+      }, 3000);
     }
 
     function formatWindDirection(deg) {
