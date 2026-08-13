@@ -62,6 +62,38 @@
     }
     .locate-button:hover { background: rgba(37, 99, 235, 0.45); }
     .locate-button.active { background: #2563eb; border-color: #3b82f6; color: white; }
+    .coords-box {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      margin-left: 2px;
+    }
+    .coords-box input {
+      width: 220px;
+      padding: 7px 10px;
+      border-radius: 10px;
+      border: 1px solid rgba(255, 255, 255, 0.45);
+      background: rgba(255, 255, 255, 0.12);
+      color: #fff;
+      font-size: 0.88rem;
+      outline: none;
+    }
+    .coords-box input::placeholder { color: rgba(219, 234, 254, 0.8); }
+    .coords-box input:focus {
+      border-color: #93c5fd;
+      box-shadow: 0 0 0 2px rgba(147, 197, 253, 0.28);
+    }
+    .coords-box button {
+      padding: 7px 12px;
+      border-radius: 10px;
+      border: 1px solid rgba(255, 255, 255, 0.5);
+      background: rgba(255, 255, 255, 0.16);
+      color: #fff;
+      font-size: 0.85rem;
+      font-weight: 700;
+      cursor: pointer;
+    }
+    .coords-box button:hover { background: rgba(255, 255, 255, 0.28); }
     .fc-stepper {
       position: fixed;
       top: 80px;
@@ -101,6 +133,8 @@
       .topbar .brand { font-size: 0.95rem; }
       .topbar .subtitle { display: none; }
       .radar-toggle { font-size: 0.8rem; padding: 6px 10px; }
+      .coords-box input { width: 140px; font-size: 0.8rem; padding: 6px 8px; }
+      .coords-box button { padding: 6px 8px; font-size: 0.78rem; }
       .fc-stepper { top: 64px; right: 8px; }
     }
     .leaflet-popup-content-wrapper { border-radius: 18px; border: 1px solid rgba(255,255,255,0.88); box-shadow: 0 14px 36px rgba(0,0,0,0.18); }
@@ -131,6 +165,10 @@
     <a href="index.html">Home</a>
     <div class="brand">Windy-Style Wind Map</div>
     <button class="locate-button" id="locateButton" type="button"> 🧭 My Position </button>
+    <div class="coords-box">
+      <input id="coordsInput" type="text" placeholder="Paste lat, lon" aria-label="Latitude and longitude" />
+      <button id="coordsGo" type="button">Go</button>
+    </div>
     <button class="radar-toggle" id="radarToggle" type="button">Radar: Off</button>
     <div class="fc-stepper" id="fcStepper">
       <button type="button" id="fcMinus" aria-label="Earlier forecast">−</button>
@@ -173,6 +211,8 @@
     }
 
     const radarToggle = document.getElementById('radarToggle');
+    const coordsInput = document.getElementById('coordsInput');
+    const coordsGo = document.getElementById('coordsGo');
     const fcStepper = document.getElementById('fcStepper');
     const fcMinus = document.getElementById('fcMinus');
     const fcPlus = document.getElementById('fcPlus');
@@ -278,7 +318,7 @@
 
       const meta = document.createElement('div');
       meta.className = 'meta';
-      meta.textContent = `Lat ${lat.toFixed(4)}, Lon ${lon.toFixed(4)}`;
+      meta.innerHTML = `Lat ${lat.toFixed(4)}, Lon ${lon.toFixed(4)} <button class="copy-coords-btn" data-lat="${lat}" data-lon="${lon}" type="button" style="margin-left:6px;padding:2px 8px;border:1px solid #bfdbfe;border-radius:999px;background:#eff6ff;color:#1d4ed8;font-size:0.75rem;font-weight:700;cursor:pointer;">Copy</button>`;
       container.appendChild(meta);
 
       const directions = document.createElement('div');
@@ -292,6 +332,44 @@
       container.appendChild(status);
 
       return { container, status };
+    }
+
+    async function copyTextToClipboard(text) {
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        await navigator.clipboard.writeText(text);
+        return;
+      }
+      const ta = document.createElement('textarea');
+      ta.value = text;
+      ta.setAttribute('readonly', '');
+      ta.style.position = 'fixed';
+      ta.style.opacity = '0';
+      document.body.appendChild(ta);
+      ta.select();
+      document.execCommand('copy');
+      document.body.removeChild(ta);
+    }
+
+    async function handleCopyCoords(buttonEl) {
+      const lat = Number(buttonEl.dataset.lat);
+      const lon = Number(buttonEl.dataset.lon);
+      if (Number.isNaN(lat) || Number.isNaN(lon)) {
+        loadStatus('Could not copy coordinates from this popup.');
+        return;
+      }
+      const text = `${lat.toFixed(6)}, ${lon.toFixed(6)}`;
+      const original = buttonEl.textContent;
+      try {
+        await copyTextToClipboard(text);
+        buttonEl.textContent = 'Copied';
+        loadStatus(`Copied ${text}`);
+      } catch (err) {
+        buttonEl.textContent = 'Failed';
+        loadStatus('Clipboard permission denied. Copy manually from popup.');
+      }
+      setTimeout(() => {
+        buttonEl.textContent = original;
+      }, 1200);
     }
 
     async function fetchWind(lat, lon) {
@@ -377,7 +455,7 @@
       container.innerHTML = `
         <div class="title">${site.station_nm || 'USGS gauge'}</div>
         <div class="meta">USGS ${site.site_no}</div>
-        <div class="metric"><strong>Location:</strong> ${site.dec_lat_va}, ${site.dec_long_va}</div>
+        <div class="metric"><strong>Location:</strong> ${site.dec_lat_va}, ${site.dec_long_va} <button class="copy-coords-btn" data-lat="${site.dec_lat_va}" data-lon="${site.dec_long_va}" type="button" style="margin-left:6px;padding:2px 8px;border:1px solid #bfdbfe;border-radius:999px;background:#eff6ff;color:#1d4ed8;font-size:0.75rem;font-weight:700;cursor:pointer;">Copy</button></div>
         <div class="metric gauge-water-status"><strong>Status:</strong> Data loading…</div>
         <div class="metric gauge-weather-status"><strong>Weather:</strong> Loading…</div>
         <div class="metric gauge-wind-status"><strong>Wind:</strong> Loading…</div>
@@ -460,6 +538,95 @@
         console.error(err);
       }
     }
+
+    function parseCoordsInput(rawText) {
+      const original = String(rawText || '').trim();
+      if (!original) {
+        return { error: 'Paste a latitude/longitude first.' };
+      }
+
+      // Normalize uncommon minus symbols and strip common wrappers.
+      const cleaned = original
+        .replace(/[−–—]/g, '-')
+        .replace(/[()\[\]{}]/g, ' ')
+        .trim();
+
+      function applyHemisphere(value, hemi) {
+        if (!hemi) return value;
+        const h = hemi.toUpperCase();
+        if (h === 'S' || h === 'W') return -Math.abs(value);
+        if (h === 'N' || h === 'E') return Math.abs(value);
+        return value;
+      }
+
+      const labeledLat = cleaned.match(/\b(?:lat|latitude)\s*[:=]?\s*(-?\d+(?:\.\d+)?)\s*([NS])?/i);
+      const labeledLon = cleaned.match(/\b(?:lon|long|lng|longitude)\s*[:=]?\s*(-?\d+(?:\.\d+)?)\s*([EW])?/i);
+      if (labeledLat && labeledLon) {
+        const lat = applyHemisphere(Number(labeledLat[1]), labeledLat[2]);
+        const lon = applyHemisphere(Number(labeledLon[1]), labeledLon[2]);
+        if (Number.isNaN(lat) || Number.isNaN(lon)) {
+          return { error: 'Could not parse numbers from labeled coordinates.' };
+        }
+        if (lat < -90 || lat > 90 || lon < -180 || lon > 180) {
+          return { error: 'Coordinates are outside valid ranges.' };
+        }
+        return { lat, lon };
+      }
+
+      const hemispheres = [];
+      let withHemispheres = cleaned.replace(/(-?\d+(?:\.\d+)?)\s*([NSEW])\b/gi, (_, num, hemi) => {
+        hemispheres.push(hemi.toUpperCase());
+        return String(applyHemisphere(Number(num), hemi));
+      });
+
+      withHemispheres = withHemispheres.replace(/\s+/g, ' ');
+      const numericTokens = withHemispheres.match(/-?\d+(?:\.\d+)?/g) || [];
+      if (numericTokens.length < 2) {
+        return { error: 'Need two numbers like 42.95, -75.84.' };
+      }
+
+      let lat = Number(numericTokens[0]);
+      let lon = Number(numericTokens[1]);
+      if (Number.isNaN(lat) || Number.isNaN(lon)) {
+        return { error: 'Could not parse numeric coordinates.' };
+      }
+
+      const latHemi = hemispheres.find((h) => h === 'N' || h === 'S');
+      const lonHemi = hemispheres.find((h) => h === 'E' || h === 'W');
+      if (latHemi) lat = applyHemisphere(lat, latHemi);
+      if (lonHemi) lon = applyHemisphere(lon, lonHemi);
+
+      // If values look swapped (e.g. "-75.8, 42.9"), fix automatically.
+      if ((Math.abs(lat) > 90 && Math.abs(lon) <= 90) || (lat < -90 || lat > 90) && (lon >= -90 && lon <= 90)) {
+        const temp = lat;
+        lat = lon;
+        lon = temp;
+      }
+
+      if (lat < -90 || lat > 90 || lon < -180 || lon > 180) {
+        return { error: 'Coordinates are outside valid ranges.' };
+      }
+
+      return { lat, lon };
+    }
+
+    function goToPastedCoords() {
+      const parsed = parseCoordsInput(coordsInput.value);
+      if (parsed.error) {
+        loadStatus(`${parsed.error} Try: 42.95, -75.84 or lat:42.95 lon:-75.84`);
+        return;
+      }
+      map.setView([parsed.lat, parsed.lon], 11);
+      showWindAt(parsed.lat, parsed.lon);
+    }
+
+    coordsGo.addEventListener('click', goToPastedCoords);
+    coordsInput.addEventListener('keydown', (event) => {
+      if (event.key === 'Enter') {
+        event.preventDefault();
+        goToPastedCoords();
+      }
+    });
 
     // shared cluster group so paddlespots and gauges cluster together
     const clusterGroup = L.markerClusterGroup({
@@ -641,7 +808,7 @@
           container.innerHTML = `
             <div class="title">${escapeHtml(s.name)}</div>
             ${notesHtml}
-            <div class="meta">Lat ${s.lat.toFixed(5)}, Lon ${s.lon.toFixed(5)}</div>
+            <div class="meta">Lat ${s.lat.toFixed(5)}, Lon ${s.lon.toFixed(5)} <button class="copy-coords-btn" data-lat="${s.lat}" data-lon="${s.lon}" type="button" style="margin-left:6px;padding:2px 8px;border:1px solid #bfdbfe;border-radius:999px;background:#eff6ff;color:#1d4ed8;font-size:0.75rem;font-weight:700;cursor:pointer;">Copy</button></div>
             <div class="metric paddle-drive-status"><span style="white-space:nowrap;"><strong style="display:inline; font-size:0.85rem; font-weight:700;">Drive:</strong> <span style="font-size:0.72rem; font-weight:400; color:#50637b;">(inaccurate)</span></span> Getting your location…</div>
             <div class="metric paddle-weather-status"><strong>Weather:</strong> Data loading…</div>
             <div class="metric paddle-wind-status"><strong>Wind:</strong> Loading…</div>
@@ -741,6 +908,21 @@
     map.on('click', (event) => {
       const { lat, lng } = event.latlng;
       showWindAt(lat, lng);
+    });
+
+    map.on('popupopen', (event) => {
+      const popupEl = event.popup?.getElement();
+      if (!popupEl) return;
+      const copyButtons = popupEl.querySelectorAll('.copy-coords-btn');
+      copyButtons.forEach((btn) => {
+        if (btn.dataset.copyBound === '1') return;
+        btn.dataset.copyBound = '1';
+        btn.addEventListener('click', (clickEvent) => {
+          clickEvent.preventDefault();
+          clickEvent.stopPropagation();
+          handleCopyCoords(btn);
+        });
+      });
     });
 
     loadStatus('Click anywhere on the map to view current wind conditions.');
