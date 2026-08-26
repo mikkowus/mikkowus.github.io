@@ -531,7 +531,7 @@
             <div class="title">${escapeHtml(s.name)}</div>
             ${notesHtml}
             <div class="meta">Lat ${s.lat.toFixed(5)}, Lon ${s.lon.toFixed(5)}</div>
-            <div class="metric paddle-drive-status"><span style="white-space:nowrap;"><strong style="display:inline; font-size:0.85rem; font-weight:700;">Drive:</strong> <span style="font-size:0.72rem; font-weight:400; color:#50637b;">(inaccurate)</span></span> Getting your location…</div>
+            <div class="metric"><a href="https://www.google.com/maps/search/${s.lat},${s.lon}" target="_blank" rel="noopener" style="color:#0f4c81;font-weight:700;">Google Maps pin</a></div>
             <div class="metric paddle-weather-status"><strong>Weather:</strong> Data loading…</div>
             <div class="metric paddle-wind-status"><strong>Wind:</strong> Loading…</div>
           `;
@@ -544,60 +544,6 @@
             const content = popup.getContent();
             const weatherEl = content.querySelector('.paddle-weather-status');
             const windEl = content.querySelector('.paddle-wind-status');
-            const driveEl = content.querySelector('.paddle-drive-status');
-
-            async function setDriveText(html) {
-              if (driveEl) driveEl.innerHTML = `<span style="white-space:nowrap;"><strong style="display:inline; font-size:0.85rem; font-weight:700;">Drive:</strong> <span style="font-size:0.72rem; font-weight:400; color:#50637b;">(inaccurate)</span></span> ${html}`;
-              popup.setContent(content).update();
-            }
-
-            function driveResultHtml(info, originLat, originLon) {
-              const dest = `${s.lat},${s.lon}`;
-              const originParam = (originLat !== undefined && originLon !== undefined) ? `&origin=${originLat},${originLon}` : '';
-              const url = `https://www.google.com/maps/dir/?api=1&destination=${dest}${originParam}&travelmode=driving`;
-              return `~${formatDriveDistance(info.distance)} · ${formatDriveDuration(info.duration)} <a href="${url}" target="_blank" rel="noopener" style="color:#0f4c81;font-weight:700;">(Google Maps directions)</a>`;
-            }
-
-            async function showDriveAddressFallback() {
-              if (!driveEl) return;
-              driveEl.innerHTML = `<span style="white-space:nowrap;"><strong style="display:inline; font-size:0.85rem; font-weight:700;">Drive:</strong> <span style="font-size:0.72rem; font-weight:400; color:#50637b;">(inaccurate)</span></span> <input class="drive-origin" type="text" placeholder="Type starting address" style="width:170px;padding:4px 6px;border:1px solid #cbd5e1;border-radius:6px;font-size:0.82rem;" /> <button class="drive-go" type="button" style="padding:4px 10px;background:#0f4c81;color:white;border:none;border-radius:6px;font-size:0.82rem;cursor:pointer;">Go</button>`;
-              popup.setContent(content).update();
-              const originInput = driveEl.querySelector('.drive-origin');
-              const goButton = driveEl.querySelector('.drive-go');
-              async function lookupOrigin() {
-                const q = originInput.value.trim();
-                if (!q) return;
-                await setDriveText('Looking up address…');
-                try {
-                  const origin = await geocodeAddress(q);
-                  await setDriveText('Calculating route…');
-                  const info = await fetchDriveInfo(origin.lat, origin.lon, s.lat, s.lon);
-                  await setDriveText(driveResultHtml(info, origin.lat, origin.lon));
-                } catch (err) {
-                  await setDriveText(`<span style="color:#a00;">${err.message}</span>`);
-                }
-              }
-              goButton.addEventListener('click', lookupOrigin);
-              originInput.addEventListener('keydown', (event) => {
-                if (event.key === 'Enter') {
-                  event.preventDefault();
-                  lookupOrigin();
-                }
-              });
-            }
-
-            if (driveEl) {
-              try {
-                const pos = await getCurrentPosition();
-                await setDriveText('Calculating route…');
-                const info = await fetchDriveInfo(pos.coords.latitude, pos.coords.longitude, s.lat, s.lon);
-                await setDriveText(driveResultHtml(info, pos.coords.latitude, pos.coords.longitude));
-              } catch (err) {
-                await setDriveText(`<span style="color:#a00;">${err.message}</span>`);
-                showDriveAddressFallback();
-              }
-            }
-
             if (weatherEl) weatherEl.innerHTML = '<strong>Weather:</strong> Loading…';
             if (windEl) windEl.innerHTML = '<strong>Wind:</strong> Loading…';
             try {
