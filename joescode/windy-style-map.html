@@ -325,7 +325,7 @@
       container.className = 'wind-popup';
       container.innerHTML = `
         <div class="title">${site.station_nm || 'USGS gauge'}</div>
-        <div class="meta">USGS ${site.site_no}</div>
+        <div class="meta"><a href="https://waterdata.usgs.gov/monitoring-location/${site.site_no}/" target="_blank" rel="noopener noreferrer" style="color:#1d4ed8;">USGS ${site.site_no}</a></div>
         <div class="metric"><strong>Location:</strong> ${site.dec_lat_va}, ${site.dec_long_va}</div>
         <div class="metric gauge-water-status"><strong>Status:</strong> Data loading…</div>
         <div class="metric gauge-weather-status"><strong>Weather:</strong> Loading…</div>
