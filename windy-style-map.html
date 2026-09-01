@@ -29,13 +29,15 @@
     .topbar .subtitle { color: #d2e3ff; font-size: 0.95rem; margin-left: auto; }
     .topbar a { color: #a9cfff; text-decoration: none; font-weight: 600; }
     /* Buy Me a Coffee widget defaults to a fixed floating button; pin it inline in the topbar instead */
-    #bmc-wbtn {
+    .bmc-btn-container {
       position: static !important;
       display: inline-flex !important;
       width: auto !important;
       height: auto !important;
       margin: 0 !important;
       box-shadow: none !important;
+      transform: scale(0.7) !important;
+      transform-origin: left center !important;
     }
     .map-controls-bottom {
       --toolbar-action-height: 32px;
