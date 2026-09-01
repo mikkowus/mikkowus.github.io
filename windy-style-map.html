@@ -204,7 +204,7 @@
     .wind-popup .metric { margin: 10px 0; display: flex; align-items: baseline; gap: 6px; flex-wrap: wrap; }
     .wind-popup .metric strong { display: inline-block; width: 76px; color: #0f4c81; }
     .wind-popup .wind-arrow { display: inline-flex; align-items: center; gap: 8px; margin-top: 6px; }
-    .wind-popup .wind-arrow span.arrow { display: inline-block; width: 24px; height: 24px; line-height: 24px; text-align: center; border-radius: 50%; background: rgba(15, 76, 129, 0.12); color: #0f4c81; font-size: 1rem; transform-origin: center; }
+    .wind-popup .wind-arrow span.arrow { display: inline-block; width: 24px; height: 24px; line-height: 24px; text-align: center; border-radius: 50%; background: rgba(15, 76, 129, 0.12); color: #0f4c81; font-size: 0.75rem; font-weight: 700; }
     .status-box {
       position: fixed;
       top: 104px;
@@ -246,6 +246,8 @@
     </div>
   </div>
   <div class="status-box" id="status">Click any point on the map to load wind data.</div>
+
+  <script type="text/javascript" src="https://cdnjs.buymeacoffee.com/1.0.0/button.prod.min.js" data-name="bmc-button" data-slug="mikkowus" data-color="#FFDD00" data-emoji="🍕"  data-font="Cookie" data-text="Buy me a pizza" data-outline-color="#000000" data-font-color="#000000" data-coffee-color="#ffffff" ></script>
 
   <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
   <script src="https://unpkg.com/leaflet.markercluster@1.5.3/dist/leaflet.markercluster.js"></script>
@@ -394,7 +396,7 @@
 
       const meta = document.createElement('div');
       meta.className = 'meta';
-      meta.innerHTML = `Lat ${lat.toFixed(4)}, Lon ${lon.toFixed(4)} <button class="copy-coords-btn" data-lat="${lat}" data-lon="${lon}" type="button" style="margin-left:6px;padding:2px 8px;border:1px solid #bfdbfe;border-radius:999px;background:#eff6ff;color:#1d4ed8;font-size:0.75rem;font-weight:700;cursor:pointer;">Copy</button>`;
+      meta.innerHTML = `Lat ${lat.toFixed(4)}, Lon ${lon.toFixed(4)} <button class="copy-coords-btn" data-lat="${lat}" data-lon="${lon}" type="button" style="margin-left:6px;padding:2px 8px;border:1px solid #d0d0d0;border-radius:4px;background:#f0f0f0;cursor:pointer;font-size:0.75rem;">Copy</button>`;
       container.appendChild(meta);
 
       const directions = document.createElement('div');
@@ -531,7 +533,7 @@
       container.innerHTML = `
         <div class="title">${site.station_nm || 'USGS gauge'}</div>
         <div class="meta"><a href="https://waterdata.usgs.gov/monitoring-location/${site.site_no}/" target="_blank" rel="noopener noreferrer" style="color:#1d4ed8;">USGS ${site.site_no}</a></div>
-        <div class="metric"><strong>Location:</strong> ${site.dec_lat_va}, ${site.dec_long_va} <button class="copy-coords-btn" data-lat="${site.dec_lat_va}" data-lon="${site.dec_long_va}" type="button" style="margin-left:6px;padding:2px 8px;border:1px solid #bfdbfe;border-radius:999px;background:#eff6ff;color:#1d4ed8;font-size:0.75rem;font-weight:700;cursor:pointer;">Copy</button></div>
+        <div class="metric"><strong>Location:</strong> ${site.dec_lat_va}, ${site.dec_long_va} <button class="copy-coords-btn" data-lat="${site.dec_lat_va}" data-lon="${site.dec_long_va}" type="button" style="margin-left:6px;padding:2px 8px;border:1px solid #d0d0d0;border-radius:4px;background:#f0f0f0;cursor:pointer;font-size:0.75rem;">Copy</button></div>
         <div class="metric gauge-water-status"><strong>Status:</strong> Data loading…</div>
         <div class="metric gauge-weather-status"><strong>Weather:</strong> Loading…</div>
         <div class="metric gauge-wind-status"><strong>Wind:</strong> Loading…</div>
@@ -644,7 +646,7 @@
         return applyHemisphere(value, hemi);
       }
 
-      const dmsMatches = [...cleaned.matchAll(/(\d{1,3})\s*(?:°|deg)?\s*(\d{1,2})?\s*(?:['’]|min|mins|minute|minutes)?\s*(\d+(?:\.\d+)?)?\s*(?:"|″|sec|secs|second|seconds)?\s*([NSEW])/gi)];
+      const dmsMatches = [...cleaned.matchAll(/(\d{1,3})\s*(?:°|deg)?\s*(\d{1,2})?\s*(?:['']|min|mins|minute|minutes)?\s*(\d+(?:\.\d+)?)?\s*(?:"|″|sec|secs|second|seconds)?\s*([NSEW])/gi)];
       if (dmsMatches.length >= 2) {
         const [latMatch, lonMatch] = dmsMatches;
         const lat = dmsToDecimal(latMatch[1], latMatch[2], latMatch[3], latMatch[4]);
@@ -892,11 +894,11 @@
           const m = L.marker([s.lat, s.lon], { icon: paddlespotIcon });
           const container = document.createElement('div');
           container.className = 'wind-popup';
-          const notesHtml = s.notes ? `<div class="metric" style="background:#eff6ff; border-left:3px solid #2563eb; padding:6px 10px; margin:8px 0; border-radius:4px; font-size:0.88rem; color:#1e40af;"><strong>Note:</strong> ${escapeHtml(s.notes)}</div>` : '';
+          const notesHtml = s.notes ? `<div class="metric" style="background:#eff6ff; border-left:3px solid #2563eb; padding:6px 10px; margin:8px 0; border-radius:4px; font-size:0.88rem; color:#1e40af;">${escapeHtml(s.notes)}</div>` : '';
           container.innerHTML = `
             <div class="title">${escapeHtml(s.name)}</div>
             ${notesHtml}
-            <div class="meta">Lat ${s.lat.toFixed(5)}, Lon ${s.lon.toFixed(5)} <button class="copy-coords-btn" data-lat="${s.lat}" data-lon="${s.lon}" type="button" style="margin-left:6px;padding:2px 8px;border:1px solid #bfdbfe;border-radius:999px;background:#eff6ff;color:#1d4ed8;font-size:0.75rem;font-weight:700;cursor:pointer;">Copy</button></div>
+            <div class="meta">Lat ${s.lat.toFixed(5)}, Lon ${s.lon.toFixed(5)} <button class="copy-coords-btn" data-lat="${s.lat}" data-lon="${s.lon}" type="button" style="margin-left:6px;padding:2px 8px;border:1px solid #d0d0d0;border-radius:4px;background:#f0f0f0;cursor:pointer;font-size:0.75rem;">Copy</button></div>
             <div class="metric"><a href="https://www.google.com/maps/search/${s.lat},${s.lon}" target="_blank" rel="noopener" style="color:#0f4c81;font-weight:700;">Google Maps pin</a></div>
             <div class="metric paddle-drive-status"><strong>Drive:</strong> Calculating…</div>
             <div class="metric paddle-weather-status"><strong>Weather:</strong> Data loading…</div>
