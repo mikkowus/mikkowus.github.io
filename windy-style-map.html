@@ -28,6 +28,15 @@
     .topbar .brand { font-size: 1.1rem; font-weight: 700; letter-spacing: 0.02em; }
     .topbar .subtitle { color: #d2e3ff; font-size: 0.95rem; margin-left: auto; }
     .topbar a { color: #a9cfff; text-decoration: none; font-weight: 600; }
+    /* Buy Me a Coffee widget defaults to a fixed floating button; pin it inline in the topbar instead */
+    #bmc-wbtn {
+      position: static !important;
+      display: inline-flex !important;
+      width: auto !important;
+      height: auto !important;
+      margin: 0 !important;
+      box-shadow: none !important;
+    }
     .map-controls-bottom {
       --toolbar-action-height: 32px;
       position: fixed;
@@ -224,6 +233,7 @@
   <div class="topbar">
     <a href="index.html">Home</a>
     <div class="brand">Paddle Planner!</div>
+    <script type="text/javascript" src="https://cdnjs.buymeacoffee.com/1.0.0/button.prod.min.js" data-name="bmc-button" data-slug="mikkowus" data-color="#FFDD00" data-emoji="🍕"  data-font="Cookie" data-text="Buy me a Pizza" data-outline-color="#000000" data-font-color="#000000" data-coffee-color="#ffffff" ></script>
   </div>
   <div id="map"></div>
   <div class="map-controls-bottom">
