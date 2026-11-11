@@ -11,7 +11,7 @@ input{width:100%;padding:8px;margin:12px 0;font-size:15px} #map{height:500px;mar
 <p><strong>93.8 trail miles with no free campsites:</strong> GAP mile 89.4 (Connellsville) to GAP mile 0 (Cumberland), then C&amp;O mile 184.5 to 180.1 (Evitts Creek). These are the paid places in that stretch, Pittsburgh &rarr; Cumberland &rarr; Evitts Creek. Prices are per night and change — verify before a trip, especially the ones marked &ldquo;about&rdquo;.</p>
 <p>Cheapest verified-current campground night here is Outflow tent at $25. The C&amp;O side of the gap (Cumberland to Evitts Creek, 4.4 miles) has <strong>no paid site at all</strong> — the only option at the junction is the Cumberland YMCA. No Canal Quarters lockhouse is in this section either; the nearest is Lockhouse 49 at C&amp;O mile 108.9, about 71 miles south of Evitts Creek.</p>
 <h2>Map — paid sites in this section</h2>
-<p>Red pins: paid. Green dots: free sites at each end of this stretch (Connellsville and Evitts Creek). Ohiopyle bike-in sites are a corridor, not a single point, so they are not pinned.</p>
+<p>Red pins: paid. Green dots: free sites — Connellsville and Evitts Creek at each end of this stretch, plus all 31 C&O free sites down to Georgetown. Ohiopyle bike-in sites are a corridor, not a single point, so they are not pinned.</p>
 <div id="map"></div>
 <input id="q" type="search" placeholder="Search by name, town, or mile&hellip;">
 <table><thead><tr><th>Trail mile</th><th>Site</th><th>Price / night</th><th>GPS coordinates</th><th>Notes</th><th>Map</th></tr></thead><tbody id="rows">
@@ -46,11 +46,45 @@ const freeSites = [
   [89.4, "Connellsville (free)", 40.02143, -79.60288, "Free · 93.8 mi to Evitts Creek"],
   [180.1, "Evitts Creek (free)", 39.616979, -78.73259, "Free · 93.8 mi from Connellsville"]
 ];
+const coFreeSites = [
+  [16.6, "Swains Lock", 39.031002, -77.244579, "Free"],
+  [26.1, "Horsepen Branch", 39.06938, -77.398038, "Free"],
+  [30.5, "Chisel Branch", 39.102158, -77.473011, "Free"],
+  [34.4, "Turtle Run", 39.139288, -77.515673, "Free"],
+  [38.2, "Marble Quarry", 39.179558, -77.492708, "Free"],
+  [42.5, "Indian Flats", 39.233516, -77.462711, "Free"],
+  [47.6, "Calico Rocks", 39.271168, -77.535582, "Free"],
+  [50.3, "Bald Eagle Island", 39.299834, -77.557168, "Free"],
+  [62.9, "Huckleberry Hill", 39.34152, -77.75747, "Free"],
+  [75.2, "Killiansburg Cave", 39.459202, -77.796583, "Free"],
+  [79.2, "Horseshoe Bend", 39.486903, -77.774341, "Free"],
+  [82.7, "Big Woods", 39.492868, -77.792591, "Free"],
+  [90.9, "Opequon Junction", 39.5159, -77.8601, "Free"],
+  [95.2, "Cumberland Valley", 39.56214, -77.85307, "Free"],
+  [101.2, "Jordan Junction", 39.609192, -77.85283, "Free"],
+  [110, "North Mountain", 39.610663, -77.959636, "Free"],
+  [116, "Licking Creek", 39.650294, -78.048776, "Free"],
+  [120.6, "Little Pool", 39.684776, -78.113125, "Free"],
+  [126.4, "White Rock", 39.67754, -78.209794, "Free"],
+  [129.9, "Leopards Mill", 39.651928, -78.240155, "Free"],
+  [133.6, "Cacapon Junction", 39.621284, -78.279305, "Free"],
+  [139.2, "Indigo Neck", 39.6267, -78.35867, "Free"],
+  [144.5, "Devils Alley", 39.62216, -78.41133, "Free"],
+  [149.4, "Stickpile Hill", 39.583599, -78.397693, "Free"],
+  [154.1, "Sorrel Ridge", 39.571699, -78.453213, "Free"],
+  [157.4, "Purslane Run", 39.535244, -78.464149, "Free"],
+  [162.1, "Town Creek", 39.524461, -78.538643, "Free"],
+  [164.8, "Potomac Forks", 39.53094, -78.588975, "Free"],
+  [169.1, "Pigmans Ferry", 39.538958, -78.650428, "Free"],
+  [175.3, "Irons Mountain", 39.587479, -78.735584, "Free"],
+];
+
 const map = L.map('map');
 L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', { maxZoom: 18, attribution: '&copy; OpenStreetMap contributors' }).addTo(map);
 const bounds = [];
 sites.forEach(([mile, name, lat, lon, price, siteUrl]) => { bounds.push([lat, lon]); L.marker([lat, lon]).addTo(map).bindPopup('<strong>' + name + '</strong><br>GAP mile ' + mile + '<br><strong>' + price + '</strong><br>' + lat.toFixed(6) + ', ' + lon.toFixed(6) + (siteUrl ? '<br><a href="' + siteUrl + '" target="_blank">Owner site</a>' : '') + '<br><a href="https://maps.google.com/?q=' + lat + ',' + lon + '" target="_blank">Open in Google Maps</a>'); });
 freeSites.forEach(([mile, name, lat, lon, note]) => { bounds.push([lat, lon]); L.circleMarker([lat, lon], { radius: 8, color: '#15803d', fillColor: '#22c55e', fillOpacity: 0.9 }).addTo(map).bindPopup('<strong>' + name + '</strong><br>' + note + '<br>' + lat.toFixed(6) + ', ' + lon.toFixed(6) + '<br><a href="https://maps.google.com/?q=' + lat + ',' + lon + '" target="_blank">Open in Google Maps</a>'); });
+coFreeSites.forEach(([mile, name, lat, lon, note]) => { bounds.push([lat, lon]); L.circleMarker([lat, lon], { radius: 6, color: '#15803d', fillColor: '#22c55e', fillOpacity: 0.9 }).addTo(map).bindPopup('<strong>' + name + '</strong><br>C&O mile ' + mile + '<br>Free<br>' + lat.toFixed(6) + ', ' + lon.toFixed(6) + '<br><a href="https://maps.google.com/?q=' + lat + ',' + lon + '" target="_blank">Open in Google Maps</a>'); });
 map.fitBounds(bounds, { padding: [20, 20] });
 </script>
 </body></html>
