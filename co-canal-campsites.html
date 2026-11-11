@@ -3,90 +3,85 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>GAP + C&amp;O Canal — Free Hiker-Biker Campsites</title>
+  <title>GAP + C&amp;O — Free Campsites</title>
   <style>
     body { margin: 0; font-family: system-ui, sans-serif; background: #f3f7fb; color: #1f2937; }
-    .wrap { max-width: 900px; margin: 0 auto; padding: 24px 16px 48px; }
+    .wrap { max-width: 900px; margin: 0 auto; padding: 16px 16px 32px; }
     a { color: #0f4c81; }
-    h1 { color: #0f4c81; margin: 8px 0 4px; }
-    p { line-height: 1.6; color: #475569; }
-    .note { background: #fff7ed; border: 1px solid #fdba74; border-radius: 10px; padding: 12px 16px; }
-    input { width: 100%; box-sizing: border-box; padding: 12px; font-size: 1rem; border: 1px solid #cbd5e1; border-radius: 10px; margin: 16px 0; }
-    table { width: 100%; border-collapse: collapse; background: white; border-radius: 12px; overflow: hidden; }
-    th, td { text-align: left; padding: 10px 12px; border-bottom: 1px solid #e2e8f0; }
+    h1 { color: #0f4c81; margin: 8px 0 4px; font-size: 1.5rem; }
+    h2 { color: #0f4c81; margin: 20px 0 6px; font-size: 1.15rem; }
+    p { line-height: 1.45; color: #475569; margin: 4px 0; }
+    .small { font-size: 0.85rem; }
+    input { width: 100%; box-sizing: border-box; padding: 10px; font-size: 1rem; border: 1px solid #cbd5e1; border-radius: 8px; margin: 12px 0; }
+    table { width: 100%; border-collapse: collapse; background: white; border-radius: 8px; overflow: hidden; }
+    th, td { text-align: left; padding: 8px 10px; border-bottom: 1px solid #e2e8f0; }
     th { background: #0f4c81; color: white; }
     tr:last-child td { border-bottom: none; }
     td.mile { white-space: nowrap; }
-    td.coords { font-family: ui-monospace, monospace; font-size: 0.9rem; white-space: nowrap; }
-    .back { display: inline-block; margin-bottom: 8px; }
-    footer { margin-top: 24px; font-size: 0.9rem; }
-    #map { height: 500px; border-radius: 12px; margin-top: 24px; z-index: 0; }
+    td.coords { font-family: ui-monospace, monospace; font-size: 0.85rem; white-space: nowrap; }
+    #map { height: 420px; border-radius: 8px; margin: 8px 0; z-index: 0; }
+    footer { margin-top: 20px; font-size: 0.85rem; color: #64748b; }
   </style>
   <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
 </head>
 <body>
   <div class="wrap">
-    <a class="back" href="index.html">&larr; Back to mikkowus.com</a>
-    <h1>GAP + C&amp;O Canal — Free Hiker-Biker Campsites</h1>
-    <p>35 free, first-come-first-served hiker-biker campsites on the Pittsburgh to Georgetown ride: 4 on the Great Allegheny Passage (Pittsburgh to Cumberland) and 31 on the C&amp;O Canal towpath (Cumberland to Georgetown). One night per site, no fee, no reservation. C&amp;O sites have a chemical toilet, picnic table, grill, and non-potable well water (mid-April to mid-November — filter, treat, or boil); GAP sites have pit/composting toilets, picnic tables, fire rings, and potable water in season (April 15–October 31). Distances are trail miles from the previous site (milepost difference) — the distance you actually ride/hike, not straight-line distance. Note the mile flip at Cumberland: GAP mile 0 = C&amp;O mile 184.5.</p>
-    <p class="note"><strong>Count note:</strong> NPS says 31 in some places and 30 in its 2026 Superintendent&rsquo;s Compendium, with no site list in the latter. All 31 sites below are distinct published sites, so all 31 are listed here.</p>
-
-    <h2>Great Allegheny Passage — free sites (Pittsburgh to Cumberland)</h2>
-    <p>Only 4 free sites on the whole 150-mile GAP, all between GAP miles 89.4 and 122.6. From Connellsville (89.4) to Cumberland (mile 0) — 89.4 trail miles — there are no further free sites; every overnight option there is paid. GAP miles run Pittsburgh → Cumberland, so the first free site from Pittsburgh is Dravo, ~27.4 miles from the Point. Free, first-come-first-served, one-night stays; potable water in most cases April 15–October 31. Roundbottom is listed May–September, the other three year-round.</p>
-    <p><strong>Longest gap on the whole Pittsburgh → Georgetown ride:</strong> Connellsville (GAP 89.4) to Evitts Creek (C&amp;O 180.1) is <strong>93.8 trail miles</strong> — 89.4 miles to Cumberland, then 4.4 miles down the C&amp;O. No free sites in between. Paid sites for this stretch are on a <a href="paid-campsites.html">separate page</a>.</p>
-    <table>
-      <thead><tr><th>GAP mile</th><th>Site</th><th>GPS coordinates</th><th>From previous site</th><th>Map</th></tr></thead>
-      <tbody id="gap-rows">
-        <tr><td class="mile">122.6</td><td>Dravo Hiker-Biker Campground (Dravo's Landing)</td><td class="coords">40.280164, -79.805752</td><td>&mdash;</td><td><a href="https://maps.google.com/?q=40.280164,-79.805752">Google Maps</a></td></tr>
-        <tr><td class="mile">110.2</td><td>Cedar Creek Trekker Campground (Cedar Creek Park)</td><td class="coords">40.177130, -79.767790</td><td>12.4 mi</td><td><a href="https://maps.google.com/?q=40.17713,-79.76779">Google Maps</a></td></tr>
-        <tr><td class="mile">99.6</td><td>Roundbottom Hiker-Biker Campground</td><td class="coords">40.136350, -79.754750</td><td>10.6 mi</td><td><a href="https://maps.google.com/?q=40.13635,-79.75475">Google Maps</a></td></tr>
-        <tr><td class="mile">89.4</td><td>Connellsville Hiker-Biker Campground (Stewart's Crossing)</td><td class="coords">40.021430, -79.602880</td><td>10.2 mi</td><td><a href="https://maps.google.com/?q=40.02143,-79.60288">Google Maps</a></td></tr>
-      </tbody>
-    </table>
-    <h2>C&amp;O Canal — free sites (Cumberland to Georgetown)</h2>
-    <p>First free C&amp;O site from Cumberland is Evitts Creek (mile 180.1), 4.4 miles from Cumberland — and 93.8 miles from Connellsville, the last free GAP site.</p>
+    <a href="index.html">&larr; Back to mikkowus.com</a>
+    <h1>GAP + C&amp;O — Free Campsites</h1>
+    <p><strong>35 free sites</strong> · Pittsburgh to Georgetown · 1 night each · no fee, no reservation · C&amp;O water: non-potable (filter/boil) · GAP water: potable Apr 15–Oct 31 · Distances = trail miles from previous site · GAP mile 0 = C&amp;O mile 184.5</p>
     <input id="q" type="search" placeholder="Search by name or mile — e.g. Swains, 110, Evitts…" aria-label="Search campsites" />
+    <div id="map"></div>
+    <p class="small">Blue pins: C&amp;O. Green dots: GAP. Tap a pin for GPS + distance from the previous site.</p>
+    <h2>GAP — Pittsburgh to Cumberland (4 sites)</h2>
+    <p class="small">Longest gap: Connellsville &rarr; Evitts Creek, <strong>93.8 mi</strong>. No free sites in between. <a href="paid-campsites.html">Paid sites for that stretch &rarr;</a></p>
     <table>
-      <thead><tr><th>Mile</th><th>Site</th><th>GPS coordinates</th><th>From previous site</th><th>Map</th></tr></thead>
-      <tbody id="rows">
-        <tr><td class="mile">16.6</td><td>Swains Lock</td><td class="coords">39.031002, -77.244579</td><td>&mdash;</td><td><a href="https://maps.google.com/?q=39.031002,-77.244579">Google Maps</a></td></tr>
-        <tr><td class="mile">26.1</td><td>Horsepen Branch</td><td class="coords">39.069380, -77.398038</td><td>9.5 mi</td><td><a href="https://maps.google.com/?q=39.069380,-77.398038">Google Maps</a></td></tr>
-        <tr><td class="mile">30.5</td><td>Chisel Branch</td><td class="coords">39.102158, -77.473011</td><td>4.4 mi</td><td><a href="https://maps.google.com/?q=39.102158,-77.473011">Google Maps</a></td></tr>
-        <tr><td class="mile">34.4</td><td>Turtle Run</td><td class="coords">39.139288, -77.515673</td><td>3.9 mi</td><td><a href="https://maps.google.com/?q=39.139288,-77.515673">Google Maps</a></td></tr>
-        <tr><td class="mile">38.2</td><td>Marble Quarry</td><td class="coords">39.179558, -77.492708</td><td>3.8 mi</td><td><a href="https://maps.google.com/?q=39.179558,-77.492708">Google Maps</a></td></tr>
-        <tr><td class="mile">42.5</td><td>Indian Flats</td><td class="coords">39.233516, -77.462711</td><td>4.3 mi</td><td><a href="https://maps.google.com/?q=39.233516,-77.462711">Google Maps</a></td></tr>
-        <tr><td class="mile">47.6</td><td>Calico Rocks</td><td class="coords">39.271168, -77.535582</td><td>5.1 mi</td><td><a href="https://maps.google.com/?q=39.271168,-77.535582">Google Maps</a></td></tr>
-        <tr><td class="mile">50.3</td><td>Bald Eagle Island</td><td class="coords">39.299834, -77.557168</td><td>2.7 mi</td><td><a href="https://maps.google.com/?q=39.299834,-77.557168">Google Maps</a></td></tr>
-        <tr><td class="mile">62.9</td><td>Huckleberry Hill</td><td class="coords">39.341520, -77.757470</td><td>12.6 mi</td><td><a href="https://maps.google.com/?q=39.341520,-77.757470">Google Maps</a></td></tr>
-        <tr><td class="mile">75.2</td><td>Killiansburg Cave</td><td class="coords">39.459202, -77.796583</td><td>12.3 mi</td><td><a href="https://maps.google.com/?q=39.459202,-77.796583">Google Maps</a></td></tr>
-        <tr><td class="mile">79.2</td><td>Horseshoe Bend</td><td class="coords">39.486903, -77.774341</td><td>4.0 mi</td><td><a href="https://maps.google.com/?q=39.486903,-77.774341">Google Maps</a></td></tr>
-        <tr><td class="mile">82.7</td><td>Big Woods</td><td class="coords">39.492868, -77.792591</td><td>3.5 mi</td><td><a href="https://maps.google.com/?q=39.492868,-77.792591">Google Maps</a></td></tr>
-        <tr><td class="mile">90.9</td><td>Opequon Junction</td><td class="coords">39.515900, -77.860100</td><td>8.2 mi</td><td><a href="https://maps.google.com/?q=39.515900,-77.860100">Google Maps</a></td></tr>
-        <tr><td class="mile">95.2</td><td>Cumberland Valley</td><td class="coords">39.562140, -77.853070</td><td>4.3 mi</td><td><a href="https://maps.google.com/?q=39.562140,-77.853070">Google Maps</a></td></tr>
-        <tr><td class="mile">101.2</td><td>Jordan Junction</td><td class="coords">39.609192, -77.852830</td><td>6.0 mi</td><td><a href="https://maps.google.com/?q=39.609192,-77.852830">Google Maps</a></td></tr>
-        <tr><td class="mile">110</td><td>North Mountain</td><td class="coords">39.610663, -77.959636</td><td>8.8 mi</td><td><a href="https://maps.google.com/?q=39.610663,-77.959636">Google Maps</a></td></tr>
-        <tr><td class="mile">116</td><td>Licking Creek</td><td class="coords">39.650294, -78.048776</td><td>6.0 mi</td><td><a href="https://maps.google.com/?q=39.650294,-78.048776">Google Maps</a></td></tr>
-        <tr><td class="mile">120.6</td><td>Little Pool</td><td class="coords">39.684776, -78.113125</td><td>4.6 mi</td><td><a href="https://maps.google.com/?q=39.684776,-78.113125">Google Maps</a></td></tr>
-        <tr><td class="mile">126.4</td><td>White Rock</td><td class="coords">39.677540, -78.209794</td><td>5.8 mi</td><td><a href="https://maps.google.com/?q=39.677540,-78.209794">Google Maps</a></td></tr>
-        <tr><td class="mile">129.9</td><td>Leopards Mill</td><td class="coords">39.651928, -78.240155</td><td>3.5 mi</td><td><a href="https://maps.google.com/?q=39.651928,-78.240155">Google Maps</a></td></tr>
-        <tr><td class="mile">133.6</td><td>Cacapon Junction</td><td class="coords">39.621284, -78.279305</td><td>3.7 mi</td><td><a href="https://maps.google.com/?q=39.621284,-78.279305">Google Maps</a></td></tr>
-        <tr><td class="mile">139.2</td><td>Indigo Neck</td><td class="coords">39.626700, -78.358670</td><td>5.6 mi</td><td><a href="https://maps.google.com/?q=39.626700,-78.358670">Google Maps</a></td></tr>
-        <tr><td class="mile">144.5</td><td>Devils Alley</td><td class="coords">39.622160, -78.411330</td><td>5.3 mi</td><td><a href="https://maps.google.com/?q=39.622160,-78.411330">Google Maps</a></td></tr>
-        <tr><td class="mile">149.4</td><td>Stickpile Hill</td><td class="coords">39.583599, -78.397693</td><td>4.9 mi</td><td><a href="https://maps.google.com/?q=39.583599,-78.397693">Google Maps</a></td></tr>
-        <tr><td class="mile">154.1</td><td>Sorrel Ridge</td><td class="coords">39.571699, -78.453213</td><td>4.7 mi</td><td><a href="https://maps.google.com/?q=39.571699,-78.453213">Google Maps</a></td></tr>
-        <tr><td class="mile">157.4</td><td>Purslane Run</td><td class="coords">39.535244, -78.464149</td><td>3.3 mi</td><td><a href="https://maps.google.com/?q=39.535244,-78.464149">Google Maps</a></td></tr>
-        <tr><td class="mile">162.1</td><td>Town Creek</td><td class="coords">39.524461, -78.538643</td><td>4.7 mi</td><td><a href="https://maps.google.com/?q=39.524461,-78.538643">Google Maps</a></td></tr>
-        <tr><td class="mile">164.8</td><td>Potomac Forks</td><td class="coords">39.530940, -78.588975</td><td>2.7 mi</td><td><a href="https://maps.google.com/?q=39.530940,-78.588975">Google Maps</a></td></tr>
-        <tr><td class="mile">169.1</td><td>Pigmans Ferry</td><td class="coords">39.538958, -78.650428</td><td>4.3 mi</td><td><a href="https://maps.google.com/?q=39.538958,-78.650428">Google Maps</a></td></tr>
-        <tr><td class="mile">175.3</td><td>Irons Mountain</td><td class="coords">39.587479, -78.735584</td><td>6.2 mi</td><td><a href="https://maps.google.com/?q=39.587479,-78.735584">Google Maps</a></td></tr>
-        <tr><td class="mile">180.1</td><td>Evitts Creek</td><td class="coords">39.616979, -78.732590</td><td>4.8 mi</td><td><a href="https://maps.google.com/?q=39.616979,-78.732590">Google Maps</a></td></tr>
+      <thead><tr><th>GAP mile</th><th>Site</th><th>GPS</th><th>From prev.</th><th>Map</th></tr></thead>
+      <tbody id="gap-rows">
+        <tr><td class="mile">122.6</td><td>Dravo</td><td class="coords">40.280164, -79.805752</td><td>—</td><td><a href="https://maps.google.com/?q=40.280164,-79.805752">Maps</a></td></tr>
+        <tr><td class="mile">110.2</td><td>Cedar Creek</td><td class="coords">40.177130, -79.767790</td><td>12.4 mi</td><td><a href="https://maps.google.com/?q=40.17713,-79.76779">Maps</a></td></tr>
+        <tr><td class="mile">99.6</td><td>Roundbottom</td><td class="coords">40.136350, -79.754750</td><td>10.6 mi</td><td><a href="https://maps.google.com/?q=40.13635,-79.75475">Maps</a></td></tr>
+        <tr><td class="mile">89.4</td><td>Connellsville</td><td class="coords">40.021430, -79.602880</td><td>10.2 mi</td><td><a href="https://maps.google.com/?q=40.02143,-79.60288">Maps</a></td></tr>
       </tbody>
     </table>
-    <h2>Map — all 35 free sites</h2>
-    <p>Blue pins: C&amp;O Canal. Green dots: GAP.</p>
-    <div id="map"></div>
+    <h2>C&amp;O — Cumberland to Georgetown (31 sites)</h2>
+    <table>
+      <thead><tr><th>Mile</th><th>Site</th><th>GPS</th><th>From prev.</th><th>Map</th></tr></thead>
+      <tbody id="rows">
+        <tr><td class="mile">16.6</td><td>Swains Lock</td><td class="coords">39.031002, -77.244579</td><td>—</td><td><a href="https://maps.google.com/?q=39.031002,-77.244579">Maps</a></td></tr>
+        <tr><td class="mile">26.1</td><td>Horsepen Branch</td><td class="coords">39.069380, -77.398038</td><td>9.5 mi</td><td><a href="https://maps.google.com/?q=39.06938,-77.398038">Maps</a></td></tr>
+        <tr><td class="mile">30.5</td><td>Chisel Branch</td><td class="coords">39.102158, -77.473011</td><td>4.4 mi</td><td><a href="https://maps.google.com/?q=39.102158,-77.473011">Maps</a></td></tr>
+        <tr><td class="mile">34.4</td><td>Turtle Run</td><td class="coords">39.139288, -77.515673</td><td>3.9 mi</td><td><a href="https://maps.google.com/?q=39.139288,-77.515673">Maps</a></td></tr>
+        <tr><td class="mile">38.2</td><td>Marble Quarry</td><td class="coords">39.179558, -77.492708</td><td>3.8 mi</td><td><a href="https://maps.google.com/?q=39.179558,-77.492708">Maps</a></td></tr>
+        <tr><td class="mile">42.5</td><td>Indian Flats</td><td class="coords">39.233516, -77.462711</td><td>4.3 mi</td><td><a href="https://maps.google.com/?q=39.233516,-77.462711">Maps</a></td></tr>
+        <tr><td class="mile">47.6</td><td>Calico Rocks</td><td class="coords">39.271168, -77.535582</td><td>5.1 mi</td><td><a href="https://maps.google.com/?q=39.271168,-77.535582">Maps</a></td></tr>
+        <tr><td class="mile">50.3</td><td>Bald Eagle Island</td><td class="coords">39.299834, -77.557168</td><td>2.7 mi</td><td><a href="https://maps.google.com/?q=39.299834,-77.557168">Maps</a></td></tr>
+        <tr><td class="mile">62.9</td><td>Huckleberry Hill</td><td class="coords">39.341520, -77.757470</td><td>12.6 mi</td><td><a href="https://maps.google.com/?q=39.34152,-77.75747">Maps</a></td></tr>
+        <tr><td class="mile">75.2</td><td>Killiansburg Cave</td><td class="coords">39.459202, -77.796583</td><td>12.3 mi</td><td><a href="https://maps.google.com/?q=39.459202,-77.796583">Maps</a></td></tr>
+        <tr><td class="mile">79.2</td><td>Horseshoe Bend</td><td class="coords">39.486903, -77.774341</td><td>4.0 mi</td><td><a href="https://maps.google.com/?q=39.486903,-77.774341">Maps</a></td></tr>
+        <tr><td class="mile">82.7</td><td>Big Woods</td><td class="coords">39.492868, -77.792591</td><td>3.5 mi</td><td><a href="https://maps.google.com/?q=39.492868,-77.792591">Maps</a></td></tr>
+        <tr><td class="mile">90.9</td><td>Opequon Junction</td><td class="coords">39.515900, -77.860100</td><td>8.2 mi</td><td><a href="https://maps.google.com/?q=39.5159,-77.8601">Maps</a></td></tr>
+        <tr><td class="mile">95.2</td><td>Cumberland Valley</td><td class="coords">39.562140, -77.853070</td><td>4.3 mi</td><td><a href="https://maps.google.com/?q=39.56214,-77.85307">Maps</a></td></tr>
+        <tr><td class="mile">101.2</td><td>Jordan Junction</td><td class="coords">39.609192, -77.852830</td><td>6.0 mi</td><td><a href="https://maps.google.com/?q=39.609192,-77.85283">Maps</a></td></tr>
+        <tr><td class="mile">110</td><td>North Mountain</td><td class="coords">39.610663, -77.959636</td><td>8.8 mi</td><td><a href="https://maps.google.com/?q=39.610663,-77.959636">Maps</a></td></tr>
+        <tr><td class="mile">116</td><td>Licking Creek</td><td class="coords">39.650294, -78.048776</td><td>6.0 mi</td><td><a href="https://maps.google.com/?q=39.650294,-78.048776">Maps</a></td></tr>
+        <tr><td class="mile">120.6</td><td>Little Pool</td><td class="coords">39.684776, -78.113125</td><td>4.6 mi</td><td><a href="https://maps.google.com/?q=39.684776,-78.113125">Maps</a></td></tr>
+        <tr><td class="mile">126.4</td><td>White Rock</td><td class="coords">39.677540, -78.209794</td><td>5.8 mi</td><td><a href="https://maps.google.com/?q=39.67754,-78.209794">Maps</a></td></tr>
+        <tr><td class="mile">129.9</td><td>Leopards Mill</td><td class="coords">39.651928, -78.240155</td><td>3.5 mi</td><td><a href="https://maps.google.com/?q=39.651928,-78.240155">Maps</a></td></tr>
+        <tr><td class="mile">133.6</td><td>Cacapon Junction</td><td class="coords">39.621284, -78.279305</td><td>3.7 mi</td><td><a href="https://maps.google.com/?q=39.621284,-78.279305">Maps</a></td></tr>
+        <tr><td class="mile">139.2</td><td>Indigo Neck</td><td class="coords">39.626700, -78.358670</td><td>5.6 mi</td><td><a href="https://maps.google.com/?q=39.6267,-78.35867">Maps</a></td></tr>
+        <tr><td class="mile">144.5</td><td>Devils Alley</td><td class="coords">39.622160, -78.411330</td><td>5.3 mi</td><td><a href="https://maps.google.com/?q=39.62216,-78.41133">Maps</a></td></tr>
+        <tr><td class="mile">149.4</td><td>Stickpile Hill</td><td class="coords">39.583599, -78.397693</td><td>4.9 mi</td><td><a href="https://maps.google.com/?q=39.583599,-78.397693">Maps</a></td></tr>
+        <tr><td class="mile">154.1</td><td>Sorrel Ridge</td><td class="coords">39.571699, -78.453213</td><td>4.7 mi</td><td><a href="https://maps.google.com/?q=39.571699,-78.453213">Maps</a></td></tr>
+        <tr><td class="mile">157.4</td><td>Purslane Run</td><td class="coords">39.535244, -78.464149</td><td>3.3 mi</td><td><a href="https://maps.google.com/?q=39.535244,-78.464149">Maps</a></td></tr>
+        <tr><td class="mile">162.1</td><td>Town Creek</td><td class="coords">39.524461, -78.538643</td><td>4.7 mi</td><td><a href="https://maps.google.com/?q=39.524461,-78.538643">Maps</a></td></tr>
+        <tr><td class="mile">164.8</td><td>Potomac Forks</td><td class="coords">39.530940, -78.588975</td><td>2.7 mi</td><td><a href="https://maps.google.com/?q=39.53094,-78.588975">Maps</a></td></tr>
+        <tr><td class="mile">169.1</td><td>Pigmans Ferry</td><td class="coords">39.538958, -78.650428</td><td>4.3 mi</td><td><a href="https://maps.google.com/?q=39.538958,-78.650428">Maps</a></td></tr>
+        <tr><td class="mile">175.3</td><td>Irons Mountain</td><td class="coords">39.587479, -78.735584</td><td>6.2 mi</td><td><a href="https://maps.google.com/?q=39.587479,-78.735584">Maps</a></td></tr>
+        <tr><td class="mile">180.1</td><td>Evitts Creek</td><td class="coords">39.616979, -78.732590</td><td>4.8 mi</td><td><a href="https://maps.google.com/?q=39.616979,-78.73259">Maps</a></td></tr>
+      </tbody>
+    </table>
     <footer>
-      <p>Sources: NPS <a href="https://www.nps.gov/choh/planyourvisit/primitive-campsites.htm">Primitive Campsites</a> and <a href="https://www.nps.gov/choh/planyourvisit/maps.htm">Maps</a>; coordinates from published listings (TheDyrt, Campflare, Campanac / Recreation.gov RIDB data, Snoflo). Opequon Junction uses Snoflo&rsquo;s coordinate — TheDyrt copies Jordan Junction&rsquo;s for it. Indigo Neck and Devils Alley each have two published values ~200&ndash;250 m apart; RIDB values are shown. Drive-in/reservable campgrounds (Antietam Creek, McCoys Ferry, Fifteenmile Creek, Paw Paw Tunnel, Spring Gap) are not listed here. GAP coordinates from gaptrail.org, TheDyrt, MapCarta/OpenStreetMap and Snoflo; paid GAP sites (Outflow, Ohiopyle, Frostburg Trail Inn, Blue Canoe, etc.) are excluded. Check current park conditions before a trip — sites can close for damage/repair.</p>
+      <p class="small">NPS lists 31 C&amp;O sites in some places, 30 in its 2026 Compendium — all 31 distinct published sites are listed here. Opequon uses Snoflo&rsquo;s coordinate (TheDyrt copies Jordan Junction&rsquo;s). Indigo Neck / Devils Alley have two published values ~200 m apart; RIDB values shown. Sources: NPS, gaptrail.org, TheDyrt, Campflare, Campanac/RIDB, Snoflo, MapCarta/OSM.</p>
     </footer>
   </div>
   <script>
@@ -100,61 +95,63 @@
   <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
   <script>
     const sites = [
-      [16.6, "Swains Lock", 39.031002, -77.244579],
-      [26.1, "Horsepen Branch", 39.06938, -77.398038],
-      [30.5, "Chisel Branch", 39.102158, -77.473011],
-      [34.4, "Turtle Run", 39.139288, -77.515673],
-      [38.2, "Marble Quarry", 39.179558, -77.492708],
-      [42.5, "Indian Flats", 39.233516, -77.462711],
-      [47.6, "Calico Rocks", 39.271168, -77.535582],
-      [50.3, "Bald Eagle Island", 39.299834, -77.557168],
-      [62.9, "Huckleberry Hill", 39.34152, -77.75747],
-      [75.2, "Killiansburg Cave", 39.459202, -77.796583],
-      [79.2, "Horseshoe Bend", 39.486903, -77.774341],
-      [82.7, "Big Woods", 39.492868, -77.792591],
-      [90.9, "Opequon Junction", 39.5159, -77.8601],
-      [95.2, "Cumberland Valley", 39.56214, -77.85307],
-      [101.2, "Jordan Junction", 39.609192, -77.85283],
-      [110, "North Mountain", 39.610663, -77.959636],
-      [116, "Licking Creek", 39.650294, -78.048776],
-      [120.6, "Little Pool", 39.684776, -78.113125],
-      [126.4, "White Rock", 39.67754, -78.209794],
-      [129.9, "Leopards Mill", 39.651928, -78.240155],
-      [133.6, "Cacapon Junction", 39.621284, -78.279305],
-      [139.2, "Indigo Neck", 39.6267, -78.35867],
-      [144.5, "Devils Alley", 39.62216, -78.41133],
-      [149.4, "Stickpile Hill", 39.583599, -78.397693],
-      [154.1, "Sorrel Ridge", 39.571699, -78.453213],
-      [157.4, "Purslane Run", 39.535244, -78.464149],
-      [162.1, "Town Creek", 39.524461, -78.538643],
-      [164.8, "Potomac Forks", 39.53094, -78.588975],
-      [169.1, "Pigmans Ferry", 39.538958, -78.650428],
-      [175.3, "Irons Mountain", 39.587479, -78.735584],
-      [180.1, "Evitts Creek", 39.616979, -78.73259]
+      [16.6, "Swains Lock", 39.031002, -77.244579, "First site"],
+      [26.1, "Horsepen Branch", 39.06938, -77.398038, "9.5 mi from Swains Lock"],
+      [30.5, "Chisel Branch", 39.102158, -77.473011, "4.4 mi from Horsepen Branch"],
+      [34.4, "Turtle Run", 39.139288, -77.515673, "3.9 mi from Chisel Branch"],
+      [38.2, "Marble Quarry", 39.179558, -77.492708, "3.8 mi from Turtle Run"],
+      [42.5, "Indian Flats", 39.233516, -77.462711, "4.3 mi from Marble Quarry"],
+      [47.6, "Calico Rocks", 39.271168, -77.535582, "5.1 mi from Indian Flats"],
+      [50.3, "Bald Eagle Island", 39.299834, -77.557168, "2.7 mi from Calico Rocks"],
+      [62.9, "Huckleberry Hill", 39.34152, -77.75747, "12.6 mi from Bald Eagle Island"],
+      [75.2, "Killiansburg Cave", 39.459202, -77.796583, "12.3 mi from Huckleberry Hill"],
+      [79.2, "Horseshoe Bend", 39.486903, -77.774341, "4.0 mi from Killiansburg Cave"],
+      [82.7, "Big Woods", 39.492868, -77.792591, "3.5 mi from Horseshoe Bend"],
+      [90.9, "Opequon Junction", 39.5159, -77.8601, "8.2 mi from Big Woods"],
+      [95.2, "Cumberland Valley", 39.56214, -77.85307, "4.3 mi from Opequon Junction"],
+      [101.2, "Jordan Junction", 39.609192, -77.85283, "6.0 mi from Cumberland Valley"],
+      [110, "North Mountain", 39.610663, -77.959636, "8.8 mi from Jordan Junction"],
+      [116, "Licking Creek", 39.650294, -78.048776, "6.0 mi from North Mountain"],
+      [120.6, "Little Pool", 39.684776, -78.113125, "4.6 mi from Licking Creek"],
+      [126.4, "White Rock", 39.67754, -78.209794, "5.8 mi from Little Pool"],
+      [129.9, "Leopards Mill", 39.651928, -78.240155, "3.5 mi from White Rock"],
+      [133.6, "Cacapon Junction", 39.621284, -78.279305, "3.7 mi from Leopards Mill"],
+      [139.2, "Indigo Neck", 39.6267, -78.35867, "5.6 mi from Cacapon Junction"],
+      [144.5, "Devils Alley", 39.62216, -78.41133, "5.3 mi from Indigo Neck"],
+      [149.4, "Stickpile Hill", 39.583599, -78.397693, "4.9 mi from Devils Alley"],
+      [154.1, "Sorrel Ridge", 39.571699, -78.453213, "4.7 mi from Stickpile Hill"],
+      [157.4, "Purslane Run", 39.535244, -78.464149, "3.3 mi from Sorrel Ridge"],
+      [162.1, "Town Creek", 39.524461, -78.538643, "4.7 mi from Purslane Run"],
+      [164.8, "Potomac Forks", 39.53094, -78.588975, "2.7 mi from Town Creek"],
+      [169.1, "Pigmans Ferry", 39.538958, -78.650428, "4.3 mi from Potomac Forks"],
+      [175.3, "Irons Mountain", 39.587479, -78.735584, "6.2 mi from Pigmans Ferry"],
+      [180.1, "Evitts Creek", 39.616979, -78.73259, "4.8 mi from Irons Mountain · 93.8 mi from Connellsville"],
+    ];
+    const gapSites = [
+      [122.6, "Dravo", 40.280164, -79.805752, "27.4 mi from Pittsburgh"],
+      [110.2, "Cedar Creek", 40.17713, -79.76779, "12.4 mi from Dravo"],
+      [99.6, "Roundbottom", 40.13635, -79.75475, "10.6 mi from Cedar Creek"],
+      [89.4, "Connellsville", 40.02143, -79.60288, "10.2 mi from Roundbottom · 93.8 mi to Evitts Creek"],
     ];
     const map = L.map('map');
-    const gapSites = [
-      [122.6, "Dravo Hiker-Biker Campground", 40.280164, -79.805752],
-      [110.2, "Cedar Creek Trekker Campground", 40.17713, -79.76779],
-      [99.6, "Roundbottom Hiker-Biker Campground", 40.13635, -79.75475],
-      [89.4, "Connellsville Hiker-Biker Campground", 40.02143, -79.60288]
-    ];
     L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
       maxZoom: 18,
       attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
     }).addTo(map);
     const bounds = [];
-    sites.forEach(([mile, name, lat, lon]) => {
+    sites.forEach(([mile, name, lat, lon, dist]) => {
       bounds.push([lat, lon]);
       L.marker([lat, lon]).addTo(map).bindPopup(
         '<strong>' + name + '</strong><br>Mile ' + mile + '<br>' + lat.toFixed(6) + ', ' + lon.toFixed(6) +
+        '<br>' + dist +
         '<br><a href="https://maps.google.com/?q=' + lat + ',' + lon + '" target="_blank">Open in Google Maps</a>'
       );
     });
-    gapSites.forEach(([mile, name, lat, lon]) => {
+    gapSites.forEach(([mile, name, lat, lon, dist]) => {
       bounds.push([lat, lon]);
       L.circleMarker([lat, lon], { radius: 8, color: '#15803d', fillColor: '#22c55e', fillOpacity: 0.9 }).addTo(map).bindPopup(
         '<strong>' + name + '</strong><br>GAP mile ' + mile + '<br>' + lat.toFixed(6) + ', ' + lon.toFixed(6) +
+        '<br>' + dist +
         '<br><a href="https://maps.google.com/?q=' + lat + ',' + lon + '" target="_blank">Open in Google Maps</a>'
       );
     });
