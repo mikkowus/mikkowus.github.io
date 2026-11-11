@@ -162,19 +162,19 @@
       );
     });
     const paidSites = [
-      [92.0, "The Blue Canoe RV Resort", 40.04122, -79.62637, "From $22 tent; RV from $67", "https://roadville.com/blue-canoe"],
-      [72.6, "Ohiopyle — Kentuck Campground", 39.88884, -79.494497, "$22 / $26; yurts $85-$115", "https://www.pa.gov/agencies/dcnr/recreation/where-to-go/state-parks/find-a-park/ohiopyle-state-park/stay"],
-      [62.0, "Paddler's Lane Campground", 39.828161, -79.381195, "About $7/person — verify", "https://www.paddlerslane.com/campground"],
-      [61.4, "Outflow Campground", 39.80512, -79.36596, "$25 / $35 / $48; group $65", "https://www.recreation.gov/camping/campgrounds/233679"],
-      [43.7, "Hostel on Main, Rockwood", 39.91404, -79.15702, "About $50/bed — verify", ""],
-      [31.9, "Maple Festival Park, Meyersdale", 39.81363, -79.02421, "$20/site", ""],
-      [15.5, "The Tunnel Hotel, Frostburg", 39.65778, -78.92497, "Tent $17.10/person; rooms from $79.79", "https://tunnelhotel.com/"],
-      [0.1, "Cumberland YMCA camping", 39.64543, -78.7788, "$15/adult, $10 youth, members free", "https://www.cumberlandymca.org/facilityrentals/bike-trail-overnight-camping/"]
+      [92.0, "The Blue Canoe RV Resort", 40.04122, -79.62637, "From $22 tent; RV from $67", "https://roadville.com/blue-canoe", "First paid site from Pittsburgh"],
+      [72.6, "Ohiopyle — Kentuck Campground", 39.88884, -79.494497, "$22 / $26; yurts $85-$115", "https://www.pa.gov/agencies/dcnr/recreation/where-to-go/state-parks/find-a-park/ohiopyle-state-park/stay", "19.4 mi from Blue Canoe"],
+      [62.0, "Paddler's Lane Campground", 39.828161, -79.381195, "About $7/person — verify", "https://www.paddlerslane.com/campground", "10.6 mi from Kentuck"],
+      [61.4, "Outflow Campground", 39.80512, -79.36596, "$25 / $35 / $48; group $65", "https://www.recreation.gov/camping/campgrounds/233679", "0.6 mi from Paddler's Lane"],
+      [43.7, "Hostel on Main, Rockwood", 39.91404, -79.15702, "About $50/bed — verify", "", "17.7 mi from Outflow"],
+      [31.9, "Maple Festival Park, Meyersdale", 39.81363, -79.02421, "$20/site", "", "11.8 mi from Hostel on Main"],
+      [15.5, "The Tunnel Hotel, Frostburg", 39.65778, -78.92497, "Tent $17.10/person; rooms from $79.79", "https://tunnelhotel.com/", "16.4 mi from Maple Festival Park"],
+      [0.1, "Cumberland YMCA camping", 39.64543, -78.7788, "$15/adult, $10 youth, members free", "https://www.cumberlandymca.org/facilityrentals/bike-trail-overnight-camping/", "15.4 mi from Tunnel Hotel"]
     ];
     const paidLayer = L.layerGroup();
-    paidSites.forEach(([mile, name, lat, lon, price, siteUrl]) => {
+    paidSites.forEach(([mile, name, lat, lon, price, siteUrl, dist]) => {
       L.circleMarker([lat, lon], { radius: 8, color: '#b91c1c', fillColor: '#ef4444', fillOpacity: 0.9 }).addTo(paidLayer).bindPopup(
-        '<strong>' + name + '</strong><br>GAP mile ' + mile + '<br><strong>' + price + '</strong><br>' + lat.toFixed(6) + ', ' + lon.toFixed(6) +
+        '<strong>' + name + '</strong><br>GAP mile ' + mile + '<br><strong>' + price + '</strong><br>' + dist + '<br>' + lat.toFixed(6) + ', ' + lon.toFixed(6) +
         (siteUrl ? '<br><a href="' + siteUrl + '" target="_blank">Owner site</a>' : '') +
         '<br><a href="https://maps.google.com/?q=' + lat + ',' + lon + '" target="_blank">Open in Google Maps</a>'
       );
