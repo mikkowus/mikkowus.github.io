@@ -20,7 +20,9 @@
     td.coords { font-family: ui-monospace, monospace; font-size: 0.9rem; white-space: nowrap; }
     .back { display: inline-block; margin-bottom: 8px; }
     footer { margin-top: 24px; font-size: 0.9rem; }
+    #map { height: 500px; border-radius: 12px; margin-top: 24px; z-index: 0; }
   </style>
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
 </head>
 <body>
   <div class="wrap">
@@ -65,6 +67,8 @@
         <tr><td class="mile">180.1</td><td>Evitts Creek</td><td class="coords">39.616979, -78.732590</td><td>4.8 mi</td><td><a href="https://maps.google.com/?q=39.616979,-78.732590">Google Maps</a></td></tr>
       </tbody>
     </table>
+    <h2>Map — all 31 free sites</h2>
+    <div id="map"></div>
     <footer>
       <p>Sources: NPS <a href="https://www.nps.gov/choh/planyourvisit/primitive-campsites.htm">Primitive Campsites</a> and <a href="https://www.nps.gov/choh/planyourvisit/maps.htm">Maps</a>; coordinates from published listings (TheDyrt, Campflare, Campanac / Recreation.gov RIDB data, Snoflo). Opequon Junction uses Snoflo&rsquo;s coordinate — TheDyrt copies Jordan Junction&rsquo;s for it. Indigo Neck and Devils Alley each have two published values ~200&ndash;250 m apart; RIDB values are shown. Drive-in/reservable campgrounds (Antietam Creek, McCoys Ferry, Fifteenmile Creek, Paw Paw Tunnel, Spring Gap) are not listed here. Check current park conditions before a trip — sites can close for damage/repair.</p>
     </footer>
@@ -76,6 +80,56 @@
       const s = q.value.toLowerCase();
       rows.forEach(r => { r.style.display = r.textContent.toLowerCase().includes(s) ? '' : 'none'; });
     });
+  </script>
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+  <script>
+    const sites = [
+      [16.6, "Swains Lock", 39.031002, -77.244579],
+      [26.1, "Horsepen Branch", 39.06938, -77.398038],
+      [30.5, "Chisel Branch", 39.102158, -77.473011],
+      [34.4, "Turtle Run", 39.139288, -77.515673],
+      [38.2, "Marble Quarry", 39.179558, -77.492708],
+      [42.5, "Indian Flats", 39.233516, -77.462711],
+      [47.6, "Calico Rocks", 39.271168, -77.535582],
+      [50.3, "Bald Eagle Island", 39.299834, -77.557168],
+      [62.9, "Huckleberry Hill", 39.34152, -77.75747],
+      [75.2, "Killiansburg Cave", 39.459202, -77.796583],
+      [79.2, "Horseshoe Bend", 39.486903, -77.774341],
+      [82.7, "Big Woods", 39.492868, -77.792591],
+      [90.9, "Opequon Junction", 39.5159, -77.8601],
+      [95.2, "Cumberland Valley", 39.56214, -77.85307],
+      [101.2, "Jordan Junction", 39.609192, -77.85283],
+      [110, "North Mountain", 39.610663, -77.959636],
+      [116, "Licking Creek", 39.650294, -78.048776],
+      [120.6, "Little Pool", 39.684776, -78.113125],
+      [126.4, "White Rock", 39.67754, -78.209794],
+      [129.9, "Leopards Mill", 39.651928, -78.240155],
+      [133.6, "Cacapon Junction", 39.621284, -78.279305],
+      [139.2, "Indigo Neck", 39.6267, -78.35867],
+      [144.5, "Devils Alley", 39.62216, -78.41133],
+      [149.4, "Stickpile Hill", 39.583599, -78.397693],
+      [154.1, "Sorrel Ridge", 39.571699, -78.453213],
+      [157.4, "Purslane Run", 39.535244, -78.464149],
+      [162.1, "Town Creek", 39.524461, -78.538643],
+      [164.8, "Potomac Forks", 39.53094, -78.588975],
+      [169.1, "Pigmans Ferry", 39.538958, -78.650428],
+      [175.3, "Irons Mountain", 39.587479, -78.735584],
+      [180.1, "Evitts Creek", 39.616979, -78.73259]
+    ];
+    const map = L.map('map');
+    L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+      maxZoom: 18,
+      attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+    }).addTo(map);
+    const bounds = [];
+    sites.forEach(([mile, name, lat, lon]) => {
+      bounds.push([lat, lon]);
+      L.marker([lat, lon]).addTo(map).bindPopup(
+        '<strong>' + name + '</strong><br>Mile ' + mile + '<br>' + lat.toFixed(6) + ', ' + lon.toFixed(6) +
+        '<br><a href="https://maps.google.com/?q=' + lat + ',' + lon + '" target="_blank">Open in Google Maps</a>'
+      );
+    });
+    map.fitBounds(bounds, { padding: [20, 20] });
   </script>
 </body>
 </html>
