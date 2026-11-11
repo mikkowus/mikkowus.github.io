@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<kml xmlns="http://www.opengis.net/kml/2.2"><Document>
+<name>C&amp;O Canal — Free Hiker-Biker Campsites</name>
+<description>31 free hiker-biker campsites, mile 16.6–180.1, C&amp;O Canal towpath. Distances are towpath miles from the previous site.</description>
+<Placemark><name>Mile 16.6 — Swains Lock</name><description>Mile 16.6. first site. GPS 39.031002, -77.244579.</description><Point><coordinates>-77.244579,39.031002,0</coordinates></Point></Placemark>
+<Placemark><name>Mile 26.1 — Horsepen Branch</name><description>Mile 26.1. 9.5 mi from previous site. GPS 39.06938, -77.398038.</description><Point><coordinates>-77.398038,39.06938,0</coordinates></Point></Placemark>
+<Placemark><name>Mile 30.5 — Chisel Branch</name><description>Mile 30.5. 4.4 mi from previous site. GPS 39.102158, -77.473011.</description><Point><coordinates>-77.473011,39.102158,0</coordinates></Point></Placemark>
+<Placemark><name>Mile 34.4 — Turtle Run</name><description>Mile 34.4. 3.9 mi from previous site. GPS 39.139288, -77.515673.</description><Point><coordinates>-77.515673,39.139288,0</coordinates></Point></Placemark>
+<Placemark><name>Mile 38.2 — Marble Quarry</name><description>Mile 38.2. 3.8 mi from previous site. GPS 39.179558, -77.492708.</description><Point><coordinates>-77.492708,39.179558,0</coordinates></Point></Placemark>
+<Placemark><name>Mile 42.5 — Indian Flats</name><description>Mile 42.5. 4.3 mi from previous site. GPS 39.233516, -77.462711.</description><Point><coordinates>-77.462711,39.233516,0</coordinates></Point></Placemark>
+<Placemark><name>Mile 47.6 — Calico Rocks</name><description>Mile 47.6. 5.1 mi from previous site. GPS 39.271168, -77.535582.</description><Point><coordinates>-77.535582,39.271168,0</coordinates></Point></Placemark>
+<Placemark><name>Mile 50.3 — Bald Eagle Island</name><description>Mile 50.3. 2.7 mi from previous site. GPS 39.299834, -77.557168.</description><Point><coordinates>-77.557168,39.299834,0</coordinates></Point></Placemark>
+<Placemark><name>Mile 62.9 — Huckleberry Hill</name><description>Mile 62.9. 12.6 mi from previous site. GPS 39.34152, -77.75747.</description><Point><coordinates>-77.75747,39.34152,0</coordinates></Point></Placemark>
+<Placemark><name>Mile 75.2 — Killiansburg Cave</name><description>Mile 75.2. 12.3 mi from previous site. GPS 39.459202, -77.796583.</description><Point><coordinates>-77.796583,39.459202,0</coordinates></Point></Placemark>
+<Placemark><name>Mile 79.2 — Horseshoe Bend</name><description>Mile 79.2. 4.0 mi from previous site. GPS 39.486903, -77.774341.</description><Point><coordinates>-77.774341,39.486903,0</coordinates></Point></Placemark>
+<Placemark><name>Mile 82.7 — Big Woods</name><description>Mile 82.7. 3.5 mi from previous site. GPS 39.492868, -77.792591.</description><Point><coordinates>-77.792591,39.492868,0</coordinates></Point></Placemark>
+<Placemark><name>Mile 90.9 — Opequon Junction</name><description>Mile 90.9. 8.2 mi from previous site. GPS 39.5159, -77.8601.</description><Point><coordinates>-77.8601,39.5159,0</coordinates></Point></Placemark>
+<Placemark><name>Mile 95.2 — Cumberland Valley</name><description>Mile 95.2. 4.3 mi from previous site. GPS 39.56214, -77.85307.</description><Point><coordinates>-77.85307,39.56214,0</coordinates></Point></Placemark>
+<Placemark><name>Mile 101.2 — Jordan Junction</name><description>Mile 101.2. 6.0 mi from previous site. GPS 39.609192, -77.85283.</description><Point><coordinates>-77.85283,39.609192,0</coordinates></Point></Placemark>
+<Placemark><name>Mile 110 — North Mountain</name><description>Mile 110. 8.8 mi from previous site. GPS 39.610663, -77.959636.</description><Point><coordinates>-77.959636,39.610663,0</coordinates></Point></Placemark>
+<Placemark><name>Mile 116 — Licking Creek</name><description>Mile 116. 6.0 mi from previous site. GPS 39.650294, -78.048776.</description><Point><coordinates>-78.048776,39.650294,0</coordinates></Point></Placemark>
+<Placemark><name>Mile 120.6 — Little Pool</name><description>Mile 120.6. 4.6 mi from previous site. GPS 39.684776, -78.113125.</description><Point><coordinates>-78.113125,39.684776,0</coordinates></Point></Placemark>
+<Placemark><name>Mile 126.4 — White Rock</name><description>Mile 126.4. 5.8 mi from previous site. GPS 39.67754, -78.209794.</description><Point><coordinates>-78.209794,39.67754,0</coordinates></Point></Placemark>
+<Placemark><name>Mile 129.9 — Leopards Mill</name><description>Mile 129.9. 3.5 mi from previous site. GPS 39.651928, -78.240155.</description><Point><coordinates>-78.240155,39.651928,0</coordinates></Point></Placemark>
+<Placemark><name>Mile 133.6 — Cacapon Junction</name><description>Mile 133.6. 3.7 mi from previous site. GPS 39.621284, -78.279305.</description><Point><coordinates>-78.279305,39.621284,0</coordinates></Point></Placemark>
+<Placemark><name>Mile 139.2 — Indigo Neck</name><description>Mile 139.2. 5.6 mi from previous site. GPS 39.6267, -78.35867.</description><Point><coordinates>-78.35867,39.6267,0</coordinates></Point></Placemark>
+<Placemark><name>Mile 144.5 — Devils Alley</name><description>Mile 144.5. 5.3 mi from previous site. GPS 39.62216, -78.41133.</description><Point><coordinates>-78.41133,39.62216,0</coordinates></Point></Placemark>
+<Placemark><name>Mile 149.4 — Stickpile Hill</name><description>Mile 149.4. 4.9 mi from previous site. GPS 39.583599, -78.397693.</description><Point><coordinates>-78.397693,39.583599,0</coordinates></Point></Placemark>
+<Placemark><name>Mile 154.1 — Sorrel Ridge</name><description>Mile 154.1. 4.7 mi from previous site. GPS 39.571699, -78.453213.</description><Point><coordinates>-78.453213,39.571699,0</coordinates></Point></Placemark>
+<Placemark><name>Mile 157.4 — Purslane Run</name><description>Mile 157.4. 3.3 mi from previous site. GPS 39.535244, -78.464149.</description><Point><coordinates>-78.464149,39.535244,0</coordinates></Point></Placemark>
+<Placemark><name>Mile 162.1 — Town Creek</name><description>Mile 162.1. 4.7 mi from previous site. GPS 39.524461, -78.538643.</description><Point><coordinates>-78.538643,39.524461,0</coordinates></Point></Placemark>
+<Placemark><name>Mile 164.8 — Potomac Forks</name><description>Mile 164.8. 2.7 mi from previous site. GPS 39.53094, -78.588975.</description><Point><coordinates>-78.588975,39.53094,0</coordinates></Point></Placemark>
+<Placemark><name>Mile 169.1 — Pigmans Ferry</name><description>Mile 169.1. 4.3 mi from previous site. GPS 39.538958, -78.650428.</description><Point><coordinates>-78.650428,39.538958,0</coordinates></Point></Placemark>
+<Placemark><name>Mile 175.3 — Irons Mountain</name><description>Mile 175.3. 6.2 mi from previous site. GPS 39.587479, -78.735584.</description><Point><coordinates>-78.735584,39.587479,0</coordinates></Point></Placemark>
+<Placemark><name>Mile 180.1 — Evitts Creek</name><description>Mile 180.1. 4.8 mi from previous site. GPS 39.616979, -78.73259.</description><Point><coordinates>-78.73259,39.616979,0</coordinates></Point></Placemark>
+</Document></kml>
