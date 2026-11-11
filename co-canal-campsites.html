@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>C&amp;O Canal — Free Hiker-Biker Campsites</title>
+  <title>GAP + C&amp;O Canal — Free Hiker-Biker Campsites</title>
   <style>
     body { margin: 0; font-family: system-ui, sans-serif; background: #f3f7fb; color: #1f2937; }
     .wrap { max-width: 900px; margin: 0 auto; padding: 24px 16px 48px; }
@@ -27,9 +27,22 @@
 <body>
   <div class="wrap">
     <a class="back" href="index.html">&larr; Back to mikkowus.com</a>
-    <h1>C&amp;O Canal — Free Hiker-Biker Campsites</h1>
-    <p>31 free, first-come-first-served hiker-biker campsites along the 184.5-mile C&amp;O Canal towpath, Georgetown to Cumberland, MD. One night per site. Each has a chemical toilet, picnic table, grill, and non-potable well water (mid-April to mid-November — filter, treat, or boil). No fee, no reservation. Distances are towpath miles from the previous site (milepost difference) — the distance you actually ride/hike, not straight-line distance.</p>
+    <h1>GAP + C&amp;O Canal — Free Hiker-Biker Campsites</h1>
+    <p>35 free, first-come-first-served hiker-biker campsites on the Pittsburgh to Georgetown ride: 4 on the Great Allegheny Passage (Pittsburgh to Cumberland) and 31 on the C&amp;O Canal towpath (Cumberland to Georgetown). One night per site, no fee, no reservation. C&amp;O sites have a chemical toilet, picnic table, grill, and non-potable well water (mid-April to mid-November — filter, treat, or boil); GAP sites have pit/composting toilets, picnic tables, fire rings, and potable water in season (April 15–October 31). Distances are trail miles from the previous site (milepost difference) — the distance you actually ride/hike, not straight-line distance. Note the mile flip at Cumberland: GAP mile 0 = C&amp;O mile 184.5.</p>
     <p class="note"><strong>Count note:</strong> NPS says 31 in some places and 30 in its 2026 Superintendent&rsquo;s Compendium, with no site list in the latter. All 31 sites below are distinct published sites, so all 31 are listed here.</p>
+
+    <h2>Great Allegheny Passage — free sites (Pittsburgh to Cumberland)</h2>
+    <p>Only 4 free sites on the whole 150-mile GAP, all between GAP miles 89.4 and 122.6. From Connellsville (89.4) to Cumberland (mile 0) — 89.4 trail miles — there are no further free sites; every overnight option there is paid. GAP miles run Pittsburgh → Cumberland, so the first free site from Pittsburgh is Dravo, ~27.4 miles from the Point. Free, first-come-first-served, one-night stays; potable water in most cases April 15–October 31. Roundbottom is listed May–September, the other three year-round.</p>
+    <table>
+      <thead><tr><th>GAP mile</th><th>Site</th><th>GPS coordinates</th><th>From previous site</th><th>Map</th></tr></thead>
+      <tbody id="gap-rows">
+        <tr><td class="mile">122.6</td><td>Dravo Hiker-Biker Campground (Dravo's Landing)</td><td class="coords">40.280164, -79.805752</td><td>&mdash;</td><td><a href="https://maps.google.com/?q=40.280164,-79.805752">Google Maps</a></td></tr>
+        <tr><td class="mile">110.2</td><td>Cedar Creek Trekker Campground (Cedar Creek Park)</td><td class="coords">40.177130, -79.767790</td><td>12.4 mi</td><td><a href="https://maps.google.com/?q=40.17713,-79.76779">Google Maps</a></td></tr>
+        <tr><td class="mile">99.6</td><td>Roundbottom Hiker-Biker Campground</td><td class="coords">40.136350, -79.754750</td><td>10.6 mi</td><td><a href="https://maps.google.com/?q=40.13635,-79.75475">Google Maps</a></td></tr>
+        <tr><td class="mile">89.4</td><td>Connellsville Hiker-Biker Campground (Stewart's Crossing)</td><td class="coords">40.021430, -79.602880</td><td>10.2 mi</td><td><a href="https://maps.google.com/?q=40.02143,-79.60288">Google Maps</a></td></tr>
+      </tbody>
+    </table>
+    <h2>C&amp;O Canal — free sites (Cumberland to Georgetown)</h2>
     <input id="q" type="search" placeholder="Search by name or mile — e.g. Swains, 110, Evitts…" aria-label="Search campsites" />
     <table>
       <thead><tr><th>Mile</th><th>Site</th><th>GPS coordinates</th><th>From previous site</th><th>Map</th></tr></thead>
@@ -67,15 +80,16 @@
         <tr><td class="mile">180.1</td><td>Evitts Creek</td><td class="coords">39.616979, -78.732590</td><td>4.8 mi</td><td><a href="https://maps.google.com/?q=39.616979,-78.732590">Google Maps</a></td></tr>
       </tbody>
     </table>
-    <h2>Map — all 31 free sites</h2>
+    <h2>Map — all 35 free sites</h2>
+    <p>Blue pins: C&amp;O Canal. Green dots: GAP.</p>
     <div id="map"></div>
     <footer>
-      <p>Sources: NPS <a href="https://www.nps.gov/choh/planyourvisit/primitive-campsites.htm">Primitive Campsites</a> and <a href="https://www.nps.gov/choh/planyourvisit/maps.htm">Maps</a>; coordinates from published listings (TheDyrt, Campflare, Campanac / Recreation.gov RIDB data, Snoflo). Opequon Junction uses Snoflo&rsquo;s coordinate — TheDyrt copies Jordan Junction&rsquo;s for it. Indigo Neck and Devils Alley each have two published values ~200&ndash;250 m apart; RIDB values are shown. Drive-in/reservable campgrounds (Antietam Creek, McCoys Ferry, Fifteenmile Creek, Paw Paw Tunnel, Spring Gap) are not listed here. Check current park conditions before a trip — sites can close for damage/repair.</p>
+      <p>Sources: NPS <a href="https://www.nps.gov/choh/planyourvisit/primitive-campsites.htm">Primitive Campsites</a> and <a href="https://www.nps.gov/choh/planyourvisit/maps.htm">Maps</a>; coordinates from published listings (TheDyrt, Campflare, Campanac / Recreation.gov RIDB data, Snoflo). Opequon Junction uses Snoflo&rsquo;s coordinate — TheDyrt copies Jordan Junction&rsquo;s for it. Indigo Neck and Devils Alley each have two published values ~200&ndash;250 m apart; RIDB values are shown. Drive-in/reservable campgrounds (Antietam Creek, McCoys Ferry, Fifteenmile Creek, Paw Paw Tunnel, Spring Gap) are not listed here. GAP coordinates from gaptrail.org, TheDyrt, MapCarta/OpenStreetMap and Snoflo; paid GAP sites (Outflow, Ohiopyle, Frostburg Trail Inn, Blue Canoe, etc.) are excluded. Check current park conditions before a trip — sites can close for damage/repair.</p>
     </footer>
   </div>
   <script>
     const q = document.getElementById('q');
-    const rows = document.querySelectorAll('#rows tr');
+    const rows = document.querySelectorAll('#rows tr, #gap-rows tr');
     q.addEventListener('input', () => {
       const s = q.value.toLowerCase();
       rows.forEach(r => { r.style.display = r.textContent.toLowerCase().includes(s) ? '' : 'none'; });
@@ -117,6 +131,12 @@
       [180.1, "Evitts Creek", 39.616979, -78.73259]
     ];
     const map = L.map('map');
+    const gapSites = [
+      [122.6, "Dravo Hiker-Biker Campground", 40.280164, -79.805752],
+      [110.2, "Cedar Creek Trekker Campground", 40.17713, -79.76779],
+      [99.6, "Roundbottom Hiker-Biker Campground", 40.13635, -79.75475],
+      [89.4, "Connellsville Hiker-Biker Campground", 40.02143, -79.60288]
+    ];
     L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
       maxZoom: 18,
       attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
@@ -126,6 +146,13 @@
       bounds.push([lat, lon]);
       L.marker([lat, lon]).addTo(map).bindPopup(
         '<strong>' + name + '</strong><br>Mile ' + mile + '<br>' + lat.toFixed(6) + ', ' + lon.toFixed(6) +
+        '<br><a href="https://maps.google.com/?q=' + lat + ',' + lon + '" target="_blank">Open in Google Maps</a>'
+      );
+    });
+    gapSites.forEach(([mile, name, lat, lon]) => {
+      bounds.push([lat, lon]);
+      L.circleMarker([lat, lon], { radius: 8, color: '#15803d', fillColor: '#22c55e', fillOpacity: 0.9 }).addTo(map).bindPopup(
+        '<strong>' + name + '</strong><br>GAP mile ' + mile + '<br>' + lat.toFixed(6) + ', ' + lon.toFixed(6) +
         '<br><a href="https://maps.google.com/?q=' + lat + ',' + lon + '" target="_blank">Open in Google Maps</a>'
       );
     });

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <kml xmlns="http://www.opengis.net/kml/2.2"><Document>
 <name>C&amp;O Canal — Free Hiker-Biker Campsites</name>
-<description>31 free hiker-biker campsites, mile 16.6–180.1, C&amp;O Canal towpath. Distances are towpath miles from the previous site.</description>
+<description>35 free hiker-biker campsites: 4 on the GAP (Pittsburgh to Cumberland) and 31 on the C&amp;O Canal towpath (Cumberland to Georgetown). Distances are trail miles from the previous site.</description>
 <Placemark><name>Mile 16.6 — Swains Lock</name><description>Mile 16.6. first site. GPS 39.031002, -77.244579.</description><Point><coordinates>-77.244579,39.031002,0</coordinates></Point></Placemark>
 <Placemark><name>Mile 26.1 — Horsepen Branch</name><description>Mile 26.1. 9.5 mi from previous site. GPS 39.06938, -77.398038.</description><Point><coordinates>-77.398038,39.06938,0</coordinates></Point></Placemark>
 <Placemark><name>Mile 30.5 — Chisel Branch</name><description>Mile 30.5. 4.4 mi from previous site. GPS 39.102158, -77.473011.</description><Point><coordinates>-77.473011,39.102158,0</coordinates></Point></Placemark>
@@ -33,4 +33,8 @@
 <Placemark><name>Mile 169.1 — Pigmans Ferry</name><description>Mile 169.1. 4.3 mi from previous site. GPS 39.538958, -78.650428.</description><Point><coordinates>-78.650428,39.538958,0</coordinates></Point></Placemark>
 <Placemark><name>Mile 175.3 — Irons Mountain</name><description>Mile 175.3. 6.2 mi from previous site. GPS 39.587479, -78.735584.</description><Point><coordinates>-78.735584,39.587479,0</coordinates></Point></Placemark>
 <Placemark><name>Mile 180.1 — Evitts Creek</name><description>Mile 180.1. 4.8 mi from previous site. GPS 39.616979, -78.73259.</description><Point><coordinates>-78.73259,39.616979,0</coordinates></Point></Placemark>
+<Placemark><name>GAP Mile 122.6 — Dravo Hiker-Biker Campground</name><description>GAP mile 122.6. First free site from Pittsburgh (~27.4 mi from the Point). GPS 40.280164, -79.805752.</description><Point><coordinates>-79.805752,40.280164,0</coordinates></Point></Placemark>
+<Placemark><name>GAP Mile 110.2 — Cedar Creek Trekker Campground</name><description>GAP mile 110.2. 12.4 mi from Dravo. GPS 40.17713, -79.76779.</description><Point><coordinates>-79.76779,40.17713,0</coordinates></Point></Placemark>
+<Placemark><name>GAP Mile 99.6 — Roundbottom Hiker-Biker Campground</name><description>GAP mile 99.6. 10.6 mi from Cedar Creek. GPS 40.13635, -79.75475.</description><Point><coordinates>-79.75475,40.13635,0</coordinates></Point></Placemark>
+<Placemark><name>GAP Mile 89.4 — Connellsville Hiker-Biker Campground</name><description>GAP mile 89.4. 10.2 mi from Roundbottom. GPS 40.02143, -79.60288.</description><Point><coordinates>-79.60288,40.02143,0</coordinates></Point></Placemark>
 </Document></kml>
