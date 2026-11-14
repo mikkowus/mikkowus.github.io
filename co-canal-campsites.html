@@ -30,7 +30,7 @@
     <h1 style="color:#15803d;">GAP + C&amp;O — Free Campsites</h1>
     <p><strong>35 free sites</strong> · Pittsburgh to Georgetown · 1 night each · no fee, no reservation · C&amp;O water: non-potable (filter/boil) · GAP water: potable Apr 15–Oct 31 · Distances = trail miles from previous site · GAP mile 0 = C&amp;O mile 184.5</p>
     <input id="q" type="search" placeholder="Search by name or mile — e.g. Swains, 110, Evitts…" aria-label="Search campsites" />
-    <p><button id="toggle-paid" style="padding:8px 14px;font-size:1rem;border-radius:8px;border:1px solid #cbd5e1;background:white;cursor:pointer;">Paid sites: On</button></p>
+    <p><button id="toggle-paid" style="padding:8px 14px;font-size:1rem;border-radius:8px;border:1px solid #cbd5e1;background:white;cursor:pointer;">Paid sites: On</button> <button id="locate-me" style="padding:8px 14px;font-size:1rem;border-radius:8px;border:1px solid #cbd5e1;background:white;cursor:pointer;">Show my location</button> <span id="locate-status" class="small"></span></p>
     <div id="map"></div>
     <p class="small">Blue pins: C&amp;O free. Green dots: GAP free. Red dots: paid. Tap a pin for GPS + distance / price.</p>
     <h2>GAP — Pittsburgh to Cumberland (4 sites)</h2>
@@ -183,6 +183,27 @@
     document.getElementById('toggle-paid').addEventListener('click', (e) => {
       if (map.hasLayer(paidLayer)) { map.removeLayer(paidLayer); e.target.textContent = 'Paid sites: Off'; }
       else { paidLayer.addTo(map); e.target.textContent = 'Paid sites: On'; }
+    });
+    let youMarker = null, youCircle = null;
+    const locateBtn = document.getElementById('locate-me');
+    const locateStatus = document.getElementById('locate-status');
+    locateBtn.addEventListener('click', () => {
+      if (!navigator.geolocation) { locateStatus.textContent = 'Geolocation is not supported by this browser.'; return; }
+      locateBtn.textContent = 'Locating…';
+      locateStatus.textContent = '';
+      navigator.geolocation.getCurrentPosition((pos) => {
+        const lat = pos.coords.latitude, lon = pos.coords.longitude, acc = pos.coords.accuracy;
+        if (youMarker) { map.removeLayer(youMarker); map.removeLayer(youCircle); }
+        youMarker = L.circleMarker([lat, lon], { radius: 8, color: '#ffffff', weight: 2, fillColor: '#2563eb', fillOpacity: 1 }).addTo(map)
+          .bindPopup('<strong>You are here</strong><br>' + lat.toFixed(6) + ', ' + lon.toFixed(6));
+        youCircle = L.circle([lat, lon], { radius: acc, color: '#2563eb', weight: 1, fillOpacity: 0.12 }).addTo(map);
+        map.setView([lat, lon], 14);
+        youMarker.openPopup();
+        locateBtn.textContent = 'Show my location';
+      }, (err) => {
+        locateBtn.textContent = 'Show my location';
+        locateStatus.textContent = err.code === 1 ? 'Location permission denied — allow location access and try again.' : 'Could not get your location. Try again.';
+      }, { enableHighAccuracy: true, timeout: 10000, maximumAge: 0 });
     });
     map.fitBounds(bounds, { padding: [20, 20] });
   </script>
