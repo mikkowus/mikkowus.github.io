@@ -53,7 +53,7 @@
     </select>
     <input id="q" type="search" placeholder="Search by site name, area, or note — e.g. Hoffman, water trail, ADA…" aria-label="Search sites" />
     <p class="small"><span id="count"></span></p>
-    <p><button id="locate-me" style="padding:8px 14px;font-size:1rem;border-radius:8px;border:1px solid #cbd5e1;background:white;cursor:pointer;">Show my location</button> <span id="locate-status" class="small"></span></p>
+    <p><button id="locate-me" style="padding:8px 14px;font-size:1rem;border-radius:8px;border:1px solid #cbd5e1;background:white;cursor:pointer;">Show my location</button> <button id="sat-toggle" style="padding:8px 14px;font-size:1rem;border-radius:8px;border:1px solid #cbd5e1;background:white;cursor:pointer;">Satellite: Off</button> <span id="locate-status" class="small"></span></p>
     <div id="map"></div>
     <p class="small">Blue dots: motorized. Green: primitive. Teal: water trail. Amber: trail shelter. Purple: camping area. Tap a dot for details.</p>
     <h2>Designated campsites</h2>
@@ -83,10 +83,25 @@
     });
     tbody.innerHTML = html;
     const map = L.map("map");
-    L.tileLayer("https://tile.openstreetmap.org/{z}/{x}/{y}.png", {
+    const streetLayer = L.tileLayer("https://tile.openstreetmap.org/{z}/{x}/{y}.png", {
       maxZoom: 18,
       attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
-    }).addTo(map);
+    });
+    const satelliteLayer = L.layerGroup([
+      L.tileLayer("https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}", {
+        maxZoom: 18,
+        attribution: 'Tiles &copy; Esri &mdash; Source: Esri, i-cubed, USDA, USGS, AEX, GeoEye, Getmapping, Aerogrid, IGN, IGP, UPR-EGP, and the GIS User Community'
+      }),
+      L.tileLayer("https://server.arcgisonline.com/ArcGIS/rest/services/Reference/World_Boundaries_and_Places/MapServer/tile/{z}/{y}/{x}", { maxZoom: 18 })
+    ]);
+    streetLayer.addTo(map);
+    let satelliteOn = false;
+    const satBtn = document.getElementById("sat-toggle");
+    satBtn.addEventListener("click", () => {
+      if (satelliteOn) { map.removeLayer(satelliteLayer); streetLayer.addTo(map); satBtn.textContent = "Satellite: Off"; }
+      else { map.removeLayer(streetLayer); satelliteLayer.addTo(map); satBtn.textContent = "Satellite: On"; }
+      satelliteOn = !satelliteOn;
+    });
     map.setView([40.9, -77.8], 7);
     let layerGroup = L.layerGroup().addTo(map);
     function popupFor(s) {
