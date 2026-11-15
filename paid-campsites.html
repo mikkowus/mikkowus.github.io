@@ -12,7 +12,7 @@ input{width:100%;padding:8px;margin:12px 0;font-size:15px} #map{height:500px;mar
 <p>Cheapest verified-current campground night here is Outflow tent at $25. The C&amp;O side of the gap (Cumberland to Evitts Creek, 4.4 miles) has <strong>no paid site at all</strong> — the only option at the junction is the Cumberland YMCA. No Canal Quarters lockhouse is in this section either; the nearest is Lockhouse 49 at C&amp;O mile 108.9, about 71 miles south of Evitts Creek.</p>
 <h2>Map — paid sites in this section</h2>
 <p>Red pins: paid. Green dots: free sites — Connellsville and Evitts Creek at each end of this stretch, plus all 31 C&O free sites down to Georgetown. Ohiopyle bike-in sites are a corridor, not a single point, so they are not pinned.</p>
-<p><button id="locate-me" style="padding:8px 14px;font-size:1rem;border-radius:8px;border:1px solid #cbd5e1;background:white;cursor:pointer;">Show my location</button> <span id="locate-status" style="font-size:0.85rem;color:#64748b;"></span></p>
+<p><button id="locate-me" style="padding:8px 14px;font-size:1rem;border-radius:8px;border:1px solid #cbd5e1;background:white;cursor:pointer;">Show my location</button> <button id="sat-toggle" style="padding:8px 14px;font-size:1rem;border-radius:8px;border:1px solid #cbd5e1;background:white;cursor:pointer;">Satellite: Off</button> <span id="locate-status" style="font-size:0.85rem;color:#64748b;"></span></p>
 <div id="map"></div>
 <input id="q" type="search" placeholder="Search by name, town, or mile&hellip;">
 <table><thead><tr><th>Trail mile</th><th>Site</th><th>Price / night</th><th>GPS coordinates</th><th>Notes</th><th>Map</th></tr></thead><tbody id="rows">
@@ -81,7 +81,22 @@ const coFreeSites = [
 ];
 
 const map = L.map('map');
-L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', { maxZoom: 18, attribution: '&copy; OpenStreetMap contributors' }).addTo(map);
+const streetLayer = L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', { maxZoom: 18, attribution: '&copy; OpenStreetMap contributors' });
+const satelliteLayer = L.layerGroup([
+  L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}', {
+    maxZoom: 18,
+    attribution: 'Tiles &copy; Esri &mdash; Source: Esri, i-cubed, USDA, USGS, AEX, GeoEye, Getmapping, Aerogrid, IGN, IGP, UPR-EGP, and the GIS User Community'
+  }),
+  L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/Reference/World_Boundaries_and_Places/MapServer/tile/{z}/{y}/{x}', { maxZoom: 18 })
+]);
+streetLayer.addTo(map);
+let satelliteOn = false;
+const satBtn = document.getElementById('sat-toggle');
+satBtn.addEventListener('click', () => {
+  if (satelliteOn) { map.removeLayer(satelliteLayer); streetLayer.addTo(map); satBtn.textContent = 'Satellite: Off'; }
+  else { map.removeLayer(streetLayer); satelliteLayer.addTo(map); satBtn.textContent = 'Satellite: On'; }
+  satelliteOn = !satelliteOn;
+});
 const bounds = [];
 sites.forEach(([mile, name, lat, lon, price, siteUrl, dist]) => { bounds.push([lat, lon]); L.marker([lat, lon]).addTo(map).bindPopup('<strong>' + name + '</strong><br>GAP mile ' + mile + '<br><strong>' + price + '</strong><br>' + dist + '<br>' + lat.toFixed(6) + ', ' + lon.toFixed(6) + (siteUrl ? '<br><a href="' + siteUrl + '" target="_blank">Owner site</a>' : '') + '<br><a href="https://maps.google.com/?q=' + lat + ',' + lon + '" target="_blank">Open in Google Maps</a>'); });
 freeSites.forEach(([mile, name, lat, lon, note]) => { bounds.push([lat, lon]); L.circleMarker([lat, lon], { radius: 8, color: '#15803d', fillColor: '#22c55e', fillOpacity: 0.9 }).addTo(map).bindPopup('<strong>' + name + '</strong><br>' + note + '<br>' + lat.toFixed(6) + ', ' + lon.toFixed(6) + '<br><a href="https://maps.google.com/?q=' + lat + ',' + lon + '" target="_blank">Open in Google Maps</a>'); });
