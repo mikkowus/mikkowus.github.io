@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Clarion River &amp; Millstone Creek — Designated Campsites &amp; Launches</title>
+  <style>
+    body { margin: 0; font-family: system-ui, sans-serif; background: #f3f7fb; color: #1f2937; }
+    .wrap { max-width: 900px; margin: 0 auto; padding: 16px 16px 32px; }
+    a { color: #0f4c81; }
+    h1 { color: #0f4c81; margin: 8px 0 4px; font-size: 1.5rem; }
+    h2 { color: #0f4c81; margin: 20px 0 6px; font-size: 1.15rem; }
+    p { line-height: 1.45; color: #475569; margin: 4px 0; }
+    .small { font-size: 0.85rem; }
+    input { width: 100%; box-sizing: border-box; padding: 10px; font-size: 1rem; border: 1px solid #cbd5e1; border-radius: 8px; margin: 12px 0; }
+    table { width: 100%; border-collapse: collapse; background: white; border-radius: 8px; overflow: hidden; }
+    th, td { text-align: left; padding: 8px 10px; border-bottom: 1px solid #e2e8f0; }
+    th { background: #0f4c81; color: white; }
+    tr:last-child td { border-bottom: none; }
+    td.coords { font-family: ui-monospace, monospace; font-size: 0.85rem; white-space: nowrap; }
+    #map { height: 420px; border-radius: 8px; margin: 8px 0; z-index: 0; }
+    footer { margin-top: 20px; font-size: 0.85rem; color: #64748b; }
+  </style>
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+</head>
+<body>
+  <div class="wrap">
+    <a href="index.html">&larr; Back to mikkowus.com</a>
+    <h1>Clarion River &amp; Millstone Creek — Designated Campsites &amp; Launches</h1>
+    <p><strong>26 free primitive sites</strong> (C1&ndash;C17, M1&ndash;M9) + Loleta Campground &middot; Allegheny National Forest &middot; Dispersed camping restricted to designated sites only &middot; First-come, first-served, no permits or fees for the numbered sites.</p>
+    <p class="small">Source map: USFS, 2011 — verify site status before a trip. Pins marked <em>estimated</em> are map-derived approximations, within a few hundred yards; follow the site numbers on the ground. Pins marked <em>verified</em> come from a published coordinate.</p>
+    <input id="q" type="search" placeholder="Search by site, name, or note — e.g. C11, RV, launch…" aria-label="Search sites" />
+    <p><button id="locate-me" style="padding:8px 14px;font-size:1rem;border-radius:8px;border:1px solid #cbd5e1;background:white;cursor:pointer;">Show my location</button> <span id="locate-status" class="small"></span></p>
+    <div id="map"></div>
+    <p class="small">Blue pins: campsites. Green dots: canoe launches. Amber dot: day-use-only site. Tap a pin for GPS + notes.</p>
+    <h2>Loleta Campground (developed)</h2>
+    <table>
+      <thead><tr><th>Site</th><th>GPS</th><th>Notes</th><th>Map</th></tr></thead>
+      <tbody id="loleta-rows">
+        <tr><td><a href="https://www.alleghenysite.com/loleta-recreation-area">Loleta Campground</a></td><td class="coords">41.40065, -79.08222</td><td>Developed campground, 38 sites · verified · see operator page for fees</td><td><a href="https://www.google.com/maps/search/?api=1&amp;query=41.40065,-79.08222">Maps</a></td></tr>
+      </tbody>
+    </table>
+    <h2>Clarion River sites (C1&ndash;C17)</h2>
+    <table>
+      <thead><tr><th>Site</th><th>GPS</th><th>Notes</th><th>Map</th></tr></thead>
+      <tbody id="clarion-rows">
+        <tr><td><a href="https://www.fs.usda.gov/r09/allegheny/recreation/clarion-river-campsites">C1</a></td><td class="coords">41.35277, -79.06997</td><td>Free · estimated · vault toilet nearby at Millstone launch</td><td><a href="https://www.google.com/maps/search/?api=1&amp;query=41.35277,-79.06997">Maps</a></td></tr>
+        <tr><td><a href="https://www.fs.usda.gov/r09/allegheny/recreation/clarion-river-campsites">C2</a></td><td class="coords">41.35254, -79.06889</td><td>Free · estimated</td><td><a href="https://www.google.com/maps/search/?api=1&amp;query=41.35254,-79.06889">Maps</a></td></tr>
+        <tr><td><a href="https://www.fs.usda.gov/r09/allegheny/recreation/clarion-river-campsites">C3</a></td><td class="coords">41.35204, -79.06792</td><td>Free · estimated</td><td><a href="https://www.google.com/maps/search/?api=1&amp;query=41.35204,-79.06792">Maps</a></td></tr>
+        <tr><td><a href="https://www.fs.usda.gov/r09/allegheny/recreation/clarion-river-campsites">C4</a></td><td class="coords">41.35174, -79.06738</td><td>Free · estimated</td><td><a href="https://www.google.com/maps/search/?api=1&amp;query=41.35174,-79.06738">Maps</a></td></tr>
+        <tr><td><a href="https://www.fs.usda.gov/r09/allegheny/recreation/clarion-river-campsites">C5</a></td><td class="coords">41.35940, -79.00748</td><td>Free · estimated · Robin&rsquo;s Island cluster</td><td><a href="https://www.google.com/maps/search/?api=1&amp;query=41.35940,-79.00748">Maps</a></td></tr>
+        <tr><td><a href="https://www.fs.usda.gov/r09/allegheny/recreation/clarion-river-campsites">C6</a></td><td class="coords">41.35943, -79.00624</td><td>Free · estimated · Robin&rsquo;s Island cluster · fits RV</td><td><a href="https://www.google.com/maps/search/?api=1&amp;query=41.35943,-79.00624">Maps</a></td></tr>
+        <tr><td><a href="https://www.fs.usda.gov/r09/allegheny/recreation/clarion-river-campsites">C7</a></td><td class="coords">41.35920, -79.00528</td><td>Free · estimated · Robin&rsquo;s Island cluster</td><td><a href="https://www.google.com/maps/search/?api=1&amp;query=41.35920,-79.00528">Maps</a></td></tr>
+        <tr><td><a href="https://www.fs.usda.gov/r09/allegheny/recreation/clarion-river-campsites">C8</a></td><td class="coords">41.35898, -79.00444</td><td>Free · estimated · Robin&rsquo;s Island cluster</td><td><a href="https://www.google.com/maps/search/?api=1&amp;query=41.35898,-79.00444">Maps</a></td></tr>
+        <tr><td><a href="https://www.fs.usda.gov/r09/allegheny/recreation/clarion-river-campsites">C9</a></td><td class="coords">41.35906, -79.00403</td><td>Free · estimated · Robin&rsquo;s Island cluster</td><td><a href="https://www.google.com/maps/search/?api=1&amp;query=41.35906,-79.00403">Maps</a></td></tr>
+        <tr><td><a href="https://www.fs.usda.gov/r09/allegheny/recreation/clarion-river-campsites">C10</a></td><td class="coords">41.35961, -79.00185</td><td>Free · estimated · Robin&rsquo;s Island cluster, east end</td><td><a href="https://www.google.com/maps/search/?api=1&amp;query=41.35961,-79.00185">Maps</a></td></tr>
+        <tr><td><a href="https://www.fs.usda.gov/r09/allegheny/recreation/clarion-river-campsites">C11</a></td><td class="coords">41.37633, -78.97332</td><td>Free · estimated</td><td><a href="https://www.google.com/maps/search/?api=1&amp;query=41.37633,-78.97332">Maps</a></td></tr>
+        <tr><td><a href="https://www.fs.usda.gov/r09/allegheny/recreation/clarion-river-campsites">C12</a></td><td class="coords">41.37314, -78.96695</td><td>Free · estimated · fits RV · just west of Upper Pines</td><td><a href="https://www.google.com/maps/search/?api=1&amp;query=41.37314,-78.96695">Maps</a></td></tr>
+        <tr><td><a href="https://www.fs.usda.gov/r09/allegheny/recreation/clarion-river-campsites">C13</a></td><td class="coords">41.37118, -78.95732</td><td>Free · estimated · Upper Pines cluster</td><td><a href="https://www.google.com/maps/search/?api=1&amp;query=41.37118,-78.95732">Maps</a></td></tr>
+        <tr><td><a href="https://www.fs.usda.gov/r09/allegheny/recreation/clarion-river-campsites">C14</a></td><td class="coords">41.37135, -78.95685</td><td>Free · estimated · Upper Pines cluster</td><td><a href="https://www.google.com/maps/search/?api=1&amp;query=41.37135,-78.95685">Maps</a></td></tr>
+        <tr><td><a href="https://www.fs.usda.gov/r09/allegheny/recreation/clarion-river-campsites">C15</a></td><td class="coords">41.37169, -78.95627</td><td>Free · estimated · Upper Pines cluster</td><td><a href="https://www.google.com/maps/search/?api=1&amp;query=41.37169,-78.95627">Maps</a></td></tr>
+        <tr><td><a href="https://www.fs.usda.gov/r09/allegheny/recreation/clarion-river-campsites">C16</a></td><td class="coords">41.39454, -78.91406</td><td>Free · estimated · fits RV · river bend below Hallton</td><td><a href="https://www.google.com/maps/search/?api=1&amp;query=41.39454,-78.91406">Maps</a></td></tr>
+        <tr><td><a href="https://www.fs.usda.gov/r09/allegheny/recreation/clarion-river-campsites">C17</a></td><td class="coords">41.39855, -78.90456</td><td>Free · estimated · walk-in only, footpath upriver from Irwin Run parking</td><td><a href="https://www.google.com/maps/search/?api=1&amp;query=41.39855,-78.90456">Maps</a></td></tr>
+        <tr><td><a href="https://www.fs.usda.gov/r09/allegheny/recreation/clarion-river-campsites">Upper Pines</a></td><td class="coords">41.37139, -78.95679</td><td>Area name for the C13&ndash;C15 cluster · estimated · no separate pin</td><td><a href="https://www.google.com/maps/search/?api=1&amp;query=41.37139,-78.95679">Maps</a></td></tr>
+      </tbody>
+    </table>
+    <h2>Millstone Creek sites (M1&ndash;M9)</h2>
+    <table>
+      <thead><tr><th>Site</th><th>GPS</th><th>Notes</th><th>Map</th></tr></thead>
+      <tbody id="millstone-rows">
+        <tr><td><a href="https://www.fs.usda.gov/r09/allegheny/recreation/clarion-river-campsites">M1</a></td><td class="coords">41.35788, -79.07161</td><td>Free · estimated · fits RV · at Millstone Creek mouth</td><td><a href="https://www.google.com/maps/search/?api=1&amp;query=41.35788,-79.07161">Maps</a></td></tr>
+        <tr><td><a href="https://www.fs.usda.gov/r09/allegheny/recreation/clarion-river-campsites">M2</a></td><td class="coords">41.36222, -79.07061</td><td>Free · estimated</td><td><a href="https://www.google.com/maps/search/?api=1&amp;query=41.36222,-79.07061">Maps</a></td></tr>
+        <tr><td><a href="https://www.fs.usda.gov/r09/allegheny/recreation/clarion-river-campsites">M3</a></td><td class="coords">41.36553, -79.07253</td><td>Free · estimated · parking shown on map nearby</td><td><a href="https://www.google.com/maps/search/?api=1&amp;query=41.36553,-79.07253">Maps</a></td></tr>
+        <tr><td><a href="https://www.fs.usda.gov/r09/allegheny/recreation/clarion-river-campsites">M4</a></td><td class="coords">41.36666, -79.07300</td><td>Free · estimated</td><td><a href="https://www.google.com/maps/search/?api=1&amp;query=41.36666,-79.07300">Maps</a></td></tr>
+        <tr><td><a href="https://www.fs.usda.gov/r09/allegheny/recreation/clarion-river-campsites">M5</a></td><td class="coords">41.36897, -79.07505</td><td>Free · estimated</td><td><a href="https://www.google.com/maps/search/?api=1&amp;query=41.36897,-79.07505">Maps</a></td></tr>
+        <tr><td><a href="https://www.fs.usda.gov/r09/allegheny/recreation/clarion-river-campsites">M6</a></td><td class="coords">41.36957, -79.07615</td><td>Free · estimated</td><td><a href="https://www.google.com/maps/search/?api=1&amp;query=41.36957,-79.07615">Maps</a></td></tr>
+        <tr><td><a href="https://www.fs.usda.gov/r09/allegheny/recreation/clarion-river-campsites">M7</a></td><td class="coords">41.37342, -79.08165</td><td>Free · estimated</td><td><a href="https://www.google.com/maps/search/?api=1&amp;query=41.37342,-79.08165">Maps</a></td></tr>
+        <tr><td><a href="https://www.fs.usda.gov/r09/allegheny/recreation/clarion-river-campsites">M8</a></td><td class="coords">41.37911, -79.08712</td><td>Free · estimated</td><td><a href="https://www.google.com/maps/search/?api=1&amp;query=41.37911,-79.08712">Maps</a></td></tr>
+        <tr><td><a href="https://www.fs.usda.gov/r09/allegheny/recreation/clarion-river-campsites">M9</a></td><td class="coords">41.37984, -79.08703</td><td>Free · estimated</td><td><a href="https://www.google.com/maps/search/?api=1&amp;query=41.37984,-79.08703">Maps</a></td></tr>
+      </tbody>
+    </table>
+    <h2>Canoe launches &amp; access points</h2>
+    <table>
+      <thead><tr><th>Access point</th><th>GPS</th><th>Notes</th><th>Map</th></tr></thead>
+      <tbody id="launch-rows">
+        <tr><td><a href="https://elibrary.dcnr.pa.gov/PDFProvider.ashx?action=PDFStream&amp;docID=1741830&amp;chksum=&amp;revision=0&amp;docName=sf-FD08-ClarionRWtrTrlGuide_UpperRch&amp;nativeExt=pdf&amp;PromptToSave=False&amp;Size=1515278&amp;ViewerMode=2&amp;overlay=0">Irwin Run Canoe Launch</a></td><td class="coords">41.40000, -78.90556</td><td>Multi-use · verified · hand-carry, parking 10&ndash;12 cars, vault toilet · commercial by permit only</td><td><a href="https://www.google.com/maps/search/?api=1&amp;query=41.40000,-78.90556">Maps</a></td></tr>
+        <tr><td><a href="https://elibrary.dcnr.pa.gov/PDFProvider.ashx?action=PDFStream&amp;docID=1741830&amp;chksum=&amp;revision=0&amp;docName=sf-FD08-ClarionRWtrTrlGuide_UpperRch&amp;nativeExt=pdf&amp;PromptToSave=False&amp;Size=1515278&amp;ViewerMode=2&amp;overlay=0">Hallton Canoe Launch</a></td><td class="coords">41.40111, -78.93250</td><td>Multi-use · verified · hand-carry, SGL 28, parking 10&ndash;12 cars · commercial by permit only</td><td><a href="https://www.google.com/maps/search/?api=1&amp;query=41.40111,-78.93250">Maps</a></td></tr>
+        <tr><td><a href="https://elibrary.dcnr.pa.gov/PDFProvider.ashx?PromptToSave=False&amp;Size=322773&amp;ViewerMode=2&amp;action=PDFStream&amp;docID=1738604&amp;docName=Middle+Clarion+Water+Trail+Guide&amp;nativeExt=pdf&amp;overlay=0&amp;revision=0">Heath Station Canoe Launch</a></td><td class="coords">41.35000, -79.01583</td><td>Multi-use · verified · hand-carry, PA 949 across from Heath Trout Nursery, parking 15&ndash;20 cars · commercial by permit only</td><td><a href="https://www.google.com/maps/search/?api=1&amp;query=41.35000,-79.01583">Maps</a></td></tr>
+        <tr><td><a href="https://www.fs.usda.gov/r09/allegheny/recreation/clarion-river-campsites">Robin&rsquo;s Island Canoe Launch</a></td><td class="coords">41.35878, -79.00603</td><td>Public launch · estimated · vault toilet, info sign · sites C5&ndash;C10 here</td><td><a href="https://www.google.com/maps/search/?api=1&amp;query=41.35878,-79.00603">Maps</a></td></tr>
+        <tr><td><a href="https://elibrary.dcnr.pa.gov/PDFProvider.ashx?PromptToSave=False&amp;Size=322773&amp;ViewerMode=2&amp;action=PDFStream&amp;docID=1738604&amp;docName=Middle+Clarion+Water+Trail+Guide&amp;nativeExt=pdf&amp;overlay=0&amp;revision=0">Millstone Canoe Launch</a></td><td class="coords">41.35333, -79.07139</td><td>Public launch · verified · hand-carry, at the mouth of Millstone Creek · vault toilet nearby</td><td><a href="https://www.google.com/maps/search/?api=1&amp;query=41.35333,-79.07139">Maps</a></td></tr>
+        <tr><td><a href="https://www.fs.usda.gov/r09/allegheny/recreation/clarion-river-campsites">Dark Hollow Canoe Launch</a></td><td class="coords">41.35301, -79.08351</td><td>Commercial launch · estimated · permit only · west of Millstone</td><td><a href="https://www.google.com/maps/search/?api=1&amp;query=41.35301,-79.08351">Maps</a></td></tr>
+        <tr><td><a href="https://www.fs.usda.gov/r09/allegheny/recreation/clarion-river-campsites">Day-use-only site</a></td><td class="coords">41.36851, -78.99156</td><td>Day use only, no camping · estimated · near FR 306</td><td><a href="https://www.google.com/maps/search/?api=1&amp;query=41.36851,-78.99156">Maps</a></td></tr>
+      </tbody>
+    </table>
+    <footer>
+      <p class="small">Sources: USFS Clarion River and Millstone Creek camping map (5/13/2011); USFS Clarion River Campsites page; PA DCNR Clarion River Water Trail Guides (Upper &amp; Middle sections) for launch coordinates; Allegheny Site Management for Loleta GPS. Estimated pins were derived from the 2011 map against the four DCNR launch coordinates and checked against road geography. The Forest Service page mentions 18 river sites; the 2011 map labels 17 (C1&ndash;C17) — only mapped sites are listed.</p>
+    </footer>
+  </div>
+  <script>
+    const q = document.getElementById('q');
+    const rows = document.querySelectorAll('#loleta-rows tr, #clarion-rows tr, #millstone-rows tr, #launch-rows tr');
+    q.addEventListener('input', () => {
+      const s = q.value.toLowerCase();
+      rows.forEach(r => { r.style.display = r.textContent.toLowerCase().includes(s) ? '' : 'none'; });
+    });
+  </script>
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+  <script>
+    const sites = [
+      ["Loleta Campground", 41.40065, -79.08222, "Developed campground, 38 sites · verified · see operator page for fees", "site"],
+      ["C1", 41.35277, -79.06997, "Free · estimated · vault toilet nearby at Millstone launch", "site"],
+      ["C2", 41.35254, -79.06889, "Free · estimated", "site"],
+      ["C3", 41.35204, -79.06792, "Free · estimated", "site"],
+      ["C4", 41.35174, -79.06738, "Free · estimated", "site"],
+      ["C5", 41.35940, -79.00748, "Free · estimated · Robin's Island cluster", "site"],
+      ["C6", 41.35943, -79.00624, "Free · estimated · Robin's Island cluster · fits RV", "site"],
+      ["C7", 41.35920, -79.00528, "Free · estimated · Robin's Island cluster", "site"],
+      ["C8", 41.35898, -79.00444, "Free · estimated · Robin's Island cluster", "site"],
+      ["C9", 41.35906, -79.00403, "Free · estimated · Robin's Island cluster", "site"],
+      ["C10", 41.35961, -79.00185, "Free · estimated · Robin's Island cluster, east end", "site"],
+      ["C11", 41.37633, -78.97332, "Free · estimated", "site"],
+      ["C12", 41.37314, -78.96695, "Free · estimated · fits RV · just west of Upper Pines", "site"],
+      ["C13", 41.37118, -78.95732, "Free · estimated · Upper Pines cluster", "site"],
+      ["C14", 41.37135, -78.95685, "Free · estimated · Upper Pines cluster", "site"],
+      ["C15", 41.37169, -78.95627, "Free · estimated · Upper Pines cluster", "site"],
+      ["C16", 41.39454, -78.91406, "Free · estimated · fits RV · river bend below Hallton", "site"],
+      ["C17", 41.39855, -78.90456, "Free · estimated · walk-in only, footpath upriver from Irwin Run parking", "site"],
+      ["M1", 41.35788, -79.07161, "Free · estimated · fits RV · at Millstone Creek mouth", "site"],
+      ["M2", 41.36222, -79.07061, "Free · estimated", "site"],
+      ["M3", 41.36553, -79.07253, "Free · estimated · parking shown on map nearby", "site"],
+      ["M4", 41.36666, -79.07300, "Free · estimated", "site"],
+      ["M5", 41.36897, -79.07505, "Free · estimated", "site"],
+      ["M6", 41.36957, -79.07615, "Free · estimated", "site"],
+      ["M7", 41.37342, -79.08165, "Free · estimated", "site"],
+      ["M8", 41.37911, -79.08712, "Free · estimated", "site"],
+      ["M9", 41.37984, -79.08703, "Free · estimated", "site"],
+      ["Irwin Run Canoe Launch", 41.40000, -78.90556, "Multi-use · verified · hand-carry, parking 10-12 cars, vault toilet", "launch"],
+      ["Hallton Canoe Launch", 41.40111, -78.93250, "Multi-use · verified · hand-carry, SGL 28, parking 10-12 cars", "launch"],
+      ["Heath Station Canoe Launch", 41.35000, -79.01583, "Multi-use · verified · hand-carry, PA 949, parking 15-20 cars", "launch"],
+      ["Robin's Island Canoe Launch", 41.35878, -79.00603, "Public launch · estimated · vault toilet, info sign · sites C5-C10 here", "launch"],
+      ["Millstone Canoe Launch", 41.35333, -79.07139, "Public launch · verified · hand-carry, at the mouth of Millstone Creek", "launch"],
+      ["Dark Hollow Canoe Launch", 41.35301, -79.08351, "Commercial launch · estimated · permit only · west of Millstone", "launch"],
+      ["Day-use-only site", 41.36851, -78.99156, "Day use only, no camping · estimated · near FR 306", "dayuse"]
+    ];
+    const map = L.map('map');
+    L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+      maxZoom: 18,
+      attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+    }).addTo(map);
+    const bounds = [];
+    sites.forEach(([name, lat, lon, note, kind]) => {
+      bounds.push([lat, lon]);
+      const popup = '<strong>' + name + '</strong><br>' + lat.toFixed(5) + ', ' + lon.toFixed(5) +
+        '<br>' + note +
+        '<br><a href="https://www.google.com/maps/search/?api=1&query=' + lat + ',' + lon + '" target="_blank">Open in Google Maps</a>';
+      if (kind === 'launch') {
+        L.circleMarker([lat, lon], { radius: 8, color: '#15803d', fillColor: '#22c55e', fillOpacity: 0.9 }).addTo(map).bindPopup(popup);
+      } else if (kind === 'dayuse') {
+        L.circleMarker([lat, lon], { radius: 8, color: '#92400e', fillColor: '#f59e0b', fillOpacity: 0.9 }).addTo(map).bindPopup(popup);
+      } else {
+        L.marker([lat, lon]).addTo(map).bindPopup(popup);
+      }
+    });
+    let youMarker = null, youCircle = null;
+    const locateBtn = document.getElementById('locate-me');
+    const locateStatus = document.getElementById('locate-status');
+    locateBtn.addEventListener('click', () => {
+      if (!navigator.geolocation) { locateStatus.textContent = 'Geolocation is not supported by this browser.'; return; }
+      locateBtn.textContent = 'Locating…';
+      locateStatus.textContent = '';
+      navigator.geolocation.getCurrentPosition((pos) => {
+        const lat = pos.coords.latitude, lon = pos.coords.longitude, acc = pos.coords.accuracy;
+        if (youMarker) { map.removeLayer(youMarker); map.removeLayer(youCircle); }
+        youMarker = L.circleMarker([lat, lon], { radius: 8, color: '#ffffff', weight: 2, fillColor: '#2563eb', fillOpacity: 1 }).addTo(map)
+          .bindPopup('<strong>You are here</strong><br>' + lat.toFixed(6) + ', ' + lon.toFixed(6));
+        youCircle = L.circle([lat, lon], { radius: acc, color: '#2563eb', weight: 1, fillOpacity: 0.12 }).addTo(map);
+        map.setView([lat, lon], 14);
+        youMarker.openPopup();
+        locateBtn.textContent = 'Show my location';
+      }, (err) => {
+        locateBtn.textContent = 'Show my location';
+        locateStatus.textContent = err.code === 1 ? 'Location permission denied — allow location access and try again.' : 'Could not get your location. Try again.';
+      }, { enableHighAccuracy: true, timeout: 10000, maximumAge: 0 });
+    });
+    map.fitBounds(bounds, { padding: [20, 20] });
+  </script>
+</body>
+</html>
