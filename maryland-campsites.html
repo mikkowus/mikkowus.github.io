@@ -99,7 +99,8 @@
       satelliteOn = !satelliteOn;
     });
     map.setView([38.95, -77.3], 8);
-    let layerGroup = L.markerClusterGroup({ disableClusteringAtZoom: 11, spiderfyOnMaxZoom: true }).addTo(map);
+    let layerGroup = L.layerGroup().addTo(map);
+    let greenRidgeClusters = L.markerClusterGroup({ disableClusteringAtZoom: 11, spiderfyOnMaxZoom: true }).addTo(map);
     function popupFor(s) {
       let p = "<strong>" + esc(s.n) + "</strong><br>" + esc(forestLabel(s.f, " State Forest")) + "<br>" + s.lat.toFixed(5) + ", " + s.lon.toFixed(5) + "<br>" + esc(notesFor(s));
       p += '<br><a href="https://www.google.com/maps/search/?api=1&query=' + s.lat + "," + s.lon + '" target="_blank">Open in Google Maps</a>';
@@ -124,10 +125,12 @@
       tbody.querySelectorAll("tr").forEach(tr => { tr.style.display = visIdx.has(+tr.dataset.i) ? "" : "none"; });
       document.getElementById("count").textContent = "Showing " + vis.length + " of " + SITES.length + " sites";
       layerGroup.clearLayers();
+      greenRidgeClusters.clearLayers();
       const bounds = [];
       vis.forEach(([s]) => {
         bounds.push([s.lat, s.lon]);
-        L.circleMarker([s.lat, s.lon], { radius: 5, weight: 1, color: COLORS[s.t] || "#2563eb", fillColor: COLORS[s.t] || "#2563eb", fillOpacity: 0.85 }).addTo(layerGroup).bindPopup(popupFor(s));
+        const target = s.n.indexOf("Green Ridge") === 0 ? greenRidgeClusters : layerGroup;
+        L.circleMarker([s.lat, s.lon], { radius: 5, weight: 1, color: COLORS[s.t] || "#2563eb", fillColor: COLORS[s.t] || "#2563eb", fillOpacity: 0.85 }).addTo(target).bindPopup(popupFor(s));
       });
       if (refit && bounds.length) map.fitBounds(bounds, { padding: [20, 20] });
     }
